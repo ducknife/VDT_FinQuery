@@ -1,0 +1,119 @@
+{
+    "report_type": "Form 10-K",
+    "description": "Báo cáo thường niên toàn diện của công ty đại chúng tại Mỹ",
+    "authority": "U.S. Securities and Exchange Commission (SEC)",
+    "structure": {
+        "part_I": {
+            "title": "Phần I - Thông tin chung về doanh nghiệp và rủi ro",
+            "items": {
+                "item_1": {
+                    "name": "Business",
+                    "description": "Tổng quan về hoạt động kinh doanh, sản phẩm, dịch vụ, thị trường và chiến lược của công ty."
+                },
+                "item_1A": {
+                    "name": "Risk Factors",
+                    "description": "Các yếu tố rủi ro quan trọng có thể ảnh hưởng tiêu cực đến hoạt động kinh doanh hoặc giá cổ phiếu."
+                },
+                "item_1B": {
+                    "name": "Unresolved Staff Comments",
+                    "description": "Các ý kiến phản hồi chưa được giải quyết từ cơ quan SEC (nếu có)."
+                },
+                "item_1C": {
+                    "name": "Cybersecurity",
+                    "description": "Chiến lược, quản trị và các sự cố liên quan đến an ninh mạng của công ty."
+                },
+                "item_2": {
+                    "name": "Properties",
+                    "description": "Thông tin về các tài sản vật chất lớn như văn phòng, nhà máy, đất đai thuộc sở hữu hoặc thuê lại."
+                },
+                "item_3": {
+                    "name": "Legal Proceedings",
+                    "description": "Thông tin về các vụ kiện tụng pháp lý lớn mang tính chất nghiêm trọng mà công ty đang đối mặt."
+                },
+                "item_4": {
+                    "name": "Mine Safety Disclosures",
+                    "description": "Báo cáo về an toàn khai thác mỏ (chỉ bắt buộc đối với các công ty hoạt động trong ngành khai khoáng)."
+                }
+            }
+        },
+        "part_II": {
+            "title": "Phần II - Thông tin tài chính và phân tích kết quả kinh doanh",
+            "items": {
+                "item_5": {
+                    "name": "Market for Registrant's Common Equity, Related Stockholder Matters and Issuer Purchases of Equity Securities",
+                    "description": "Thông tin về thị trường giao dịch cổ phiếu, số lượng cổ đông, cổ tức và việc công ty mua lại cổ phiếu quỹ."
+                },
+                "item_6": {
+                    "name": "Selected Financial Data",
+                    "description": "Tóm tắt dữ liệu tài chính nổi bật (mục này hiện tại SEC đã cho phép tùy chọn hoặc lược bỏ nếu đã có ở Item 7)."
+                },
+                "item_7": {
+                    "name": "Management's Discussion and Analysis of Financial Condition and Results of Operations (MD&A)",
+                    "description": "Phần thảo luận và phân tích của ban quản lý về tình hình tài chính, kết quả kinh doanh và dòng tiền."
+                },
+                "item_7A": {
+                    "name": "Quantitative and Qualitative Disclosures About Market Risk",
+                    "description": "Phân tích định lượng và định tính về rủi ro thị trường (như biến động tỷ giá, lãi suất, giá hàng hóa)."
+                },
+                "item_8": {
+                    "name": "Financial Statements and Supplementary Data",
+                    "description": "Báo cáo tài chính hoàn chỉnh đã kiểm toán (Bảng cân đối kế toán, Báo cáo kết quả kinh doanh, Báo cáo dòng tiền và Thuyết minh)."
+                },
+                "item_9": {
+                    "name": "Changes in and Disagreements With Accountants on Accounting and Financial Disclosure",
+                    "description": "Thông tin về việc thay đổi đơn vị kiểm toán hoặc các bất đồng ý kiến về kế toán (nếu có)."
+                },
+                "item_9A": {
+                    "name": "Controls and Procedures",
+                    "description": "Đánh giá về hệ thống kiểm soát nội bộ và các quy trình công bố thông tin của công ty."
+                },
+                "item_9B": {
+                    "name": "Other Information",
+                    "description": "Các thông tin quan trọng khác phát sinh trong quý IV nhưng chưa được báo cáo qua biểu mẫu Form 8-K."
+                },
+                "item_9C": {
+                    "name": "Disclosure Regarding Foreign Jurisdictions that Prevent Inspections",
+                    "description": "Báo cáo liên quan đến các công ty nước ngoài niêm yết tại Mỹ nhưng bị hạn chế kiểm toán do luật sở tại."
+                }
+            }
+        },
+        "part_III": {
+            "title": "Phần III - Quản trị doanh nghiệp và thông tin ban lãnh đạo",
+            "items": {
+                "item_10": {
+                    "name": "Directors, Executive Officers and Corporate Governance",
+                    "description": "Thông tin về lý lịch của thành viên Hội đồng quản trị, Ban điều hành và quy tắc đạo đức kinh doanh."
+                },
+                "item_11": {
+                    "name": "Executive Compensation",
+                    "description": "Chi tiết về lương, thưởng, cổ phiếu ưu đãi và các lợi ích khác của các lãnh đạo cấp cao."
+                },
+                "item_12": {
+                    "name": "Security Ownership of Certain Beneficial Owners and Management and Related Stockholder Matters",
+                    "description": "Tỷ lệ sở hữu cổ phiếu của ban lãnh đạo và các cổ đông lớn nắm giữ trên 5% cổ phần."
+                },
+                "item_13": {
+                    "name": "Certain Relationships and Related Transactions, and Director Independence",
+                    "description": "Các giao dịch của công ty với những người có liên quan (người nhà lãnh đạo, công ty sân sau) và tính độc lập của HĐQT."
+                },
+                "item_14": {
+                    "name": "Principal Accountant Fees and Services",
+                    "description": "Chi phí chi trả cho công ty kiểm toán độc lập đối với các dịch vụ kiểm toán và dịch vụ khác."
+                }
+            }
+        },
+        "part_IV": {
+            "title": "Phần IV - Danh mục hồ sơ và chữ ký",
+            "items": {
+                "item_15": {
+                    "name": "Exhibit and Financial Statement Schedules",
+                    "description": "Danh sách các tài liệu đính kèm, các phụ lục tài chính và các hợp đồng kinh tế lớn."
+                },
+                "item_16": {
+                    "name": "Form 10-K Summary",
+                    "description": "Bản tóm tắt tự nguyện của công ty về các nội dung chính trong báo cáo 10-K (tùy chọn)."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+Công nghệ sử dụng: Backend Java, ReactTS, MariaDB, Docker, Redis, EC2
+
+*****Paper FinAI
+Lý do thất bại của pipeline rag thuần: 
+Kiến thức: welch-t tính p-value, nếu p-value < alpha -> có khác biệt thống kê 
+Cần chi phí, độ trễ, độ chính xác 
+***(CHỈ CHO ĐÁNH GIÁ, KHÔNG PHẢI TRONG ĐỀ TÀI, TẠI SAO PHẢI SỬ DỤNG WELCH-T CHO CÁC BÁO CÁO TÀI CHÍNH***
+Tóm gọn các lý do phải dùng Welch's t-test:
+
+**1. Phương sai giữa hai nhóm không bằng nhau (heteroscedasticity)**
+Student's t-test cổ điển giả định phương sai hai nhóm bằng nhau, trong khi dữ liệu tài chính (giá cổ phiếu, doanh thu, lợi nhuận...) gần như luôn vi phạm giả định này do khác biệt về quy mô công ty, ngành nghề, và bản chất từng chỉ số. Dùng sai loại kiểm định trong trường hợp này sẽ cho ra p-value không đáng tin.
+
+**2. Cỡ mẫu hai nhóm không bằng nhau (n1 ≠ n2)**
+Số lượng ticker/quan sát ở nhóm "trước cutoff" và "sau cutoff" trong thực tế hiếm khi bằng nhau. Welch's t-test xử lý được đồng thời cả phương sai lẫn cỡ mẫu không đồng nhất, còn Student's t-test cổ điển không đảm bảo tính đúng đắn khi cả hai điều kiện này cùng vi phạm.
+
+**3. Tránh sai lệch tỷ lệ lỗi loại I (Type I error)**
+Nếu ép dùng kiểm định giả định phương sai bằng nhau trong khi thực tế không bằng nhau, p-value tính ra sẽ bị lệch, dẫn tới kết luận sai (bác bỏ H0 nhầm hoặc bỏ sót khác biệt thật). Welch's t-test khắc phục bằng cách điều chỉnh bậc tự do qua công thức Welch–Satterthwaite để p-value phản ánh đúng dữ liệu.
+
+**4. Đặc thù cố hữu của dữ liệu tài chính**
+Giá cổ phiếu biến động theo cụm thời gian (volatility clustering), còn doanh thu/lợi nhuận chịu ảnh hưởng bởi quy mô doanh nghiệp, ngành nghề, và các khoản mục kế toán bất thường. Những yếu tố này khiến phương sai giữa các nhóm so sánh gần như chắc chắn không đồng nhất.
+
+**5. Là lựa chọn an toàn mặc định, không cần kiểm tra trước** <-- QUAN TRỌNG NHẤT
+Rất khó biết chắc hai nhóm có phương sai bằng nhau hay không trước khi kiểm định. Welch's t-test gần như không mất gì về độ mạnh nếu phương sai thực sự bằng nhau, nhưng tránh được sai lầm nghiêm trọng nếu chúng khác nhau — đây là lý do nó được khuyến nghị dùng mặc định thay vì Student's t-test.
+
+
+*****Paper Tái xếp hạng phân cấp
+
+***TIỀN TRUY XUẤT - PHƯƠNG PHÁP TIỀN TRUY XUẤT TRONG RAG PHÂN CẤP***
+Gồm 4 bước: 
+1. Chuẩn hoá - chuyển chữ thường, mở rộng các từ viết tắt tài chính (bỏ viêt tắt đi), các đơn vị được chuẩn hoá dựa trên RAG db của mình 
+2. Trích xuất từ khoá - trích xuất các từ khoá đặc thù để đầu vào phong phú thuật ngữ tài chính, 
+nhưng phải liên quan đến bảng
+3. Diễn giải lại - biểu diễn các câu dưới nhiều câu khác nhau nhưng y hệt nhau về nghĩa, mục đích là tăng cơ hội trúng đích embedding 
+4. Sinh tài liệu giả định - bớt đi 1 lượt gọi LLM
+**Chuyển bảng thành json (table to json) dùng script (code) thay vì cho LLM tất định
+
+***TRUY XUẤT***
+1. Lọc nhẹ - reranker lần 1, loại bỏ các ứng viên ko liên quan là chính (rất nhiều)
+Cho ra 100 ứng viên hàng đầu.
+2. Xếp hạng lại chi tiết hơn - reranker lần 2, từ 100 ứng viên hàng đầu, cho ra 20 đoạn văn cuối cùng 
+***SINH***
+1. Quản lý kích thước ngữ cảnh - 64k làm ngưỡng, nếu vượt quá 64k tokens thì nó có thể bị suy giảm độ chính xác (Ưu tiên hoá ngữ cảnh động sẽ không phải chọn ngưỡng nữa)
+2. Hợp nhất (xảy ra khi vượt quá 64k tokens, 20 đoạn văn hàng đầu được chia thành 2 phần theo thứ hạng (mỗi phần 10 đoạn văn)
+
+(Thuật toán 1 trong bài báo)
+- Xét 2 phản hồi trung gian, cái nào trả lời dứt khoát => CHỌN 
+- Nếu cả 2 cùng có, cái nào có độ tin cậy cao hơn => CHỌN 
+- Nếu ko có cái nào hợp lệ => TRẢ LỜI KHÔNG XÁC ĐỊNH 
