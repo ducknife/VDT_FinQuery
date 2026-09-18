@@ -1,0 +1,74 @@
+[
+  {
+    "base_on_object_id": "584",
+    "name_object": "Doanh nghiệp nhà nước",
+    "number_object": "1",
+    "ratio_per_shareholder": "0,0121 %",
+    "number_stock_object": "75.107.745",
+    "ratio_per_stock_release": "65,6617 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_object_id": "585",
+    "name_object": "Cổ đông nội bộ",
+    "number_object": "347",
+    "ratio_per_shareholder": "4,2153 %",
+    "number_stock_object": "537.622",
+    "ratio_per_stock_release": "0,4700 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_object_id": "586",
+    "name_object": "HĐQT, BĐH, BKS và Kế toán trưởng",
+    "number_object": "12",
+    "ratio_per_shareholder": "0,1458 %",
+    "number_stock_object": "174.919",
+    "ratio_per_stock_release": "0,1529 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_object_id": "587",
+    "name_object": "Nhân viên",
+    "number_object": "335",
+    "ratio_per_shareholder": "4,0695 %",
+    "number_stock_object": "362.703",
+    "ratio_per_stock_release": "0,3171 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_object_id": "588",
+    "name_object": "Cổ đông ngoài (cá nhân)",
+    "number_object": "7.768",
+    "ratio_per_shareholder": "94,3635 %",
+    "number_stock_object": "22.323.380",
+    "ratio_per_stock_release": "19,5159 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_object_id": "589",
+    "name_object": "Cổ đông ngoài (tổ chức)",
+    "number_object": "110",
+    "ratio_per_shareholder": "1,3362 %",
+    "number_stock_object": "16.379.444",
+    "ratio_per_stock_release": "14,3195 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_object_id": "590",
+    "name_object": "Cổ phiếu quỹ",
+    "number_object": "0",
+    "ratio_per_shareholder": "0%",
+    "number_stock_object": "0",
+    "ratio_per_stock_release": "0%",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_object_id": "591",
+    "name_object": "Tổng số",
+    "number_object": "8.232",
+    "ratio_per_shareholder": "100%",
+    "number_stock_object": "114.385.879",
+    "ratio_per_stock_release": "100%",
+    "update_date": "2024-09-30"
+  }
+]

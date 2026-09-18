@@ -1,0 +1,19 @@
+# Dữ liệu thô (~2,4 GB PDF) — không đưa lên git, tải lại bằng:
+#   python backend/tai_bao_cao_ctr.py
+# manifest.csv, chat_luong_pdf.csv và 08_du_lieu_web/ vẫn được theo dõi.
+data/raw/**/*.pdf
+data/raw/**/*.doc
+data/raw/**/*.docx
+data/raw/**/*.xls
+data/raw/**/*.xlsx
+data/raw/**/*.zip
+data/raw/**/*.rar
+
+# Kết quả trung gian sinh lại được
+data/interim/
+data/processed/
+
+__pycache__/
+*.pyc
+.venv/
+.env

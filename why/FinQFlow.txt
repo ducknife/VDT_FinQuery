@@ -1,0 +1,6 @@
+*****LUỒNG CƠ BẢN*****
+
+input (câu hỏi, file báo cáo) => đi vào core service 
+=> Nếu câu hỏi cần truy vấn db => gọi tool-use và với tham số để tạo SQL hoàn chỉnh => có kết quả rồi trả lời 
+=> Nếu câu hỏi là cần phân tích báo cáo, hỏi về tài chính khác => gọi tool-use hệ thống RAG phân cấp, bắt đầu thực hiện tiền truy xuất -> truy xuất => sinh trả lời
+=> Nếu có câu trả lời (còn trường hợp ko xác định) => trả lời

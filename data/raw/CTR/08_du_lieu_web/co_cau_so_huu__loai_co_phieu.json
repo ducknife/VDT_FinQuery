@@ -1,0 +1,29 @@
+[
+  {
+    "base_on_share_id": "226",
+    "name_share": "Cổ phiếu phổ thông",
+    "number_share": "114.385.879",
+    "ratio_share": "100%",
+    "ratio_denominations": "VNĐ",
+    "vote_share": "114.385.879",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_share_id": "227",
+    "name_share": "Cổ phiếu quỹ",
+    "number_share": "0",
+    "ratio_share": "0%",
+    "ratio_denominations": "VNĐ",
+    "vote_share": "0",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_share_id": "228",
+    "name_share": "Cổ phiếu đã phát hành",
+    "number_share": "114.385.879",
+    "ratio_share": "100%",
+    "ratio_denominations": "VNĐ",
+    "vote_share": "114.385.879",
+    "update_date": "2024-09-30"
+  }
+]

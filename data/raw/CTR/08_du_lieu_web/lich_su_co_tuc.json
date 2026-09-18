@@ -1,0 +1,142 @@
+[
+  {
+    "dividend_history_id": "30",
+    "year": "2021",
+    "period": "Cả năm",
+    "ratio": "23,1",
+    "gdkhq_date": "2022-06-17",
+    "last_regis_date": "2022-06-20",
+    "pay_date": "2022-08-10",
+    "dividend_type": "Cổ phiếu"
+  },
+  {
+    "dividend_history_id": "29",
+    "year": "2021",
+    "period": "Cả năm",
+    "ratio": "10",
+    "gdkhq_date": "2022-06-17",
+    "last_regis_date": "2022-06-20",
+    "pay_date": "2022-06-30",
+    "dividend_type": "Tiền mặt"
+  },
+  {
+    "dividend_history_id": "17",
+    "year": "2020",
+    "period": "Cả năm",
+    "ratio": "10",
+    "gdkhq_date": "2021-06-23",
+    "last_regis_date": "2021-06-24",
+    "pay_date": "2021-07-15",
+    "dividend_type": "Tiền mặt"
+  },
+  {
+    "dividend_history_id": "18",
+    "year": "2020",
+    "period": "Cả năm",
+    "ratio": "29,458",
+    "gdkhq_date": "2021-06-23",
+    "last_regis_date": "2021-06-24",
+    "pay_date": "2021-08-09",
+    "dividend_type": "Cổ phiếu"
+  },
+  {
+    "dividend_history_id": "20",
+    "year": "2019",
+    "period": "Cả năm",
+    "ratio": "16",
+    "gdkhq_date": "2020-08-03",
+    "last_regis_date": "2020-08-04",
+    "pay_date": "2020-09-28",
+    "dividend_type": "Cổ phiếu"
+  },
+  {
+    "dividend_history_id": "19",
+    "year": "2019",
+    "period": "Cả năm",
+    "ratio": "10",
+    "gdkhq_date": "2020-08-03",
+    "last_regis_date": "2020-08-04",
+    "pay_date": "2020-08-18",
+    "dividend_type": "Tiền mặt"
+  },
+  {
+    "dividend_history_id": "21",
+    "year": "2018",
+    "period": "Cả năm",
+    "ratio": "10",
+    "gdkhq_date": "2019-09-06",
+    "last_regis_date": "2019-09-09",
+    "pay_date": "2019-09-27",
+    "dividend_type": "Tiền mặt"
+  },
+  {
+    "dividend_history_id": "22",
+    "year": "2018",
+    "period": "Cả năm",
+    "ratio": "17,1",
+    "gdkhq_date": "2019-09-06",
+    "last_regis_date": "2019-09-09",
+    "pay_date": "2019-10-31",
+    "dividend_type": "Cổ phiếu"
+  },
+  {
+    "dividend_history_id": "24",
+    "year": "2017",
+    "period": "Cả năm",
+    "ratio": "10",
+    "gdkhq_date": "2018-11-16",
+    "last_regis_date": "2018-11-19",
+    "pay_date": "2019-01-08",
+    "dividend_type": "Cổ phiếu"
+  },
+  {
+    "dividend_history_id": "23",
+    "year": "2017",
+    "period": "Cả năm",
+    "ratio": "10",
+    "gdkhq_date": "2018-11-16",
+    "last_regis_date": "2018-11-19",
+    "pay_date": "2018-12-05",
+    "dividend_type": "Tiền mặt"
+  },
+  {
+    "dividend_history_id": "26",
+    "year": "2016",
+    "period": "Cả năm",
+    "ratio": "10",
+    "gdkhq_date": "2017-06-05",
+    "last_regis_date": "2017-06-06",
+    "pay_date": "2017-06-06",
+    "dividend_type": "Cổ phiếu"
+  },
+  {
+    "dividend_history_id": "25",
+    "year": "2016",
+    "period": "Cả năm",
+    "ratio": "10",
+    "gdkhq_date": "2017-06-05",
+    "last_regis_date": "2017-06-06",
+    "pay_date": "2017-06-26",
+    "dividend_type": "Tiền mặt"
+  },
+  {
+    "dividend_history_id": "27",
+    "year": "2015",
+    "period": "Cả năm",
+    "ratio": "8",
+    "gdkhq_date": null,
+    "last_regis_date": "2016-10-10",
+    "pay_date": "2016-10-26",
+    "dividend_type": "Tiền mặt"
+  },
+  {
+    "dividend_history_id": "28",
+    "year": "2015",
+    "period": "Cả năm",
+    "ratio": "12",
+    "gdkhq_date": null,
+    "last_regis_date": "2016-10-10",
+    "pay_date": "2016-10-10",
+    "dividend_type": "Cổ phiếu"
+  }
+]

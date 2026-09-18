@@ -1,0 +1,56 @@
+[
+  {
+    "base_on_stock_id": "451",
+    "level_stock": "1-999",
+    "number_shareholder_stock": "5.735",
+    "ratio_shareholder_stock": "69,6672 %",
+    "number_stock": "1.346.326",
+    "ratio_stock": "1,1770 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_stock_id": "452",
+    "level_stock": "1.000-10.000",
+    "number_shareholder_stock": "2.183",
+    "ratio_shareholder_stock": "26,5185 %",
+    "number_stock": "5.681.594",
+    "ratio_stock": "4,9670 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_stock_id": "453",
+    "level_stock": "10.001-1.000.000",
+    "number_shareholder_stock": "306",
+    "ratio_shareholder_stock": "3,7172 %",
+    "number_stock": "22.529.578",
+    "ratio_stock": "19,6961 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_stock_id": "454",
+    "level_stock": "1.000.001 trở lên",
+    "number_shareholder_stock": "6",
+    "ratio_shareholder_stock": "0,0729 %",
+    "number_stock": "84.828.381",
+    "ratio_stock": "74,1598 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_stock_id": "455",
+    "level_stock": "Cổ phiếu quỹ",
+    "number_shareholder_stock": "0",
+    "ratio_shareholder_stock": "0%",
+    "number_stock": "0",
+    "ratio_stock": "0%",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_stock_id": "456",
+    "level_stock": "Tổng số",
+    "number_shareholder_stock": "8.232",
+    "ratio_shareholder_stock": "100%",
+    "number_stock": "114.385.879",
+    "ratio_stock": "100%",
+    "update_date": "2024-09-30"
+  }
+]

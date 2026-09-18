@@ -1,0 +1,74 @@
+[
+  {
+    "base_on_geography_id": "601",
+    "name_geography": "Việt Nam",
+    "number_shareholder_geography": "0",
+    "ratio_per_shareholder_geography": "0,0000 %",
+    "number_stock_geography": "0",
+    "ratio_per_stock_release_geo": "0,0000 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_geography_id": "602",
+    "name_geography": "Cá nhân",
+    "number_shareholder_geography": "0",
+    "ratio_per_shareholder_geography": "0,0000 %",
+    "number_stock_geography": "0",
+    "ratio_per_stock_release_geo": "0,0000 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_geography_id": "603",
+    "name_geography": "Tổ chức",
+    "number_shareholder_geography": "0",
+    "ratio_per_shareholder_geography": "0,0000 %",
+    "number_stock_geography": "0",
+    "ratio_per_stock_release_geo": "0,0000 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_geography_id": "604",
+    "name_geography": "Nước ngoài",
+    "number_shareholder_geography": "251",
+    "ratio_per_shareholder_geography": "3,0491 %",
+    "number_stock_geography": "11.040.022",
+    "ratio_per_stock_release_geo": "9,6516 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_geography_id": "605",
+    "name_geography": "Cá nhân",
+    "number_shareholder_geography": "186",
+    "ratio_per_shareholder_geography": "2,2595 %",
+    "number_stock_geography": "647.896",
+    "ratio_per_stock_release_geo": "0,5664 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_geography_id": "606",
+    "name_geography": "Tổ chức",
+    "number_shareholder_geography": "65",
+    "ratio_per_shareholder_geography": "0,7896 %",
+    "number_stock_geography": "10.392.126",
+    "ratio_per_stock_release_geo": "9,0851 %",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_geography_id": "607",
+    "name_geography": "Cổ phiếu quỹ",
+    "number_shareholder_geography": "0",
+    "ratio_per_shareholder_geography": "0%",
+    "number_stock_geography": "0",
+    "ratio_per_stock_release_geo": "0%",
+    "update_date": "2024-09-30"
+  },
+  {
+    "base_on_geography_id": "608",
+    "name_geography": "Tổng số",
+    "number_shareholder_geography": "8.232",
+    "ratio_per_shareholder_geography": "100%",
+    "number_stock_geography": "114.385.879",
+    "ratio_per_stock_release_geo": "100%",
+    "update_date": "2024-09-30"
+  }
+]
