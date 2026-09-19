@@ -17,8 +17,9 @@ Thư mục này ghi lại **đã làm gì, vì sao, kết quả ra sao** trong s
 | Phạm vi đề tài | Mục tiêu, 6 mảng A–F, cách 2 paper được áp dụng | [pham-vi_v1.0.md](pham-vi_v1.0.md) |
 | Dữ liệu | Nguồn, cấu trúc thư mục, thống kê, chất lượng, lỗ hổng | [du-lieu_v1.0.md](du-lieu_v1.0.md) |
 | Công nghệ | Stack và công cụ, lý do chọn | [cong-nghe_v1.2.md](cong-nghe_v1.2.md) |
-| Quyết định | Sổ quyết định (QĐ-xxx): bối cảnh, lựa chọn, lý do | [quyet-dinh_v1.5.md](quyet-dinh_v1.5.md) |
+| Quyết định | Sổ quyết định (QĐ-xxx): bối cảnh, lựa chọn, lý do | [quyet-dinh_v1.11.md](quyet-dinh_v1.11.md) |
 | Kế hoạch | Lộ trình 6 tuần, thứ tự cắt giảm khi trễ | [ke-hoach_v1.0.md](ke-hoach_v1.0.md) |
-| Từ điển tài chính | Tài liệu, thuật ngữ A–F, mã chỉ tiêu BCTC, công thức, bẫy, viết tắt | [tu-dien-tai-chinh_v1.0.md](tu-dien-tai-chinh_v1.0.md) |
+| Tiêu chí VDT | Thang điểm VDT 2026 và cách FinQuery đáp ứng | [tieu-chi-vdt_v1.0.md](tieu-chi-vdt_v1.0.md) |
+| Từ điển tài chính | Tài liệu, thuật ngữ A–F, mã chỉ tiêu BCTC, công thức, bẫy, viết tắt | [tu-dien-tai-chinh_v1.1.md](tu-dien-tai-chinh_v1.1.md) |
 
 Khi tạo bản mới, nhớ cập nhật cột *Bản hiện hành* ở bảng trên.

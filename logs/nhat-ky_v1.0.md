@@ -131,3 +131,58 @@
 - Chủ đề tài không có nền tảng tài chính → sư phụ giải thích danh mục câu hỏi và các khái niệm cơ bản trước khi chốt.
 - **Chốt:** SSO dùng **Keycloak**; người dùng là **nội bộ doanh nghiệp (phòng kế toán, tài chính)**. Chủ đề tài sẽ nhờ anh/chị ở các phòng này trong công ty rà lại danh mục câu hỏi. Ghi thành **QĐ-015** và **QĐ-016** (`quyet-dinh_v1.5.md`).
 - Tạo **`tu-dien-tai-chinh_v1.0.md`**: các loại tài liệu, thuật ngữ theo A–F, mã chỉ tiêu BCTC (TT200/202, cần đối chiếu), công thức chỉ số, bẫy thường gặp, viết tắt. Dùng cho chủ đề tài đọc, và làm ngữ cảnh khi thiết kế.
+
+## 2026-09-19
+
+### Đọc từ điển tài chính
+- Chủ đề tài hỏi về *hợp nhất/riêng* và *kiểm toán/soát xét/tự lập*. Sư phụ giải thích bằng ví dụ "sổ thu chi của bố mẹ và của cả nhà", và "tự chấm, thầy liếc qua, thầy chấm kỹ".
+- **Phản hồi của chủ đề tài:** từ điển nhiều thuật ngữ quá, không nên học thuộc hết.
+- **Xử lý:** tạo `tu-dien-tai-chinh_v1.1.md`, thêm **mục 0: sáu ý cần nhớ** (một trang). Phần còn lại chuyển thành phần tra cứu, dùng cho thiết kế và làm ngữ cảnh cho sư phụ.
+- **Kiểm tra trái phiếu:** tìm cụm "trái phiếu" trong 7 BCTN (2019–2025) và 12 báo cáo quản trị (2020–2026, bản đọc được chữ) → **0 lần xuất hiện**. BCTN 2019 là bản scan nên không tìm được chữ. Cộng với 613 tiêu đề trên web cũng không có văn bản nào về trái phiếu → **gần như chắc chắn CTR không phát hành trái phiếu giai đoạn 2019–2026**. Nếu có thì trái phiếu sẽ nằm ở mục "Vay và nợ thuê tài chính" trên bảng CĐKT và phần thuyết minh khoản vay. Câu hỏi về trái phiếu CTR dùng làm **câu bẫy** "không có thông tin".
+
+### Brainstorm chủ đề 3: ranh giới phạm vi (đã chốt)
+- Bốn kiểu phản hồi: trả lời / trả lời một phần / không xác định / từ chối.
+- 10 loại câu ở ranh giới: dự báo, khuyên đầu tư, so sánh công ty khác, giá cổ phiếu, câu tổng hợp mở, ngoài khoảng năm, thông tin không công bố, yêu cầu ghi/sửa dữ liệu, tấn công prompt/SQL, ngoài tài chính.
+- **Chốt:**
+  - **có hội thoại nhiều lượt**,
+  - **chỉ tiếng Việt**,
+  - câu trả lời gồm **văn bản + bảng** (bắt buộc), **biểu đồ** là hướng bổ sung.
+
+  Ghi thành QĐ-017.
+- Giải thích ConvFinQA cho chủ đề tài.
+- Chủ đề tài muốn dùng **ViRanker** (Dang Phuong-Nam, Nguyen Kieu-Linh). Đã tra thông tin:
+  - khoảng 0,6B tham số, dựa trên BGE-M3, 512 token, Apache 2.0,
+  - trên MMARCO-VI: NDCG@10 0,7302.
+
+  Đề xuất dùng ở tầng 1 (QĐ-018, 🟡).
+- Tạo `quyet-dinh_v1.6.md`.
+- **ViRanker qua API?** Đã kiểm tra `config.json` trên Hugging Face: kiến trúc là `XLMRobertaForSequenceClassification` chuẩn (cùng họ với BGE-Reranker-v2-m3), có nhãn `text-embeddings-inference` và `endpoints_compatible`, nhưng `inference: None`, tức là **không có API miễn phí dùng ngay**. Các cách phục vụ qua HTTP:
+  - HF Inference Endpoints (TEI),
+  - GPU serverless (Modal…),
+  - container TEI trên máy thuê GPU,
+  - ONNX INT8 chạy CPU.
+
+  Chưa chốt; ghi vào QĐ-018 khi chốt.
+- **Chốt QĐ-018:** tầng 1 = ViRanker, tầng 2 = mô hình rerank của nhà cung cấp. Nếu máy không chạy được thì cả hai tầng gọi qua API. Lưu ý đưa vào báo cáo: khi dùng dữ liệu nội bộ thật thì nên tự host để dữ liệu không ra ngoài. Tạo `quyet-dinh_v1.7.md`.
+- Làm rõ với chủ đề tài: ConvFinQA là **bộ đề kiểm tra (benchmark)**. Mỗi mẫu là một hội thoại, mỗi lượt có câu hỏi, đáp án chuẩn và các bước tính. Bộ đánh giá của FinQuery sẽ theo cấu trúc tương tự.
+
+### Tiêu chí VDT 2026 và mục tiêu học hạ tầng
+- Chủ đề tài gửi bảng **tiêu chí chấm Sáng kiến Công nghệ VDT 2026**: hiệu quả kinh tế 30, tính mới 20, tính ứng dụng 20, tính hoàn thiện 30. **Ưu tiên hiệu quả và hoàn thiện.** Ghi vào `tieu-chi-vdt_v1.0.md`, kèm cách FinQuery đáp ứng từng tiêu chí.
+- **Hệ quả lớn nhất:**
+  - phải **đo hiệu quả với người dùng thật** (thời gian tra cứu thủ công so với dùng FinQuery),
+  - phải **giữ phạm vi vừa sức** để đạt mức hoàn thiện ≥ 80%.
+- Chủ đề tài muốn **làm chủ Kafka, Redis, Docker, K8s** trong hơn một tháng tới (công ty đang dùng). Đề xuất vai trò thật cho từng công nghệ (QĐ-019, 🟡). Kafka thay hàng đợi Redis trong pipeline nạp tài liệu (lợi ích: phát lại, nhiều bên cùng đọc).
+- **Kiểm tra máy:** Docker 29.5, Compose v5.1, kubectl 1.34 có sẵn; **RAM khoảng 7,6 GiB**, 8 luồng CPU, không có GPU → không đủ chạy đồng thời toàn bộ, cần chiến lược (xem QĐ-019).
+- Tạo `quyet-dinh_v1.8.md`.
+- **Chốt QĐ-019** (hạ tầng), điều kiện: lõi nghiệp vụ phải xong trước.
+- Chủ đề tài đề xuất **Clean/Hexagonal**, hệ thống là monolith → đồng ý. Chọn **modular monolith + hexagonal** (QĐ-020):
+  - 8 module: `qa`, `sqlquery`, `retrieval`, `ingestion`, `evaluation`, `audit`, `identity`, `shared`;
+  - các port chính có nhiều adapter: LLM, reranker, OCR, embedding, event, bộ nhớ hội thoại, và chiến lược trả lời (FinQuery / 2 baseline);
+  - một jar chạy hai vai trò `api` và `worker`.
+- Đã kiểm tra **Spring Modulith 1.4.13** được build trên Spring Boot 3.5.16 (khớp); ArchUnit mới nhất là 1.5.0.
+- Tạo `quyet-dinh_v1.9.md`.
+- **Chốt đặt tên** tiếng Anh trong code, tiếng Việt trong chú thích và tài liệu.
+- Giải thích **Clean và Hexagonal**: cùng luật phụ thuộc; thiết kế hiện tại *chính là* Clean Architecture được hiện thực theo kiểu Ports & Adapters, lược bỏ Presenter và Output Boundary cho gọn.
+- Chủ đề tài có tài khoản **AWS**. Chính sách từ 15/07/2025: 100 USD khi đăng ký + tối đa 100 USD nữa; gói Free tự đóng sau 6 tháng. Chọn **k3s trên EC2** (t3.large, Singapore), **chỉ bật khi dùng**, đặt cảnh báo Budgets; ước tính dưới 20–30 USD.
+- Tạo `quyet-dinh_v1.10.md`.
+- Chủ đề tài chốt **gọi là Hexagonal** (không gọi là Clean) → `quyet-dinh_v1.11.md`.
