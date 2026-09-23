@@ -1,0 +1,7 @@
+# TẬP ĐOÀN CÔNG NGHIỆP - VIỄN THÔNG QUÂN ĐỘI
+## TỔNG CÔNG TY CỔ PHẦN CÔNG TRÌNH VIETTEL
+### BÁO CÁO TÀI CHÍNH HỢP NHẤT
+#### Quý III/2020
+
+Ký bởi: CÔNG TY CỔ PHẦN CÔNG TRÌNH VIETTEL  
+Ký ngày: 29/10/2020 14:12:22

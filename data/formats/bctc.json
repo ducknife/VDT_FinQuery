@@ -1,0 +1,186 @@
+{
+  "loai_tai_lieu": "bctc",
+  "ten": "Bản thuyết minh Báo cáo tài chính — mẫu B09-DN",
+  "trang_thai": "ban_nhap_v3",
+  "pham_vi_file_nay": "CHỈ mô tả khung chuẩn do pháp luật ban hành, bắt đầu từ 'I. Đặc điểm hoạt động của doanh nghiệp'. KHÔNG mô tả cấu tạo của tệp PDF mà doanh nghiệp công bố (mục lục, báo cáo Ban Tổng Giám đốc, báo cáo kiểm toán, phần song ngữ) — những thứ đó là quan sát thực tế, không thuộc mẫu.",
+  "lich_su_sua": [
+    "v1 (2026-09-21): dựng từ mục lục BCTC thật của CTR; phần thuyết minh chỉ liệt kê vài mục con do sư phụ tự chọn — KHÔNG chính xác.",
+    "v2 (2026-09-21): dựng lại phần thuyết minh theo ĐÚNG mẫu B09-DN ban hành kèm Thông tư 99/2025/TT-BTC (chủ đề tài cung cấp bản gốc).",
+    "v3 (2026-09-21): theo yêu cầu của chủ đề tài, gỡ các khối KHÔNG thuộc khung chung — 'muc_chuan' (cấu tạo tệp PDF), 'metadata_bat_buoc' và 'gia_tri_cho_phep' (đặc tả hệ thống). Nội dung đã gỡ được chép nguyên vào logs/nhat-ky_v1.0.md để lấy lại khi cần."
+  ],
+  "can_cu_phap_ly": [
+    {
+      "che_do": "TT99",
+      "van_ban": "Thông tư 99/2025/TT-BTC ngày 27/10/2025",
+      "hieu_luc_tu": "2026-01-01",
+      "mau_bieu": "B09-DN Bản thuyết minh Báo cáo tài chính",
+      "trang_thai": "da_doi_chieu_ban_goc",
+      "ghi_chu": "Khung trong file này là của mẫu B09-DN thuộc TT99, áp dụng cho báo cáo từ kỳ kế toán 2026 trở đi."
+    }
+  ],
+
+  "quy_tac_quan_trong": [
+    "Doanh nghiệp ĐƯỢC CHỦ ĐỘNG đánh số thứ tự các mục thuyết minh (mục 2.d và 4.6 của B09-DN). Vì vậy khi nhận dạng mục phải khớp theo TÊN MỤC, không khớp theo số thứ tự.",
+    "Báo cáo giữa niên độ (quý, bán niên) chỉ lập THUYẾT MINH CHỌN LỌC theo Chuẩn mực kế toán Việt Nam số 27 — nên số mục ít hơn báo cáo năm. Thiếu mục ở báo cáo quý và bán niên KHÔNG phải lỗi dữ liệu.",
+    "Mỗi khoản mục trên B01, B02, B03 đều có cột 'Thuyết minh' trỏ tới mục tương ứng trong B09 — đây là liên kết có sẵn giữa con số và đoạn văn giải thích, dùng được cho trích dẫn.",
+    "Mục X ghi các nội dung doanh nghiệp tự sửa đổi, bổ sung so với biểu mẫu Bộ Tài chính quy định — cần đọc mục này để biết tài liệu có lệch mẫu hay không.",
+    "Mẫu đánh số I, II, III, IV, V, VII, VIII, IX, X — trong bản gốc KHÔNG xuất hiện phần VI. Chưa kiểm tra lại trên toàn văn thông tư."
+  ],
+
+  "cau_truc_thuyet_minh_B09": {
+    "nguon": "Mẫu số B09-DN kèm theo Thông tư 99/2025/TT-BTC (bản gốc do chủ đề tài cung cấp)",
+    "phan": [
+      {
+        "ma": "I",
+        "ten": "Đặc điểm hoạt động của doanh nghiệp",
+        "vai_tro": "chi_muc_tai_lieu",
+        "muc": [
+          "Hình thức sở hữu vốn",
+          "Lĩnh vực kinh doanh",
+          "Ngành nghề kinh doanh",
+          "Chu kỳ sản xuất kinh doanh thông thường",
+          "Đặc điểm hoạt động trong năm ảnh hưởng đến báo cáo tài chính",
+          "Cấu trúc doanh nghiệp: danh sách công ty con, công ty liên doanh liên kết, đơn vị trực thuộc",
+          "Số lượng người lao động",
+          "Tuyên bố về khả năng so sánh thông tin",
+          "Thuyết minh thông tin khác theo pháp luật liên quan"
+        ],
+        "mang": "D (danh sách công ty con, công ty liên kết)"
+      },
+      {
+        "ma": "II",
+        "ten": "Kỳ kế toán, đơn vị tiền tệ sử dụng trong kế toán",
+        "vai_tro": "metadata",
+        "ghi_chu": "Nguồn để lấy kỳ kế toán và đơn vị tiền tệ cho metadata tài liệu"
+      },
+      {
+        "ma": "III",
+        "ten": "Chuẩn mực và Chế độ kế toán áp dụng",
+        "vai_tro": "metadata",
+        "ghi_chu": "Nguồn để xác định tài liệu theo TT200 hay TT99"
+      },
+      {
+        "ma": "IV",
+        "ten": "Các chính sách kế toán, ước tính kế toán và quy định pháp luật liên quan áp dụng",
+        "so_muc": 29,
+        "vai_tro": "chi_muc_tai_lieu",
+        "ghi_chu": "29 mục nguyên tắc kế toán (tiền, đầu tư tài chính, nợ phải thu, hàng tồn kho, TSCĐ và khấu hao, chi phí chờ phân bổ, vay và nợ thuê tài chính, vốn hoá chi phí đi vay, trái phiếu chuyển đổi, vốn chủ sở hữu, doanh thu, giá vốn, chi phí tài chính, thuế…). Ít số liệu, chủ yếu là văn bản mô tả chính sách."
+      },
+      {
+        "ma": "V",
+        "ten": "Thông tin bổ sung cho các khoản mục trình bày trong Báo cáo tình hình tài chính",
+        "vai_tro": "chi_muc_tai_lieu",
+        "ghi_chu": "Phần chứa NHIỀU BẢNG SỐ NHẤT. Số thứ tự dưới đây theo mẫu, doanh nghiệp có thể đánh số khác.",
+        "muc": [
+          { "stt": 1, "ten": "Tiền và các khoản tương đương tiền", "mang": "B" },
+          { "stt": 2, "ten": "Các khoản đầu tư tài chính", "mang": "D", "muc_con": ["Chứng khoán kinh doanh", "Đầu tư nắm giữ đến ngày đáo hạn", "Đầu tư góp vốn vào đơn vị khác (công ty con, liên doanh, liên kết, hợp đồng BCC)"] },
+          { "stt": 3, "ten": "Phải thu của khách hàng", "mang": "B", "ghi_chu": "Chi tiết đối tượng chiếm từ 10% trở lên; phải thu từ các bên liên quan" },
+          { "stt": 4, "ten": "Phải thu khác", "mang": "B" },
+          { "stt": 5, "ten": "Tài sản thiếu chờ xử lý" },
+          { "stt": 6, "ten": "Nợ xấu", "mang": "B" },
+          { "stt": 7, "ten": "Hàng tồn kho", "mang": "B", "ghi_chu": "Có dòng giá trị hàng tồn kho dùng để thế chấp, cầm cố" },
+          { "stt": 8, "ten": "Tài sản dở dang dài hạn", "mang": "D", "ghi_chu": "Gồm chi phí xây dựng cơ bản dở dang, chi tiết công trình chiếm từ 10%" },
+          { "stt": 9, "ten": "Tăng, giảm tài sản cố định hữu hình", "mang": "D", "ghi_chu": "Bảng nguyên giá / hao mòn lũy kế / giá trị còn lại theo nhóm tài sản; có dòng TSCĐ dùng thế chấp" },
+          { "stt": 10, "ten": "Tăng, giảm tài sản cố định vô hình", "mang": "D" },
+          { "stt": 11, "ten": "Tăng, giảm tài sản cố định thuê tài chính", "mang": "D" },
+          { "stt": 12, "ten": "Tài sản sinh học", "ap_dung": "không áp dụng với CTR" },
+          { "stt": 13, "ten": "Tăng, giảm bất động sản đầu tư", "mang": "D", "ghi_chu": "Quan trọng với CTR vì có hạ tầng cho thuê" },
+          { "stt": 14, "ten": "Chi phí chờ phân bổ" },
+          { "stt": 15, "ten": "Tài sản khác" },
+          { "stt": 16, "ten": "Vay và nợ thuê tài chính", "mang": "A", "muc_quan_trong": true, "ghi_chu": "Vay ngắn hạn, vay dài hạn (chi tiết đối tượng từ 10%), vay từ bên liên quan, nợ thuê tài chính theo kỳ hạn, nợ quá hạn chưa thanh toán và lý do" },
+          { "stt": 17, "ten": "Phải trả người bán", "mang": "B" },
+          { "stt": 18, "ten": "Phải trả về cổ tức, lợi nhuận", "mang": "F", "ghi_chu": "Thời hạn trả, các khoản đã cam kết nhưng quá hạn chưa thanh toán" },
+          { "stt": 19, "ten": "Thuế và các khoản phải nộp nhà nước" },
+          { "stt": 20, "ten": "Chi phí phải trả" },
+          { "stt": 21, "ten": "Phải trả khác" },
+          { "stt": 22, "ten": "Doanh thu chờ phân bổ" },
+          { "stt": 23, "ten": "Trái phiếu phát hành", "mang": "A", "ghi_chu": "Trái phiếu thường và trái phiếu chuyển đổi. CTR chưa phát hành → mục này vắng mặt, dùng làm căn cứ cho câu trả lời 'không có thông tin'" },
+          { "stt": 24, "ten": "Cổ phiếu ưu đãi phân loại là nợ phải trả", "mang": "A" },
+          { "stt": 25, "ten": "Dự phòng phải trả" },
+          { "stt": 26, "ten": "Tài sản thuế thu nhập hoãn lại và thuế thu nhập hoãn lại phải trả" },
+          { "stt": 27, "ten": "Vốn chủ sở hữu", "mang": "A, F", "muc_quan_trong": true, "muc_con": [
+            "a) Bảng đối chiếu biến động của vốn chủ sở hữu",
+            "b) Chi tiết vốn góp của chủ sở hữu",
+            "c) Các giao dịch về vốn với chủ sở hữu và phân phối cổ tức, chia lợi nhuận",
+            "d) Cổ phiếu (đăng ký phát hành, đã bán, cổ phiếu quỹ, đang lưu hành, mệnh giá)",
+            "đ) Cổ tức, lợi nhuận (đã công bố sau ngày kết thúc kỳ, cổ tức bằng cổ phiếu)",
+            "e) Lý do tăng giảm các khoản mục thuộc vốn chủ sở hữu"
+          ] },
+          { "stt": 28, "ten": "Chênh lệch đánh giá lại tài sản" },
+          { "stt": 29, "ten": "Chênh lệch tỷ giá" },
+          { "stt": 30, "ten": "Các khoản mục ngoài Báo cáo tình hình tài chính", "mang": "A, D", "ghi_chu": "Tài sản thuê ngoài; tài sản nhận cầm cố thế chấp; TÀI SẢN CỦA DOANH NGHIỆP DÙNG ĐỂ CẦM CỐ, THẾ CHẤP; ngoại tệ; nợ khó đòi đã xử lý" },
+          { "stt": 31, "ten": "Tài sản bị giới hạn sử dụng và nợ phải trả theo thỏa thuận hợp đồng" },
+          { "stt": 32, "ten": "Các thông tin khác doanh nghiệp thấy cần thuyết minh" }
+        ]
+      },
+      {
+        "ma": "VII",
+        "ten": "Thông tin bổ sung cho các khoản mục trình bày trong Báo cáo kết quả hoạt động kinh doanh",
+        "vai_tro": "chi_muc_tai_lieu",
+        "muc": [
+          { "stt": 1, "ten": "Tổng doanh thu bán hàng và cung cấp dịch vụ", "mang": "C", "ghi_chu": "Tách doanh thu bán hàng, cung cấp dịch vụ, DỊCH VỤ XÂY DỰNG, trợ cấp trợ giá, khác; và doanh thu từ các bên liên quan" },
+          { "stt": 2, "ten": "Các khoản giảm trừ doanh thu", "mang": "C" },
+          { "stt": 3, "ten": "Giá vốn hàng bán", "mang": "C" },
+          { "stt": 4, "ten": "Lãi/lỗ của hoạt động bán, thanh lý bất động sản đầu tư", "mang": "D" },
+          { "stt": 5, "ten": "Doanh thu hoạt động tài chính", "mang": "C" },
+          { "stt": 6, "ten": "Chi phí tài chính", "mang": "A, C", "ghi_chu": "Có dòng chi phí đi vay" },
+          { "stt": 7, "ten": "Thu nhập khác" },
+          { "stt": 8, "ten": "Chi phí khác" },
+          { "stt": 9, "ten": "Chi phí bán hàng và chi phí quản lý doanh nghiệp", "mang": "C" },
+          { "stt": 10, "ten": "Chi phí sản xuất, kinh doanh theo yếu tố", "mang": "C", "muc_quan_trong": true, "ghi_chu": "Nguyên vật liệu, nhân công, khấu hao, dịch vụ mua ngoài, chi phí khác bằng tiền" },
+          { "stt": 11, "ten": "Chi phí thuế thu nhập doanh nghiệp", "mang": "C" }
+        ]
+      },
+      {
+        "ma": "VIII",
+        "ten": "Thông tin bổ sung cho Báo cáo lưu chuyển tiền tệ",
+        "vai_tro": "chi_muc_tai_lieu",
+        "muc": [
+          { "stt": 1, "ten": "Các khoản tiền doanh nghiệp nắm giữ nhưng không được sử dụng", "mang": "B" },
+          { "stt": 2, "ten": "Các giao dịch không bằng tiền ảnh hưởng đến báo cáo lưu chuyển tiền tệ tương lai", "mang": "B" },
+          { "stt": 3, "ten": "Số tiền đi vay thực thu trong kỳ", "mang": "A" },
+          { "stt": 4, "ten": "Số tiền đã thực trả gốc vay trong kỳ", "mang": "A" },
+          { "stt": 5, "ten": "Mua và thanh lý công ty con trong kỳ báo cáo", "mang": "D" }
+        ]
+      },
+      {
+        "ma": "IX",
+        "ten": "Những thông tin khác",
+        "vai_tro": "chi_muc_tai_lieu",
+        "muc": [
+          { "stt": 1, "ten": "Những khoản nợ tiềm tàng, khoản cam kết và thông tin tài chính khác", "mang": "A" },
+          { "stt": 2, "ten": "Những sự kiện phát sinh sau ngày kết thúc kỳ kế toán năm", "mang": "F", "ghi_chu": "Nơi ghi nhận cổ tức công bố sau ngày kết thúc năm" },
+          { "stt": 3, "ten": "Thông tin về các bên liên quan", "mang": "A, D", "muc_quan_trong": true },
+          { "stt": 4, "ten": "Trình bày tài sản, doanh thu, kết quả kinh doanh theo bộ phận (VAS 28)", "mang": "C", "muc_quan_trong": true, "ghi_chu": "Nguồn duy nhất trong BCTC cho câu hỏi 'doanh thu, lợi nhuận theo mảng kinh doanh'" },
+          { "stt": 5, "ten": "Thông tin so sánh (thay đổi thông tin của các niên độ trước)", "ghi_chu": "Nơi ghi nhận số liệu bị trình bày lại" },
+          { "stt": 6, "ten": "Thông tin về việc đáp ứng giả định hoạt động liên tục" },
+          { "stt": 7, "ten": "Thuyết minh về các giả định và ước tính quan trọng" },
+          { "stt": 8, "ten": "Các biện pháp, giải pháp khác" }
+        ]
+      },
+      {
+        "ma": "X",
+        "ten": "Những nội dung sửa đổi, bổ sung biểu mẫu, tên và nội dung các chỉ tiêu so với biểu mẫu Bộ Tài chính quy định",
+        "vai_tro": "chi_muc_tai_lieu",
+        "ghi_chu": "Đọc mục này để biết doanh nghiệp có lệch mẫu hay không, và lý do"
+      }
+    ],
+    "chu_ky": "Người lập biểu · Kế toán trưởng · Người đại diện theo pháp luật"
+  },
+
+  "anh_xa_mang_A_den_F": {
+    "A": ["V.16 Vay và nợ thuê tài chính", "V.23 Trái phiếu phát hành", "V.24 Cổ phiếu ưu đãi phân loại là nợ", "V.27 Vốn chủ sở hữu", "V.30 Tài sản dùng để cầm cố, thế chấp", "VII.6 Chi phí tài chính (chi phí đi vay)", "VIII.3, VIII.4 Tiền vay thực thu và trả gốc", "IX.1 Nợ tiềm tàng, cam kết"],
+    "B": ["V.1 Tiền", "V.3 Phải thu khách hàng", "V.4 Phải thu khác", "V.6 Nợ xấu", "V.7 Hàng tồn kho", "V.17 Phải trả người bán", "VIII.1, VIII.2"],
+    "C": ["VII.1 Doanh thu", "VII.2 Giảm trừ doanh thu", "VII.3 Giá vốn", "VII.9 Chi phí bán hàng và QLDN", "VII.10 Chi phí theo yếu tố", "VII.11 Chi phí thuế TNDN", "IX.4 Báo cáo bộ phận"],
+    "D": ["I.6 Cấu trúc doanh nghiệp", "V.2 Đầu tư tài chính", "V.8 Tài sản dở dang dài hạn", "V.9–V.11 Tăng giảm TSCĐ", "V.13 Bất động sản đầu tư", "VII.4 Lãi lỗ thanh lý BĐSĐT", "VIII.5 Mua và thanh lý công ty con", "IX.3 Bên liên quan"],
+    "E": ["Không có trong BCTC — kế hoạch và giải trình nằm ở nghị quyết ĐHĐCĐ và báo cáo thường niên"],
+    "F": ["V.18 Phải trả cổ tức, lợi nhuận", "V.27c Giao dịch về vốn và phân phối cổ tức", "V.27d Cổ phiếu", "V.27đ Cổ tức, lợi nhuận", "IX.2 Sự kiện sau ngày kết thúc kỳ kế toán"]
+  },
+
+  "quy_tac_kiem_tra": [
+    "Nhận dạng mục thuyết minh theo TÊN MỤC, không theo số thứ tự (doanh nghiệp được tự đánh số)",
+    "Báo cáo quý và bán niên chỉ có thuyết minh chọn lọc — thiếu mục không coi là lỗi",
+    "Đọc mục III để xác định chế độ kế toán, đọc mục II để lấy kỳ kế toán và đơn vị tiền tệ",
+    "Đọc mục X để biết doanh nghiệp có sửa đổi biểu mẫu hay không"
+  ]
+}

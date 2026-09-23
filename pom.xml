@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Pom gộp (aggregator) của monorepo FinQuery.
+
+  Nó KHÔNG chứa mã nguồn và KHÔNG đổi gì trong backend/core-service/pom.xml.
+  Việc duy nhất của nó là khai ra rằng dự án Maven nằm ở đâu.
+
+  Vì sao cần: bộ công cụ Java của VS Code lấy gốc thư mục làm việc làm gốc dự án
+  rồi tìm pom.xml ngay tại đó. Không thấy thì bước cập nhật dự án văng lỗi
+  NoSuchFileException trước khi kịp quét lại thư mục nguồn — hậu quả là thư mục
+  mới tạo không bao giờ được nhận, và tệp trong đó bị coi là gói mặc định.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.vdt</groupId>
+  <artifactId>finquery-monorepo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>FinQuery monorepo</name>
+  <description>Hệ thống hỏi đáp tài chính an toàn và hiệu quả — thư mục gộp</description>
+
+  <modules>
+    <module>backend/core-service</module>
+  </modules>
+</project>

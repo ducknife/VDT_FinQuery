@@ -1,0 +1,9 @@
+Nhánh truy vấn DB
+=> BT1: Đưa các số liệu, bảng vào trong db với MariaDB 
+=> BT2: Xây dựng các hàm/tool use cho LLM và các tham số của hàm 
+==> BT2B: xây dựng system prompt
+=> BT3: Xử lí phản hồi của LLM để lấy tham số
+=> BT4: Xử lí response cuối của LLM 
+==> Đánh giá xem nó gọi hàm nào trước khi trả lời không => Nếu ko gọi hàm mà tự trả lời 
+-> Chặn 
+==> Xem kết quả sinh ra có đúng với kết quả mình viết SQL truy vấn ko 

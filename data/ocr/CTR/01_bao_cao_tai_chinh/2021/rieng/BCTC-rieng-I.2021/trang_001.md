@@ -1,0 +1,4 @@
+# TẬP ĐOÀN CÔNG NGHIỆP - VIỄN THÔNG QUÂN ĐỘI
+## CÔNG TY MẸ - TỔNG CÔNG TY CỔ PHẦN CÔNG TRÌNH VIETTEL
+### BÁO CÁO TÀI CHÍNH RIÊNG
+#### Quý I/2021

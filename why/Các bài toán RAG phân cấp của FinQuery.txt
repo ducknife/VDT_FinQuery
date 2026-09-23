@@ -1,0 +1,25 @@
+Nhánh RAG Phân cấp 
+=> Preprocessing: 
+- BT1: Input (các dạng tài liệu pdf, docx, xlsx) -> Output: text  
++ Tài liệu => OCR => Text
++ Nhận diện cấu trúc tài liệu (thuộc loại format nào)
++ Nếu là văn bản => giữ nguyên md
++ Nếu là bảng => chuyển thành dạng json 
+- BT2: Chunking các tài liệu 
+- BT3: Đánh index cho tài liệu và cho vào vectorDB
+=> Processing: 
+==> Pre-Retrieval: 
+- BT1: Chuẩn hoá câu hỏi => chuyển chữ thường, bỏ viết tắt, đơn vị có đúng không
+- BT2: Trích xuất từ khoá => Xem có trích xuất đúng các từ cốt lõi trong câu hỏi của người dùng ko 
+- BT3: Diễn giải lại => Xem các câu được diễn giải ngữ nghĩa có bị thay đổi ko
+- BT4: Sinh tài liệu giả định => Bớt đc 1 lượt gọi 
+==> Retrieval: 
+- BT1: Xếp hạng lần 1: Lọc ra 100 câu văn liên quan => Kiểm tra xem 100 câu này có thực sự liên quan hay không
+- BT2: Xếp hạng lần 2: Lọc ra 20 câu sát nhất => Kiểm tra xem 20 câu văn này có thực sự sát nghĩa hơn 100 câu kia ko
+==> Generation: 
+- BT1: Đưa ngữ cảnh sao cho vẫn giữ được độ chính xác
++ Quản lý kích thước ngữ cảnh 
++ Hợp nhất (nếu cần)
+===> Xem câu trả lời cho từng phần R1, R2/câu trả lời hợp nhất xem có sát với cái yêu cầu ko,
+trích dẫn có đúng trong tài liệu không 
+===> Nếu ko xác định thì có trà lời là ko xác định khi cả 2 ko thoả mãn ko 

@@ -1,0 +1,100 @@
+{
+  "loai_tai_lieu": "dhdcd",
+  "ten": "Tài liệu Đại hội đồng cổ đông",
+  "trang_thai": "ban_nhap",
+  "nguon_cua_khung_nay": "Rút ra từ 75 tài liệu ĐHĐCĐ thật của CTR (2019-2026) đã tải về. Khác với BCTC và BCTN, loại tài liệu này KHÔNG có mẫu do pháp luật ban hành; luật chỉ quy định nội dung bắt buộc, còn hình thức trình bày theo quy ước soạn thảo văn bản hành chính.",
+  "can_cu_phap_ly": [
+    {
+      "van_ban": "Luật Doanh nghiệp 2020",
+      "trang_thai": "chua_kiem_chung",
+      "ghi_chu": "Quy định nội dung bắt buộc của nghị quyết và biên bản họp Đại hội đồng cổ đông. Chưa tra số điều cụ thể."
+    },
+    {
+      "van_ban": "Thông tư 96/2020/TT-BTC",
+      "trang_thai": "chua_kiem_chung",
+      "ghi_chu": "Nghĩa vụ công bố nghị quyết, biên bản và tài liệu họp. Chưa mở toàn văn để xác nhận điều khoản."
+    }
+  ],
+  "metadata_bat_buoc": ["ma_cong_ty", "nam_dai_hoi", "loai_van_ban", "so_hieu", "ngay_ban_hanh"],
+  "gia_tri_cho_phep": {
+    "loai_van_ban": ["nghi_quyet", "bien_ban", "to_trinh", "bao_cao_hdqt", "bao_cao_ban_dieu_hanh", "bao_cao_bks", "tai_lieu_hop"],
+    "hinh_thuc": ["thuong_nien", "bat_thuong", "lay_y_kien_bang_van_ban"]
+  },
+
+  "cau_truc_nghi_quyet": {
+    "ghi_chu": "Quy ước soạn thảo văn bản hành chính, dùng chung cho nghị quyết ĐHĐCĐ và nghị quyết HĐQT. Đã đối chiếu bằng mắt trên tài liệu của CTR và FPT nên áp dụng được cho nhiều doanh nghiệp, không riêng công ty mẫu.",
+    "trang_thai_kiem_chung": "moi_kiem_bang_mat_tren_vai_file_doc_duoc_chu; can_kiem_lai_tren_toan_bo_sau_khi_OCR",
+    "khoi": [
+      { "ma": "tieu_de_van_ban", "noi_dung": "Tên công ty, số hiệu, quốc hiệu, địa danh và ngày ban hành, tên nghị quyết (Về việc ...)" },
+      { "ma": "can_cu", "noi_dung": "Các dòng bắt đầu bằng 'Căn cứ ...': Luật Doanh nghiệp, Điều lệ công ty, biên bản họp hoặc biên bản kiểm phiếu",
+        "gia_tri": "Cho biết nghị quyết dựa trên biên bản nào, dùng để liên kết các tài liệu với nhau" },
+      { "ma": "quyet_nghi", "noi_dung": "Dòng 'QUYẾT NGHỊ:' mở đầu phần nội dung" },
+      { "ma": "cac_dieu", "noi_dung": "Các Điều, mỗi Điều là một nội dung được thông qua, thường kèm tỷ lệ biểu quyết",
+        "vai_tro": "ranh_gioi_tach_doan",
+        "truong_trich_moi_dieu": ["so_dieu", "noi_dung", "ty_le_tan_thanh", "ty_le_khong_tan_thanh", "ty_le_khong_y_kien", "mang_A_den_F"] },
+      { "ma": "dieu_khoan_thi_hanh", "noi_dung": "Điều cuối: hiệu lực và trách nhiệm thi hành" },
+      { "ma": "chu_ky", "noi_dung": "Nơi nhận, chữ ký của Chủ tịch HĐQT hoặc chủ toạ, con dấu" }
+    ],
+    "bien_the_da_gap": [
+      "Đánh số bằng 'Điều 1, Điều 2' hoặc bằng '1., 2., 3.'",
+      "Tỷ lệ biểu quyết nằm ngay trong câu, hoặc gom thành bảng riêng ở cuối",
+      "Biên bản và nghị quyết gộp chung một tệp (CTR có vài tệp như vậy) — phải tách trước khi áp khung",
+      "Nghị quyết dài kèm phụ lục"
+    ],
+    "dieu_thuong_gap_theo_mang": [
+      { "noi_dung": "Thông qua kế hoạch sản xuất kinh doanh (doanh thu, lợi nhuận mục tiêu)", "mang": "E" },
+      { "noi_dung": "Thông qua phương án phân phối lợi nhuận, mức cổ tức, trích lập quỹ", "mang": "F" },
+      { "noi_dung": "Thông qua báo cáo tài chính năm đã kiểm toán", "mang": "C" },
+      { "noi_dung": "Phương án phát hành cổ phiếu, ESOP, tăng vốn điều lệ", "mang": "A" },
+      { "noi_dung": "Thông qua giao dịch với bên có liên quan", "mang": "A, D" },
+      { "noi_dung": "Lựa chọn đơn vị kiểm toán, thù lao HĐQT và BKS, nhân sự", "mang": "ngoai_pham_vi" }
+    ]
+  },
+
+  "muc_chuan": [
+    {
+      "ma": "nghi_quyet",
+      "ten": "Nghị quyết Đại hội đồng cổ đông",
+      "vai_tro": "chi_muc_tai_lieu",
+      "mang": "E, F",
+      "cau_truc": "xem cau_truc_nghi_quyet"
+    },
+    {
+      "ma": "bien_ban",
+      "ten": "Biên bản họp",
+      "vai_tro": "chi_muc_tai_lieu",
+      "ghi_chu": "KHÔNG cùng khung với nghị quyết: biên bản kể diễn biến cuộc họp, không chia theo Điều",
+      "truong_can_trich": ["ty_le_co_dong_du_hop", "y_kien_thao_luan", "ket_qua_bieu_quyet_tung_noi_dung"]
+    },
+    {
+      "ma": "to_trinh",
+      "ten": "Tờ trình",
+      "vai_tro": "chi_muc_tai_lieu",
+      "mang": "F",
+      "vi_du": [
+        "Phương án phân phối lợi nhuận và trích lập quỹ",
+        "Thông qua báo cáo tài chính",
+        "Lựa chọn đơn vị kiểm toán",
+        "Thù lao Hội đồng quản trị và Ban kiểm soát",
+        "Giao dịch với bên có liên quan"
+      ]
+    },
+    { "ma": "bao_cao_hdqt", "ten": "Báo cáo của Hội đồng quản trị", "vai_tro": "chi_muc_tai_lieu", "mang": "E" },
+    {
+      "ma": "bao_cao_ban_dieu_hanh",
+      "ten": "Báo cáo của Ban điều hành",
+      "vai_tro": "chi_muc_tai_lieu",
+      "mang": "E",
+      "ghi_chu": "Nơi giải trình kết quả thực hiện so với kế hoạch"
+    },
+    { "ma": "bao_cao_bks", "ten": "Báo cáo của Ban kiểm soát", "vai_tro": "chi_muc_tai_lieu" },
+    { "ma": "thu_tuc", "ten": "Thư mời, giấy uỷ quyền, quy chế họp, mẫu biểu", "vai_tro": "bo_qua" }
+  ],
+
+  "quy_tac_kiem_tra": [
+    "Mỗi năm phải có ít nhất một nghi_quyet thường niên, thiếu thì đánh dấu CAN_KIEM_TRA vì mảng E cần kế hoạch năm",
+    "Nghị quyết nêu kế hoạch kinh doanh thì trích số vào bảng ke_hoach_kinh_doanh",
+    "Nghị quyết hoặc tờ trình nêu mức cổ tức thì trích số vào bảng co_tuc",
+    "Tệp gộp biên bản và nghị quyết thì tách thành hai phần trước khi áp khung"
+  ]
+}

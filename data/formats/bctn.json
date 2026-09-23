@@ -1,0 +1,244 @@
+{
+  "loai_tai_lieu": "bctn",
+  "ten": "Báo cáo thường niên",
+  "trang_thai": "ban_nhap_v2",
+  "lich_su_sua": [
+    "v1 (2026-09-21): dựng từ trí nhớ, danh sách phẳng 11 mục, chưa mở toàn văn Phụ lục IV, chưa đối chiếu BCTN thật — SAI thứ bậc và THIẾU nhiều mục.",
+    "v2 (2026-09-21): dựng lại theo ĐÚNG toàn văn Phụ lục IV Thông tư 96/2020/TT-BTC (chủ đề tài cung cấp), đối chiếu với BCTN 2025 thật của CTR (78 trang)."
+  ],
+  "can_cu_phap_ly": [
+    {
+      "van_ban": "Thông tư 96/2020/TT-BTC ngày 16/11/2020 của Bộ trưởng Bộ Tài chính",
+      "phu_luc": "IV",
+      "ten_phu_luc": "Báo cáo thường niên / Annual Report",
+      "trang_thai": "da_doi_chieu_ban_goc",
+      "ghi_chu": "Mẫu song ngữ Việt - Anh. Cấu trúc gồm sáu phần I–VI."
+    },
+    {
+      "noi_dung": "Thời hạn công bố: trong 20 ngày kể từ ngày công bố BCTC năm được kiểm toán, không quá 110 ngày sau khi kết thúc năm tài chính",
+      "trang_thai": "chua_kiem_chung",
+      "ghi_chu": "Quy định này nằm ở phần điều khoản của Thông tư 96/2020, KHÔNG nằm trong Phụ lục IV. Chưa mở toàn văn để xác nhận."
+    }
+  ],
+
+  "quy_tac_quan_trong": [
+    "Doanh nghiệp bám theo khung I–VI nhưng ĐƯỢC ĐẶT LẠI TÊN và THÊM mục. CTR gọi là PHẦN 1–6, đổi 'Các rủi ro' thành 'Quản trị rủi ro', thêm 'Thông điệp Chủ tịch HĐQT', 'Thông điệp Tổng Giám đốc', 'Nhìn lại năm', 'Diễn biến giao dịch cổ phiếu', 'Phân tích tài chính'. → Nhận dạng phải khớp theo Ý NGHĨA MỤC, không khớp cứng theo tên.",
+    "Mục II.6 (ESG) doanh nghiệp ĐƯỢC TÁCH RA thành Báo cáo phát triển bền vững riêng → có thể vắng mặt trong tệp BCTN, không coi là lỗi.",
+    "BCTC trình bày trong BCTN là BCTC HỢP NHẤT nếu doanh nghiệp phải lập hợp nhất (mục VI.2) → số liệu trong BCTN mặc định là hợp nhất, trừ khi ghi rõ khác.",
+    "BẪY ĐÃ GẶP THẬT: số trong văn xuôi (thông điệp Chủ tịch, Tổng Giám đốc) có thể LỆCH hoặc GỌI SAI TÊN so với bảng. Ở BCTN 2025 của CTR, thư Tổng Giám đốc viết 'lợi nhuận sau thuế 745,1 tỷ' trong khi bảng ghi LNTT 746 tỷ và LNST 600 tỷ. → Quy tắc: ưu tiên BẢNG, không lấy số từ văn xuôi."
+  ],
+
+  "metadata_bat_buoc": ["ma_cong_ty", "nam", "ngay_ky", "ngon_ngu", "pham_vi_hop_nhat"],
+
+  "cau_truc_theo_phu_luc_IV": [
+    {
+      "ma": "I",
+      "ten": "Thông tin chung",
+      "vai_tro": "chi_muc_tai_lieu",
+      "muc": [
+        { "stt": 1, "ten": "Thông tin khái quát", "noi_dung": "Tên giao dịch, giấy ĐKDN, vốn điều lệ, vốn đầu tư của chủ sở hữu, địa chỉ, mã cổ phiếu, quá trình hình thành và phát triển, các sự kiện khác", "mang": "A" },
+        { "stt": 2, "ten": "Ngành nghề và địa bàn kinh doanh", "noi_dung": "Ngành nghề hoặc sản phẩm, dịch vụ chiếm trên 10% tổng doanh thu trong 2 năm gần nhất; địa bàn chiếm trên 10%", "mang": "C", "muc_quan_trong": true, "ghi_chu": "Nguồn thứ hai cho câu hỏi cơ cấu doanh thu theo mảng, bổ sung cho IX.4 của BCTC" },
+        { "stt": 3, "ten": "Mô hình quản trị, tổ chức kinh doanh và bộ máy quản lý", "noi_dung": "Mô hình quản trị theo Điều 137 Luật Doanh nghiệp; cơ cấu bộ máy; DANH SÁCH CÔNG TY CON VÀ LIÊN KẾT kèm địa chỉ, lĩnh vực, vốn góp, tỷ lệ sở hữu", "mang": "D", "muc_quan_trong": true },
+        { "stt": 4, "ten": "Định hướng phát triển", "noi_dung": "Mục tiêu chủ yếu; chiến lược trung và dài hạn; mục tiêu phát triển bền vững", "mang": "E" },
+        { "stt": 5, "ten": "Các rủi ro", "noi_dung": "Rủi ro ảnh hưởng tới hoạt động hoặc tới việc thực hiện mục tiêu, gồm rủi ro môi trường, thiên tai, dịch bệnh" }
+      ]
+    },
+    {
+      "ma": "II",
+      "ten": "Tình hình hoạt động trong năm",
+      "vai_tro": "chi_muc_tai_lieu",
+      "muc": [
+        {
+          "stt": 1, "ten": "Tình hình hoạt động sản xuất kinh doanh", "mang": "C, E", "muc_quan_trong": true,
+          "muc_con": [
+            "Kết quả hoạt động SXKD trong năm: thay đổi lớn về chiến lược, doanh thu, lợi nhuận, chi phí, thị trường, sản phẩm, nguồn cung cấp",
+            "TÌNH HÌNH THỰC HIỆN SO VỚI KẾ HOẠCH: so sánh kết quả với chỉ tiêu kế hoạch và với năm liền kề, phân tích nguyên nhân đạt / không đạt / vượt"
+          ],
+          "ghi_chu": "Gạch đầu dòng thứ hai là NGUỒN PHÁP ĐỊNH CHO MẢNG E — luật bắt buộc phải có cả số kế hoạch lẫn số thực hiện lẫn lý do lệch"
+        },
+        { "stt": 2, "ten": "Tổ chức và nhân sự", "noi_dung": "Danh sách Ban điều hành kèm tỷ lệ sở hữu cổ phần có quyền biểu quyết; thay đổi trong Ban điều hành; số lượng cán bộ nhân viên và chính sách lao động" },
+        {
+          "stt": 3, "ten": "Tình hình đầu tư, tình hình thực hiện các dự án", "mang": "D", "muc_quan_trong": true,
+          "muc_con": [
+            "a) Các khoản đầu tư lớn: đầu tư tài chính và đầu tư dự án; tiến độ các dự án lớn; nếu đã chào bán chứng khoán để làm dự án thì phải nêu tiến độ và phân tích nguyên nhân đạt / không đạt cam kết",
+            "b) Các công ty con, công ty liên kết: tóm tắt hoạt động và tình hình tài chính"
+          ]
+        },
+        {
+          "stt": 4, "ten": "Tình hình tài chính", "mang": "A, B, C", "muc_quan_trong": true,
+          "bang": [
+            {
+              "ma": "bang_chi_tieu_tai_chinh",
+              "ten": "a) Tình hình tài chính",
+              "cot": ["Chỉ tiêu", "Năm X-1", "Năm X", "% tăng giảm"],
+              "dong_theo_mau": [
+                "Tổng giá trị tài sản", "Doanh thu thuần", "Lợi nhuận từ hoạt động kinh doanh",
+                "Lợi nhuận khác", "Lợi nhuận trước thuế", "Lợi nhuận sau thuế", "Tỷ lệ lợi nhuận trả cổ tức"
+              ],
+              "ghi_chu": "Mẫu có thêm một biến thể dành cho tổ chức tín dụng và tài chính phi ngân hàng — KHÔNG áp dụng cho CTR. Doanh nghiệp được thêm 'các chỉ tiêu khác' tuỳ ngành.",
+              "da_thay_o_CTR": "BCTN 2025 trang 27, đúng đủ 7 dòng"
+            },
+            {
+              "ma": "bang_he_so_tai_chinh",
+              "ten": "b) Các chỉ tiêu tài chính chủ yếu",
+              "cot": ["Chỉ tiêu", "Năm X-1", "Năm X", "Ghi chú"],
+              "muc_quan_trong": true,
+              "nhom": [
+                { "nhom": "1. Khả năng thanh toán", "he_so": [
+                  { "ten": "Hệ số thanh toán ngắn hạn", "cong_thuc": "Tài sản ngắn hạn / Nợ ngắn hạn", "mang": "B" },
+                  { "ten": "Hệ số thanh toán nhanh", "cong_thuc": "(Tài sản ngắn hạn - Hàng tồn kho) / Nợ ngắn hạn", "mang": "B" }
+                ]},
+                { "nhom": "2. Cơ cấu vốn", "he_so": [
+                  { "ten": "Hệ số Nợ / Tổng tài sản", "mang": "A" },
+                  { "ten": "Hệ số Nợ / Vốn chủ sở hữu", "mang": "A" }
+                ]},
+                { "nhom": "3. Năng lực hoạt động", "he_so": [
+                  { "ten": "Vòng quay hàng tồn kho", "cong_thuc": "Giá vốn hàng bán / Hàng tồn kho bình quân", "mang": "B" },
+                  { "ten": "Vòng quay tổng tài sản", "cong_thuc": "Doanh thu thuần / Tổng tài sản bình quân", "mang": "C" }
+                ]},
+                { "nhom": "4. Khả năng sinh lời", "he_so": [
+                  { "ten": "Lợi nhuận sau thuế / Doanh thu thuần", "mang": "C" },
+                  { "ten": "Lợi nhuận sau thuế / Vốn chủ sở hữu (ROE)", "mang": "C" },
+                  { "ten": "Lợi nhuận sau thuế / Tổng tài sản (ROA)", "mang": "C" },
+                  { "ten": "Lợi nhuận từ hoạt động kinh doanh / Doanh thu thuần", "mang": "C" }
+                ]}
+              ],
+              "gia_tri_voi_du_an": "Đây là bộ TỶ SỐ DO LUẬT QUY ĐỊNH, kèm sẵn công thức và số đã công bố. Dùng làm ĐỐI CHỨNG cho tỷ số hệ thống tự tính từ BCTC — nếu lệch thì biết ngay công thức hoặc số đầu vào sai.",
+              "da_thay_o_CTR": "BCTN 2025 trang 27–28, đủ 4 nhóm; CTR ghi rõ là số HỢP NHẤT"
+            }
+          ]
+        },
+        {
+          "stt": 5, "ten": "Cơ cấu cổ đông, thay đổi vốn đầu tư của chủ sở hữu", "mang": "A, F", "muc_quan_trong": true,
+          "muc_con": [
+            "a) Cổ phần: tổng số và loại cổ phần đang lưu hành, số tự do chuyển nhượng, số bị hạn chế chuyển nhượng",
+            "b) Cơ cấu cổ đông: cổ đông lớn / nhỏ, tổ chức / cá nhân, trong nước / nước ngoài, nhà nước / khác, tỷ lệ sở hữu nước ngoài tối đa",
+            "c) Tình hình thay đổi vốn đầu tư của chủ sở hữu: CÁC ĐỢT TĂNG VỐN kể từ khi thành lập — chào bán ra công chúng, chào bán riêng lẻ, chuyển đổi trái phiếu, chuyển đổi chứng quyền, cổ phiếu thưởng, TRẢ CỔ TỨC BẰNG CỔ PHIẾU (thời điểm, giá trị, đối tượng)",
+            "d) Giao dịch cổ phiếu quỹ: số lượng hiện có, các giao dịch trong năm kèm thời điểm, giá, đối tượng",
+            "e) Các chứng khoán khác đã phát hành và cam kết chưa thực hiện"
+          ],
+          "ghi_chu": "Mục c là LỊCH SỬ TĂNG VỐN TÍCH LUỸ TỪ KHI THÀNH LẬP — nguồn tốt nhất cho mảng A và F, không phải tra lại từng năm",
+          "da_thay_o_CTR": "BCTN 2025 trang 29–31, CTR tách thành 5 mục con và thêm 'Diễn biến giao dịch của cổ phiếu'"
+        },
+        {
+          "stt": 6, "ten": "Báo cáo tác động liên quan đến môi trường và xã hội (ESG)",
+          "bat_buoc": "co_the_tach_ra_bao_cao_rieng",
+          "muc_con": [
+            "6.1 Tác động lên môi trường: tổng phát thải khí nhà kính trực tiếp và gián tiếp, sáng kiến giảm phát thải",
+            "6.2 Quản lý nguồn nguyên vật liệu",
+            "6.3 Tiêu thụ năng lượng",
+            "6.4 Tiêu thụ nước",
+            "6.5 Tuân thủ pháp luật về bảo vệ môi trường: SỐ LẦN và TỔNG SỐ TIỀN bị xử phạt",
+            "6.6 Chính sách liên quan đến người lao động: số lượng lao động, mức lương trung bình, số giờ đào tạo trung bình",
+            "6.7 Trách nhiệm đối với cộng đồng địa phương",
+            "6.8 Hoạt động thị trường vốn xanh theo hướng dẫn của UBCKNN"
+          ],
+          "ghi_chu": "6.1, 6.2, 6.3 không bắt buộc với doanh nghiệp tài chính, ngân hàng, chứng khoán, bảo hiểm. Ngoài phạm vi A–F của đề tài nhưng có số định lượng nên vẫn nạp làm ngữ cảnh."
+        }
+      ]
+    },
+    {
+      "ma": "III",
+      "ten": "Báo cáo và đánh giá của Ban Giám đốc",
+      "vai_tro": "chi_muc_tai_lieu",
+      "mang": "E",
+      "muc_quan_trong": true,
+      "ghi_chu": "Tương đương phần MD&A của Form 10-K. Mẫu ghi rõ 'tối thiểu phải bao gồm' — doanh nghiệp được thêm.",
+      "muc": [
+        { "stt": 1, "ten": "Đánh giá kết quả hoạt động sản xuất kinh doanh", "mang": "E", "noi_dung": "Phân tích tổng quan hoạt động SO VỚI KẾ HOẠCH và với kết quả trước đây; nếu KHÔNG ĐẠT kế hoạch thì phải nêu rõ NGUYÊN NHÂN và TRÁCH NHIỆM của Ban Giám đốc; những tiến bộ đạt được" },
+        { "stt": 2, "ten": "Tình hình tài chính", "mang": "A, B", "muc_con": [
+          "a) Tình hình tài sản: biến động, hiệu quả sử dụng tài sản, NỢ PHẢI THU QUÁ HẠN ảnh hưởng tới kết quả kinh doanh",
+          "b) Tình hình nợ phải trả: nợ hiện tại, biến động lớn, NỢ PHẢI TRẢ QUÁ HẠN, ảnh hưởng của chênh lệch tỷ giá và chênh lệch lãi vay"
+        ]},
+        { "stt": 3, "ten": "Những cải tiến về cơ cấu tổ chức, chính sách, quản lý" },
+        { "stt": 4, "ten": "Kế hoạch phát triển trong tương lai", "mang": "E", "muc_quan_trong": true },
+        { "stt": 5, "ten": "Giải trình của Ban Giám đốc đối với ý kiến kiểm toán", "ghi_chu": "Chỉ có khi ý kiến kiểm toán KHÔNG phải là chấp nhận toàn phần — sự vắng mặt của mục này là một tín hiệu" },
+        { "stt": 6, "ten": "Báo cáo đánh giá liên quan đến trách nhiệm môi trường và xã hội" }
+      ]
+    },
+    {
+      "ma": "IV",
+      "ten": "Đánh giá của Hội đồng quản trị về hoạt động của Công ty",
+      "ap_dung": "công ty cổ phần",
+      "mang": "E",
+      "vai_tro": "chi_muc_tai_lieu",
+      "muc": [
+        { "stt": 1, "ten": "Đánh giá của HĐQT về các mặt hoạt động, gồm trách nhiệm môi trường và xã hội" },
+        { "stt": 2, "ten": "Đánh giá của HĐQT về hoạt động của Ban Giám đốc" },
+        { "stt": 3, "ten": "Các kế hoạch, định hướng của Hội đồng quản trị", "mang": "E" }
+      ]
+    },
+    {
+      "ma": "V",
+      "ten": "Quản trị công ty",
+      "vai_tro": "chi_muc_tai_lieu",
+      "muc": [
+        { "stt": 1, "ten": "Hội đồng quản trị", "muc_con": [
+          "a) Thành viên và cơ cấu HĐQT kèm tỷ lệ sở hữu cổ phần có quyền biểu quyết, thành viên độc lập, chức danh nắm giữ tại công ty khác",
+          "b) Các tiểu ban thuộc HĐQT",
+          "c) Hoạt động của HĐQT: SỐ CUỘC HỌP, nội dung và kết quả",
+          "d) Hoạt động của thành viên độc lập và của các tiểu ban",
+          "e) Danh sách thành viên có chứng chỉ đào tạo về quản trị công ty"
+        ]},
+        { "stt": 2, "ten": "Ban Kiểm soát hoặc Ủy ban kiểm toán", "muc_con": [
+          "a) Thành viên và cơ cấu kèm tỷ lệ sở hữu",
+          "b) Hoạt động: số cuộc họp, nội dung, kết quả"
+        ]},
+        { "stt": 3, "ten": "Các giao dịch, thù lao và các khoản lợi ích của HĐQT, Ban Giám đốc và Ban kiểm soát", "mang": "A, D", "muc_quan_trong": true, "muc_con": [
+          "a) Lương, thưởng, thù lao, các khoản lợi ích — PHẢI CÔNG BỐ CHI TIẾT CHO TỪNG NGƯỜI, ghi rõ số tiền cụ thể",
+          "b) GIAO DỊCH CỔ PHIẾU CỦA NGƯỜI NỘI BỘ: HĐQT, BKS, TGĐ, Kế toán trưởng, cán bộ quản lý, Thư ký công ty, cổ đông lớn và người liên quan",
+          "c) Hợp đồng hoặc giao dịch với người nội bộ",
+          "d) Đánh giá việc thực hiện các quy định về quản trị công ty: nội dung CHƯA thực hiện được, nguyên nhân và kế hoạch khắc phục"
+        ], "da_thay_o_CTR": "BCTN 2025 trang 59 — CTR không đưa mục này lên mục lục, phải tìm trong thân bài" }
+      ]
+    },
+    {
+      "ma": "VI",
+      "ten": "Báo cáo tài chính",
+      "vai_tro": "mot_phan_bo_qua",
+      "muc": [
+        { "stt": 1, "ten": "Ý kiến kiểm toán", "vai_tro": "metadata", "ghi_chu": "GIỮ LẠI — đây là nguồn xác định loại ý kiến kiểm toán cho metadata tài liệu" },
+        { "stt": 2, "ten": "Báo cáo tài chính được kiểm toán", "vai_tro": "bo_qua", "ghi_chu": "Trùng với tệp BCTC riêng → bỏ qua để tránh nhân đôi số liệu. Lưu ý mẫu quy định: nếu phải lập hợp nhất thì BCTC trong BCTN là BẢN HỢP NHẤT." }
+      ]
+    },
+    { "ma": "ky", "ten": "Nơi nhận và xác nhận của người đại diện theo pháp luật", "vai_tro": "bo_qua" }
+  ],
+
+  "doi_chieu_voi_CTR": {
+    "tep_da_doi_chieu": "data/raw/CTR/02_bao_cao_thuong_nien/2025/thuong_nien/BC-Thuong-nien-2025_TV_260409_14h.pdf (78 trang)",
+    "ket_luan": "CTR bám sát Phụ lục IV: PHẦN 1–6 ứng một-một với I–VI. Các bảng theo mẫu được tái hiện gần như nguyên văn.",
+    "cho_CTR_dat_lai_ten_hoac_them": [
+      "Thêm ở đầu: Danh mục từ viết tắt, Thông điệp Chủ tịch HĐQT, Thông điệp Tổng Giám đốc, 'Nhìn lại năm 2025' (trang con số ấn tượng)",
+      "PHẦN 1: tách 'Lịch sử hình thành và phát triển' và 'Công ty con / Công ty liên kết' thành mục riêng; đổi 'Các rủi ro' thành 'Quản trị rủi ro'",
+      "PHẦN 2: thêm 'Phân tích tài chính', 'Thông tin cơ bản cổ phiếu', 'Diễn biến giao dịch của cổ phiếu', 'Lịch sử chi trả cổ tức và tăng vốn từ nguồn vốn chủ sở hữu'",
+      "PHẦN 3: tách mục 1 thành 'Đánh giá thực hiện các chỉ tiêu kế hoạch' + 'Đánh giá các mặt hoạt động' + 'Đánh giá tình hình tài chính'; mục 'Kế hoạch phát triển / kế hoạch năm 2026' có 5 mục con",
+      "PHẦN 5: mục lục chỉ ghi 'HĐQT và các tiểu ban' và 'Ban kiểm soát'; phần thù lao và giao dịch người nội bộ nằm trong thân bài (trang 59), không lên mục lục"
+    ],
+    "bang_vang_cho_mang_E": {
+      "vi_tri": "BCTN 2025 trang 34, mục 'Đánh giá thực hiện các chỉ tiêu kế hoạch'",
+      "cot": ["TT", "Tên chỉ tiêu", "TH năm trước", "KH năm nay", "TH năm nay", "%KH", "∆ so với năm trước", "% so với năm trước"],
+      "dong": ["Tổng doanh thu", "Tổng chi phí", "LNTT", "LNST", "ROA", "ROE"],
+      "so_bang": "Hai bảng: một hợp nhất, một riêng",
+      "y_nghia": "Có ĐỦ cả số kế hoạch, số thực hiện và tỷ lệ hoàn thành trong cùng một bảng. Đây là nguồn mảng E TỐT HƠN nghị quyết ĐHĐCĐ, vì nghị quyết chỉ có số kế hoạch."
+    },
+    "canh_bao_so_lieu_lech": {
+      "hien_tuong": "Thư Tổng Giám đốc (trang 5) ghi 'doanh thu đạt 14.050 tỷ đồng và lợi nhuận sau thuế 745,1 tỷ đồng'. Bảng trang 34 ghi tổng doanh thu 14.058 tỷ, LNTT 746 tỷ, LNST 600 tỷ. Bảng trang 27 ghi doanh thu thuần 13.940 tỷ.",
+      "ket_luan": "Con số 745,1 trong thư khớp với LỢI NHUẬN TRƯỚC THUẾ chứ không phải sau thuế; và 'doanh thu' trong thư là TỔNG doanh thu chứ không phải doanh thu THUẦN.",
+      "quy_tac_rut_ra": "Chỉ lấy số từ BẢNG, không lấy từ văn xuôi. Nếu buộc phải dùng số trong văn xuôi thì phải kèm cảnh báo. Đây cũng là một ca kiểm thử tốt cho nhóm câu hỏi an toàn."
+    }
+  },
+
+  "quy_tac_kiem_tra": [
+    "Thiếu phần III (Báo cáo và đánh giá của Ban Giám đốc) hoặc phần IV (Đánh giá của HĐQT) thì đánh dấu CAN_KIEM_TRA — mảng E phụ thuộc hai phần này",
+    "Thiếu bảng 'Các chỉ tiêu tài chính chủ yếu' thì đánh dấu CAN_KIEM_TRA — mất bộ tỷ số đối chứng",
+    "Thiếu mục ESG không coi là lỗi (được tách thành báo cáo riêng)",
+    "Nhận dạng mục theo ý nghĩa, không khớp cứng theo tên — doanh nghiệp được đặt lại tên và thêm mục",
+    "Số liệu trong BCTN mặc định là HỢP NHẤT trừ khi ghi rõ khác",
+    "Không lấy số từ văn xuôi khi đã có bảng"
+  ],
+
+  "viec_con_lai": [
+    "Đối chiếu thêm một BCTN của doanh nghiệp khác (FPT hoặc CMC) để chắc khung dùng chung được, không chỉ đúng với CTR",
+    "Kiểm tra BCTN 2019–2021 của CTR xem có theo Phụ lục IV không (Thông tư 96/2020 hiệu lực từ 01/01/2021; trước đó là Thông tư 155/2015/TT-BTC — CHƯA KIỂM CHỨNG)"
+  ]
+}

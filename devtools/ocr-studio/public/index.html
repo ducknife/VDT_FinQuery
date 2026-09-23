@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OCR Studio — FinQuery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* ===== DO + TRANG, chi mot che do toi ===== */
+  :root{
+    --nen:#3C3C3C; --nen2:#343434; --vien:#565656;
+    --chu:#FFFFFF; --chu-mo:#A8A8A8; --chu-rat-mo:#707070;
+    --do:#E3350D; --do-sang:#FF5A36; --tren-do:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:var(--nen); color:var(--chu);
+    font-family:"JetBrains Mono",ui-monospace,Consolas,monospace;
+    font-size:13px; line-height:1.5; overflow:hidden;
+  }
+  #goc{height:100vh;display:flex;flex-direction:column}
+
+  /* ---------- thanh tren ---------- */
+  header{
+    display:flex;align-items:center;gap:13px;padding:10px 16px;flex-wrap:wrap;
+    background:var(--nen2);border-bottom:2px solid var(--do);
+  }
+  .hieu{font-weight:700;letter-spacing:1px;white-space:nowrap}
+  .hieu b{color:var(--do)}
+  .chip{
+    border:1px solid var(--vien);border-radius:3px;padding:2px 9px;
+    color:var(--chu-mo);font-size:11px;white-space:nowrap;letter-spacing:.4px
+  }
+  .chip.on{color:var(--tren-do);background:var(--do);border-color:var(--do)}
+  .chip.off{color:var(--do);border-color:var(--do)}
+  .day{flex:1}
+  button{
+    font:inherit;font-weight:700;cursor:pointer;border-radius:3px;padding:7px 15px;
+    border:1px solid var(--vien);background:transparent;color:var(--chu);
+    letter-spacing:.5px;transition:background .13s ease,color .13s ease,border-color .13s ease;
+  }
+  button:hover:not(:disabled){border-color:var(--do);color:var(--do)}
+  button:disabled{opacity:.4;cursor:not-allowed}
+  button.chinh{background:var(--do);border-color:var(--do);color:var(--tren-do)}
+  button.chinh:hover:not(:disabled){background:var(--do-sang);border-color:var(--do-sang)}
+  button.dung{border-color:var(--do);color:var(--do)}
+  button.dung:hover{background:var(--do);color:var(--tren-do)}
+  select,input[type=number]{
+    font:inherit;background:var(--nen);color:var(--chu);
+    border:1px solid var(--vien);border-radius:3px;padding:5px 7px
+  }
+  select:focus,input:focus{outline:none;border-color:var(--do)}
+  label{color:var(--chu-mo);font-size:11px;display:flex;align-items:center;gap:6px}
+
+  /* ---------- than ---------- */
+  main{flex:1;display:grid;grid-template-columns:minmax(360px,410px) 1fr;min-height:0}
+  @media (max-width:980px){ main{grid-template-columns:1fr;grid-template-rows:auto 1fr} }
+  .trai{border-right:1px solid var(--vien);display:flex;flex-direction:column;min-height:0;overflow:auto;padding:14px}
+  .phai{display:flex;flex-direction:column;min-height:0}
+
+  /* ---------- the so lieu ---------- */
+  .luoi{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .the{border:1px solid var(--vien);border-radius:3px;padding:9px 11px;background:var(--nen2)}
+  .the .nhan{font-size:10px;color:var(--chu-mo);text-transform:uppercase;letter-spacing:.6px}
+  .the .so{font-size:20px;font-weight:700;line-height:1.25}
+  .the.do{border-color:var(--do)}
+  .the.do .so{color:var(--do)}
+
+  .thanh{margin-top:12px}
+  .thanh .dong{display:flex;justify-content:space-between;font-size:11px;color:var(--chu-mo);gap:8px}
+  .thanh .dong b{color:var(--do);font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .vach{font-size:12px;letter-spacing:-1px;color:var(--do);word-break:break-all;margin-top:3px}
+  .vach .trong{color:var(--vien)}
+  .uoc{margin-top:8px;font-size:11px;color:var(--chu-mo)}
+
+  table{width:100%;border-collapse:collapse;margin-top:14px;font-size:11px}
+  th,td{text-align:left;padding:4px 6px;border-bottom:1px solid var(--vien)}
+  th{color:var(--chu-mo);font-weight:400;text-transform:uppercase;font-size:10px;letter-spacing:.5px}
+  td.p{text-align:right;font-variant-numeric:tabular-nums}
+  td.xong{color:var(--do);font-weight:700}
+
+  /* ---------- qua cau duoi bang: khong vien, khong nen, khong nhan ---------- */
+  .qua-cau{
+    margin-top:auto;padding-top:18px;display:flex;justify-content:center;
+    pointer-events:none;flex-shrink:0
+  }
+  .qua-cau pre{
+    margin:0;font-family:inherit;white-space:pre;
+    font-size:9px;line-height:1.02;letter-spacing:0
+  }
+
+  /* ---------- khung log ---------- */
+  .khung-log{flex:1;min-height:0;position:relative;overflow:hidden;background:var(--nen)}
+  .may{position:absolute;inset:0;z-index:1;overflow:auto;padding:12px 16px 12px 240px;background:transparent}
+  .dong-log{white-space:pre-wrap;word-break:break-word;animation:hien .16s ease;position:relative}
+  @keyframes hien{from{opacity:0}to{opacity:1}}
+  .gio{color:var(--chu-rat-mo)}
+  .ok{color:var(--chu)}
+  .loi{color:var(--do);font-weight:700}
+  .bo{color:var(--chu-rat-mo)}
+  .tep{color:var(--do);font-weight:700}
+  .nhat{color:var(--chu-mo)}
+  .cho{color:var(--chu-mo);font-style:italic}
+
+  /* Charmander: goc tren trai, khong vien, khong nen */
+  .goc-charmander{
+    position:absolute;top:8px;left:12px;z-index:2;pointer-events:none;
+    opacity:1;
+    filter:saturate(1.25) brightness(1.15);
+    transition:filter .5s ease
+  }
+  .goc-charmander.dang{filter:saturate(1.45) brightness(1.3) drop-shadow(0 0 10px rgba(227,53,13,.35))}
+  .goc-charmander pre{
+    margin:0;font-family:inherit;white-space:pre;
+    font-size:7px;line-height:1.02;letter-spacing:0
+  }
+
+  /* ---------- dai lua ngay tren chan trang ---------- */
+  .dai-lua{
+    display:flex;align-items:flex-end;justify-content:center;
+    overflow:hidden;pointer-events:none;
+    background:var(--nen2);opacity:.5;transition:opacity .5s ease;
+    /* lam mo hai mep de khong lo cho cat ngang */
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)
+  }
+  .dai-lua.dang{opacity:1}
+  .dai-lua pre{
+    margin:0 -2px;font-family:inherit;white-space:pre;
+    font-size:5px;line-height:1;letter-spacing:0;align-self:flex-end
+  }
+
+  .chan{
+    border-top:1px solid var(--do);padding:9px 16px;background:var(--nen2);
+    display:flex;gap:16px;align-items:center;font-size:11px;color:var(--chu-mo)
+  }
+  .chan .cau{flex:1;color:var(--chu);font-size:13px}
+  .chan .may-chay{color:var(--do);font-weight:700;letter-spacing:1px;white-space:nowrap}
+  .nguoi-nhay{
+    font-size:26px;line-height:1;color:var(--chu-mo);white-space:nowrap;
+    min-width:190px;display:inline-block
+  }
+  .nguoi-nhay.dang{
+    color:var(--do);text-shadow:0 0 14px rgba(227,53,13,.4);
+    animation:nhun .24s steps(2) infinite alternate
+  }
+  @keyframes nhun{from{transform:translateY(0) rotate(-3deg)}to{transform:translateY(-4px) rotate(3deg)}}
+</style>
+</head>
+<body>
+  <div id="goc"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
