@@ -1,0 +1,3 @@
+BÁO CÁO TÀI CHÍNH RIÊNG  
+TỔNG CÔNG TY CỔ PHẦN CÔNG TRÌNH VIETTEL  
+Cho kỳ kế toán từ 01/01/2022 đến 31/12/2022

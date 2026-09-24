@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Bi mat — KHONG BAO GIO commit ###
+# Goc du an da co dong `.env` phu moi cap, nhung khai lai o day
+# de neu thu muc nay tach thanh repo rieng thi van duoc chan.
+.env
+.env.*
+!.env.example

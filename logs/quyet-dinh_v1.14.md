@@ -295,7 +295,7 @@ Nhờ vậy trích dẫn vẫn chỉ đúng được vị trí.
 - **Quyết định:** hạ về **Spring Boot 3.5.16** (bản mới nhất của dòng 3.x trên Maven Central ngày 17/09/2026) và dùng **Spring AI 1.1.8** (bản mới nhất của dòng 1.1.x).
 - **Lý do:**
   1. **Khớp chắc chắn:** POM của Spring AI 1.1.8 trên Maven Central khai báo phụ thuộc Spring Boot **3.5.15**, cùng dòng 3.5.
-  2. Dòng Spring AI 1.1.x đã ổn định, và BOM có đủ module cần dùng: tool calling, `spring-ai-rag`, vector store MariaDB, Transformers/ONNX, cùng nhiều nhà cung cấp LLM.
+  2. Dòng Spring AI 1.1.x đã ổn định, và BOM có đủ module cần dùng: tool calling, `spring-ai-rag`, vector store MySQL, Transformers/ONNX, cùng nhiều nhà cung cấp LLM.
   3. Hệ sinh thái Boot 3 (tài liệu, ví dụ, thư viện bên thứ ba) còn phong phú hơn Boot 4, nên ít rủi ro hơn trong 6 tuần.
   4. Code hiện có chưa dùng API riêng của Boot 4 (chỉ có `FinqApplication` và test mặc định), nên hạ phiên bản không phải sửa code.
 - **Phương án khác đã cân nhắc:** giữ Boot 4 và dùng Spring AI 2.0.x (đã có 2.0.1). Không chọn vì dòng 2.0 còn mới (vừa ra bản chính thức), ví dụ và kinh nghiệm cộng đồng còn ít, và chủ đề tài muốn dùng Boot 3.

@@ -26,6 +26,7 @@ const CAU_VUI = [
   "Dấu tiếng Việt đã được cứu.",
   "Số âm nằm trong ngoặc, đã ghi nhận.",
   "Đừng lo, token còn nhiều lắm.",
+  "Tool OCR: Create By Ducknife",
   "Một trang nữa thôi... ờ, còn vài nghìn.",
   "Poké Ball đang quay, đừng chớp mắt.",
 ];
