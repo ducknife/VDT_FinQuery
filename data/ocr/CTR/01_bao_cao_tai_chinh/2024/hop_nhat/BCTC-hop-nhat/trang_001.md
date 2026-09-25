@@ -1,0 +1,3 @@
+BÁO CÁO TÀI CHÍNH HỢP NHẤT  
+TỔNG CÔNG TY CỔ PHẦN CÔNG TRÌNH VIETTEL  
+Cho kỳ kế toán từ 01/01/2024 đến 30/06/2024

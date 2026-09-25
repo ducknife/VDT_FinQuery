@@ -1,0 +1,48 @@
+Tổng Công ty Cổ phần Công trình Viettel  
+Số 01 Phố Giang Văn Minh, quận Ba Đình, Hà Nội  
+
+Báo cáo tài chính riêng  
+Cho kỳ kế toán từ ngày 01/01/2023 đến ngày 30/09/2023  
+
+Hàng tồn kho được ghi nhận ban đầu theo giá gốc bao gồm: chi phí mua, chi phí chế biến và các chi phí liên quan trực tiếp khác phát sinh để có được hàng tồn kho ở địa điểm và trạng thái tại thời điểm ghi nhận ban đầu. Sau ghi nhận ban đầu, tại thời điểm lập Báo cáo tài chính nếu giá trị thuần có thể thực hiện được của hàng tồn kho thấp hơn giá gốc thì hàng tồn kho được ghi nhận theo giá trị thuần có thể thực hiện được.
+
+Giá trị hàng tồn kho được xác định theo phương pháp bình quân gia quyền theo mỗi lần nhập.
+
+Hàng tồn kho được hạch toán theo phương pháp kê khai thường xuyên.
+
+Chi phí sản xuất kinh doanh được tập hợp theo từng hợp đồng ký với chủ đầu tư. Đối với các công trình Công ty tự thực hiện, chi phí sản xuất kinh doanh dở dang là tập hợp hợp chi phí, khối lượng đã thực hiện tại Xí nghiệp hạch toán phụ thuộc. Đối với các công trình thuê ngoài thực hiện, chi phí sản xuất kinh doanh dở dang được ghi nhận khi hạng mục công trình đã được nghiệm thu và khối lượng thực hiện đã được chấp nhận thanh toán. Chi phí sản xuất kinh doanh dở dang là chi phí của các công trình, hợp đồng đang thực hiện dở dang hoặc đã hoàn thành nhưng chưa được chủ đầu tư nghiệm thu, chấp nhận thanh toán.
+
+Hàng gửi bán được sử dụng để theo dõi hàng bán đã chuyển đi cho đối tác nhưng chưa hoàn thành thủ tục bàn giao nghiệm thu và chưa được chấp nhận thanh toán.
+
+Dự phòng giảm giá hàng tồn kho được lập vào thời điểm cuối kỳ căn cứ theo số chênh lệch giữa giá gốc của hàng tồn kho lớn hơn giá trị thuần có thể thực hiện được.
+
+## 2.10. Tài sản cố định
+
+Tài sản cố định hữu hình và tài sản cố định vô hình được ghi nhận ban đầu theo giá gốc. Trong quá trình sử dụng, tài sản cố định hữu hình và tài sản cố định vô hình được ghi nhận theo nguyên giá, hao mòn lũy kế và giá trị còn lại.
+
+Khấu hao tài sản cố định được trích theo phương pháp đường thẳng với thời gian khấu hao được ước tính như sau:
+
+| Danh mục tài sản | Thời gian khấu hao |
+|------------------|--------------------|
+| - Nhà cửa, vật kiến trúc | 06 - 20 năm |
+| - Máy móc, thiết bị | 05 - 15 năm |
+| - Phương tiện vận tải | 05 - 10 năm |
+| - Thiết bị văn phòng | 03 - 08 năm |
+| - Quyền sử dụng đất | 50 năm |
+| - Quyền sử dụng đất không xác định thời hạn | Không tính khấu hao |
+| - Phần mềm quản lý | 03 năm |
+
+## 2.11. Bất động sản đầu tư
+
+Bất động sản đầu tư được ghi nhận ban đầu theo giá gốc.  
+Đối với bất động sản đầu tư cho thuê hoạt động được ghi nhận theo nguyên giá, hao mòn lũy kế và giá trị còn lại. Trong đó khấu hao được trích theo phương pháp đường thẳng với thời gian khấu hao được ước tính như sau:
+
+| Danh mục tài sản | Thời gian khấu hao |
+|------------------|--------------------|
+| - Cơ sở hạ tầng | 06 năm |
+
+## 2.12. Chi phí xây dựng cơ bản dở dang
+
+Chi phí xây dựng cơ bản dở dang bao gồm tài sản cố định đang mua sắm và xây dựng mà chưa hoàn thành tại ngày kết thúc kỳ kế toán năm và được ghi nhận theo giá gốc. Chi phí này bao gồm các chi phí về xây dựng, lắp đặt máy móc thiết bị và các chi phí trực tiếp khác.
+
+10

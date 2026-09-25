@@ -1,0 +1,6 @@
+# SEPARATE FINANCIAL STATEMENTS
+
+## VIETTEL CONSTRUCTION JOINT STOCK CORPORATION
+
+For the fiscal year ended as at 31 December 2024  
+(Audited)

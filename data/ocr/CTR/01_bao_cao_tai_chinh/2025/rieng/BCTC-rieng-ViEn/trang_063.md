@@ -1,0 +1,45 @@
+# Viettel Construction Joint Stock Corporation
+No. 01 Giang Van Minh, Giang Vo ward, Hanoi city.
+
+## Separate financial statements
+For the fiscal year ended 31/12/2025
+
+---
+
+## 31. CURRENT CORPORATE INCOME TAX EXPENSES
+
+| | Year 2025 VND | Year 2024 VND |
+|---|---|---|
+| **Corporate income tax from main business activities** | | |
+| Total profit before tax | 711,954,795,276 | 650,646,629,183 |
+| Increase | 1,483,831,949 | 6,175,158,078 |
+| - Corporate income tax paid on income received abroad | - | 28,447,895 |
+| - Investment costs not forming assets | - | 5,714,710,183 |
+| - Loss from revaluation of cash balances and receivables at the end of the period | 394,347,583 | - |
+| - Other non-deductible expenses | 1,089,484,366 | 432,000,000 |
+| Decrease | - | (20,091,263,533) |
+| - Foreign exchange gain from revaluation of cash balance and receivables at the end of the period | - | (1,666,478,604) |
+| - Foreign exchange loss from revaluation of cash balance, receivables at the end of previous period made in this period | - | (428,086,129) |
+| - Profits received from subsidiaries | (26,298,017,759) | (17,996,698,800) |
+| Taxable income | 687,140,609,466 | 616,639,260,195 |
+| **Current corporate income tax expense from main business activities (Tax rate 20%)** | **137,428,073,678** | **127,346,104,746** |
+| | | |
+| **Corporate income tax from preferential business** | | |
+| Total accounting profit before corporate income tax | 14,693,309,688 | 9,250,174,599 |
+| Taxable income | 14,693,309,688 | 9,250,174,599 |
+| **Current corporate income tax expense from preferential business activities (tax rate 10%)** | **1,469,330,969** | **925,017,460** |
+| | | |
+| **Total current corporate Income tax Expense** | **138,897,404,647** | **128,271,122,206** |
+
+---
+
+## 32. BUSINESS AND PRODUCTIONS COST BY ITEMS
+
+| | Year 2025 VND | Year 2024 VND |
+|---|---|---|
+| Raw materials | 2,584,910,556,109 | 2,151,832,974,984 |
+| Labour expenses | 4,575,088,214,125 | 4,169,338,090,722 |
+| Depreciation expenses | 352,860,436,315 | 318,507,988,193 |
+| Expenses of outsourcing services | 1,227,851,864,523 | 832,722,178,345 |
+| Other expenses in cash | 1,150,920,340,527 | 897,992,880,094 |
+| | **9,891,631,411,599** | **8,370,394,112,338** |
