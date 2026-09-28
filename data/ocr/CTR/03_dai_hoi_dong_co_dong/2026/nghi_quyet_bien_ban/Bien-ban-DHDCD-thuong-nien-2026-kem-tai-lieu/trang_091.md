@@ -1,0 +1,3 @@
+| STT | Điều, Khoản, điểm | Nội dung hiện tại | Nội dung đề xuất sửa đổi | Lý do |
+| :--- | :--- | :--- | :--- | :--- |
+| 8. | Điều 6 Khoản 1 Điều 34: Tiền chuẩn của TGD | Không được là người có quan hệ gia đình của người quản lý Tổng Công ty, Kiểm soát viên của Tổng Công ty và Tập đoàn, người đại diện phân vốn nhà nước tại Tập đoàn, người đại diện phân vốn của Tập đoàn tại Tổng Công ty; | Không được là người có liên quan của người quản lý doanh nghiệp, Kiểm soát viên của công ty và Tập đoàn, người đại diện phân vốn nhà nước, người đại diện phân vốn của doanh nghiệp tại công ty và Tập đoàn. | Căn cứ Khoản 83 Điều 1 Nghị định 245/2025/NĐ-CP. Người có liên quan bao hàm cả người “Người có quan hệ gia đình” |

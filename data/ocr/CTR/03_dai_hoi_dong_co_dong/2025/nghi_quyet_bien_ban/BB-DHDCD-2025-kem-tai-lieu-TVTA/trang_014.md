@@ -1,0 +1,4 @@
+| TT | Cổ đông | Câu hỏi | Đoàn Chủ tịch trả lời |
+|---|---|---|---|
+| 14 | Cổ đông Huy (online) | Xin hỏi việc nhà mạng lắp đặt 20.000 trạm 5G trong năm 2025 được hỗ trợ 15% vốn đầu tư, Viettel có áp dụng cho CTR việc này không? CTR có đặt mục tiêu này để nhận thưởng cho Viettel không? | CTR sẽ tham gia thầu lắp đặt trạm 5G với Viettel. Chúng tôi cố gắng để được trúng thầu, Chủ đầu tư sẽ yêu cầu tiến độ rất nhanh, nếu CTR trúng thầu và hoàn thành công việc có thể sẽ được Viettel khen thưởng. |
+| 15 | Cổ đông Phương (online) | Xin Quý công ty chia sẻ thông tin về phần công nợ của dự án Dự án Louis City Hoàng Mai? | Công nợ với dự án LouisCity Hoàng Mai đang thực hiện theo hợp đồng có điều khoản trả chậm. Trong năm nay Chủ đầu tư sẽ cam kết thanh toán đầy đủ. CTR vẫn đang tiếp tục hợp tác với chủ đầu tư dự án trên ở những dự án khác. Khi có rủi ro thì kiểm toán sẽ yêu cầu công ty trích lập và công ty sẽ trích lập đầy đủ. |

@@ -1,0 +1,12 @@
+public investment in 2025 approved by the National Assembly is approximately VND 790 trillion, focusing on large-scale projects such as the North–South Expressway Phase 2, Long Thanh International Airport, urban ring roads, and logistics infrastructure. At the same time, Vietnam continues to promote international economic integration through the implementation of new-generation free trade agreements such as CPTPP, EVFTA and RCEP, thereby expanding export markets and attracting foreign investment flows.
+
+The Resolution on the new Electricity Law and the revised Power Development Plan VIII has been issued, opening up significant potential for the renewable energy sector. The 2024 Land Law and the amended Real Estate Business Law provide a more favorable legal framework for the construction and real estate investment sectors. The 2025 Corporate Income Tax Law allows enterprises to strengthen investment in science and technology. In particular, the Law on Management and Investment of State Capital in Enterprises No. 68/2025/QH15 opens up new space and development opportunities for enterprises such as VCC.
+
+Alongside achievements in politics, economics and legislation, 2025 also marked unprecedented records in natural disasters in Vietnam. The East Sea recorded 21 storms and tropical depressions—the highest level in recorded history. This created significant pressure on VCC’s business operations, particularly in the operation and exploitation segment.
+
+Facing these opportunities and challenges, VCC’s leadership promptly implemented strategic adjustments and maintained strong, decisive, and closely supervised management to ensure smooth operations and rapid adaptation to market fluctuations. These efforts have made a significant contribution to the outstanding performance and growth across all key business indicators of VCC.
+
+In addition, 2025 was also a year in which VCC was facilitated by the Group to participate in many large and key projects, thereby enhancing its capabilities and creating a foundation for breakthrough development in the coming period. In 2025, VCC rapidly mobilized its workforce and focused on execution, successfully installing 6,452 5G base stations, contributing significantly to the Group’s total of 22,400 stations during the year. Alongside this, VCC has been and continues to coordinate with other units within the Group to implement several large-scale infrastructure projects and key national projects.
+
+2. Assessment of plan performance  
+- Consolidated planning indicators:

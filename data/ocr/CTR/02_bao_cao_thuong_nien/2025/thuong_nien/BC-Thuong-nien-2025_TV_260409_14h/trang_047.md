@@ -1,0 +1,39 @@
+# BÁO CÁO THƯỜNG NIÊN 2025 - VIETTEL CONSTRUCTION
+
+## II. ĐÁNH GIÁ CỦA HĐQT VỀ TRÁCH NHIỆM VỚI CÁC BÊN HỮU QUAN
+
+Viettel Construction từ một doanh nghiệp tốt đến phát triển bền vững chúng tôi xây dựng chiến lược tăng trưởng gắn với trách nhiệm xã hội theo mô hình 3P: People (Con người) – Planet (Hành tinh) – Profit (Lợi nhuận).
+
+### 1. Với xã hội/Cộng đồng:
+
+- Chúng tôi cam kết đóng góp nhiều nhất cho cộng đồng xã hội. Tích cực tham gia các chương trình xóa đói, giảm nghèo, ủng hộ trường học, người có hoàn cảnh khó khăn.
+- Tổng Công ty tham gia các hoạt động xã hội, từ thiện đạt kết quả thiết thực, với tổng số tiền đóng góp: Quỹ Bảo trợ trẻ em 106 triệu đồng; Quỹ Mái ấm Công đoàn – Nghĩa tình đồng đội 244 triệu đồng; Quỹ Vì người nghèo 2,821 tỷ đồng. Đồng thời, triển khai kế hoạch hoạt động gắn kết nội bộ trong toàn Tổng Công ty theo phương châm mỗi Công đoàn bộ phận tổ chức ít nhất 01 hoạt động giao lưu thể thao, văn hóa – văn nghệ/quý; Công đoàn cơ sở hỗ trợ 100% các đầu mối Công đoàn bộ phận, với tổng kinh phí gần 500 triệu đồng/quý.
+- Quán triệt và thực hiện hiệu quả triết lý kinh doanh “Phát triển hoạt động sản xuất, kinh doanh gắn liền với trách nhiệm xã hội, cộng đồng”, Tổng Công ty duy trì thường xuyên hoạt động chăm sóc, thăm viếng, tri ân các Anh hùng Liệt sĩ tại Nghĩa trang Liệt sĩ phường Mê Trì (Nam Từ Liêm, Hà Nội) vào ngày mùng 01 âm lịch hằng tháng, cũng như tại các nghĩa trang liệt sĩ trên 34 tỉnh, thành phố trong cả nước. Bên cạnh đó, Tổng Công ty tích cực tham gia các hoạt động an sinh xã hội, đối ngoại nhân dân: ủng hộ nhân dân Cuba số tiền 579 triệu đồng; hỗ trợ xây dựng 10 căn nhà cho các gia đình chính sách, hộ có hoàn cảnh khó khăn tại tỉnh Quảng Ngãi, với tổng kinh phí 800 triệu đồng; ủng hộ kinh phí trồng cây xanh tại Trường Sa, trị giá 50 triệu đồng.
+
+### 2. Với môi trường: Mục tiêu của Chúng tôi là:
+
+- Không có vi phạm các yêu cầu của pháp luật liên quan đến môi trường
+- Tăng cường sử dụng năng lượng tái tạo hoặc tái sử dụng, tiết kiệm năng lượng, giảm phát thải khí nhà kính, có tối thiểu 01 SK/YT về bảo vệ môi trường được áp dụng vào thực tế.
+
+### 3. Với Người lao động:
+
+- VCC là ngôi nhà chung, là môi trường học tập và thăng tiến. Quan điểm của TCT là hình thành “văn hóa tổ chức học tập”, phương châm “Học tập chủ động”, mỗi cá nhân sẽ xác định lộ trình học tập tương ứng của mình để làm tốt công việc. Trong năm 2025, TCT đã tập trung xây dựng và triển khai thành công phần mềm học tập chủ động CALS, Số khóa học trong năm là 1.383 khóa, với hàng nghìn bài giảng điện tử được thực hiện, phù hợp với xu thế đào tạo trong kỷ nguyên mới.
+- Số giờ đào tạo trung bình mỗi năm cho mỗi nhân viên: 83,64 giờ/năm.
+- Các chương trình đào tạo nâng cao nhận thức, kỹ năng cho Cán bộ nhân viên năm 2025 tập trung vào 4 nhóm: Đào tạo giá trị cốt lõi, khung tuân thủ. Đào tạo nâng cao kỹ năng, chuyên môn, nghiệp vụ. Đào tạo kỹ năng quản lý, lãnh đạo. Đào tạo chuyển dịch chiến lược theo kế hoạch và chiến lược kinh doanh.
+- Tỷ lệ phần trăm nhân viên được đánh giá định kỳ hiệu quả công việc và phát triển nghề nghiệp: Năm 2025 số lượt CBNV đã được đào tạo kỹ năng, nâng cao hiệu quả công việc là 141.463 lượt người, đã mang lại hiệu quả cho cá nhân và tổ chức, giúp tăng NSLD, hoàn thành KH SXKD năm 2025 của Tổng Công ty.
+- VCC luôn ý thức được rằng mỗi giá trị của từng thành viên tạo ra đều góp phần vào thành công của doanh nghiệp. Không phân biệt giới tính, độ tuổi, nguồn gốc dân tộc, các đối tượng được đánh giá dễ bị tổn thương trong xã hội đều được VCC xây dựng một môi trường làm việc năng động, minh bạch, công bằng.
+- Tổng Công ty xác định An toàn và Sức khỏe nghề nghiệp là yếu tố cốt lõi trong chiến lược phát triển bền vững, nhằm bảo vệ quyền lợi người lao động, đảm bảo sự ổn định trong hoạt động sản xuất – kinh doanh và hướng tới tăng trưởng dài hạn. Tổng Công ty đã xây dựng Kế hoạch triển khai công tác An toàn và Sức khỏe nghề nghiệp một cách bài bản, có lộ trình rõ ràng, đồng thời ký kết hợp đồng với đối tác chuyên môn (Trung tâm Sức khỏe nghề nghiệp – Viện Khoa học an toàn và vệ sinh lao động) nhằm thực hiện các hoạt động trọng tâm như: quan trắc đánh giá môi trường lao động, để xác định các công việc có nguy cơ bị bệnh nghề nghiệp và danh mục công việc cần khám bệnh nghề nghiệp tại đơn vị.
+- Tổng Công ty luôn quan tâm, chăm sóc đến lợi ích người lao động, có mối quan hệ tốt đẹp giữa quản lý và người lao động để cùng hiểu 1 ngôn ngữ, 1 cách làm, phát huy truyền thống người lính cụ Hồ.
+- Công tác chính sách dân vận, thường xuyên quan tâm, chăm lo đến các tổ chức xã hội và đời sống cán bộ, nhân viên. Nổi bật là việc triển khai chính sách đặc thù, chương trình “Ngôi nhà Đoàn kết”. Năm 2025, Tổng Công ty đã xét duyệt xây dựng 31 căn nhà “Ngôi nhà Đoàn kết”. Bên cạnh đó, chính sách “Tặng 20 triệu đồng cho cặp đôi VCC kết hôn” tiếp tục nhận được sự hưởng ứng tích cực trong toàn Tổng Công ty; trong năm 2025 đã có 04 cặp đôi được trao quà, với tổng kinh phí 80 triệu đồng.
+- Công tác chăm sóc, động viên con em CBNV được triển khai đồng bộ, hiệu quả: tổ chức Tết Trung thu cho 13.461 cháu thiếu nhi trên toàn quốc, với tổng kinh phí 4,038 tỷ đồng; trao thưởng cho 4.944 cháu học sinh giỏi năm học 2025–2026, với số tiền 1,288 tỷ đồng. Tháng Công nhân năm 2025, Tổng Công ty đã trợ cấp khó khăn cho 117 CBNV và thân nhân, với tổng số tiền 752 triệu đồng; tổ chức thăm hỏi, tặng quà nhân ngày Thương binh – Liệt sĩ 27/7 cho 595 thân nhân, trị giá 308 triệu đồng. Trước ảnh hưởng của thiên tai, bão lũ, Tổng Công ty đã kịp thời hỗ trợ 470 CBNV và thân nhân, với tổng số tiền 3,348 tỷ đồng. Ngoài ra, công tác chăm lo dịp Tết được thực hiện chu đáo, với tổng kinh phí hơn 1 tỷ đồng, trao quà cho 81 cán bộ nghỉ hưu, 15 gia đình liệt sĩ, các gia đình có CBNV và thân nhân chủ yếu từ trần trong năm 2025, 21 CBNV mắc bệnh hiểm nghèo, bệnh điều trị dài ngày và 123 thân nhân CBNV.
+
+### 4. Với nhà cung cấp:
+
+- Thông lệ mua sắm: Với mô hình trải dài khắp cả nước tại 34 tỉnh/TP. Nhằm đáp ứng nhu cầu về hàng hóa/phục vụ sản xuất kinh doanh. VCC đã tổ chức bộ máy riêng biệt tại các tỉnh/TP có kỹ năng trong công tác mua sắm, lựa chọn nhà thầu. Bằng chứng là việc hàng nghìn hợp đồng được ký kết với hàng nghìn các đối tác trên địa bàn địa phương. Tỷ lệ mua sắm tại địa phương lên đến 50% so với tổng giá trị mua sắm của VCC và phản ánh qua doanh thu của TCT.
+- Quy trình mua sắm: Quá trình lựa chọn và đánh nhà cung cấp, VCC không chỉ lựa chọn các nhà cung cấp theo các nhóm tiêu chí truyền thống như tài chính, năng lực sản xuất, dịch vụ sau bán hàng... Tổng Công ty cam kết việc đánh giá và lựa chọn nhà cung cấp của VCC luôn hướng đến các yếu tố về môi trường và xã hội để phát triển trong dài hạn, theo định hướng chiến lược phát triển của VCC. Các yếu tố này bao gồm các tác động thực tế và tiềm tàng của các nhà cung cấp tới môi trường và xã hội. Việc lựa chọn nhà cung cấp luôn đảm bảo hài hòa các yếu tố kinh tế, môi trường và xã hội (ESG). Tổng Công ty ưu tiên quyết định việc lựa chọn các đơn vị tuân thủ các yêu cầu của pháp luật về môi trường và xã hội cho phát triển bền vững.
+- VCC tôn trọng quyền lợi hợp pháp của các chủ nợ và cam kết đảm bảo các quyền lợi hợp pháp này được đảm bảo thực hiện. Tùy vào tình huống cụ thể cũng như yêu cầu và kết quả đàm phán với các chủ nợ, VCC sử dụng một hoặc nhiều biện pháp đảm bảo sau đây:
+  - Sử dụng tài sản thế chấp là tài sản của VCC để đảm bảo cho các khoản nợ.
+  - Sử dụng bảo lãnh tín chấp hoặc các hình thức khác theo thỏa thuận với chủ nợ.
+  - Thỏa thuận với các chủ nợ về các nhóm biện pháp đảm bảo cho tài sản được tài trợ bởi chủ nợ như việc mua bảo hiểm, bảo dưỡng tài sản...
+  - Báo cáo định kỳ về việc thực hiện các điều khoản bảo đảm cũng như công bố thông tin về các biện pháp bảo đảm việc thực hiện quyền của chủ nợ.
+  - Việc áp dụng biện pháp bảo đảm nào luôn đảm bảo nguyên tắc hài hòa lợi ích của chủ nợ và VCC và tuân thủ các quy định của pháp luật.

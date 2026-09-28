@@ -16,7 +16,7 @@ Thư mục này ghi lại **đã làm gì, vì sao, kết quả ra sao** trong s
 | Nhật ký | Việc đã làm theo từng ngày | [nhat-ky_v1.0.md](nhat-ky_v1.0.md) |
 | Phạm vi đề tài | Mục tiêu, 6 mảng A–F, cách 2 paper được áp dụng | [pham-vi_v1.0.md](pham-vi_v1.0.md) |
 | Dữ liệu | Nguồn, cấu trúc thư mục, thống kê, chất lượng, lỗ hổng | [du-lieu_v1.0.md](du-lieu_v1.0.md) |
-| Công nghệ | Stack và công cụ, lý do chọn | [cong-nghe_v1.3.md](cong-nghe_v1.3.md) |
+| Công nghệ | Stack và công cụ, lý do chọn | [cong-nghe_v1.4.md](cong-nghe_v1.4.md) |
 | Quyết định | Sổ quyết định (QĐ-xxx): bối cảnh, lựa chọn, lý do | [quyet-dinh_v1.14.md](quyet-dinh_v1.14.md) |
 | Kế hoạch | Bốn khối nền, lộ trình, thứ tự cắt giảm khi trễ | [ke-hoach_v1.1.md](ke-hoach_v1.1.md) |
 | Kế hoạch đánh giá | Bộ test T1–T9, cách đo độ trễ/token/chi phí, chiến lược 3 lớp, tác động khi đổi mô hình | [danh-gia_v1.3.md](danh-gia_v1.3.md) |

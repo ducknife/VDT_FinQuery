@@ -1,0 +1,61 @@
+# BÁO CÁO PHÁT TRIỂN BỀN VỮNG THEO ESG
+
+## 14. SỨC KHỎE VÀ AN TOÀN CỦA KHÁCH HÀNG
+
+### 14.1. SỰ HÀI LÒNG CỦA KHÁCH HÀNG
+
+VCC luôn lắng nghe đóng góp, ý kiến của khách hàng qua các chương trình đánh giá khảo sát, đo lường sự hài lòng của khách hàng với cách thức thực hiện đa dạng và tiện lợi cho khách hàng (Khảo sát trực tuyến, gọi điện thoại khảo sát,...).
+
+Trong năm 2023, VCC ghi nhận 48.422 khách hàng tham gia khảo sát, trong đó 96,8% khách hàng đánh giá hài lòng đối với chất lượng, dịch vụ mà công ty cung cấp. Bên cạnh đó, VCC cũng thực hiện khảo sát khách hàng có sẵn sàng giới thiệu sản phẩm, dịch vụ sau khi đã trải nghiệm sản phẩm, dịch vụ. Theo đó, VCC ghi nhận 14.064 khách hàng tham gia đánh giá có 84,7% khách hàng sẵn sàng giới thiệu sản phẩm, dịch vụ cho bạn bè, người thân.
+
+#### Kết quả khảo sát sự hài lòng của khách hàng
+
+| Hài lòng | Bình thường | Không hài lòng |
+|----------|---------------|-----------------|
+| 96,8%    | 2,6%          | 0,5%            |
+
+#### Kết quả khảo sát sự sẵn sàng giới thiệu SP/DV của khách hàng
+
+| Sẵn sàng | Chưa sẵn sàng | Không sẵn sàng |
+|----------|----------------|-----------------|
+| 89,1%    | 6,5%           | 4,4%            |
+
+### 14.2. GIẢI QUYẾT YÊU CẦU/KHIẾU NẠI CỦA KHÁCH HÀNG
+
+Trong năm 2023, để đo lường sự hài lòng của khách hàng, sau mỗi yêu cầu hỗ trợ/ khiếu nại của khách hàng đã được phản hồi/xử lý, nhân viên chăm sóc khách hàng tiến hành liên hệ thăm hỏi cũng như khảo sát sự hài lòng của khách hàng đối với công tác hỗ trợ, xử lý khiếu nại của các bộ phận, phòng ban, chi nhánh công trình. Kết quả cho thấy có 76,5% khách hàng đánh giá hài lòng về kết quả phản hồi/xử lý yêu cầu, khiếu nại của khách hàng.
+
+Trong năm 2024, với mong muốn đáp ứng cao nhất mong đợi của khách hàng, bên cạnh các chương trình chăm sóc khách hàng, VCC sẽ tiếp tục chuẩn hóa lại “Quy trình xử lý phản ánh của khách hàng” cùng với việc hoàn thiện hệ thống Customer Information Management (CIM) để có thể nâng cao tỷ lệ hài lòng của khách hàng sau khi giải quyết yêu cầu/khiếu nại từ khoảng 80% đến 90% so với năm 2023.
+
+→ KHÔNG CÓ VỤ VIỆC KHÔNG TUÂN THỦ.
+
+#### Kết quả khảo sát sự hài lòng của khách hàng sau mỗi yêu cầu/khiếu nại
+
+| Hài lòng | Bình thường | Không hài lòng |
+|----------|---------------|-----------------|
+| 76,5%    | 15,8%         | 7,8%            |
+
+## 15. TIẾP THỊ VÀ NHÃN HIỆU
+
+- Các yêu cầu đối với thông tin nhãn hiệu, sản phẩm và dịch vụ.
+- Các vụ việc không tuân thủ liên quan đến thông tin và nhãn hiệu của sản phẩm và dịch vụ.
+- Các vụ việc không tuân thủ liên quan đến truyền thông tiếp thị.
+- Hiện TCT chưa có khiếu nại về nhãn hiệu sản phẩm/dịch vụ; Không xâm phạm quyền sở hữu trí tuệ của các đơn vị khác; Đã ban hành hướng dẫn triển khai các chương trình khuyến mại số 25/HD-PC&KSNB; Có báo cáo rà soát các chương trình khuyến mại đã triển khai năm 2022; Đã gửi danh sách nhãn hiệu đăng ký với cục Sở hữu trí tuệ.
+
+## 16. QUYỀN BẢO MẬT THÔNG TIN KHÁCH HÀNG
+
+VCC cam kết luôn đảm bảo bảo vệ và bảo mật thông tin khách hàng theo đúng quy định của pháp luật, cam kết theo đúng quyền lợi của khách hàng. VCC đã ban hành Chính sách bảo vệ dữ liệu cá nhân của khách hàng thực hiện theo đúng Nghị định số 13/2023/NĐ-CP ngày 14/04/2023 của Chính phủ. Theo đó, chính sách nêu rõ mục đích sử dụng dữ liệu cá nhân, cách thức xử lý dữ liệu, quyền và nghĩa vụ của khách hàng.
+
+Bên cạnh đó, VCC đảm bảo đa dạng kênh chăm sóc khách hàng để có thể hỗ trợ và đáp ứng tốt nhất những yêu cầu của khách hàng một cách nhanh chóng khi có thắc mắc, yêu cầu xử lý về thông tin khách hàng.
+
+- Hotline chăm sóc khách hàng: 1900 98 98 68
+- Website: https://viettelconstruction.com.vn/
+- Email: cskhcongtrinhviettel@viettel.com.vn
+- Facebook: Viettel Construction
+
+## 17. TUÂN THỦ VỀ KINH TẾ, XÃ HỘI
+
+- VCC đã thực hiện đảm bảo tuân thủ các quy định pháp luật, không có các hành vi vi phạm các quy định trong lĩnh vực kinh tế và xã hội.
+
+---
+
+**TỔNG CÔNG TY CỔ PHẦN CÔNG TRÌNH VIETTEL**

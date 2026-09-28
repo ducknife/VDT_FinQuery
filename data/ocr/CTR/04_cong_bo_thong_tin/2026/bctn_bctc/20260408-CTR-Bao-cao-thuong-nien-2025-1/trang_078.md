@@ -1,0 +1,51 @@
+# BÁO CÁO THƯỜNG NIÊN 2025 - VIETTEL CONSTRUCTION
+
+## Phụ lục 05: BẢNG ĐỔI CHIỀU BIẾN ĐỘNG CỦA VỐN CHỦ SỞ HỮU (tiếp theo)
+
+**Tổng Công ty Cổ phần Công trình Viettel**  
+Số 01 Giang Văn Minh, phường Giảng Võ, thành phố Hà Nội  
+
+**Báo cáo tài chính hợp nhất**  
+cho năm tài chính kết thúc ngày 31/12/2025  
+
+(*) Theo Nghị quyết Đại hội đồng cổ đông thường niên năm 2025 số 17/NG-VCC ngày 16/04/2025, Tổng Công ty công bố phương án phân phối lợi nhuận như sau:
+
+| | Số phân phối theo Nghị quyết VND | Số thực tế phân phối VND | Chênh lệch VND |
+|---|---|---|---|
+| Tổng Lợi nhuận sau thuế dùng để phân phối | 540.823.764.717 | 540.823.764.717 | - |
+| + Trích Quỹ đầu tư phát triển | 159.487.704.473 | 159.487.704.473 | - |
+| + Trích Quỹ khen thưởng, phúc lợi | 132.906.420.394 | 132.906.420.394 | - |
+| + Trích Quỹ thưởng cho người quản lý | 2.500.000.000 | 2.500.000.000 | - |
+| + Chi trả cổ tức bằng tiền mặt từ Lợi nhuận sau thuế | 245.929.639.850 | 245.929.639.850 | - |
+| | **540.823.764.717** | **540.823.764.717** | **-** |
+
+---
+
+## Phụ lục 06: BÁO CÁO BỘ PHẬN
+
+**Tổng Công ty Cổ phần Công trình Viettel**  
+Số 01 Giang Văn Minh, phường Giảng Võ, thành phố Hà Nội  
+
+**Báo cáo tài chính hợp nhất**  
+cho năm tài chính kết thúc ngày 31/12/2025  
+
+### Theo lĩnh vực kinh doanh
+
+| | Hoạt động xây lắp VND | Hoạt động vận hành khai thác và ứng cứu thông tin VND | Hoạt động thương mại và giải pháp tích hợp VND | Hoạt động kinh doanh hạ tầng cho thuê VND | Hoạt động dịch vụ kỹ thuật VND | Tổng cộng toàn doanh nghiệp VND |
+|---|---|---|---|---|---|---|
+| Doanh thu thuần từ bán hàng ra bên ngoài | 4.763.834.944.490 | 6.257.160.419.782 | 1.905.272.337.812 | 857.443.041.129 | 155.806.525.929 | 13.939.517.269.142 |
+| Giá vốn hàng bán | 4.502.665.137.792 | 5.908.094.585.669 | 1.807.546.368.741 | 606.855.584.707 | 129.415.018.850 | 12.957.576.695.759 |
+| **Lợi nhuận từ hoạt động kinh doanh** | **261.169.806.698** | **349.065.834.113** | **97.725.969.071** | **247.587.456.422** | **26.391.507.079** | **981.940.573.383** |
+| Tổng chi phí mua tài sản cố định và bất động sản đầu tư của các bộ phận | - | 11.973.864.586 | - | 223.899.499.651 | - | 235.873.364.237 |
+| Tổng chi phí mua tài sản cố định và bất động sản đầu tư không phân bổ | | | | | | 6.363.271.072 |
+| **Tổng chi phí mua tài sản cố định và bất động sản đầu tư** | **-** | **11.973.864.586** | **-** | **223.899.499.651** | **-** | **242.236.635.309** |
+| Tài sản bỏ phận | 1.695.256.976.363 | 1.168.607.743.855 | 188.271.299.678 | 1.641.842.709.657 | 17.550.439.435 | 4.711.529.168.988 |
+| Tài sản không phân bổ | | | | | | 3.474.015.665.681 |
+| **Tổng tài sản** | **1.695.256.976.363** | **1.168.607.743.855** | **188.271.299.678** | **1.641.842.709.657** | **17.550.439.435** | **8.185.544.854.669** |
+| Nợ phải trả của các bộ phận | 1.625.508.659.100 | 403.824.595.948 | 46.510.629.816 | 1.181.342.022.555 | 1.581.581.118 | 3.258.767.588.537 |
+| Nợ phải trả không phân bổ | | | | | | 2.859.601.066.702 |
+| **Tổng nợ phải trả** | **1.625.508.659.100** | **403.824.595.948** | **46.510.629.816** | **1.181.342.022.555** | **1.581.581.118** | **6.118.368.595.239** |
+| **Theo khu vực địa lý** | | | | | | |
+| Doanh thu thuần từ bán hàng ra bên ngoài | | | | | | 13.939.517.269.142 |
+| Tổng tài sản | | | | | | 8.185.544.854.669 |
+| Tổng chi phí mua tài sản cố định và bất động sản đầu tư | | | | | | 242.236.635.309 |

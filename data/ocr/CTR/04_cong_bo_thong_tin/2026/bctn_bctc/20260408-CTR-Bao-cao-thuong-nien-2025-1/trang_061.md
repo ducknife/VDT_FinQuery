@@ -1,0 +1,10 @@
+BÁO CÁO THƯỜNG NIÊN 2025 - VIETTEL CONSTRUCTION
+
+TRANG 60
+
+---
+
+PHẦN 6
+
+BÁO CÁO TÀI CHÍNH 2025  
+ĐÃ ĐƯỢC KIỂM TOÁN

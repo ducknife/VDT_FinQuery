@@ -1,0 +1,15 @@
+14
+
+- Bên B phải thông báo cho Bên A biết tình trạng, nguyên nhân và cách khắc phục sự việc. Bên B có trách nhiệm phối hợp với các cơ quan chức năng có thẩm quyền giải quyết vụ việc khi được yêu cầu.
+- Sử dụng tài sản, vật tư, thiết bị do Bên A bàn giao đúng mục đích, đúng tiêu chuẩn kỹ thuật của nhà sản xuất và đúng quy định của Bên A.
+- Sử dụng tiền tạm ứng đúng mục đích, Bên A có quyền thu lại tiền tạm ứng nếu Bên B sử dụng tiền tạm ứng không đúng mục đích phục vụ cho Hợp đồng này.
+- Bên B hoặc nhân sự của Bên B (liên quan hoặc không liên quan đến quá trình cung cấp dịch vụ của hợp đồng) không được phép tự ý cho đơn vị thứ ba thuê, sử dụng chung hạ tầng mạng lưới, nhà trạm, hạ tầng mạng ngoại vi, vật tư, thiết bị, công cụ, dụng cụ, phương tiện đã bàn giao mà chưa được sự đồng ý của Bên A. Nếu vi phạm, Bên B có trách nhiệm đền bù thiệt hại do các hạng mục vi phạm gây ra theo Điều 14.
+- Bên B có trách nhiệm tổ chức và vận hành bộ máy để luôn sẵn sàng tiếp nhận thêm quy mô. Tổ chức, điều động, điều hành bộ máy để thực hiện thêm các nhiệm vụ đột suất trong các lễ hội, sự kiện, các tình huống phòng chống, khắc phục hậu quả của thiên tai hoặc các nhiệm vụ khác theo yêu cầu của Bên A.
+- Bên B phải luôn có nguồn lực để sẵn sàng điều động, huy động khắc phục các vi phạm, lỗi thuộc trách nhiệm của Bên B đảm bảo KPI, mức độ dịch vụ, các yêu cầu khác trong hợp đồng. Mọi chi phí liên quan để đảm bảo KPI, mức độ dịch vụ, các yêu cầu khác trong hợp đồng này do Bên B chi trả.
+- Cử nhân sự thực hiện có trình độ chuyên môn, có chứng chỉ phù hợp theo quy định của pháp luật, có kỹ năng và kinh nghiệm đáp ứng công việc được giao. Trong khi thực hiện các yêu cầu trong hợp đồng này thì Bên B chịu toàn bộ trách nhiệm pháp lý liên quan đến người lao động, phương tiện của Bên B.
+- Bên B có trách nhiệm sử dụng các phần mềm do Bên A trang bị và đảm bảo để số liệu trên phần mềm và thực tế giống nhau.
+- Có trách nhiệm đào tạo và giáo dục nhân sự có ý thức hoàn thành tốt nhiệm vụ, sáng tạo trong công việc, trách nhiệm bảo vệ tài sản, bảo vệ hình ảnh của Viettel, cách ứng xử văn hóa và chuyên nghiệp đối với khách hàng.
+- Đảm bảo công cụ, dụng cụ, phương tiện và bảo hộ lao động cho nhân sự của Bên B để thực hiện các công việc theo hợp đồng đảm bảo chất lượng và an toàn lao động.
+- Bên B phải thực hiện phân tích, đánh giá, tìm nguyên nhân của lỗi, vi phạm, sự cố trên mạng lưới và báo cáo theo yêu cầu của Bên A.
+- 100% người lao động trước khi tham gia cung cấp dịch vụ phải được đào tạo, sát hạch đạt về trình độ chuyên môn, an toàn lao động, văn hóa phục vụ khách hàng; được trang bị smart phone, cài đặt và sử dụng các ứng dụng công nghệ thông tin do Bên A quy định. Bên B chịu trách nhiệm giám sát, kiểm tra đảm bảo thực hiện, tuân thủ đầy đủ các yêu cầu này.
+- Bên B có trách nhiệm kiểm soát, ngăn chặn mọi hành vi gian lận về vật tư, nguyên, nhiên vật liệu dưới mọi hình thức; phối hợp đưa ra các giải pháp chống thất thoát năng lượng. Trong trường hợp vi phạm quy định này, Bên B sẽ phải chịu các chế tài như quy định tại Điều 14 của Hợp đồng.

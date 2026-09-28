@@ -1,0 +1,41 @@
+# THÔNG ĐIỆP CHỦ TỊCH HỘI ĐỒNG QUẢN TRỊ
+
+Kính thưa Quý Cổ đông, Khách hàng, Đối tác và toàn thể CBNV,
+
+Năm 2022, tình hình thế giới biến động nhanh và phức tạp, cạnh tranh chiến lược giữa các nước lớn ngày càng gay gắt, xung đột Nga - Ukraine kéo dài, làm phát thế giới tăng cao, xu hướng tăng lãi suất, thắt chặt chính sách tiền tệ, tài khóa và hậu quả của đại dịch COVID-19 dẫn đến suy giảm tăng trưởng kinh tế toàn cầu, rủi ro tài chính, tiền tệ, mất an ninh năng lượng, lương thực đang hiện hữu ...
+
+Ở trong nước, áp lực lạm phát tăng cao; giá xăng dầu, nguyên vật liệu biến động mạnh, ảnh hưởng lớn đến nhiều ngành, lĩnh vực; trong khi đó, dịch bệnh, thiên tai, bão lũ diễn biến phức tạp, gây nhiều thiệt hại cho sản xuất kinh doanh và đời sống của người dân. Phát huy truyền thống đoàn kết, sáng tạo, điều hành quyết liệt, ứng phó linh hoạt, Công trình Viettel đã duy trì tốt hoạt động sản xuất kinh doanh với doanh thu tăng trưởng 26%, lợi nhuận sau thuế tăng trưởng 18% và tăng trưởng doanh thu của các lĩnh vực đạt trên 20% so với cùng kỳ, đảm bảo công việc và thu nhập cho người lao động cũng như có các hoạt động xã hội thiết thực, ý nghĩa.
+
+Năm 2022, Công trình Viettel chính thức trở thành Towerco số 01 tại Việt Nam; bước đầu Công ty phối hợp với các đối tác nghiên cứu, sản xuất, đưa vào kinh doanh các sản phẩm OEM mang thương hiệu AIO; kiện toàn mô hình tổ chức cũng như hệ thống hóa bộ văn hóa doanh nghiệp,... nhằm đảm bảo các mục tiêu theo định hướng chiến lược đã đề ra; mã cổ phiếu CTR đã niêm yết trên Hose là kết quả bước đầu trong quá trình nâng cao công tác quản trị công ty theo như cam kết của HĐQT về việc nâng cao công tác thực thi quản trị thông qua tuân thủ Bộ quy tắc Quản trị Công ty của Việt Nam.
+
+Năm 2023 vẫn còn có nhiều thách thức, với phương châm hành động “Trong - Liên kết phát triển, Ngoài - Tăng trưởng bền vững” và truyền thống của Công ty, tôi hoàn toàn tin tưởng Công trình Viettel sẽ hoàn thành những kế hoạch, mục tiêu đã đề ra; khẳng định vị thế số 01 Việt Nam trong lĩnh vực vận hành khai hạ tầng mạng lưới viễn thông và Towerco.
+
+Thay mặt Ban lãnh đạo, tôi xin gửi lời cảm ơn sự tin tưởng, ủng hộ, đồng hành của Quý cổ đông, đối tác, khách hàng và cảm ơn toàn thể CBNV về sự nỗ lực, hết lòng vì khách hàng. Kính chúc các quý vị sức khỏe, thành công và hạnh phúc.
+
+Trân trọng cảm ơn!
+
+**CHỦ TỊCH**
+
+Đỗ Mạnh Hùng
+
+---
+
+# THÔNG ĐIỆP TỔNG GIÁM ĐỐC
+
+Thay mặt Ban Điều hành Tổng Công ty, Tôi xin gửi tới Quý vị lời chào, lời chúc sức khỏe, hạnh phúc và thành công.
+
+Năm 2022 đã trở nên ý nghĩa với Viettel Construction khi Tổng Công ty đã vượt qua mọi khó khăn của thị trường để thiết lập mức doanh thu đột phá đạt 9.398 tỷ đồng (tăng trưởng 26% so với cùng kỳ), đạt 109% so với kế hoạch năm 2022 8.586,3 tỷ đồng.
+
+Viettel Construction đã khẳng định được vị thế và vươn lên trở thành TowerCo số 1 Việt Nam sở hữu 4.286 trạm BTS; 1,87 triệu m2 DAS; 2.988,1 km truyền dẫn. Tổng Công ty đã đồng hành và xây dựng hàng nghìn biệt thự/nhà ở dân dụng, cung cấp dịch vụ kỹ thuật cho hơn 110.000 hộ gia đình và 2.000 hệ thống các cửa hàng trên cả nước,...
+
+Trong năm qua, Viettel Construction được nhiều tổ chức và đơn vị uy tín vinh danh với 12 Giải thưởng trong nước và 01 giải quốc tế. Tiêu biểu như: Top 50 Công ty niêm yết tốt nhất Việt Nam; Top 50 Thương hiệu Nhà tuyển dụng hấp dẫn; Doanh nghiệp Chuyên đổi số hệ sinh thái xuất sắc; Top 50 doanh nghiệp tăng trưởng xuất sắc Việt Nam; Giải thưởng Sao khuê và Giải thưởng quốc tế Business Excellence Awards,...
+
+Bước sang năm 2023, chủ trương của Chính phủ tập trung phát triển hoàn thiện hệ thống kết cấu hạ tầng chiến lược đồng bộ, hạ tầng giao thông, hạ tầng ứng phó với biến đổi khí hậu, hạ tầng số, thúc đẩy tăng trưởng xanh, chuyển đổi số... Đây là cơ hội để Viettel Construction tiếp tục phát triển ở cả 6 lĩnh vực trọng điểm: Đầu tư hạ tầng, Xây dựng (bao gồm xây dựng hạ tầng viễn thông, xây dựng dân dụng B2B và B2C), Công nghệ thông tin, Giải pháp tích hợp, Dịch vụ Kỹ thuật và Vận hành khai thác.
+
+Với niềm tin ấy, Viettel Construction đặt mục tiêu trở thành doanh nghiệp có doanh thu tỷ đô vào năm 2025. Trên cơ sở định hướng trở thành nhà đầu tư, vận hành, cung cấp công trình thông minh, hiệu quả cao nhất.
+
+Trân trọng cảm ơn!
+
+**TỔNG GIÁM ĐỐC**
+
+Phạm Đình Trường

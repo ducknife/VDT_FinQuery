@@ -1,0 +1,7 @@
+# APPENDIX 2.
+## Detailed amendments and supplements to the Charter.
+
+| No. | Article, Clause, Point | Current contents | Proposed amendments | Reasons |
+|-----|------------------------|------------------|---------------------|---------|
+| 1. | Clause 3, Article 2: Registered address of the Corporation. | The registered office of the Corporation is as follows: -Head office: No. 01, Giang Van Minh Street, Kim Ma Ward, Ba Dinh District, Hanoi, Vietnam. -Telephone: 024.6275.1785 -Fax: 024.6275.1783 -E-mail: vietelxkct@viettel.com.vn -Website: www.congtrinhviettel.com.vn | The registered office of the Corporation is as follows: -Head office: No. 01, Giang Van Minh Street, Giang Vo Ward, Hanoi, Vietnam. -Telephone: 024.6275.1783 -Fax: -E-mail: congtrinhviettel@viettel.com.vn -Website: congtrinhviettel.com.vn | Updated to reflect actual information |
+| 2. | Clause 1, Article 4: Business lines of Corporation | 86 business lines | Supplement 4 business lines: -4773: Retail of other new goods (Details: Retail of energy storage systems). -4659: Wholesale of other machinery, equipment and spare parts (Details: Wholesale of energy storage systems). -4672: Wholesale of metals and metal ores (excluding export, import, and distribution activities for goods subject to the List of goods in which foreign investors are not permitted to exercise export rights, import rights, or distribution rights in accordance with applicable laws). -4671: Wholesale of solid, liquid, | - |

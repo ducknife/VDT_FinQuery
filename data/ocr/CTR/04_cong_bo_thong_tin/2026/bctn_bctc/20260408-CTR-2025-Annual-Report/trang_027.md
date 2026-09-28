@@ -1,0 +1,16 @@
+ANNUAL REPORT 2025 - VIETTEL CONSTRUCTION                                                                 PAGE 26
+
+## II. ORGANIZATION AND HUMAN RESOURCES
+
+### 1. LIST OF EXECUTIVE BOARD (BOARD OF MANAGEMENT AND CHIEF ACCOUNTANT)
+
+| MEMBERS           | TITLE                                 | SUMMARY OF BIOGRAPHY                                                                                                                               | NUMBER OF SHARES / OWNERSHIP RATIO     | HOLDINGS OF OTHER SECURITIES ISSUED BY THE COMPANY |
+|-------------------|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|----------------------------------------------------|
+| PHAM DINH TRUONG  | Member of the Board of Directors cum Chief Executive Officer (CEO) | Prior to joining VCC, he held various leadership positions at Viettel, including General Director of Viettel Network Corporation and Deputy General Director of Viettel Telecom Corporation. On April 7, 2017, the Board of Directors appointed him as Deputy Director of the Company. On October 18, 2018, he was appointed as Chief Executive Officer by the Board of Directors. On January 26, 2019, he was elected to the Board of Directors by the General Meeting of Shareholders. | 20,332 shares ~ 0.018%.                | None                                               |
+| DAO THU HIEN      | Deputy General Director               | Prior to her appointment as Deputy General Director, she was the Director of a Business Center at VCC. On March 22, 2017, the Board of Directors appointed her as Deputy Director of the Company. | 64,291 shares ~ 0.056%.                | None                                               |
+| NGUYEN HUY DUNG   | Deputy General Director               | Prior to his appointment as Deputy General Director, he held Deputy General Director of Telecom International Myanar Co., Ltd. On February 27, 2020, the Board of Directors appointed him as Deputy Director of the Company. | 32.216 cp ~ 0.028%.                    | None                                               |
+| TRAN THUC LINH    | Deputy General Director               | Prior to his appointment as Deputy General Director, he was the Director of the Operations & Exploitation Center. On December 18, 2024, the Board of Directors appointed him as Deputy Director of the Company. | 19,339 shares ~ 0.017%                 | None.                                              |
+| DANG VAN CHUNG    | Deputy General Director               | Prior to his appointment as Deputy General Director, he is the Director of the B2B Construction Center. On December 18, 2024, the Board of Directors appointed him as Deputy Director of the Company. | 4,800 shares ~ 0.004%                  |                                                    |
+| PHAM TUAN         | Chief Accountant                      | Prior to joining VCC, he is the Deputy Head of Finance Department at Viettel Telecom Corporation. On May 15, 2024, the Board of Directors appointed him as Chief Accountant. | 400 shares ~ 0.00%                     |                                                    |
+
+*Changes in the Executive Board in 2024: None.*

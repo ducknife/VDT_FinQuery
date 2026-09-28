@@ -1,0 +1,43 @@
+
+
+<!-- ===== 001 ===== -->
+
+TẬP ĐOÀN CÔNG NGHIỆP - VIỄN THÔNG QUÂN ĐỘI  
+TỔNG CÔNG TY CP CÔNG TRÌNH VIETTEL  
+
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM  
+Độc lập – Tự do – Hạnh phúc  
+
+Số: 07/BC-VCC-BKS  
+Hà Nội, ngày 02 tháng 04 năm 2021  
+
+# TỜ TRÌNH ĐẠI HỘI ĐỒNG CỔ ĐÔNG  
+## Về việc lựa chọn đơn vị kiểm toán Báo cáo tài chính năm 2021  
+
+Kính gửi: Đại hội đồng cổ đông Tổng Công ty cổ phần Công trình Viettel.  
+
+Căn cứ Điều lệ Tổng Công ty cổ phần Công trình Viettel;  
+Căn cứ chức năng nhiệm vụ của Ban Kiểm soát quy định tại Điều lệ tổ chức và hoạt động của Tổng Công ty cổ phần Công trình Viettel,  
+Ban kiểm soát kính trình Đại hội đồng cổ đông về việc lựa chọn đơn vị kiểm toán Báo cáo tài chính năm 2021 như sau:  
+
+### 1. Yêu cầu đối với đơn vị kiểm toán  
+- Là đơn vị kiểm toán được Ủy ban chứng khoán Nhà nước chấp nhận kiểm toán cho các Công ty đại chúng.  
+- Là đơn vị kiểm toán có kinh nghiệm kiểm toán lĩnh vực kinh doanh của Tổng Công ty, có uy tín về chất lượng dịch vụ và đảm bảo thời gian kiểm toán, phí kiểm toán.  
+
+### 2. Đề xuất của Ban Kiểm soát  
+Dựa theo tiêu chí trên, Ban kiểm soát đề xuất các công ty kiểm toán sau:  
+1. Công ty TNHH Deloitte Việt Nam  
+2. Công ty TNHH Ernst & Young Việt Nam  
+3. Công ty TNHH Hãng kiểm toán AASC  
+4. Công ty TNHH Kiểm toán và thẩm định giá Việt Nam  
+
+Kính đề nghị Đại hội ủy quyền cho Hội đồng quản trị quyết định lựa chọn một Công ty Kiểm toán trong danh sách các công ty nêu trên theo đề xuất của Ban Kiểm soát và giao Tổng Giám đốc ký kết hợp đồng dịch vụ kiểm toán với Công ty Kiểm toán được chọn để thực hiện kiểm toán hoặc soát xét Báo cáo tài chính bán niên (6 tháng) và Báo cáo tài chính năm 2021 của Tổng Công ty theo quy định của pháp luật và quy chế nội bộ của Tổng Công ty.  
+
+Kính trình Đại hội xem xét thông qua./.  
+
+**TM. BAN KIỂM SOÁT**  
+**TRƯỞNG BAN**  
+
+*(Con dấu: TỔNG CÔNG TY CỔ PHẦN CÔNG TRÌNH VIETTEL - M.S.D.N: 0104753865 - Q. BA ĐÌNH - TP. HÀ NỘI)*  
+
+**NGÔ QUANG TUỆ**

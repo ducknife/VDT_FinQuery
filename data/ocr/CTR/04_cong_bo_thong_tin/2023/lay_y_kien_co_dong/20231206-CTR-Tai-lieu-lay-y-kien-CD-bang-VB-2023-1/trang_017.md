@@ -1,0 +1,14 @@
+- “Tổng số đường dây thuê bao triển khai mới CDBR” của tháng N là tổng số các đường dây thuê bao triển khai mới và các đường dây triển khai thay đổi địa chỉ lắp đặt được nghiệm thu trong thời gian từ ngày đầu tiên tới ngày cuối cùng của tháng N.
+- “Tài sản hữu hình” là toàn bộ hạ tầng mạng lưới, nhà trạm, mạng ngoại vi, vật tư, hàng hóa, thiết bị, công cụ dụng cụ.
+- “Tài sản vô hình” là thông tin về quy mô, quy hoạch, tham số, các chỉ tiêu kỹ thuật liên quan hệ thống hạ tầng mạng lưới; thông tin khách hàng; các giải pháp kỹ thuật; văn bản, tài liệu thuộc phạm vi bí mật Nhà nước.
+- “Mạng ngoại vi” là bộ phận của mạng lưới viễn thông, nằm ngoài nhà trạm viễn thông, bao gồm cáp viễn thông được treo nỗi, chôn trực tiếp, đi trong cống bể, đi trong các đường hầm.
+- “Vị trí trạm” là hạ tầng, thiết bị tính theo vị trí gồm các thiết bị di động, thiết bị CDBR, thiết bị truyền dẫn, hệ thống nguồn và phụ trợ, phòng máy, cabin, cột phát sóng, tuyến cáp quang/đồng, tuyến viba. Cụ thể chia thành 6 loại vị trí trạm được định nghĩa chi tiết trong Phụ lục A 03.
+- “Địa hình” là địa hình đã được phân loại trên nền bản đồ số Viettel đang sử dụng gồm 4 loại: đồng bằng, trung du, miền núi và sông nước.
+- “Vật tư phụ”: là các vật tư đã bao gồm trong Đơn giá được quy định trong Hợp đồng do Bên B tự đảm bảo.
+- “Vật tư, thiết bị phục vụ triển khai mới, ứng cứu thông tin”: là các vật tư, thiết bị phục vụ việc triển khai mới thuê bao, ứng cứu thông tin mà Bên A sẽ cấp cho Bên B hàng tháng theo kế hoạch sản xuất kinh doanh.
+- “Lực lượng kỹ thuật” là nhân viên kỹ thuật của Bên B có nhiệm vụ thực hiện các công việc quản lý, vận hành, khai thác nhà trạm, mạng ngoại vi và ứng cứu thông tin dịch vụ viễn thông.
+- “WO” là viết tắt của cụm từ “Work Order”, là phiếu đề nghị Bên B thực hiện một nhiệm vụ cụ thể.
+- “WO ảo” là Không thực hiện công việc một phần hoặc toàn bộ hay chưa hoàn thành công việc nhưng vẫn báo cáo hoặc đóng TT/WO/SR là đã hoàn thành.
+- Hành vi gian lận:
+  - Sửa đổi, thay đổi dữ liệu, cập nhật nguyên nhân sai trên các hệ thống phần mềm, thay đổi hiện trường, sửa đổi, tác động vào thiết bị (cứng/mềm) nhằm làm sai lệch dữ liệu về KPI, mức độ dịch vụ, chi phí, đơn giá hoặc nhằm mục đích có lợi cho Bên B hay để Bên B không bị phạt.
+  - Thực hiện sai so với hướng dẫn, yêu cầu, quy trình, quy định của Bên A như thay đổi ngưỡng cảnh báo, che cảnh báo, xóa cảnh báo, chụp ảnh sai, chụp ảnh thiếu, sửa chữa ảnh, đấu nối sai, không lắp đặt, không đấu nối, làm hỏng phần tử, thiết bị, hỏng không thay thế và các hành vi vi phạm khác nhằm làm sai lệch dữ liệu KPI, mức độ dịch vụ hay che đậy lỗi, che cảnh báo, xóa/làm mất cảnh báo/TT/WO, xóa dấu vết vi phạm.

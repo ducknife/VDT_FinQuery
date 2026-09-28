@@ -1,0 +1,10 @@
+BÁO CÁO THƯỜNG NIÊN 2025 - VIETTEL CONSTRUCTION
+
+TRANG 33
+
+---
+
+**PHẦN 3**
+
+**BÁO CÁO ĐÁNH GIÁ**  
+**CỦA BAN TỔNG GIÁM ĐỐC**

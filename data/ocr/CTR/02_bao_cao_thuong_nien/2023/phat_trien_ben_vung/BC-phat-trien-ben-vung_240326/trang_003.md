@@ -1,0 +1,6 @@
+I  
+THÔNG ĐIỆP  
+PHÁT TRIỂN BỀN VỮNG,  
+TỔNG QUAN VỀ  
+TỔNG CÔNG TY CỔ PHẦN  
+CÔNG TRÌNH VIETTEL

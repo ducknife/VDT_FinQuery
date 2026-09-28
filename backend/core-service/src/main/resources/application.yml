@@ -7,3 +7,7 @@ spring:
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
+
+core: 
+  max-turn-loop: 4
+  

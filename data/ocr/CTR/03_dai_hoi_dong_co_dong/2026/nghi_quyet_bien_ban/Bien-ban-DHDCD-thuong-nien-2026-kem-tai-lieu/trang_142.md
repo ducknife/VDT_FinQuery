@@ -1,0 +1,15 @@
+Corporation has also gradually standardized its governance practices in line with G20/OECD corporate governance principles, contributing to the continuous improvement of its corporate governance system.
+
+**General assessment**: The Board of Directors has performed its functions and duties in accordance with the provisions of law, the Corporation’s Charter, and the resolutions of the General Meeting of Shareholders. All governance decisions were issued within its authorized competence and closely aligned with the Corporation’s development orientation.
+
+4. **Supervision Results of the Executive Board’s management activities**
+
+- The Executive Board/Board of Management has directed the Corporation’s operations in close alignment with the Resolution of the 2025 Annual General Meeting of Shareholders (AGM) and the resolutions of the Board of Directors (BOD), proactively implementing flexible management solutions in a market environment that remains volatile. As a result, the Corporation completed and exceeded its assigned business targets, maintained double-digit growth compared to 2024, and ensured stable income for employees. Key highlights of the Board of Management’s performance in 2025 are as follows:
+
+  - The Corporation’s business activities continued to maintain positive growth momentum. Total revenue in 2025 reached VND 14,058 billion, exceeding the AGM-approved plan by 1% and increasing by 11% compared to 2024. Profit before tax reached VND 745.4 billion, exceeding the plan by 3.3% and increasing by 10.9% year-on-year, while profit after tax reached VND 599.8 billion, exceeding the plan by 7% and increasing by 11.5% compared to the previous year. Key efficiency indicators continued to improve, with ROA of approximately 7.8% (109% of the planned target) and ROE of approximately 30.5%, remaining at a high level.
+
+  - In the telecommunications infrastructure sector, the Corporation continues to maintain its No. 1 position in the TowerCo market in Vietnam, with a cumulative total of approximately 12,000 stations as of the end of 2025. At the same time, the Corporation serves as a key entity in deploying Viettel’s 5G network infrastructure, completing the installation of 6,452 5G stations during the year, making a significant contribution to the Group’s total of 22,400 5G stations.
+
+  - The revenue structure continued to shift in a positive direction as the proportion of revenue from new business areas and external customers increased. All new business segments achieved double-digit growth compared to 2024, while revenue from external customers grew by approximately 15% year-on-year, raising the share of external revenue from 39.7% in 2024 to about 41% in 2025.
+
+  - Digital transformation activities were further accelerated across various management and operational areas, thereby contributing to improved labor productivity and operational efficiency. By the end of 2025, the Corporation’s digital transformation level reached 4.16/5 with all 6/6 assessed domains at 4 or higher (advanced level).

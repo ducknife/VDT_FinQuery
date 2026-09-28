@@ -1,0 +1,7 @@
+| TT | Cổ đông | Câu hỏi | Đoàn Chủ tịch trả lời |
+|---|---|---|---|
+| | | thương mại hóa 5G không? | vào vị trí hiện có, trung tâm thành phố nên các vị trí mới để CTR đầu tư sẽ không nhiều và chủ yếu ở vùng lõm, vùng sâu, vùng xa ... Mục tiêu của CTR đến 2030 sẽ sở hữu 20.000-30.000 trạm cho thuê. |
+| 4 | | Công ty có cho thuê 300 trạm cho đối tác ngoài Viettel là bên nào? | Trạm đang cho thuê đối tác vinaphone và mobifone. Mục tiêu năm nay sẽ có 500 trạm có nhà mạng khác thuê. |
+| 5 | Cổ đông Hào | Với nhóm khách hàng FDI thì với thuế quan mới của Mỹ có tác động gì nhóm khách hàng này không? | Chính sách thuế quan tác động ngắn hạn và có ảnh hưởng nhất định. Về dài hạn thì sẽ theo quy luật cung cầu nhưng Việt Nam vẫn có lợi. Với CTR chúng tôi quan điểm lạc quan với xu hướng dịch chuyển dòng vốn FDI. |
+| 6 | Cổ đông Thịnh | Gợi ý của cổ đông cho Công ty: Viettel nên trao quyền tự quyết nhiều hơn cho CTR trong chủ động chiến lược; mong muốn Viettel giảm tỷ lệ sở hữu CTR xuống để thu hút nhà đầu tư ngoại và tăng tính thanh khoản. | Ban lãnh đạo nghiên cứu tiếp thu và báo cáo, đề xuất với Công ty mẹ Tập đoàn Viettel. |
+| 7 | Cổ đông Thịnh | Công ty dành nhiều chính sách tốt hơn cho người lao động để giữ người tài giảm chi phí tuyển dụng và đào tạo. | Chế độ Người lao động sẽ được đảm bảo tốt nhất để công ty có nguồn lực tương xứng với mục tiêu 5 năm tới. Nhân sự là một chiến lược lớn nằm trong chiến lược của Tổng Công ty trong giai đoạn tới. |

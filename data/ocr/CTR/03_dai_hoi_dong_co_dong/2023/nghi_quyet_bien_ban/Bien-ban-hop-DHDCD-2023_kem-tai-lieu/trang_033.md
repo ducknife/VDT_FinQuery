@@ -1,0 +1,10 @@
+| | | | |
+|---|---|---|---|
+| | | ruột, chị ruột, em ruột, anh rể, em rể, chị dâu, em dâu, anh ruột của vợ, anh ruột của chồng, chị ruột của vợ, chị ruột của chồng, em ruột của vợ, em ruột của chồng | |
+| 2. | Khoản 1 Điều 4: Ngành, nghề kinh doanh của Tổng Công ty: - Chưa đánh số thứ tự ngành nghề kinh doanh; - Tổng số ngành, nghề kinh doanh của Tổng Công ty: 85 ngành nghề. | Bổ sung Khoản 1 Điều 4: - Đánh số thứ tự cho các ngành nghề kinh doanh; - Chi tiết 04 ngành nghề và bổ sung mới 04 ngành nghề theo Mục 1 Tờ trình này (Tổng số: 88 ngành nghề) | Bổ sung theo thực tế sau khi được Đại hội đồng cổ đông thông qua và hoàn thành việc đăng ký với Phòng đăng ký kinh doanh, Sở Kế hoạch và Đầu tư TP. Hà Nội. |
+| 3. | Điểm f khoản 2 Điều 26 quy định về “Quyền hạn và nghĩa vụ của HĐQT”: Quyết định đầu tư hoặc bán số tài sản có giá trị dưới 35% tổng giá trị tài sản trở lên được ghi trong báo cáo tài chính gần nhất của Tổng Công ty | Sửa đổi: Quyết định đầu tư hoặc bán số tài sản có giá trị dưới 35% tổng giá trị tài sản được ghi trong báo cáo tài chính gần nhất của Tổng Công ty | Sửa lỗi chính tả |
+| 4. | Khoản 3 Điều 44 quy định về các hợp đồng, giao dịch ĐHĐCĐ chấp thuận: Chưa quy định việc ĐHĐCĐ chấp thuận các hợp đồng, giao dịch có giá trị nhỏ hơn 35% tổng giá trị tài sản của Tổng Công ty quy định thuộc thẩm quyền chấp thuận của HĐQT tại Khoản 2 Điều này. | Bổ sung: Đại hội đồng cổ đông chấp thuận hợp đồng, giao dịch sau đây: c) Hợp đồng, giao dịch quy định tại khoản 2 Điều này trong trường hợp HĐQT xét thấy cần thiết phải báo cáo và trình ĐHĐCĐ thông qua. | Bổ sung phù hợp với tình hình thực tế |
+| | **3. Tổ chức thực hiện:** Sau khi được Đại hội đồng cổ đông thường niên năm 2023 thông qua, Tổng Công ty có trách nhiệm ban hành và công bố thông tin Điều lệ, Quy chế nội bộ về quản trị công ty và Quy chế hoạt động của Hội đồng quản trị theo đúng thẩm quyền, quy định. Kính trình Đại hội xem xét và thông qua./. | | |
+| | | **TM. HỘI ĐỒNG QUẢN TRỊ** **CHỦ TỊCH** | |
+| | | **TỔNG CÔNG TY CỔ PHẦN CÔNG TRÌNH VIETTEL** | |
+| | | **ĐỖ MẠNH HÙNG** | |

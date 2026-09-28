@@ -1,0 +1,10 @@
+BÁO CÁO THƯỜNG NIÊN 2025 - VIETTEL CONSTRUCTION
+
+TRANG 44
+
+---
+
+**PHẦN 4**
+
+**ĐÁNH GIÁ CỦA HĐQT**  
+**VỀ HOẠT ĐỘNG CÔNG TY**

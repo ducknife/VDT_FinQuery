@@ -1,0 +1,3 @@
+| STT | Điều, khoản, điểm | Nội dung hiện tại | Nội dung đề xuất sửa đổi | Lý do |
+| :--- | :--- | :--- | :--- | :--- |
+|  |  |  | trị trong các lĩnh vực chuyên môn kiểm toán, nhân sự, lương thưởng, chiến lược, đầu tư, quản trị rủi ro, phát triển bền vững ... cho Hội đồng quản trị. 3. Hội đồng quản trị quyết định tên gọi, số lượng nhân sự, bổ nhiệm và miễn nhiệm nhân sự của các bộ phận quy định tại khoản 1,2 điều này. 4. Hoạt động của các bộ phận quy định tại khoản 1,2 điều này phải tuân thủ theo quy chế tổ chức và hoạt động do Hội đồng quản trị ban hành. 5. Các kết luận, kiến nghị của Ủy ban chỉ có giá trị tham mưu, tư vấn để HĐQT xem xét và quyết định theo thẩm quyền. |  |

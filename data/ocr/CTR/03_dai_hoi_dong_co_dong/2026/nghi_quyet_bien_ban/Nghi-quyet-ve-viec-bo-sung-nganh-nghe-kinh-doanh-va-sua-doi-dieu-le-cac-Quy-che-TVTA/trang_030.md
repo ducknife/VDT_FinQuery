@@ -1,0 +1,7 @@
+| No. | Article, Clause, Point | Current contents | Proposed amendments | Reasons |
+| :--- | :--- | :--- | :--- | :--- |
+| | | | Directors in performing its duties and exercising its powers in accordance with these Regulations, the Corporation’s Charter, and applicable laws. 2. The Board of Directors may establish specialized committees under the Board of Directors to conduct advisory, consultative, and supporting functions for supervision and governance in specialized areas, including audit, human resources, remuneration, strategy, investment, risk management, sustainability, and other relevant fields, for the Board of Directors. | |
+| 8. | Point b, Clause 1, Article 34: Standards for the General Director (CEO). | Must not be a person with family relationship with managers of the Corporation, Controllers of the Corporation and the Group, representatives of state capital in the Group, or representatives of the Group’s capital in the Corporation. | Must not be a related person of enterprise managers, Controllers of the Company and the Group, representatives of state capital, or representatives of the enterprise’s capital in the Company and the Group. | Based on Clause 83, Article 1 of Decree 245/2025/ND-CP, a “related person” also includes “family-related persons.” |
+
+APPENDIX 3.  
+Detailed amendments and supplements to the Internal Regulations on Corporate Governance
