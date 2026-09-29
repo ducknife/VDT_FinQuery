@@ -1,0 +1,27 @@
+-- ---------------------------------------------------------------------------
+-- Bỏ khoá ngoại tự trỏ của financial_items.
+--
+-- V1 đặt fk_financial_items_thay_the (thay_the_bang → ma_noi_bo) để bảo đảm mã
+-- gợi ý thay thế có thật. Xét lại thì nó không đáng:
+--
+--   · CỘT có đúng 1 dòng dữ liệu trong 123 (VON_CHU_SO_HUU_M410 → M400)
+--   · Việc nó canh ĐÃ được canh ở chỗ khác — devtools/sinh_sql_financial_items.py
+--     kiểm trước khi sinh SQL: "thay_the_bang tro toi ma KHONG ton tai: 0"
+--   · Đổi lại phải mang theo một móc ngược trong lược đồ, cộng ràng buộc thứ tự
+--     nạp (M400 phải vào trước M410)
+--
+-- Khoá ngoại ĐÁNG GIỮ là loại canh dữ liệu do script sinh hàng loạt, nơi gõ sai
+-- thì số liệu vào sai chỗ mà không ai thấy:
+--     financial_item_mappings.ma_noi_bo → financial_items    250 dòng
+--     financial_figures.ma_noi_bo       → financial_items  ~7.000 dòng
+--     financial_figures.tai_lieu_id     → documents        ~7.000 dòng
+-- Ba cái đó giữ nguyên.
+--
+-- CỘT thay_the_bang GIỮ NGUYÊN — nó phục vụ một tính năng thật:
+--     Hỏi  "Vốn chủ sở hữu mã 410 năm 2026?"
+--     Trả  "Mã 410 không còn áp dụng từ 2026. Bạn có muốn xem mã 400 không?"
+-- TT99 bỏ hẳn một tầng: TT200 có 400 → 410 → 411…, TT99 nhảy thẳng 400 → 411.
+-- Mã 410 xuất hiện 76 lần ở TT200 và 0 lần ở TT99 — người dùng quen nó suốt 7 năm.
+-- ---------------------------------------------------------------------------
+
+ALTER TABLE financial_items DROP FOREIGN KEY fk_financial_items_thay_the;

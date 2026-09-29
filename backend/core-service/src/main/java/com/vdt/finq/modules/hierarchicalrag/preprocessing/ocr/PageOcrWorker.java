@@ -1,5 +1,5 @@
 package com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr;
 
-public class OCRProcessing {
+public class PageOcrWorker {
     
 }

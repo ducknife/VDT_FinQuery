@@ -8,6 +8,21 @@ spring:
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
 
-core: 
+agent: 
   max-turn-loop: 4
-  
+
+ocr: 
+  output-dir: ${OCR_OUTPUT_DIR:data/ocr}
+  model: ${OCR_MODEL}
+  api-url: ${LLM_API_URL}
+  api-key: ${LLM_API_KEY}
+  dpi: 170
+  jpeg-quality: 0.85
+  concurrency: 6
+  max-tokens: 6000
+  first-chunk-timeout: 120s
+  silence-timeout: 30s
+  total-timeout: 900s
+  max-attempts: 6
+  dpi-ladder: [0, 0, 130, 130, 110, 110]
+  # trial.enabled: true

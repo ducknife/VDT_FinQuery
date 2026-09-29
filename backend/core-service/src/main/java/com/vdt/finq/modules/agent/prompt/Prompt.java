@@ -4,4 +4,8 @@ public class Prompt {
     private final static String SYSTEM_PROMPT = """
 
             """;
+
+    private final static String CHAT_PROMPT = """
+            
+            """;
 }
