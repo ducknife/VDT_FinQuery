@@ -17,6 +17,10 @@ Thư mục này ghi lại **đã làm gì, vì sao, kết quả ra sao** trong s
 | Phạm vi đề tài | Mục tiêu, 6 mảng A–F, cách 2 paper được áp dụng | [pham-vi_v1.0.md](pham-vi_v1.0.md) |
 | Dữ liệu | Nguồn, cấu trúc thư mục, thống kê, chất lượng, lỗ hổng | [du-lieu_v1.0.md](du-lieu_v1.0.md) |
 | Công nghệ | Stack và công cụ, lý do chọn | [cong-nghe_v1.4.md](cong-nghe_v1.4.md) |
+| Luồng hỏi đáp | Hai nhánh DB/RAG, bảng ánh xạ mã, thiết kế tool, dẫn chứng, ba chốt kiểm | [luong-hoi-dap_v1.0.md](luong-hoi-dap_v1.0.md) |
+| Lược đồ CSDL | Năm bảng lõi, năm tiêu chí loại dòng, sổ công thức và cách chống bịa, bốn lỗi lược đồ đã mắc | [luoc-do-db_v1.0.md](luoc-do-db_v1.0.md) |
+| Tiền xử lý | OCR bằng mô hình thị giác, tham số kết xuất ảnh (DPI, JPEG), hai hạn giờ, luật làm sạch, số liệu chunk, thiết kế lớp | [tien-xu-ly_v1.0.md](tien-xu-ly_v1.0.md) |
+| Làm sạch | Luật làm sạch sau OCR đã chốt (NFC, hàng rào code, &nbsp;, khoảng trắng), luật hoãn, số đo trên kho | [lam-sach_v1.0.md](lam-sach_v1.0.md) |
 | Quyết định | Sổ quyết định (QĐ-xxx): bối cảnh, lựa chọn, lý do | [quyet-dinh_v1.14.md](quyet-dinh_v1.14.md) |
 | Kế hoạch | Bốn khối nền, lộ trình, thứ tự cắt giảm khi trễ | [ke-hoach_v1.1.md](ke-hoach_v1.1.md) |
 | Kế hoạch đánh giá | Bộ test T1–T9, cách đo độ trễ/token/chi phí, chiến lược 3 lớp, tác động khi đổi mô hình | [danh-gia_v1.3.md](danh-gia_v1.3.md) |

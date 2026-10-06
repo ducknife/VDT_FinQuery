@@ -15,47 +15,39 @@ import com.vdt.finq.common.properties.OCRProperties;
 
 import lombok.RequiredArgsConstructor;
 
-/**
- * Shared machinery for the OCR pipeline.
- *
- * All three beans are application-wide on purpose. Creating them per document would
- * mean ten uploads at once opening sixty connections, which the network cannot take.
- */
+// shared machinery for the ocr pipeline, all three beans are application wide.
+// per document instances would mean ten uploads opening sixty connections
 @Configuration
 @RequiredArgsConstructor
 public class OcrBeansConfig {
 
     private final OCRProperties ocrProperties;
 
-    /**
-     * One client for the whole application. A new HttpClient per call would rebuild
-     * the connection pool and its thread pool every time - 6,690 times over a run.
-     */
+    // one client for the whole app, a new one per call would rebuild its
+    // connection pool and thread pool 6690 times in a run
     @Bean
     public HttpClient ocrHttpClient() {
         return HttpClient.newBuilder()
                 .connectTimeout(Duration.ofSeconds(30))
-                // No overall request timeout here: VisionOcrClient does its own
-                // two-part timing (first chunk, then silence between chunks).
+                // no overall request timeout here, VisionOcrClient does its own
+                // two part timing: first chunk, then silence between chunks
                 .build();
     }
 
-    /** Single thread that watches every in-flight OCR call for silence. */
+    // single thread watching every in flight call for silence
     @Bean(destroyMethod = "shutdownNow")
     public ScheduledExecutorService ocrWatchdog() {
         return Executors.newSingleThreadScheduledExecutor(named("ocr-watchdog"));
     }
 
-    /**
-     * The real concurrency limit of the pipeline: how many pages may be in flight.
-     * Bounded because the bottleneck is the network, not the CPU.
-     */
+    // the real limit of the pipeline: how many pages may be in flight.
+    // bounded because the bottleneck is the network, not the cpu
     @Bean(destroyMethod = "shutdown")
     public ExecutorService ocrPool() {
         return Executors.newFixedThreadPool(ocrProperties.getConcurrency(), named("ocr-worker"));
     }
 
-    /** Names the threads so logs and thread dumps are readable. */
+    // names the threads so logs and thread dumps are readable
     private static ThreadFactory named(String prefix) {
         AtomicInteger counter = new AtomicInteger(1);
         return runnable -> {

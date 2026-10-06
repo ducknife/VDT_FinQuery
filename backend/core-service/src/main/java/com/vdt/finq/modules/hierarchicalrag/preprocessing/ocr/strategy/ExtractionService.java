@@ -1,0 +1,39 @@
+package com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.strategy;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.DocumentOcrResult;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+// picks the extractor for a file. spring injects every implementation, so adding a
+// format never changes this class
+@Slf4j
+@Service
+@RequiredArgsConstructor
+public class ExtractionService {
+
+    private final List<DocumentExtractor> extractors;
+
+    public DocumentOcrResult extract(Path file, String relativePath) throws IOException {
+        String fileName = file.getFileName().toString();
+        DocumentExtractor extractor = extractors.stream()
+                .filter(e -> e.supports(fileName))
+                .findFirst()
+                .orElseThrow(() -> new UnsupportedOperationException(
+                        "no extractor for " + fileName));
+
+        log.info("{} -> {}", fileName, extractor.getClass().getSimpleName());
+        return extractor.extract(file, relativePath);
+    }
+
+    // used by the upload endpoint to reject a file before storing it
+    public boolean canExtract(String fileName) {
+        return extractors.stream().anyMatch(e -> e.supports(fileName));
+    }
+}

@@ -12,7 +12,7 @@ agent:
   max-turn-loop: 4
 
 ocr: 
-  output-dir: ${OCR_OUTPUT_DIR:data/ocr}
+  output-dir: ${OCR_OUTPUT_DIR:../../data/ocr}
   model: ${OCR_MODEL}
   api-url: ${LLM_API_URL}
   api-key: ${LLM_API_KEY}
@@ -25,4 +25,14 @@ ocr:
   total-timeout: 900s
   max-attempts: 6
   dpi-ladder: [0, 0, 130, 130, 110, 110]
-  # trial.enabled: true
+  # trial:
+  #   enabled: true
+
+cleaner:
+  # trial:
+  #   enabled: true
+  test-api:
+    enabled: true
+
+indexing: 
+  chunk-size: 

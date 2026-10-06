@@ -1,11 +1,12 @@
-package com.vdt.finq.modules.agent.prompt;
+package com.vdt.finq.modules.agent.prompts;
 
-public class Prompt {
+public class SystemPrompt {
+
     private final static String SYSTEM_PROMPT = """
 
             """;
 
     private final static String CHAT_PROMPT = """
-            
+
             """;
 }
