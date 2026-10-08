@@ -34,5 +34,7 @@ cleaner:
   test-api:
     enabled: true
 
-indexing: 
-  chunk-size: 
+indexing:
+  max-chunk-chars: 4000
+  stitch-max-chars: 500
+  model-limit-chars: 50000

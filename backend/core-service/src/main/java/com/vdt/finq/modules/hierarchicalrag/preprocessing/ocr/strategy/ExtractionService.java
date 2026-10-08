@@ -11,8 +11,8 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.DocumentOcrResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// picks the extractor for a file. spring injects every implementation, so adding a
-// format never changes this class
+// chọn bộ trích xuất cho một file. spring tiêm mọi implementation vào,
+// nên thêm định dạng mới không phải sửa class này
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -32,7 +32,7 @@ public class ExtractionService {
         return extractor.extract(file, relativePath);
     }
 
-    // used by the upload endpoint to reject a file before storing it
+    // endpoint tải lên dùng hàm này để từ chối file trước khi lưu
     public boolean canExtract(String fileName) {
         return extractors.stream().anyMatch(e -> e.supports(fileName));
     }

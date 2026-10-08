@@ -1,7 +1,19 @@
 package com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr;
 
-// outcome of one page, pageIndex is zero based
-public record PageResult(int pageIndex, boolean success, int attempts, String error) {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.ToString;
+
+// kết quả của một trang, pageIndex đếm từ 0
+@Getter
+@ToString
+@AllArgsConstructor
+public class PageResult {
+
+    private final int pageIndex;
+    private final boolean success;
+    private final int attempts;
+    private final String error;
 
     public static PageResult ok(int pageIndex, int attempts) {
         return new PageResult(pageIndex, true, attempts, null);

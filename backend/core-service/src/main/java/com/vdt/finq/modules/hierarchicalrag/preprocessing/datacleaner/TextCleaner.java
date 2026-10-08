@@ -6,27 +6,30 @@ import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 
-// cleans a page before it is chunked or parsed.
-// this NEVER rewrites the .md on disk: the raw file cost a day of network to make,
-// so cleaning is a transformation applied while reading. change a rule and you only
-// rerun the chunking, not the ocr
+// làm sạch một trang trước khi chunk hoặc trích số liệu.
+// KHÔNG BAO GIỜ ghi đè file .md trên đĩa: file gốc tốn một ngày mạng để tạo ra,
+// nên làm sạch là phép biến đổi lúc đọc. đổi luật thì chỉ cần chạy lại bước chunk,
+// không phải OCR lại
 
-// 1. fence ```
-// 2. &nbsp;
-// 3. space at the end of line
-// 4. 2 or more space consecutive
+// các luật, theo đúng thứ tự chạy trong clean():
+// 0. chuẩn hoá unicode NFC
+// 1. bỏ hàng rào ``` bọc cả trang
+// 2. &nbsp; thành dấu cách
+// 3. gộp từ hai dấu cách liên tiếp trở lên giữa dòng thành một
+// 4. bỏ khoảng trắng cuối dòng
+// chi tiết và số đo: logs/lam-sach_v1.1.md
 @Component
 @RequiredArgsConstructor
 public class TextCleaner {
 
-    private static final String FENCE = "```"; // markdown guard
+    private static final String FENCE = "```"; // hàng rào code của markdown
 
-    // only collapse runs that follow a non space character. leading indentation is
-    // left alone: 1003 lines in the corpus start with four or more spaces and in
-    // markdown that means a code block
+    // chỉ gộp các dãy dấu cách đứng sau một ký tự khác trắng, thụt đầu dòng được giữ nguyên:
+    // 1003 dòng trong kho thụt từ bốn dấu cách trở lên,
+    // và trong markdown điều đó có nghĩa là một khối code
     private static final Pattern INNER_RUN = Pattern.compile("(?<=\\S)[ \\t]{2,}");
 
-    // trailing whitespace, per line
+    // khoảng trắng cuối mỗi dòng
     private static final Pattern TRAILING = Pattern.compile("[ \\t]+$", Pattern.MULTILINE);
 
     private final NFCNormalization nfcNormalization;
@@ -35,8 +38,8 @@ public class TextCleaner {
         if (raw == null || raw.isBlank()) {
             return "";
         }
-        // order matters: normalise first so every later rule sees one encoding,
-        // and &nbsp; must become spaces before the runs are collapsed
+        // thứ tự quan trọng: chuẩn hoá NFC trước để mọi luật sau chỉ gặp một kiểu mã hoá,
+        // và &nbsp; phải thành dấu cách trước khi gộp các dãy dấu cách
         String text = nfcNormalization.toNfc(raw);
         text = stripCodeFence(text);
         text = text.replace("&nbsp;", " ");
@@ -45,8 +48,8 @@ public class TextCleaner {
         return text.strip();
     }
 
-    // the model sometimes wraps the whole page in ``` or ```markdown.
-    // 76 pages in the corpus still carry it, the old node tool missed the labelled form
+    // model đôi khi bọc cả trang trong ``` hoặc ```markdown.
+    // kho còn 76 trang như vậy, công cụ node cũ bỏ sót dạng có nhãn
     private static String stripCodeFence(String text) {
         String trimmed = text.strip();
         if (!trimmed.startsWith(FENCE)) {
@@ -54,10 +57,10 @@ public class TextCleaner {
         }
         int firstNewline = trimmed.indexOf('\n');
         if (firstNewline < 0) {
-            // a bare fence with no content
+            // chỉ có hàng rào, không có nội dung
             return "";
         }
-        // drop the opening line, it may be ``` or ```markdown
+        // bỏ dòng mở đầu, có thể là ``` hoặc ```markdown
         String body = trimmed.substring(firstNewline + 1).stripTrailing();
         if (body.endsWith(FENCE)) {
             body = body.substring(0, body.length() - FENCE.length());

@@ -20,7 +20,8 @@ Thư mục này ghi lại **đã làm gì, vì sao, kết quả ra sao** trong s
 | Luồng hỏi đáp | Hai nhánh DB/RAG, bảng ánh xạ mã, thiết kế tool, dẫn chứng, ba chốt kiểm | [luong-hoi-dap_v1.0.md](luong-hoi-dap_v1.0.md) |
 | Lược đồ CSDL | Năm bảng lõi, năm tiêu chí loại dòng, sổ công thức và cách chống bịa, bốn lỗi lược đồ đã mắc | [luoc-do-db_v1.0.md](luoc-do-db_v1.0.md) |
 | Tiền xử lý | OCR bằng mô hình thị giác, tham số kết xuất ảnh (DPI, JPEG), hai hạn giờ, luật làm sạch, số liệu chunk, thiết kế lớp | [tien-xu-ly_v1.0.md](tien-xu-ly_v1.0.md) |
-| Làm sạch | Luật làm sạch sau OCR đã chốt (NFC, hàng rào code, &nbsp;, khoảng trắng), luật hoãn, số đo trên kho | [lam-sach_v1.0.md](lam-sach_v1.0.md) |
+| Làm sạch | Luật và chính sách làm sạch sau OCR: làm sạch lúc đọc, NFC hai cổng, đổi luật thì embed lại, quy trình thêm luật, luật hoãn, số đo trên kho | [lam-sach_v1.1.md](lam-sach_v1.1.md) |
+| Lập chỉ mục | Indexing pipeline: chốt model embedding Qwen3-Embedding-4B, thuật toán chunk đệ quy theo cấu trúc + gối đầu có chọn lọc (gốc là trang, có hình minh hoạ), vì sao trần 4.000 ký tự, các biến thể đã thử và loại, số đo batch, hạn mức API | [lap-chi-muc_v1.6.md](lap-chi-muc_v1.6.md) |
 | Quyết định | Sổ quyết định (QĐ-xxx): bối cảnh, lựa chọn, lý do | [quyet-dinh_v1.14.md](quyet-dinh_v1.14.md) |
 | Kế hoạch | Bốn khối nền, lộ trình, thứ tự cắt giảm khi trễ | [ke-hoach_v1.1.md](ke-hoach_v1.1.md) |
 | Kế hoạch đánh giá | Bộ test T1–T9, cách đo độ trễ/token/chi phí, chiến lược 3 lớp, tác động khi đổi mô hình | [danh-gia_v1.3.md](danh-gia_v1.3.md) |

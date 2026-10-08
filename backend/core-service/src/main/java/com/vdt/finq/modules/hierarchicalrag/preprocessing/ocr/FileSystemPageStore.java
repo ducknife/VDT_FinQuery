@@ -15,36 +15,36 @@ import com.vdt.finq.common.properties.OCRProperties;
 import lombok.RequiredArgsConstructor;
 
 
-// store page of document when render 
+// lưu kết quả OCR của từng trang ra đĩa, mỗi trang một file trang_NNN.md
 @Component
 @RequiredArgsConstructor
 public class FileSystemPageStore implements PageStore {
 
     private final OCRProperties ocrProperties;
 
-    // if the path is existed -> return true
+    // trả về true nếu file của trang đã có và không rỗng
     @Override
     public boolean exists(String relativePath, int pageNumber) throws IOException {
         Path resolvedPath = resolve(relativePath, pageNumber);
         return Files.exists(resolvedPath) && Files.size(resolvedPath) > 0;
     }
 
-    // resolve the path and write to it
+    // tìm đường dẫn của trang rồi ghi nội dung vào
     @Override
     public void write(String relativePath, int pageNumber, String markdown) throws IOException {
         Path resolvedPath = resolve(relativePath, pageNumber);
         Files.createDirectories(resolvedPath.getParent());
 
-        // write to tmp file, and rename
-        // avoid uncompleted data if cancel imeditately
+        // ghi ra file .tmp rồi đổi tên
+        // tránh để lại file dở dang nếu bị ngắt giữa chừng
         Path tmp = resolvedPath.resolveSibling(resolvedPath.getFileName() + ".tmp");
         Files.writeString(tmp, markdown, StandardCharsets.UTF_8);
         Files.move(tmp, resolvedPath, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
-        // delete error file if the next time success
+        // lần sau thành công thì xoá file .loi cũ
         Files.deleteIfExists(resolvedPath.resolveSibling(resolvedPath.getFileName() + ".loi"));
     }
 
-    // if file not found or is empty()
+    // trả về rỗng nếu không có file hoặc file trống
     @Override
     public Optional<String> read(String relativePath, int pageNumber) throws IOException {
         Path resolvedPath = resolve(relativePath, pageNumber);
@@ -57,7 +57,7 @@ public class FileSystemPageStore implements PageStore {
         return Optional.of(markdown);
     }
 
-    // create error file include time and reason
+    // tạo file .loi ghi thời điểm và lý do lỗi
     @Override
     public void markFailed(String relativePath, int pageNumber, String reason) throws IOException {
         Path resolvedPath = resolve(relativePath, pageNumber);
@@ -67,12 +67,12 @@ public class FileSystemPageStore implements PageStore {
         Files.writeString(errorPath, content, StandardCharsets.UTF_8);
     }
 
-    // resolve the path from String to Path
+    // đổi đường dẫn tương đối thành Path tới file của trang
     private Path resolve(String relativePath, int pageNumber) {
         Path base = Path.of(ocrProperties.getOutputDir()).toAbsolutePath().normalize();
         Path dir = base.resolve(relativePath).normalize();
-        // ff it's not starting with base: data/ocr
-        // trhow an error
+        // đường dẫn thoát ra ngoài thư mục gốc data/ocr thì báo lỗi
+        // (chặn path traversal)
         if (!dir.startsWith(base)) {
             throw new IllegalArgumentException("Path miss match!" + relativePath);
         }

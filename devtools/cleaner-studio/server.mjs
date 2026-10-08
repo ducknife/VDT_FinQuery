@@ -1,10 +1,10 @@
-// Tiny static server for the cleaner studio.
-// It also proxies /api/* to the Spring app so the browser never hits CORS.
+// server tĩnh nhỏ cho Cleaner Studio.
+// nó còn chuyển tiếp /api/* sang ứng dụng Spring để trình duyệt không vướng CORS.
 //
 //   node devtools/cleaner-studio/server.mjs
 //   http://localhost:5180
 //
-// The Spring app must be running with:  cleaner.dev-api.enabled=true
+// ứng dụng Spring phải đang chạy với:  cleaner.test-api.enabled=true
 
 import http from "node:http";
 import fs from "node:fs";
@@ -24,7 +24,7 @@ const KIEU = {
 const may = http.createServer(async (req, res) => {
   const duong = new URL(req.url, "http://x").pathname;
 
-  // chuyen tiep sang Spring, tranh CORS
+  // chuyển tiếp sang Spring, tránh CORS
   if (duong.startsWith("/api/")) {
     try {
       const dich = SPRING + duong.replace("/api", "/test/cleaner") + (req.url.split("?")[1] ? "?" + req.url.split("?")[1] : "");

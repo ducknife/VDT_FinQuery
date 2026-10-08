@@ -28,17 +28,17 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.prompts.OcrSystemP
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// sends one page image to the vision model and returns markdown
+// gửi ảnh một trang tới LLM và nhận về markdown
 @Slf4j
 @Component
 @RequiredArgsConstructor
 public class VisionOcrClient {
 
-    // no trailing space on purpose, the spec allows "data:" with or without one
+    // cố ý không có dấu cách ở cuối, chuẩn SSE cho phép "data:" có hoặc không có dấu cách
     private static final String SSE_PREFIX = "data:";
     private static final String SSE_DONE = "[DONE]";
 
-    // a floor, not a quality check. shortest real page in the corpus is 63 chars
+    // chỉ là mức sàn, không phải kiểm tra chất lượng. trang thật ngắn nhất trong kho dài 63 ký tự
     private static final int MIN_USEFUL_LENGTH = 20;
 
     private final OCRProperties properties;
@@ -46,7 +46,7 @@ public class VisionOcrClient {
     private final HttpClient httpClient;
     private final ScheduledExecutorService ocrWatchdog;
 
-    // read one page image, throws OcrTimeoutException when the stream goes silent
+    // đọc ảnh một trang, ném OcrTimeoutException khi stream im lặng quá lâu
     public String ocr(byte[] jpeg) throws IOException {
         HttpRequest request = buildRequest(jpeg);
 
@@ -65,8 +65,8 @@ public class VisionOcrClient {
 
         String markdown = stripCodeFence(readStream(response.body()));
 
-        // an empty answer is a failure, not an empty page. throw the timeout type so
-        // the retry ladder gets a chance with a smaller image
+        // câu trả lời rỗng là lỗi, không phải trang trống. ném lỗi hết giờ để
+        // thang thử lại có cơ hội chạy với ảnh nhỏ hơn
         if (markdown.isBlank() || markdown.length() < MIN_USEFUL_LENGTH) {
             throw new OcrTimeoutException("model returned almost nothing (%d chars)"
                     .formatted(markdown.length()));
@@ -74,7 +74,7 @@ public class VisionOcrClient {
         return markdown;
     }
 
-    // build the request body in the openai shape, which is what the gateway speaks
+    // dựng body của request theo định dạng OpenAI, định dạng mà gateway hiểu
     private HttpRequest buildRequest(byte[] jpeg) throws IOException {
         String base64 = Base64.getEncoder().encodeToString(jpeg);
 
@@ -94,14 +94,14 @@ public class VisionOcrClient {
                 .uri(URI.create(properties.getApiUrl()))
                 .header("Authorization", "Bearer " + properties.getApiKey())
                 .header("Content-Type", "application/json")
-                // no .timeout() here, that would be a deadline for the whole call and
-                // it is exactly the mistake this class avoids
+                // không đặt .timeout() ở đây, vì đó là hạn giờ cho cả lượt gọi,
+                // đúng sai lầm mà class này tránh
                 .POST(HttpRequest.BodyPublishers.ofString(
                         objectMapper.writeValueAsString(body), StandardCharsets.UTF_8))
                 .build();
     }
 
-    // read the sse stream while the watchdog watches for silence
+    // đọc stream SSE trong khi watchdog canh khoảng lặng
     private String readStream(InputStream body) throws IOException {
         long startNanos = System.nanoTime();
         AtomicLong lastChunkNanos = new AtomicLong(startNanos);
@@ -128,8 +128,8 @@ public class VisionOcrClient {
                 lastChunkNanos.set(System.nanoTime());
             }
         } catch (IOException e) {
-            // the watchdog closes the stream to break a blocked read, so this may be
-            // our own doing rather than a network fault
+            // watchdog đóng stream để phá lệnh đọc đang bị chặn, nên lỗi này có thể
+            // do chính mình gây ra chứ không phải lỗi mạng
             if (timedOut.get()) {
                 throw new OcrTimeoutException(describeTimeout(gotFirstChunk.get(), startNanos));
             }
@@ -138,14 +138,14 @@ public class VisionOcrClient {
             watch.cancel(false);
         }
 
-        // the stream may have ended cleanly just as the watchdog fired
+        // stream có thể vừa kết thúc bình thường đúng lúc watchdog kích hoạt
         if (timedOut.get()) {
             throw new OcrTimeoutException(describeTimeout(gotFirstChunk.get(), startNanos));
         }
         return text.toString();
     }
 
-    // closes the stream when it goes quiet, this is the only way to break a blocked read
+    // đóng stream khi nó im lặng, đây là cách duy nhất để phá lệnh đọc đang bị chặn
     private ScheduledFuture<?> startWatchdog(InputStream body, long startNanos,
                                              AtomicLong lastChunkNanos,
                                              AtomicBoolean gotFirstChunk,
@@ -156,7 +156,7 @@ public class VisionOcrClient {
 
         return ocrWatchdog.scheduleAtFixedRate(() -> {
             long now = System.nanoTime();
-            // before the first chunk we allow a long wait, after it only the gap matters
+            // trước chunk đầu tiên thì cho chờ lâu, sau đó chỉ xét khoảng lặng giữa các chunk
             long deadline = gotFirstChunk.get()
                     ? lastChunkNanos.get() + silenceNanos
                     : startNanos + firstChunkNanos;
@@ -166,13 +166,13 @@ public class VisionOcrClient {
                 try {
                     body.close();
                 } catch (IOException ignored) {
-                    // the reader will surface the failure
+                    // luồng đọc sẽ báo lỗi ra ngoài
                 }
             }
         }, 1, 1, TimeUnit.SECONDS);
     }
 
-    // one sse line -> its text, "" when the stream is done, null when it carries nothing
+    // một dòng SSE -> phần chữ của nó; "" khi stream kết thúc, null khi dòng không chứa gì
     private String parseChunk(String line) {
         if (line.isBlank() || !line.startsWith(SSE_PREFIX)) {
             return null;
@@ -189,13 +189,13 @@ public class VisionOcrClient {
                     .path("choices").path(0).path("delta").path("content");
             return content.isTextual() ? content.asText() : null;
         } catch (IOException e) {
-            // one bad line should not lose the whole page
+            // một dòng hỏng không được làm mất cả trang
             log.warn("skipping unreadable sse line: {}", abbreviate(payload));
             return null;
         }
     }
 
-    // the model sometimes wraps the answer in ```, that would end up inside the .md
+    // model đôi khi bọc câu trả lời trong ```, không bỏ đi thì sẽ lọt vào file .md
     private static String stripCodeFence(String raw) {
         String text = raw.strip();
         if (!text.startsWith("```")) {
@@ -205,7 +205,7 @@ public class VisionOcrClient {
         if (firstNewline < 0) {
             return "";
         }
-        // drop the opening fence line, it may be ``` or ```markdown
+        // bỏ dòng hàng rào mở đầu, có thể là ``` hoặc ```markdown
         text = text.substring(firstNewline + 1).stripTrailing();
         if (text.endsWith("```")) {
             text = text.substring(0, text.length() - 3);
@@ -213,7 +213,7 @@ public class VisionOcrClient {
         return text.strip();
     }
 
-    // says which of the two deadlines was hit
+    // cho biết đã chạm hạn giờ nào trong hai hạn
     private String describeTimeout(boolean gotFirstChunk, long startNanos) {
         long seconds = (System.nanoTime() - startNanos) / 1_000_000_000L;
         return gotFirstChunk
@@ -223,7 +223,7 @@ public class VisionOcrClient {
                         .formatted(properties.getFirstChunkTimeout().toSeconds());
     }
 
-    // read an error body so the exception message can show it
+    // đọc body lỗi để thông báo của exception hiển thị được
     private String readErrorBody(InputStream body) {
         try (InputStream in = body) {
             return abbreviate(new String(in.readAllBytes(), StandardCharsets.UTF_8));

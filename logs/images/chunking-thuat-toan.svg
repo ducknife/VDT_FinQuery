@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- khung ngoài -->
+  <rect x="8" y="8" width="1184" height="584" rx="18" fill="#f7faff" stroke="#7da0d8" stroke-width="3"/>
+  <line x1="270" y1="8" x2="270" y2="592" stroke="#7da0d8" stroke-width="3"/>
+
+  <!-- nhãn bên trái -->
+  <rect x="30" y="215" width="220" height="170" rx="45" fill="#c9d9f2"/>
+  <g font-size="21" fill="#222" text-anchor="middle">
+    <text x="140" y="262">Chunking đệ quy</text>
+    <text x="140" y="292">theo cấu trúc</text>
+    <text x="140" y="322">+ gối đầu</text>
+    <text x="140" y="352">có chọn lọc</text>
+  </g>
+
+  <!-- tài liệu -->
+  <rect x="300" y="70" width="80" height="100" fill="#c8f0c8" stroke="#333" stroke-width="1.5"/>
+  <text x="340" y="118" font-size="13" text-anchor="middle" fill="#222">Tài liệu</text>
+  <text x="340" y="138" font-size="11" text-anchor="middle" fill="#555">n trang</text>
+
+  <!-- ① chia theo trang -->
+  <line x1="385" y1="120" x2="470" y2="120" stroke="#333" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arr)"/>
+  <text x="428" y="100" font-size="13" text-anchor="middle" fill="#222">① chia</text>
+  <text x="428" y="145" font-size="12" text-anchor="middle" fill="#555">theo trang</text>
+
+  <!-- các trang, có mẩu câu gối ở ranh giới -->
+  <rect x="475" y="40" width="150" height="170" fill="#c8f0c8" stroke="#333" stroke-width="1.5"/>
+  <g stroke-width="3" fill="none" stroke-linecap="round">
+    <rect x="488" y="50" width="124" height="30" fill="#fff" stroke="#999" stroke-width="1"/>
+    <path d="M512 66 q 22 -7 44 0 t 44 0" stroke="#2f80ed"/>
+    <rect x="488" y="90" width="124" height="30" fill="#fff" stroke="#999" stroke-width="1"/>
+    <path d="M512 106 q 22 -7 44 0 t 44 0" stroke="#e5484d"/>
+    <rect x="488" y="130" width="124" height="30" fill="#fff" stroke="#999" stroke-width="1"/>
+    <path d="M512 146 q 22 -7 44 0 t 44 0" stroke="#30a46c"/>
+    <rect x="488" y="170" width="124" height="30" fill="#fff" stroke="#999" stroke-width="1"/>
+    <path d="M512 186 q 22 -7 44 0 t 44 0" stroke="#8e4ec6"/>
+    <!-- mẩu câu bị cắt được gối sang trang kề bên -->
+    <line x1="600" y1="80" x2="600" y2="90" stroke="#f76b15" stroke-width="5"/>
+    <line x1="600" y1="160" x2="600" y2="170" stroke="#f76b15" stroke-width="5"/>
+  </g>
+  <g font-size="10" fill="#555">
+    <text x="492" y="69">t1</text><text x="492" y="109">t2</text>
+    <text x="492" y="149">t3</text><text x="492" y="189">t4</text>
+  </g>
+  <text x="550" y="232" font-size="12" text-anchor="middle" fill="#222">② gối mẩu câu bị cắt</text>
+  <text x="550" y="250" font-size="12" text-anchor="middle" fill="#222">ở ranh giới trang (khi cần)</text>
+
+  <!-- ③ chọn một trang -->
+  <line x1="630" y1="120" x2="720" y2="120" stroke="#333" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arr)"/>
+  <text x="675" y="108" font-size="13" text-anchor="middle" fill="#222">③ chọn</text>
+  <text x="675" y="140" font-size="12" text-anchor="middle" fill="#555">một trang</text>
+  <rect x="725" y="95" width="130" height="50" fill="#c8f0c8" stroke="#333" stroke-width="1.5"/>
+  <path d="M745 121 q 22 -8 44 0 t 44 0" stroke="#f76b15" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="790" y="86" font-size="12" text-anchor="middle" fill="#555">trang tᵢ (đã gối)</text>
+
+  <!-- vào ô kiểm tra -->
+  <path d="M855 120 H 965 V 172" stroke="#333" stroke-width="2" stroke-dasharray="7 5" fill="none" marker-end="url(#arr)"/>
+  <rect x="880" y="178" width="170" height="64" fill="#f2f2f2" stroke="#999" stroke-width="1.5"/>
+  <text x="965" y="205" font-size="14" text-anchor="middle" fill="#222">độ dài &gt; 4.000</text>
+  <text x="965" y="226" font-size="14" text-anchor="middle" fill="#222">ký tự?</text>
+
+  <!-- KHÔNG: giữ nguyên thành 1 chunk -->
+  <path d="M880 210 H 800 V 465 H 776" stroke="#333" stroke-width="2" stroke-dasharray="7 5" fill="none" marker-end="url(#arr)"/>
+  <text x="790" y="290" font-size="14" text-anchor="end" fill="#222">KHÔNG</text>
+  <text x="790" y="310" font-size="12" text-anchor="end" fill="#555">giữ nguyên</text>
+  <text x="790" y="327" font-size="12" text-anchor="end" fill="#555">= 1 chunk</text>
+
+  <!-- CÓ: chia tiếp theo cấu trúc -->
+  <line x1="965" y1="242" x2="965" y2="298" stroke="#333" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arr)"/>
+  <text x="978" y="276" font-size="14" fill="#222">CÓ</text>
+  <rect x="900" y="305" width="60" height="36" fill="#c8f0c8" stroke="#333" stroke-width="1.5"/>
+  <path d="M912 324 q 9 -6 18 0 t 18 0" stroke="#f76b15" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <rect x="975" y="305" width="60" height="36" fill="#c8f0c8" stroke="#333" stroke-width="1.5"/>
+  <path d="M987 322 q 9 6 18 0 t 18 0" stroke="#f76b15" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="968" y="362" font-size="13" text-anchor="middle" fill="#222">④ chia tiếp theo cấu trúc</text>
+  <text x="968" y="380" font-size="11" text-anchor="middle" fill="#555">heading → khối → dòng bảng / câu → cắt cứng</text>
+  <text x="968" y="397" font-size="11" text-anchor="middle" fill="#555">bảng bị cắt: lặp lại dòng tiêu đề</text>
+
+  <!-- vòng đệ quy: mỗi mảnh kiểm tra lại -->
+  <path d="M1035 323 H 1095 V 210 H 1056" stroke="#333" stroke-width="2" stroke-dasharray="7 5" fill="none" marker-end="url(#arr)"/>
+  <text x="1103" y="262" font-size="12" fill="#555">kiểm tra</text>
+  <text x="1103" y="279" font-size="12" fill="#555">lại từng</text>
+  <text x="1103" y="296" font-size="12" fill="#555">mảnh</text>
+  <text x="1103" y="313" font-size="12" fill="#555">(đệ quy)</text>
+
+  <!-- ⑤ gộp mảnh vụn -->
+  <line x1="968" y1="405" x2="968" y2="450" stroke="#333" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arr)"/>
+  <text x="978" y="433" font-size="11" fill="#555">khi mọi mảnh ≤ 4.000</text>
+  <rect x="870" y="455" width="200" height="56" fill="#fff3d6" stroke="#333" stroke-width="1.5"/>
+  <text x="970" y="479" font-size="13" text-anchor="middle" fill="#222">⑤ gộp mảnh vụn</text>
+  <text x="970" y="498" font-size="12" text-anchor="middle" fill="#555">liền kề, tới gần 4.000</text>
+  <line x1="870" y1="495" x2="776" y2="495" stroke="#333" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arr)"/>
+
+  <!-- kho chunk -->
+  <rect x="560" y="440" width="210" height="95" fill="#c8f0c8" stroke="#333" stroke-width="1.5"/>
+  <g stroke-width="3" fill="none" stroke-linecap="round">
+    <rect x="574" y="450" width="56" height="22" fill="#fff" stroke="#999" stroke-width="1"/>
+    <path d="M582 462 q 10 -5 20 0 t 20 0" stroke="#2f80ed"/>
+    <rect x="637" y="450" width="56" height="22" fill="#fff" stroke="#999" stroke-width="1"/>
+    <path d="M645 462 q 10 -5 20 0 t 20 0" stroke="#f76b15"/>
+    <rect x="700" y="450" width="56" height="22" fill="#fff" stroke="#999" stroke-width="1"/>
+    <path d="M708 462 q 10 -5 20 0 t 20 0" stroke="#f76b15"/>
+    <rect x="574" y="478" width="56" height="22" fill="#fff" stroke="#999" stroke-width="1"/>
+    <path d="M582 490 q 10 -5 20 0 t 20 0" stroke="#30a46c"/>
+  </g>
+  <text x="665" y="522" font-size="13" text-anchor="middle" fill="#222">chunk ≤ 4.000 ký tự</text>
+
+  <!-- sang trang tiếp theo -->
+  <path d="M560 487 H 410 V 195 H 469" stroke="#333" stroke-width="2" stroke-dasharray="7 5" fill="none" marker-end="url(#arr)"/>
+  <text x="402" y="330" font-size="12" text-anchor="end" fill="#555">sang</text>
+  <text x="402" y="347" font-size="12" text-anchor="end" fill="#555">trang</text>
+  <text x="402" y="364" font-size="12" text-anchor="end" fill="#555">tiếp theo</text>
+
+  <!-- chú thích -->
+  <line x1="292" y1="572" x2="310" y2="572" stroke="#f76b15" stroke-width="5"/>
+  <text x="318" y="576" font-size="11" fill="#555">mẩu câu bị cắt ngang trang, được gối sang trang kề bên (gối đầu có chọn lọc)</text>
+</svg>

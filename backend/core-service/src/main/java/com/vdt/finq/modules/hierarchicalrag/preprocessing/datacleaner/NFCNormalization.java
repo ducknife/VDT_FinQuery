@@ -3,17 +3,17 @@ import java.text.Normalizer;
 
 import org.springframework.stereotype.Component;
 
-// unicode lets the same accented letter be stored two ways, and vietnamese hits
-// this constantly because a letter can carry two marks:
+// unicode cho phép cùng một chữ có dấu được lưu theo hai cách, và tiếng Việt
+// gặp chuyện này liên tục vì một chữ có thể mang hai dấu:
 //     "ế" NFC = 1 code point U+1EBF
-//     "ế" NFD = 3 code points: e + circumflex + acute
-// they look identical on screen but equals() returns false and a byte comparison
-// sees different lengths. normalising at the gate makes every later comparison safe
+//     "ế" NFD = 3 code point: e + dấu mũ + dấu sắc
+// hai dạng trông giống hệt trên màn hình nhưng equals() trả về false, so từng byte
+// thì thấy độ dài khác nhau. chuẩn hoá ngay ở cổng vào thì mọi phép so sánh sau đều an toàn
 @Component
 public class NFCNormalization {
 
-    // idempotent and cheap: running it on text that is already NFC changes nothing,
-    // measured at about 0.03 ms for a 10000 character page
+    // luỹ đẳng và rẻ: chạy trên văn bản đã là NFC thì không đổi gì,
+    // đo được khoảng 0.03 ms cho một trang 10000 ký tự
     public String toNfc(String text) {
         if (text == null || text.isEmpty()) {
             return "";
@@ -21,8 +21,8 @@ public class NFCNormalization {
         return Normalizer.normalize(text, Normalizer.Form.NFC);
     }
 
-    // only for diagnostics. production code should just call toNfc unconditionally,
-    // checking first is more lines for no gain
+    // chỉ dùng để chẩn đoán. code chạy thật cứ gọi toNfc luôn,
+    // kiểm tra trước chỉ thêm dòng mà không được lợi gì
     public boolean isNfc(String text) {
         return text != null && Normalizer.isNormalized(text, Normalizer.Form.NFC);
     }

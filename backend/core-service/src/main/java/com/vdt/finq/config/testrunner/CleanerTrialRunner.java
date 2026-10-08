@@ -13,16 +13,16 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.datacleaner.TextCleane
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// cleans one page and reports what changed.
-// off by default, turn on with cleaner.trial.enabled=true
+// làm sạch một trang và báo cáo những gì đã thay đổi.
+// mặc định tắt, bật bằng cleaner.trial.enabled=true
 @Slf4j
 @Component
 @RequiredArgsConstructor
 @ConditionalOnProperty(name = "cleaner.trial.enabled", havingValue = "true")
 public class CleanerTrialRunner implements CommandLineRunner {
 
-    // the worst page in the corpus: 17940 characters of which 2909 are &nbsp;.
-    // the model got stuck in a loop, the real content is a ten row table of contents
+    // trang tệ nhất kho: 17940 ký tự, trong đó 2909 là &nbsp;.
+    // model bị kẹt vòng lặp, nội dung thật chỉ là một mục lục mười dòng
     private static final String PAGE_PATH =
             "../../data/ocr/CTR/01_bao_cao_tai_chinh/2019/rieng/BCR-nam-2019/trang_002.md";
 

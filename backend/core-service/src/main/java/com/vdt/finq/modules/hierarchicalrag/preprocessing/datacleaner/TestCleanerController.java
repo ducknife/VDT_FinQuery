@@ -20,13 +20,13 @@ import com.vdt.finq.common.properties.OCRProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// test only endpoints for checking the cleaning rules across the whole corpus.
-// this is NOT part of the real pipeline and NEVER writes anything: the .md files
-// cost a day of network to make, so the controller only reads them, cleans in
-// memory, and reports what changed. the real pipeline calls TextCleaner.clean()
-// directly from the chunker and the figure extractor, not through this endpoint
+// endpoint chỉ dùng để thử các luật làm sạch trên toàn kho.
+// KHÔNG thuộc luồng chính và KHÔNG BAO GIỜ ghi gì: các file .md tốn một ngày mạng
+// để tạo ra, nên controller chỉ đọc, làm sạch trong bộ nhớ rồi báo cáo thay đổi.
+// luồng chính gọi thẳng TextCleaner.clean() từ chunker và bộ trích số liệu,
+// không đi qua endpoint này
 //
-// off by default, turn on with cleaner.test-api.enabled=true
+// mặc định tắt, bật bằng cleaner.test-api.enabled=true
 @Slf4j
 @RestController
 @RequestMapping("/test/cleaner")
@@ -38,8 +38,8 @@ public class TestCleanerController {
     private final TextCleaner textCleaner;
     private final NFCNormalization nfcNormalization;
 
-    // runs every page through the cleaner and reports how much each one changed.
-    // nothing is written: the .md files stay exactly as the ocr left them
+    // cho mọi trang chạy qua cleaner và báo cáo mỗi trang thay đổi bao nhiêu.
+    // không ghi gì: các file .md giữ nguyên như lúc OCR xong
     @GetMapping("/audit")
     public Map<String, Object> audit() throws IOException {
         Path root = Path.of(ocrProperties.getOutputDir()).toAbsolutePath().normalize();
@@ -77,7 +77,7 @@ public class TestCleanerController {
             }
         }
 
-        // biggest shrink first, that is where a rule is most likely misfiring
+        // trang bị cắt bớt nhiều nhất lên đầu, đó là chỗ luật dễ chạy sai nhất
         pages.sort(Comparator.comparingDouble(m -> -(double) m.get("percent")));
 
         long ms = System.currentTimeMillis() - start;
@@ -95,12 +95,12 @@ public class TestCleanerController {
                 "pages", pages);
     }
 
-    // before and after for one page, so a suspicious row in the audit can be opened
+    // trước và sau của một trang, để mở xem một dòng đáng ngờ trong bảng audit
     @GetMapping("/page")
     public Map<String, Object> page(@RequestParam String path) throws IOException {
         Path root = Path.of(ocrProperties.getOutputDir()).toAbsolutePath().normalize();
         Path file = root.resolve(path).normalize();
-        // the path comes from the browser, treat it as untrusted
+        // đường dẫn đến từ trình duyệt, coi là không tin cậy
         if (!file.startsWith(root)) {
             throw new IllegalArgumentException("path escapes the data directory: " + path);
         }

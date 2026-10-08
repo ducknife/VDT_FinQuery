@@ -20,7 +20,7 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.PageStore;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// a spreadsheet is already a table, one sheet becomes one unit
+// bảng tính vốn đã là bảng, mỗi sheet thành một đơn vị
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -40,8 +40,8 @@ public class XlsxDocumentExtractor implements DocumentExtractor {
         try (InputStream in = Files.newInputStream(file);
              Workbook workbook = new XSSFWorkbook(in)) {
 
-            // DataFormatter gives the text the user sees in excel, so 1.234.567 stays
-            // 1.234.567 instead of becoming 1234567.0
+            // DataFormatter trả về đúng chữ người dùng thấy trong excel,
+            // nên 1.234.567 vẫn là 1.234.567 thay vì thành 1234567.0
             DataFormatter formatter = new DataFormatter();
 
             for (int s = 0; s < workbook.getNumberOfSheets(); s++) {
@@ -63,7 +63,7 @@ public class XlsxDocumentExtractor implements DocumentExtractor {
         if (lastRow < 0) {
             return "";
         }
-        // widest row decides the column count, short rows get padded
+        // dòng rộng nhất quyết định số cột, dòng ngắn hơn được bù ô trống
         int columns = 0;
         for (int r = 0; r <= lastRow; r++) {
             Row row = sheet.getRow(r);
@@ -87,7 +87,7 @@ public class XlsxDocumentExtractor implements DocumentExtractor {
                     Cell cell = row.getCell(c);
                     if (cell != null && cell.getCellType() != CellType.BLANK) {
                         text = formatter.formatCellValue(cell).strip().replace("\n", " ");
-                        // a pipe inside a cell would split the markdown row
+                        // dấu | trong ô sẽ làm vỡ dòng bảng markdown
                         text = text.replace("|", "\\|");
                         empty = empty && text.isEmpty();
                     }

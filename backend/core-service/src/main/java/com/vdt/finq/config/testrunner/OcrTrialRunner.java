@@ -19,23 +19,23 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.VisionOcrClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// runs one page end to end and compares it with the .md the old node tool produced.
-// seeing text come back is not proof, the digits have to match.
-// off by default, turn on with ocr.trial.enabled=true
+// chạy trọn một trang từ đầu tới cuối rồi so với file .md do công cụ node cũ sinh ra.
+// thấy có chữ trả về chưa phải bằng chứng, các con số phải khớp.
+// mặc định tắt, bật bằng ocr.trial.enabled=true
 @Slf4j
 @Component
 @RequiredArgsConstructor
 @ConditionalOnProperty(name = "ocr.trial.enabled", havingValue = "true")
 public class OcrTrialRunner implements CommandLineRunner {
 
-    // a run of digits grouped by dots like 8.195.930.808.790, the shape that must
-    // not drift
+    // dãy số nhóm bằng dấu chấm như 8.195.930.808.790,
+    // đây là dạng số không được phép sai lệch
     private static final Pattern MONEY = Pattern.compile("\\(?\\d{1,3}(?:\\.\\d{3}){2,}\\)?");
 
     private static final String PDF_PATH = "../../data/raw/CTR/01_bao_cao_tai_chinh/2019/rieng/BCTC-R-ban-nien-2019.pdf";
     private static final String REFERENCE_PATH = "../../data/ocr/CTR/01_bao_cao_tai_chinh/2019/rieng/BCTC-R-ban-nien-2019/trang_002.md";
 
-    // as printed on paper
+    // đánh số như in trên giấy
     private static final int PAGE_NUMBER = 7;
 
     private final OCRProperties properties;
@@ -45,7 +45,7 @@ public class OcrTrialRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Path pdf = Path.of(PDF_PATH).toAbsolutePath().normalize();
         Path reference = Path.of(REFERENCE_PATH).toAbsolutePath().normalize();
-        // the renderer counts from zero
+        // bộ kết xuất đếm trang từ 0
         int pageIndex = PAGE_NUMBER - 1;
 
         log.info("=== ocr trial: page {} of {} ===", PAGE_NUMBER, pdf.getFileName());
@@ -57,7 +57,7 @@ public class OcrTrialRunner implements CommandLineRunner {
                     (float) properties.getJpegQuality());
             long renderMs = System.currentTimeMillis() - renderStart;
 
-            // keep the image so it can be opened and checked by eye
+            // giữ lại ảnh để mở ra kiểm tra bằng mắt
             Path imageOut = Path.of("trial-page-%03d.jpg".formatted(PAGE_NUMBER));
             Files.write(imageOut, jpeg);
             log.info("rendered in {} ms -> {} KB ({})", renderMs, jpeg.length / 1024, imageOut);
@@ -80,12 +80,12 @@ public class OcrTrialRunner implements CommandLineRunner {
         compare(Files.readString(reference), fresh);
     }
 
-    // three checks, ordered by how badly a mismatch would hurt
+    // ba phép kiểm tra, xếp theo mức độ nghiêm trọng nếu bị lệch
     private void compare(String reference, String fresh) {
         log.info("--- comparison against the node output ---");
 
-        // 1. digits. one wrong digit is a wrong financial figure, so this matters most.
-        // a page can read well and still be useless
+        // 1. con số. sai một chữ số là sai một số liệu tài chính, nên quan trọng nhất.
+        // một trang đọc trôi chảy vẫn có thể vô dụng
         Set<String> referenceMoney = extractMoney(reference);
         Set<String> freshMoney = extractMoney(fresh);
         Set<String> missing = new LinkedHashSet<>(referenceMoney);
@@ -100,14 +100,14 @@ public class OcrTrialRunner implements CommandLineRunner {
             log.error("  mismatch, missing {} | unexpected {}", missing, extra);
         }
 
-        // 2. table rows. losing rows means the model merged or dropped table lines
+        // 2. số dòng bảng. mất dòng nghĩa là model đã gộp hoặc bỏ sót dòng của bảng
         long referenceRows = countTableRows(reference);
         long freshRows = countTableRows(fresh);
         log.info("table rows: reference {} | fresh {} {}", referenceRows, freshRows,
                 referenceRows == freshRows ? "ok" : "<-- differs");
 
-        // 3. overall size. wording may differ between runs, a big gap means a chunk
-        // of the page went missing
+        // 3. độ dài tổng. câu chữ có thể khác nhau giữa các lần chạy,
+        // lệch nhiều nghĩa là một phần trang đã bị mất
         double ratio = (double) fresh.length() / reference.length();
         log.info("length: reference {} | fresh {} (ratio {})",
                 reference.length(), fresh.length(), "%.2f".formatted(ratio));
@@ -118,7 +118,7 @@ public class OcrTrialRunner implements CommandLineRunner {
         firstDifferingLine(reference, fresh);
     }
 
-    // show where the two outputs start to diverge
+    // chỉ ra chỗ hai kết quả bắt đầu khác nhau
     private void firstDifferingLine(String reference, String fresh) {
         List<String> a = reference.lines().map(String::strip).filter(s -> !s.isEmpty()).toList();
         List<String> b = fresh.lines().map(String::strip).filter(s -> !s.isEmpty()).toList();
@@ -150,7 +150,7 @@ public class OcrTrialRunner implements CommandLineRunner {
         return text.lines().filter(line -> line.strip().startsWith("|")).count();
     }
 
-    // 150-400 KB is the normal range for a4 at 170 dpi grayscale
+    // 150-400 KB là mức bình thường cho trang A4 ở 170 dpi, ảnh xám
     private static void warnIfImageSizeIsOdd(int bytes) {
         int kb = bytes / 1024;
         if (kb > 1024) {

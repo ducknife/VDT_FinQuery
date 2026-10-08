@@ -10,8 +10,8 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.DocumentOcrService
 
 import lombok.RequiredArgsConstructor;
 
-// pdf is the only format that needs ocr, the page layout is lost if we read the
-// text layer so we rasterise and let the vision model read the tables
+// pdf là định dạng duy nhất cần OCR: đọc lớp chữ thì mất bố cục trang,
+// nên ta chuyển thành ảnh rồi để model thị giác đọc bảng
 @Component
 @RequiredArgsConstructor
 public class PdfDocumentExtractor implements DocumentExtractor {

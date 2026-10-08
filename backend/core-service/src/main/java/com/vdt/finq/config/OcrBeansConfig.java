@@ -15,39 +15,39 @@ import com.vdt.finq.common.properties.OCRProperties;
 
 import lombok.RequiredArgsConstructor;
 
-// shared machinery for the ocr pipeline, all three beans are application wide.
-// per document instances would mean ten uploads opening sixty connections
+// hạ tầng dùng chung cho luồng OCR, cả ba bean đều dùng chung cho toàn ứng dụng.
+// nếu mỗi tài liệu tự tạo riêng thì mười lượt tải lên sẽ mở sáu mươi kết nối
 @Configuration
 @RequiredArgsConstructor
 public class OcrBeansConfig {
 
     private final OCRProperties ocrProperties;
 
-    // one client for the whole app, a new one per call would rebuild its
-    // connection pool and thread pool 6690 times in a run
+    // một client cho cả ứng dụng, tạo mới mỗi lần gọi thì phải dựng lại
+    // connection pool và thread pool 6690 lần trong một lượt chạy
     @Bean
     public HttpClient ocrHttpClient() {
         return HttpClient.newBuilder()
                 .connectTimeout(Duration.ofSeconds(30))
-                // no overall request timeout here, VisionOcrClient does its own
-                // two part timing: first chunk, then silence between chunks
+                // không đặt hạn giờ cho cả request ở đây, VisionOcrClient tự canh
+                // hai mốc: chờ chunk đầu tiên, rồi khoảng lặng giữa các chunk
                 .build();
     }
 
-    // single thread watching every in flight call for silence
+    // một luồng duy nhất canh mọi lượt gọi đang chạy xem có bị im lặng không
     @Bean(destroyMethod = "shutdownNow")
     public ScheduledExecutorService ocrWatchdog() {
         return Executors.newSingleThreadScheduledExecutor(named("ocr-watchdog"));
     }
 
-    // the real limit of the pipeline: how many pages may be in flight.
-    // bounded because the bottleneck is the network, not the cpu
+    // giới hạn thật của luồng: bao nhiêu trang được xử lý cùng lúc.
+    // phải giới hạn vì nút thắt là mạng, không phải cpu
     @Bean(destroyMethod = "shutdown")
     public ExecutorService ocrPool() {
         return Executors.newFixedThreadPool(ocrProperties.getConcurrency(), named("ocr-worker"));
     }
 
-    // names the threads so logs and thread dumps are readable
+    // đặt tên cho luồng để log và thread dump dễ đọc
     private static ThreadFactory named(String prefix) {
         AtomicInteger counter = new AtomicInteger(1);
         return runnable -> {

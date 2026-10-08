@@ -20,7 +20,7 @@ import org.apache.pdfbox.rendering.PDFRenderer;
 
 import lombok.extern.slf4j.Slf4j;
 
-// one instance per document, open it with try-with-resources
+// mỗi tài liệu một instance, mở bằng try-with-resources
 @Slf4j
 public final class PdfRenderer implements AutoCloseable {
 
@@ -33,16 +33,16 @@ public final class PdfRenderer implements AutoCloseable {
     private PdfRenderer(PDDocument document, Path source) {
         this.document = document;
         this.source = source;
-        // built once and reused for every page
+        // tạo một lần, dùng lại cho mọi trang
         this.renderer = new PDFRenderer(document);
     }
 
-    // open a pdf, caller must close it
+    // mở một file pdf, bên gọi phải tự đóng
     public static PdfRenderer open(Path pdfPath) throws IOException {
         if (!Files.isRegularFile(pdfPath)) {
             throw new IOException("pdf not found: " + pdfPath);
         }
-        // pdfbox 3 uses Loader, pdfbox 2 used PDDocument.load
+        // pdfbox 3 dùng Loader, pdfbox 2 dùng PDDocument.load
         PDDocument document = Loader.loadPDF(pdfPath.toFile());
         log.debug("opened {} ({} pages)", pdfPath.getFileName(), document.getNumberOfPages());
         return new PdfRenderer(document, pdfPath);
@@ -52,7 +52,7 @@ public final class PdfRenderer implements AutoCloseable {
         return document.getNumberOfPages();
     }
 
-    // render one page to a grayscale jpeg, pageIndex starts at 0
+    // kết xuất một trang thành ảnh jpeg xám, pageIndex đếm từ 0
     public byte[] render(int pageIndex, int dpi, float jpegQuality) throws IOException {
         if (pageIndex < 0 || pageIndex >= pageCount()) {
             throw new IllegalArgumentException("page index %d out of range 0..%d in %s"
@@ -60,13 +60,13 @@ public final class PdfRenderer implements AutoCloseable {
         }
 
         BufferedImage image;
-        // PDDocument is not thread safe, so only one thread may render at a time.
-        // cheap to serialise: rendering is ~200ms, the network call is 20-120s
+        // PDDocument không an toàn đa luồng, nên mỗi lúc chỉ một luồng được kết xuất.
+        // khoá lại cũng rẻ: kết xuất mất ~200ms, còn gọi mạng mất 20-120s
         synchronized (document) {
             image = renderer.renderImageWithDPI(pageIndex, dpi, ImageType.GRAY);
         }
 
-        // compress outside the lock, the image is local so threads can run in parallel
+        // nén ảnh ngoài khoá, ảnh là biến cục bộ nên các luồng chạy song song được
         byte[] jpeg = toJpeg(image, jpegQuality);
         log.debug("page {} at {} dpi -> {} KB", pageIndex, dpi, jpeg.length / 1024);
         return jpeg;
@@ -77,7 +77,7 @@ public final class PdfRenderer implements AutoCloseable {
         document.close();
     }
 
-    // compress to jpeg, ImageIO.write cannot set the quality so we go through ImageWriter
+    // nén sang jpeg; ImageIO.write không chỉnh được chất lượng nên phải dùng ImageWriter
     private static byte[] toJpeg(BufferedImage image, float jpegQuality) throws IOException {
         Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName(JPEG_FORMAT);
         if (!writers.hasNext()) {
@@ -94,10 +94,10 @@ public final class PdfRenderer implements AutoCloseable {
             writer.setOutput(stream);
             writer.write(null, new IIOImage(image, null, null), param);
         } finally {
-            // every writer holds native buffers, leaking them kills a 6690 page run
+            // mỗi writer giữ bộ đệm native, rò rỉ thì lượt chạy 6690 trang sẽ chết giữa chừng
             writer.dispose();
         }
-        // read after the stream is closed so everything has been flushed
+        // đọc sau khi đóng stream để chắc mọi byte đã được ghi xong
         return out.toByteArray();
     }
 }

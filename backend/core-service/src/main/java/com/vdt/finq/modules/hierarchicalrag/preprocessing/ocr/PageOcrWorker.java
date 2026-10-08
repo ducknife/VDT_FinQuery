@@ -9,13 +9,13 @@ import com.vdt.finq.common.properties.OCRProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// does one page: render -> call the model -> store, retrying down the dpi ladder
+// xử lý một trang: kết xuất ảnh -> gọi model -> lưu, lỗi thì thử lại theo thang DPI
 @Slf4j
 @Component
 @RequiredArgsConstructor
 public class PageOcrWorker {
 
-    // wait a little between attempts so a brief network dip can recover
+    // nghỉ một chút giữa các lần thử để mạng chập chờn kịp hồi lại
     private static final long RETRY_PAUSE_MS = 2_000;
 
     private final OCRProperties properties;
@@ -31,13 +31,13 @@ public class PageOcrWorker {
                 byte[] jpeg = renderer.render(pageIndex, dpi, (float) properties.getJpegQuality());
                 String markdown = visionOcrClient.ocr(jpeg);
 
-                // page numbers on disk start at 1, pageIndex starts at 0
+                // số trang trên đĩa đếm từ 1, pageIndex đếm từ 0
                 pageStore.write(relativePath, pageIndex + 1, markdown);
                 log.info("page {} ok on attempt {} at {} dpi", pageIndex + 1, attempt, dpi);
                 return PageResult.ok(pageIndex, attempt);
 
             } catch (OcrTimeoutException e) {
-                // most failures are the network, so the next attempt sends a smaller image
+                // lỗi chủ yếu do mạng, nên lần thử sau gửi ảnh nhỏ hơn
                 lastError = e.getMessage();
                 log.warn("page {} attempt {}/{} at {} dpi timed out: {}",
                         pageIndex + 1, attempt, properties.getMaxAttempts(), dpi, lastError);
@@ -51,7 +51,7 @@ public class PageOcrWorker {
             }
         }
 
-        // out of attempts, leave a tombstone so the page is never lost silently
+        // hết lượt thử thì để lại file .loi, để trang không bị mất một cách âm thầm
         log.error("page {} gave up after {} attempts: {}",
                 pageIndex + 1, properties.getMaxAttempts(), lastError);
         try {
@@ -62,7 +62,7 @@ public class PageOcrWorker {
         return PageResult.failed(pageIndex, properties.getMaxAttempts(), lastError);
     }
 
-    // ladder is [0, 0, 130, 130, 110, 110], a 0 means use the default dpi
+    // thang là [0, 0, 130, 130, 110, 110], 0 nghĩa là dùng DPI mặc định
     private int dpiForAttempt(int attempt) {
         var ladder = properties.getDpiLadder();
         if (ladder == null || attempt > ladder.size()) {

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// runs one whole document: works out which pages are missing and ocr them in parallel
+// OCR trọn một tài liệu: tìm các trang còn thiếu rồi OCR song song
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -27,7 +27,7 @@ public class DocumentOcrService {
         try (PdfRenderer renderer = PdfRenderer.open(pdfPath)) {
             int totalPages = renderer.pageCount();
 
-            // skip pages that already have a .md, this is what makes a rerun cheap
+            // bỏ qua trang đã có .md, nhờ vậy chạy lại rất rẻ
             List<Integer> todo = new ArrayList<>();
             for (int i = 0; i < totalPages; i++) {
                 if (!pageStore.exists(relativePath, i + 1)) {
@@ -42,8 +42,8 @@ public class DocumentOcrService {
                 return new DocumentOcrResult(totalPages, skipped, 0, 0);
             }
 
-            // the pool is shared by the whole application so ten uploads at once
-            // still use only `concurrency` connections
+            // pool dùng chung cho cả ứng dụng nên mười lượt tải lên cùng lúc
+            // vẫn chỉ dùng `concurrency` kết nối
             List<Future<PageResult>> futures = new ArrayList<>(todo.size());
             for (int pageIndex : todo) {
                 futures.add(ocrPool.submit(
@@ -54,7 +54,7 @@ public class DocumentOcrService {
             int failed = 0;
             for (Future<PageResult> future : futures) {
                 try {
-                    if (future.get().success()) {
+                    if (future.get().isSuccess()) {
                         succeeded++;
                     } else {
                         failed++;
@@ -63,15 +63,15 @@ public class DocumentOcrService {
                     Thread.currentThread().interrupt();
                     throw new IOException("interrupted while waiting for pages", e);
                 } catch (ExecutionException e) {
-                    // one broken page must not kill the whole document
+                    // một trang lỗi không được làm hỏng cả tài liệu
                     log.error("page task threw", e.getCause());
                     failed++;
                 }
             }
 
             log.info("{}: {} succeeded, {} failed", pdfPath.getFileName(), succeeded, failed);
-            // caller sets documents.ngay_ocr only when result.complete() is true,
-            // otherwise the failed pages would never be retried
+            // bên gọi chỉ ghi documents.ngay_ocr khi result.isComplete() đúng,
+            // nếu không các trang lỗi sẽ không bao giờ được thử lại
             return new DocumentOcrResult(totalPages, skipped, succeeded, failed);
         }
     }

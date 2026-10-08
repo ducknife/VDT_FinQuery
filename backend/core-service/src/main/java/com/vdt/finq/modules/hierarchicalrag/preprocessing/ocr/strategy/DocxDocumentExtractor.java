@@ -21,15 +21,15 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.PageStore;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// word already stores paragraphs and table cells as structure, so there is nothing
-// to recognise. sending it through ocr would throw that structure away
+// word đã lưu đoạn văn và ô bảng dưới dạng có cấu trúc, nên không cần nhận dạng gì.
+// đưa qua OCR thì sẽ mất cấu trúc đó
 @Slf4j
 @Component
 @RequiredArgsConstructor
 public class DocxDocumentExtractor implements DocumentExtractor {
 
-    // a docx has no pages until it is laid out, so we cut on headings instead and
-    // start a new unit once one grows past this
+    // docx không có trang cho tới khi được dàn trang, nên ta cắt theo heading
+    // và mở đơn vị mới khi đơn vị hiện tại dài quá mức này
     private static final int MAX_UNIT_CHARS = 4_000;
 
     private final PageStore pageStore;
@@ -47,7 +47,7 @@ public class DocxDocumentExtractor implements DocumentExtractor {
         try (InputStream in = Files.newInputStream(file);
              XWPFDocument document = new XWPFDocument(in)) {
 
-            // walk body elements in order so paragraphs and tables keep their position
+            // duyệt các phần tử theo thứ tự để đoạn văn và bảng giữ đúng vị trí
             for (IBodyElement element : document.getBodyElements()) {
                 String block = switch (element) {
                     case XWPFParagraph paragraph -> renderParagraph(paragraph);
@@ -57,7 +57,7 @@ public class DocxDocumentExtractor implements DocumentExtractor {
                 if (block.isBlank()) {
                     continue;
                 }
-                // a heading starts a new unit, and so does an overlong one
+                // gặp heading thì mở đơn vị mới, đơn vị quá dài cũng vậy
                 boolean isHeading = block.startsWith("#");
                 if (!current.isEmpty() && (isHeading || current.length() > MAX_UNIT_CHARS)) {
                     units.add(current.toString().strip());
@@ -79,7 +79,7 @@ public class DocxDocumentExtractor implements DocumentExtractor {
         return new DocumentOcrResult(written, 0, written, 0);
     }
 
-    // word heading styles become markdown headings so the chunker can cut on them
+    // style heading của word thành heading markdown để chunker cắt được theo đó
     private String renderParagraph(XWPFParagraph paragraph) {
         String text = paragraph.getText().strip();
         if (text.isEmpty()) {
@@ -95,7 +95,7 @@ public class DocxDocumentExtractor implements DocumentExtractor {
         return text;
     }
 
-    // first row becomes the header, which is what markdown tables need
+    // dòng đầu làm tiêu đề, đúng như bảng markdown yêu cầu
     private String renderTable(XWPFTable table) {
         List<XWPFTableRow> rows = table.getRows();
         if (rows.isEmpty()) {
@@ -106,7 +106,7 @@ public class DocxDocumentExtractor implements DocumentExtractor {
             List<XWPFTableCell> cells = rows.get(r).getTableCells();
             out.append("| ");
             for (XWPFTableCell cell : cells) {
-                // a newline inside a cell would break the markdown row
+                // xuống dòng trong ô sẽ làm vỡ dòng bảng markdown
                 out.append(cell.getText().strip().replace("\n", " ")).append(" | ");
             }
             out.append('\n');
