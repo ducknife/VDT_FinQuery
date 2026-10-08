@@ -1,4 +1,4 @@
-package com.vdt.finq.config;
+package com.vdt.finq.config.testrunner;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;

@@ -38,3 +38,14 @@ indexing:
   max-chunk-chars: 4000
   stitch-max-chars: 500
   model-limit-chars: 50000
+
+embedding:
+  api-url: ${EMBEDDING_API_URL:https://viettelai.vn/model-as-a-service/v1/embeddings}
+  api-key: ${LLM_API_KEY}
+  model: ${EMBEDDING_MODEL}
+  dimensions: 2560
+  batch-size: 32
+  request-timeout: 120s
+  max-attempts: 3
+  trial:
+    enabled: true

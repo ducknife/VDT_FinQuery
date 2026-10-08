@@ -1,0 +1,35 @@
+# Qdrant cho FinQuery: lưu vector và payload của các chunk
+#
+# chạy từ thư mục infra/qdrant:
+#   docker compose -f docker-compose.qdrant.yml up -d      bật (chạy nền)
+#   docker compose -f docker-compose.qdrant.yml ps         xem trạng thái
+#   docker compose -f docker-compose.qdrant.yml logs -f    xem log
+#   docker compose -f docker-compose.qdrant.yml down       tắt, dữ liệu vẫn còn trong volume
+#
+# dashboard: http://localhost:6333/dashboard
+# chi tiết thiết kế: logs/lap-chi-muc_v1.7.md, mục 3
+
+# tên project, nếu không Docker tự lấy tên thư mục "qdrant"
+name: finq
+
+services:
+  qdrant:
+    # ghim đúng dòng 1.13 để khớp thư viện io.qdrant:client 1.13.0 trong dự án
+    image: qdrant/qdrant:v1.13.6
+    container_name: finq-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"   # REST và dashboard
+      - "6334:6334"   # gRPC, code Java dùng cổng này
+    volumes:
+      # dùng named volume thay vì trỏ vào thư mục Windows:
+      # Qdrant ghi file bằng mmap, chạy trên ổ NTFS qua Docker Desktop dễ chậm và lỗi
+      - qdrant_storage:/qdrant/storage
+    environment:
+      QDRANT__TELEMETRY_DISABLED: "true"   # không gửi số liệu sử dụng ra ngoài
+    # vector cả kho chỉ khoảng 74 MB, giới hạn 1 GB để không chiếm RAM của máy 7,6 GiB
+    mem_limit: 1g
+
+volumes:
+  qdrant_storage:
+    name: finq_qdrant_storage
