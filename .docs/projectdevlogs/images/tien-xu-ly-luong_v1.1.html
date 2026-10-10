@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Luồng tiền xử lý FinQuery-RAG</title>
+<!-- nguồn của images/tien-xu-ly-luong_v1.1.png; sửa file này rồi chụp lại bằng Edge headless (xem tien-xu-ly_v1.1.md, mục 11.1) -->
+<style>
+  :root {
+    --ink: #1f2933; --muted: #52606d; --line: #9aa5b1;
+    --http: #e8f0fe; --http-b: #4c7bd9;
+    --ocr: #fff4e0; --ocr-b: #d98b1a;
+    --idx: #e6f6ec; --idx-b: #2f9e5b;
+    --flag: #fde8e8; --flag-b: #c94141;
+    --store: #f3eefc; --store-b: #7a55c7;
+    --ext: #eef2f5; --ext-b: #6b7a89;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; width: 1400px; background: #ffffff; color: var(--ink);
+         font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; line-height: 1.4; }
+  .page { padding: 28px 32px 32px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 22px; font-size: 14px; }
+  .grid { display: grid; grid-template-columns: 1fr 360px; gap: 28px; align-items: start; }
+  .lane { border: 2px dashed var(--line); border-radius: 14px; padding: 14px 16px 16px; position: relative; }
+  .lane > .tag { position: absolute; top: -12px; left: 16px; background: #fff; padding: 0 8px;
+                 font-weight: 700; color: var(--muted); font-size: 13px; letter-spacing: .3px; }
+  .card { border: 2px solid; border-radius: 10px; padding: 10px 12px; background: #fff; }
+  .card h3 { margin: 0 0 6px; font-size: 15px; }
+  .card .cls { font-family: Consolas, "Cascadia Mono", monospace; font-size: 13px; font-weight: 600; }
+  .http { background: var(--http); border-color: var(--http-b); }
+  .ocr { background: var(--ocr); border-color: var(--ocr-b); }
+  .idx { background: var(--idx); border-color: var(--idx-b); }
+  .flag { background: var(--flag); border-color: var(--flag-b); }
+  .store { background: var(--store); border-color: var(--store-b); }
+  .ext { background: var(--ext); border-color: var(--ext-b); }
+  .todo { background: #fafafa; border: 2px dashed #b0b8c1; color: var(--muted); }
+  .entries { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 26px; }
+  .entry { border-radius: 10px; padding: 10px 12px; color: #fff; }
+  .entry.a { background: #3d6fd1; } .entry.b { background: #2f8a7a; }
+  .entry b { font-family: Consolas, monospace; font-size: 14px; }
+  .entry div { font-size: 13px; opacity: .95; margin-top: 3px; }
+  .down { text-align: center; color: var(--muted); font-size: 13px; margin: 6px 0 16px; }
+  .down .a { font-size: 22px; line-height: 1; display: block; color: #6b7a89; font-style: normal; }
+  ol.steps { margin: 4px 0 0; padding-left: 0; list-style: none; counter-reset: s; }
+  ol.steps > li { counter-increment: s; position: relative; padding: 6px 8px 6px 40px; margin: 6px 0;
+                  border-radius: 8px; background: rgba(255,255,255,.75); }
+  ol.steps > li::before { content: counter(s); position: absolute; left: 8px; top: 6px; width: 24px; height: 24px;
+                  border-radius: 50%; background: var(--idx-b); color: #fff; font-weight: 700;
+                  display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  ol.steps.o > li::before { background: var(--ocr-b); }
+  ol.steps.h > li::before { background: var(--http-b); }
+  ol.steps > li.f { background: var(--flag); border: 1.5px solid var(--flag-b); }
+  ol.steps > li.f::before { background: var(--flag-b); }
+  .chain { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-top: 2px; }
+  .chip { font-family: Consolas, monospace; font-size: 12.5px; background: #fff; border: 1px solid #c7ced6;
+          border-radius: 6px; padding: 1px 6px; }
+  .arr { color: #6b7a89; font-weight: 700; }
+  .to { display: inline-block; font-size: 11.5px; font-weight: 700; border-radius: 10px; padding: 0 7px; margin-left: 4px;
+        background: var(--store-b); color: #fff; vertical-align: 1px; }
+  .to.api { background: var(--ext-b); }
+  .note { color: var(--muted); font-size: 12.5px; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+  .ok { border-left: 4px solid var(--idx-b); padding: 4px 8px; background: #fff; border-radius: 4px; font-size: 13px; }
+  .bad { border-left: 4px solid var(--flag-b); padding: 4px 8px; background: #fff; border-radius: 4px; font-size: 13px; }
+  .side > .card { margin-bottom: 14px; }
+  .side h2 { font-size: 15px; margin: 0 0 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+  .kv { font-size: 13px; margin: 2px 0; }
+  .mono { font-family: Consolas, monospace; font-size: 12.5px; }
+  .states { display: flex; align-items: stretch; gap: 8px; margin-top: 18px; }
+  .state { flex: 1; border-radius: 10px; padding: 8px 10px; border: 2px solid; font-size: 13px; }
+  .state b { font-family: Consolas, monospace; font-size: 14px; display: block; }
+  .s1 { background: var(--ocr); border-color: var(--ocr-b); }
+  .s2 { background: var(--idx); border-color: var(--idx-b); }
+  .s3 { background: var(--store); border-color: var(--store-b); }
+  .sarr { align-self: center; font-size: 22px; color: #6b7a89; }
+  .rules { margin-top: 14px; }
+  .rules li { margin: 3px 0; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Luồng tiền xử lý FinQuery-RAG: từ file tải lên tới Qdrant</h1>
+  <p class="sub">10/10/2026 · core-service (Java, Spring Boot) · mỗi bước chỉ chạy khi cột trạng thái của nó trong bảng <span class="mono">documents</span> còn NULL</p>
+
+  <div class="grid">
+    <div class="flow">
+      <div class="entries">
+        <div class="entry a"><b>POST /api/v1/documents</b><div>(A) Tải tài liệu mới: file + tenHienThi, loai, nam, ky, phamVi, maCongTy</div></div>
+        <div class="entry b"><b>POST /{id}/index · POST /index-pending</b><div>(B) Nạp lại một tài liệu · nạp mọi tài liệu đã OCR mà chưa embed (278 có sẵn)</div></div>
+      </div>
+
+      <div class="lane">
+        <span class="tag">LUỒNG HTTP: trả lời ngay</span>
+        <div class="card http">
+          <h3><span class="cls">DocumentController</span> → <span class="cls">DocumentIngestionService</span></h3>
+          <ol class="steps h">
+            <li>(A) Kiểm tra: định dạng có extractor (PDF, DOCX, XLSX), metadata, <span class="mono">maCongTy</span> chỉ chữ hoa + số; tên file làm sạch (chặn <span class="mono">../</span>)</li>
+            <li>(A) Lưu file gốc <span class="to">data/raw</span> · sinh <span class="mono">tai_lieu_id</span> (DocumentIdGenerator) · tạo dòng, <span class="mono">ngay_ocr = NULL</span> <span class="to">MySQL</span></li>
+            <li>(A, B) <span class="mono">submit()</span>: đưa việc vào hàng đợi <span class="mono">ingestionExecutor</span>, trả <b>202 Accepted</b> trong vài ms</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="down"><i class="a">⬇</i>luồng nền "ingestion" (1 luồng, từng tài liệu một) · lỗi chỉ ghi log, xem kết quả bằng <span class="mono">GET /documents/{id}</span></div>
+
+      <div class="lane">
+        <span class="tag">LUỒNG NỀN: process(id), có thể mất vài phút</span>
+
+        <div class="card ocr">
+          <h3>Bước OCR · chỉ khi <span class="mono">ngay_ocr = NULL</span></h3>
+          <div class="chain">
+            <span class="chip">ExtractionService</span><span class="arr">→</span>
+            <span class="chip">PdfDocumentExtractor</span><span class="arr">→</span>
+            <span class="chip">DocumentOcrService</span><span class="arr">→</span>
+            <span class="chip">PdfRenderer</span><span class="arr">→</span>
+            <span class="chip">PageOcrWorker ×6</span><span class="arr">→</span>
+            <span class="chip">VisionOcrClient</span><span class="arr">→</span>
+            <span class="chip">FileSystemPageStore</span>
+          </div>
+          <div class="note" style="margin-top:6px">Mỗi trang: ảnh JPEG 170 DPI → Qwen3-VL-30B-A3B (stream SSE, hai hạn giờ) <span class="to api">DeepInfra</span> → <span class="mono">trang_NNN.md</span> (ghi .tmp rồi đổi tên) <span class="to">data/ocr</span>. Bỏ qua trang đã có file.</div>
+          <div class="split">
+            <div class="ok">Đủ trang → <span class="mono">ngay_ocr = now</span>, <span class="mono">tong_so_trang</span> <span class="to">MySQL</span></div>
+            <div class="bad">Còn trang lỗi → dừng, không lập chỉ mục; chạy lại chỉ OCR trang thiếu (thang DPI)</div>
+          </div>
+        </div>
+
+        <div class="down"><i class="a">⬇</i></div>
+
+        <div class="card idx">
+          <h3>Bước lập chỉ mục · <span class="cls">DocumentIndexingService.index()</span></h3>
+          <ol class="steps">
+            <li><span class="chip">PageStore.read</span> <span class="arr">→</span> <span class="chip">TextCleaner.clean</span> <span class="note">NFC, bỏ &amp;nbsp;, rào ```, khoảng trắng; làm lại mỗi lần đọc, không ghi đè file</span></li>
+            <li><span class="chip">Chunking</span>: <span class="chip">TableStitcher</span> sửa tiêu đề bảng vắt trang <span class="arr">→</span> <span class="chip">TextStitcher</span> gối câu bị cắt <span class="arr">→</span> cắt đệ quy <span class="mono">HEADING → BLOCK → LINE → ATOM</span> <span class="arr">→</span> gộp ≤ 4.000 ký tự</li>
+            <li><span class="chip">Embedding</span>: <span class="mono">"[tên tài liệu]\n" + chunk</span> <span class="arr">→</span> <span class="chip">EmbeddingClient</span> Qwen3-Embedding-8B, lô 32, base64 <span class="to api">DeepInfra</span> <span class="arr">→</span> <span class="mono">float[4096]</span><br><span class="note">phần chậm, dễ lỗi làm TRƯỚC: lỗi ở đây thì bản cũ trong Qdrant còn nguyên</span></li>
+            <li class="f"><b>Hạ cờ</b>: <span class="mono">ngay_embed = NULL</span> <span class="to">MySQL</span> <span class="note">trước khi đụng Qdrant</span></li>
+            <li><span class="chip">QdrantIndexWriter</span>: <span class="mono">ensureCollection</span> <span class="arr">→</span> <span class="mono">deleteDocument</span> (dọn point thừa) <span class="arr">→</span> <span class="mono">upsert</span> lô 64, chờ ghi xong <span class="to">Qdrant</span></li>
+            <li class="f"><span class="mono">countDocument == số chunk</span> → <b>Dựng cờ</b>: <span class="mono">ngay_embed = now, so_chunk = n</span> <span class="to">MySQL</span> <span class="note">luôn là bước cuối</span></li>
+          </ol>
+        </div>
+
+        <div class="down"><i class="a">⬇</i></div>
+        <div class="card todo"><b>Chưa làm:</b> trích số → <span class="mono">financial_figures</span> (cột <span class="mono">ngay_trich_so</span>), phục vụ nhánh truy vấn DB · phân quyền tải lên (Keycloak) · thay luồng nền bằng Kafka</div>
+      </div>
+
+      <div class="states">
+        <div class="state s1"><b>cho_ocr</b>ngay_ocr = NULL</div>
+        <div class="sarr">➜</div>
+        <div class="state s2"><b>cho_embed</b>ngay_ocr có, ngay_embed = NULL</div>
+        <div class="sarr">➜</div>
+        <div class="state s3"><b>da_embed</b>ngay_embed có: tìm được trong Qdrant</div>
+      </div>
+    </div>
+
+    <div class="side">
+      <h2>Nơi lưu và dịch vụ ngoài</h2>
+      <div class="card store">
+        <h3>File gốc <span class="to">data/raw</span></h3>
+        <div class="kv mono">&lt;ma_cong_ty&gt;/&lt;duong_dan&gt;.pdf</div>
+        <div class="kv note">tải lên: &lt;ma_cong_ty&gt;/tai_len/&lt;loai&gt;/&lt;nam&gt;/…</div>
+      </div>
+      <div class="card store">
+        <h3>MySQL · bảng <span class="mono">documents</span> <span class="to">MySQL</span></h3>
+        <div class="kv">Metadata: <span class="mono">tai_lieu_id, ma_cong_ty, ten_hien_thi, loai, nam, ky, pham_vi, …</span></div>
+        <div class="kv"><b>Sổ trạng thái:</b> <span class="mono">ngay_ocr, ngay_trich_so, ngay_embed, so_chunk</span></div>
+        <div class="kv note">Entity <span class="mono">Document</span> · <span class="mono">DocumentRepository</span> · Flyway V4, V8, V10</div>
+      </div>
+      <div class="card store">
+        <h3>Kết quả OCR <span class="to">data/ocr</span></h3>
+        <div class="kv mono">&lt;ma_cong_ty&gt;/&lt;duong_dan&gt;/trang_NNN.md</div>
+        <div class="kv note">trang lỗi: trang_NNN.md.loi (lý do, thời điểm)</div>
+      </div>
+      <div class="card store">
+        <h3>Qdrant · <span class="mono">finq_pages_qwen3e8b</span> <span class="to">Qdrant</span></h3>
+        <div class="kv"><b>1 chunk = 1 point</b> (cả kho ≈ 7.179)</div>
+        <div class="kv">id: <span class="mono">UUID(tai_lieu_id|trang|phan)</span></div>
+        <div class="kv">vector: 4.096 chiều, Cosine</div>
+        <div class="kv">payload: <span class="mono">tai_lieu_id, ma_cong_ty, trang, phan, nam, ky, pham_vi, loai, la_ban_chinh, element_type, noi_dung</span></div>
+        <div class="kv note">8 payload index · noi_dung không có dòng tên tài liệu</div>
+      </div>
+      <div class="card ext">
+        <h3>DeepInfra API <span class="to api">DeepInfra</span></h3>
+        <div class="kv">OCR: <span class="mono">Qwen3-VL-30B-A3B-Instruct</span> ≈ 0,0014 USD/trang</div>
+        <div class="kv">Embed: <span class="mono">Qwen3-Embedding-8B</span> ≈ 0,08 USD cả kho</div>
+      </div>
+      <div class="card flag">
+        <h3>Bất biến</h3>
+        <ul class="rules" style="margin:0;padding-left:18px">
+          <li><span class="mono">ngay_embed</span> khác NULL ⇒ Qdrant có đủ point của tài liệu</li>
+          <li>Embed trước, hạ cờ, rồi mới xoá + ghi Qdrant</li>
+          <li>ID cố định + xoá theo tài liệu: nạp lại không trùng, không để point ma</li>
+          <li>Lỗi giữa chừng: cờ còn NULL nên lần sau tự làm lại</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

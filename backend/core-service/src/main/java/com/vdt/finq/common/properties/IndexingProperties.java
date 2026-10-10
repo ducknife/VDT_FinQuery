@@ -25,4 +25,13 @@ public class IndexingProperties {
 
     // giới hạn của model embedding (khoảng 32k token), chỉ cắt cứng khi vượt mức này
     private int modelLimitChars = 50000;
+
+    // bảng trong văn bản đem embed giữ dạng markdown hay đổi sang JSON (table-to-json).
+    // đổi giá trị này là vector khác hẳn: phải dùng collection khác rồi nạp lại
+    private TableFormat tableFormat = TableFormat.MARKDOWN;
+
+    public enum TableFormat {
+        MARKDOWN,
+        JSON
+    }
 }

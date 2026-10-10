@@ -20,6 +20,7 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.chunker.Chunk
 import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.chunker.Chunking;
 import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.embedder.EmbeddedChunk;
 import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.embedder.Embedding;
+import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.vectordb.QdrantIndexWriter;
 import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.PageStore;
 
 import lombok.RequiredArgsConstructor;
@@ -162,14 +163,9 @@ public class EmbeddingTrialRunner implements CommandLineRunner {
         return Map.of();
     }
 
-    // text: chỉ có chữ, table: chỉ có bảng, mixed: cả hai
+    // dùng chung cách phân loại với QdrantIndexWriter để report khớp payload thật
     private static String elementType(String text) {
-        long tableLines = text.lines().filter(l -> l.stripLeading().startsWith("|")).count();
-        long textLines = text.lines().filter(l -> !l.isBlank() && !l.stripLeading().startsWith("|")).count();
-        if (tableLines == 0) {
-            return "text";
-        }
-        return textLines == 0 ? "table" : "mixed";
+        return QdrantIndexWriter.elementType(text).getValue();
     }
 
     // chunk có phần gối đầu nào

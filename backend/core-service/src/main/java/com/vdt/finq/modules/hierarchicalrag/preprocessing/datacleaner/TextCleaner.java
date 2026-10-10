@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 // 2. &nbsp; thành dấu cách
 // 3. gộp từ hai dấu cách liên tiếp trở lên giữa dòng thành một
 // 4. bỏ khoảng trắng cuối dòng
-// chi tiết và số đo: logs/lam-sach_v1.1.md
+// chi tiết và số đo: .docs/projectdevlogs/lam-sach_v1.1.md
 @Component
 @RequiredArgsConstructor
 public class TextCleaner {

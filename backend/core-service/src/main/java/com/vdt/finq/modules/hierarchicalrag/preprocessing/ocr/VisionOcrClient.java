@@ -117,6 +117,7 @@ public class VisionOcrClient {
             String line;
             while ((line = reader.readLine()) != null) {
                 String chunk = parseChunk(line);
+                // bỏ qua lỗi hoặc là content rỗng do deepinfra khai báo content: "" dễ bị end lỗi
                 if (chunk == null) {
                     continue;
                 }
@@ -187,7 +188,9 @@ public class VisionOcrClient {
         try {
             JsonNode content = objectMapper.readTree(payload)
                     .path("choices").path(0).path("delta").path("content");
-            return content.isTextual() ? content.asText() : null;
+            // chunk đầu của DeepInfra chỉ khai báo role và có content = "": phải bỏ qua,
+            // vì "" ở đây là tín hiệu hết stream
+            return content.isTextual() && !content.asText().isEmpty() ? content.asText() : null;
         } catch (IOException e) {
             // một dòng hỏng không được làm mất cả trang
             log.warn("skipping unreadable sse line: {}", abbreviate(payload));

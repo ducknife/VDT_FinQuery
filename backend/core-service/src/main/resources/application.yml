@@ -7,6 +7,11 @@ spring:
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
+  servlet:
+    multipart:
+      # PDF lớn nhất trong kho khoảng 44 MB; mặc định của Spring chỉ 1 MB
+      max-file-size: 100MB
+      max-request-size: 100MB
 
 agent: 
   max-turn-loop: 4
@@ -29,23 +34,38 @@ ocr:
   #   enabled: true
 
 cleaner:
-  # trial:
-  #   enabled: true
+  trial:
+    enabled: true
   test-api:
     enabled: true
+
+ingestion:
+  raw-dir: ${RAW_DIR:../../data/raw}
+  upload-dir: tai_len
 
 indexing:
   max-chunk-chars: 4000
   stitch-max-chars: 500
   model-limit-chars: 50000
+  # bảng trong văn bản đem embed: markdown | json (table-to-json, paper Hierarchical Reranker).
+  # đổi giá trị là vector khác hẳn: phải đổi QDRANT_COLLECTION rồi nạp lại
+  table-format: json
+
+qdrant:
+  host: ${QDRANT_HOST:localhost}
+  grpc-port: ${QDRANT_GRPC_PORT:6334}
+  # tên collection ghi kèm tên model; đổi model embedding thì đổi collection
+  collection: ${QDRANT_COLLECTION:finq_pages_qwen3e8b}
+  upsert-batch-size: 64
+  timeout: 30s
 
 embedding:
-  api-url: ${EMBEDDING_API_URL:https://viettelai.vn/model-as-a-service/v1/embeddings}
+  api-url: ${EMBEDDING_API_URL}
   api-key: ${LLM_API_KEY}
   model: ${EMBEDDING_MODEL}
-  dimensions: 2560
+  dimensions: ${EMBEDDING_DIMENSIONS}
   batch-size: 32
   request-timeout: 120s
   max-attempts: 3
-  trial:
-    enabled: true
+  # trial:
+  #   enabled: true

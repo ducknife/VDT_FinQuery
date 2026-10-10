@@ -7,7 +7,7 @@
 #   docker compose -f docker-compose.qdrant.yml down       tắt, dữ liệu vẫn còn trong volume
 #
 # dashboard: http://localhost:6333/dashboard
-# chi tiết thiết kế: logs/lap-chi-muc_v1.7.md, mục 3
+# chi tiết thiết kế: .docs/projectdevlogs/lap-chi-muc_v1.7.md, mục 3
 
 # tên project, nếu không Docker tự lấy tên thư mục "qdrant"
 name: finq

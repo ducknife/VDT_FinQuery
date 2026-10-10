@@ -10,7 +10,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public class Chunk {
-
     private final String documentId;
     private final int page;
     private final int part;

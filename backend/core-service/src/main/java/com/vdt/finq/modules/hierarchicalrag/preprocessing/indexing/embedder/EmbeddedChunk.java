@@ -11,11 +11,7 @@ import lombok.ToString;
 @ToString(exclude = "vector")
 @AllArgsConstructor
 public class EmbeddedChunk {
-
     private final Chunk chunk;
-
-    // văn bản thực sự đã đem embed: tên tài liệu + nội dung chunk
     private final String embedText;
-
     private final float[] vector;
 }

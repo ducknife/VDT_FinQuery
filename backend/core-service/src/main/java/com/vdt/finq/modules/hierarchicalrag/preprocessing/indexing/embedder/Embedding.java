@@ -7,13 +7,16 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.vdt.finq.common.properties.EmbeddingProperties;
+import com.vdt.finq.common.properties.IndexingProperties;
+import com.vdt.finq.common.properties.IndexingProperties.TableFormat;
 import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.chunker.Chunk;
+import com.vdt.finq.utils.TableToJson;
 
 import lombok.RequiredArgsConstructor;
 
 // biến chunk thành vector: gắn tên tài liệu, chia lô, gọi EmbeddingClient
 //
-// nguyên tắc (logs/lap-chi-muc_v1.7.md, mục 3.5): chữ có nghĩa thì đem embed,
+// nguyên tắc (.docs/projectdevlogs/lap-chi-muc_v1.7.md, mục 3.5): chữ có nghĩa thì đem embed,
 // toạ độ (tai_lieu_id, trang, phan) để trong payload của Qdrant, không đem embed
 @Component
 @RequiredArgsConstructor
@@ -27,6 +30,8 @@ public class Embedding {
 
     private final EmbeddingClient embeddingClient;
     private final EmbeddingProperties properties;
+    private final IndexingProperties indexingProperties;
+    private final TableToJson tableToJson;
 
     // embed các chunk của một tài liệu; documentTitle là documents.ten_hien_thi
     public List<EmbeddedChunk> embedChunks(List<Chunk> chunks, String documentTitle)
@@ -36,7 +41,7 @@ public class Embedding {
 
         for (int start = 0; start < chunks.size(); start += batchSize) {
             List<Chunk> batch = chunks.subList(start, Math.min(chunks.size(), start + batchSize));
-            List<String> texts = batch.stream().map(c -> embedText(documentTitle, c)).toList();
+            List<String> texts = batch.stream().map(c -> embedText(documentTitle, bodyOf(c))).toList();
             List<float[]> vectors = embeddingClient.embed(texts);
             for (int i = 0; i < batch.size(); i++) {
                 result.add(new EmbeddedChunk(batch.get(i), texts.get(i), vectors.get(i)));
@@ -51,11 +56,25 @@ public class Embedding {
         return embeddingClient.embed(List.of(text)).get(0);
     }
 
+    // phần thân đem embed: chữ của chunk, bảng đổi sang JSON nếu cấu hình yêu cầu.
+    // đổi SAU khi chunk vì thuật toán chunk dựa vào cấu trúc bảng markdown.
+    // payload noi_dung vẫn giữ markdown để hiện trích dẫn
+    private String bodyOf(Chunk chunk) {
+        if (indexingProperties.getTableFormat() == TableFormat.JSON) {
+            return tableToJson.convert(chunk.getText());
+        }
+        return chunk.getText();
+    }
+
     // văn bản đem embed = [tên tài liệu] + nội dung chunk (contextual header, không có số trang)
     public static String embedText(String documentTitle, Chunk chunk) {
+        return embedText(documentTitle, chunk.getText());
+    }
+
+    public static String embedText(String documentTitle, String body) {
         if (documentTitle == null || documentTitle.isBlank()) {
-            return chunk.getText();
+            return body;
         }
-        return "[" + documentTitle + "]\n" + chunk.getText();
+        return "[" + documentTitle + "]\n" + body;
     }
 }

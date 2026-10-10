@@ -23,17 +23,11 @@ import lombok.extern.slf4j.Slf4j;
 //   5. gộp các mảnh vụn liền kề cho tới gần MAX
 //
 // không bao giờ gộp xuyên trang, nên chunk nào cũng thuộc đúng một trang
-// chi tiết và số đo: logs/lap-chi-muc_v1.6.md
+// chi tiết và số đo: .docs/projectdevlogs/lap-chi-muc_v1.6.md
 @Slf4j
 @Component
 @RequiredArgsConstructor
 public class Chunking {
-
-    // các mức cắt, từ thô đến mịn
-    private static final int HEADING = 1;
-    private static final int BLOCK = 2;
-    private static final int LINE = 3;
-    private static final int ATOM = 4;
 
     // vị trí ngay trước một dòng heading
     private static final Pattern BEFORE_HEADING = Pattern.compile("(?m)^(?=[ \\t]*#{1,6}\\s)");
@@ -63,7 +57,7 @@ public class Chunking {
 
             // các phần của trang lần lượt nhận part 0, 1, 2...
             int part = 0;
-            for (String piece : split(text, HEADING, documentId, page)) {
+            for (String piece : split(text, SplitLevel.HEADING, documentId, page)) {
                 String clean = piece.strip();
                 if (!clean.isEmpty()) {
                     chunks.add(new Chunk(documentId, page, part++, clean));
@@ -74,7 +68,7 @@ public class Chunking {
     }
 
     // hàm đệ quy: text cần chia bằng đơn vị của mức level
-    private List<String> split(String text, int level, String documentId, int page) {
+    private List<String> split(String text, SplitLevel level, String documentId, int page) {
         int max = properties.getMaxChunkChars();
 
         // đủ nhỏ thì dừng
@@ -82,23 +76,23 @@ public class Chunking {
             return List.of(text);
         }
         // câu hoặc dòng bảng không chia được nữa: giữ nguyên
-        if (level >= ATOM) {
+        if (level == SplitLevel.ATOM) {
             return keepWhole(text, documentId, page);
         }
         // bảng có cách cắt riêng để giữ tiêu đề cột
-        if (level == LINE && isTable(text)) {
+        if (level == SplitLevel.LINE && isTable(text)) {
             return splitTable(text, documentId, page);
         }
 
         List<String> result = new ArrayList<>();
         for (String piece : splitBy(level, text)) {
-            result.addAll(split(piece, level + 1, documentId, page));
+            result.addAll(split(piece, level.next(), documentId, page));
         }
         return mergeGreedy(result, max);
     }
 
     // tách text theo đơn vị của mức; nối các mảnh lại sẽ ra đúng text ban đầu
-    private static List<String> splitBy(int level, String text) {
+    private static List<String> splitBy(SplitLevel level, String text) {
         return switch (level) {
             case HEADING -> nonEmpty(BEFORE_HEADING.split(text));
             case BLOCK -> splitBlocks(text);
@@ -175,7 +169,7 @@ public class Chunking {
 
     // mức 4: giữ nguyên dù vượt trần, chỉ cắt khi vượt giới hạn của model
     private List<String> keepWhole(String text, String documentId, int page) {
-        // gần như chắc chắn là lỗi OCR lặp (logs/lap-chi-muc_v1.5.md, mục 2.2.6)
+        // gần như chắc chắn là lỗi OCR lặp (.docs/projectdevlogs/lap-chi-muc_v1.5.md, mục 2.2.6)
         log.warn("chunk vượt trần: tài liệu {} trang {}, {} ký tự", documentId, page, text.strip().length());
 
         int limit = properties.getModelLimitChars();
