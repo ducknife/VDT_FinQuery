@@ -1,0 +1,61 @@
+# Cách người dùng hay gọi -> tên chỉ tiêu/chủ đề đúng như in trên báo cáo (bước trích từ khoá, QĐ-030).
+# forms: cách gọi trong câu hỏi (có dấu, không phân biệt hoa thường, khớp nguyên cụm)
+# keywords: cụm đúng của báo cáo, sẽ được NỐI vào câu đem embed
+# Tên chỉ tiêu có sẵn trong bảng financial_items và financial_item_mappings được khớp tự động,
+# file này chỉ bổ sung cách gọi "đời thường" mà bảng đó không có.
+
+aliases:
+  # kết quả kinh doanh
+  - forms: [doanh thu, doanh số]
+    keywords: [doanh thu thuần về bán hàng và cung cấp dịch vụ]
+  - forms: [lãi ròng, lợi nhuận ròng, lãi sau thuế, lợi nhuận sau thuế]
+    keywords: [lợi nhuận sau thuế thu nhập doanh nghiệp, lợi nhuận sau thuế của công ty mẹ]
+  - forms: [lãi gộp, biên lợi nhuận gộp]
+    keywords: [lợi nhuận gộp về bán hàng và cung cấp dịch vụ]
+  - forms: [lãi trước thuế, lợi nhuận trước thuế]
+    keywords: [tổng lợi nhuận kế toán trước thuế]
+  - forms: [lãi vay, chi phí lãi vay]
+    keywords: [chi phí tài chính, chi phí đi vay]
+  - forms: [chi phí quản lý]
+    keywords: [chi phí quản lý doanh nghiệp]
+  # bảng cân đối kế toán
+  - forms: [tiền mặt, tiền gửi, lượng tiền]
+    keywords: [tiền và các khoản tương đương tiền]
+  - forms: [nợ vay, vay nợ, dư nợ vay]
+    keywords: [vay và nợ thuê tài chính ngắn hạn, vay và nợ thuê tài chính dài hạn]
+  - forms: [vốn chủ, vốn chủ sở hữu, vốn điều lệ]
+    keywords: [vốn chủ sở hữu, vốn góp của chủ sở hữu]
+  - forms: [khoản phải thu, công nợ phải thu]
+    keywords: [phải thu ngắn hạn của khách hàng, các khoản phải thu ngắn hạn]
+  - forms: [khoản phải trả, công nợ phải trả]
+    keywords: [phải trả người bán ngắn hạn, nợ phải trả]
+  - forms: [tồn kho]
+    keywords: [hàng tồn kho]
+  - forms: [tài sản]
+    keywords: [tổng cộng tài sản]
+  - forms: [khấu hao]
+    keywords: [khấu hao TSCĐ và bất động sản đầu tư, hao mòn luỹ kế]
+  # dòng tiền
+  - forms: [dòng tiền kinh doanh, dòng tiền hoạt động]
+    keywords: [lưu chuyển tiền thuần từ hoạt động kinh doanh]
+  - forms: [dòng tiền đầu tư]
+    keywords: [lưu chuyển tiền thuần từ hoạt động đầu tư]
+  - forms: [dòng tiền tài chính]
+    keywords: [lưu chuyển tiền thuần từ hoạt động tài chính]
+  # chủ đề trong báo cáo thường niên, nghị quyết, công bố thông tin
+  - forms: [cổ tức, chia cổ tức]
+    keywords: [cổ tức bằng tiền, tỷ lệ chi trả cổ tức]
+  - forms: [phát hành, tăng vốn]
+    keywords: [phát hành cổ phiếu, tăng vốn điều lệ]
+  - forms: [kế hoạch, mục tiêu năm]
+    keywords: [kế hoạch kinh doanh, chỉ tiêu kế hoạch]
+  - forms: [nhân sự, nhân viên, lao động]
+    keywords: [số lượng lao động, cơ cấu nhân sự]
+  - forms: [hội đồng quản trị, hđqt]
+    keywords: [hội đồng quản trị, thành viên hội đồng quản trị]
+  - forms: [đại hội cổ đông, đhđcđ]
+    keywords: [đại hội đồng cổ đông, nghị quyết đại hội đồng cổ đông]
+  - forms: [rủi ro]
+    keywords: [quản trị rủi ro, các yếu tố rủi ro]
+  - forms: [giải trình, chênh lệch lợi nhuận]
+    keywords: [giải trình biến động lợi nhuận sau thuế]

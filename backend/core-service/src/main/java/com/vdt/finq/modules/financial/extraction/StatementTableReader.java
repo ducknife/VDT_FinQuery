@@ -51,15 +51,42 @@ public final class StatementTableReader {
         return build(header, data, layout, n);
     }
 
-    // bảng tiếp theo trang trước mà mất dòng tiêu đề (chỉ còn "| | | |"): đọc với số cột của bảng trước
+    // bảng tiếp theo trang trước mà mất dòng tiêu đề (chỉ còn "| | | |"): đọc với số cột của bảng trước.
+    // số cột giá trị đếm trên chính trang này phải BẰNG số cột của bảng trước: OCR làm rơi một cột
+    // (BCTC HN Q3/2024 trang 6 chỉ còn 3 cột) thì N ô cuối sẽ lấy cả ô thuyết minh trống và lệch
+    // nguyên dòng sang một kỳ khác. không khớp thì không đọc, không đoán cột nào bị rơi
     public static StatementTable readContinuation(MarkdownTable table, int n) {
         List<List<String>> data = new ArrayList<>(table.getHeaderRows());
         data.addAll(table.getBodyRows());
         Layout layout = layout(data, 0);
-        if (layout == null || valueColumns(data, layout).isEmpty()) {
+        if (layout == null || valueColumns(data, layout).isEmpty() || dominantRowValueCount(data, layout) != n) {
             return null;
         }
         return build(List.of(), data, layout, n);
+    }
+
+    // số ô giá trị phổ biến nhất trên các dòng có mã. đếm theo TỪNG DÒNG chứ không theo vị trí cột,
+    // vì dòng có ô thuyết minh, dòng không làm vị trí cột lệch nhau. ô giá trị = số có nhóm nghìn hoặc "-"
+    static int dominantRowValueCount(List<List<String>> data, Layout layout) {
+        java.util.Map<Integer, Integer> freq = new java.util.HashMap<>();
+        for (List<String> row : data) {
+            String code = cell(row, layout.codeColumn);
+            if (layout.embedded ? !EMBEDDED.matcher(code).matches() : normalizeCode(code) == null) {
+                continue;
+            }
+            int count = 0;
+            for (int c = Math.max(layout.codeColumn, layout.nameColumn) + 1; c < row.size(); c++) {
+                String v = row.get(c).strip();
+                if (GROUPED_NUMBER.matcher(v).find() || v.equals("-") || v.equals("–")) {
+                    count++;
+                }
+            }
+            if (count > 0) {
+                freq.merge(count, 1, Integer::sum);
+            }
+        }
+        return freq.entrySet().stream().max(java.util.Map.Entry.comparingByValue())
+                .map(java.util.Map.Entry::getKey).orElse(0);
     }
 
     // vị trí cột mã, cột tên, và mã có dính trong ô tên không

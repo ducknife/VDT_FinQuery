@@ -1,0 +1,80 @@
+# Viết tắt dùng trong báo cáo tài chính và câu hỏi của người làm kế toán, tài chính.
+# Nguồn: mục 6 của .docs/projectdevlogs/tu-dien-tai-chinh_v1.2.md (QĐ-027).
+#
+# Mỗi mục:
+#   forms:     các cách viết của cụm viết tắt (kể cả bản không dấu, ví dụ ĐHĐCĐ / DHDCD)
+#   expansion: dạng đầy đủ, được THÊM vào sau cụm viết tắt: "LNST (lợi nhuận sau thuế)"
+#   context:   (tuỳ chọn) cụm NHẬP NHẰNG; chỉ mở rộng khi trong câu có một trong các từ này
+#              (viết không dấu, chữ thường). Không có context nghĩa là luôn mở rộng.
+#
+# Cụm 3 ký tự trở lên khớp không phân biệt hoa thường ("lnst"); cụm 1-2 ký tự phải đúng chữ hoa ("LN").
+# Thêm viết tắt mới: thêm một mục ở đây, không phải sửa Java.
+
+abbreviations:
+  # tài liệu
+  - { forms: [BCTC], expansion: báo cáo tài chính }
+  - { forms: [BCĐKT, BCDKT], expansion: bảng cân đối kế toán }
+  - { forms: [CĐKT, CDKT], expansion: cân đối kế toán }
+  - { forms: [KQKD, BCKQKD], expansion: kết quả hoạt động kinh doanh }
+  - { forms: [LCTT, BCLCTT], expansion: lưu chuyển tiền tệ }
+  - { forms: [BCTN], expansion: báo cáo thường niên }
+  - { forms: [CBTT], expansion: công bố thông tin }
+  - { forms: [TM], expansion: thuyết minh, context: [bctc, bao cao, bang, muc] }
+  - { forms: [HN], expansion: hợp nhất, context: [bctc, bao cao, bc, bang can doi, ket qua] }
+  - { forms: [R], expansion: riêng, context: [bctc, bao cao] }
+  # quản trị
+  - { forms: [ĐHĐCĐ, DHDCD], expansion: đại hội đồng cổ đông }
+  - { forms: [HĐQT, HDQT], expansion: hội đồng quản trị }
+  - { forms: [BKS], expansion: ban kiểm soát }
+  - { forms: [BĐH, BDH], expansion: ban điều hành }
+  - { forms: [BGĐ, BGD], expansion: ban giám đốc }
+  - { forms: [BTGĐ, BTGD], expansion: ban tổng giám đốc }
+  - { forms: [TGĐ, TGD], expansion: tổng giám đốc }
+  - { forms: [PTGĐ, PTGD], expansion: phó tổng giám đốc }
+  - { forms: [KTT], expansion: kế toán trưởng }
+  - { forms: [ĐKCC, DKCC], expansion: đăng ký cuối cùng }
+  - { forms: [GDKHQ], expansion: giao dịch không hưởng quyền }
+  - { forms: [NLQ], expansion: người có liên quan }
+  - { forms: [CTCP], expansion: công ty cổ phần }
+  - { forms: [TCT], expansion: tổng công ty }
+  - { forms: [UBCKNN], expansion: Uỷ ban Chứng khoán Nhà nước }
+  - { forms: [KTNN], expansion: Kiểm toán Nhà nước }
+  # chỉ tiêu
+  - { forms: [VCSH], expansion: vốn chủ sở hữu }
+  - { forms: [VĐL, VDL], expansion: vốn điều lệ }
+  - { forms: [DTT], expansion: doanh thu thuần }
+  - { forms: [DT], expansion: doanh thu, context: [tang, giam, nam, quy, loi nhuan, bao nhieu] }
+  - { forms: [GVHB], expansion: giá vốn hàng bán }
+  - { forms: [CPBH], expansion: chi phí bán hàng }
+  - { forms: [CPQLDN, CP QLDN], expansion: chi phí quản lý doanh nghiệp }
+  - { forms: [LNG], expansion: lợi nhuận gộp }
+  - { forms: [LNTT], expansion: lợi nhuận trước thuế }
+  - { forms: [LNST], expansion: lợi nhuận sau thuế }
+  - { forms: [LN], expansion: lợi nhuận }
+  - { forms: [TNDN], expansion: thu nhập doanh nghiệp }
+  - { forms: [HTK], expansion: hàng tồn kho }
+  - { forms: [TSCĐ, TSCD], expansion: tài sản cố định }
+  - { forms: [XDCB], expansion: xây dựng cơ bản }
+  - { forms: [TSĐB, TSDB], expansion: tài sản đảm bảo }
+  - { forms: [SXKD], expansion: sản xuất kinh doanh }
+  - { forms: [KH], expansion: kế hoạch, context: [th, thuc hien, dat, hoan thanh, so voi] }
+  - { forms: [TH], expansion: thực hiện, context: [kh, ke hoach] }
+  - { forms: [PPLN], expansion: phân phối lợi nhuận }
+  - { forms: [ESOP], expansion: cổ phiếu phát hành cho người lao động }
+  # chỉ số
+  - { forms: [EPS], expansion: lãi cơ bản trên cổ phiếu }
+  - { forms: [ROE], expansion: lợi nhuận trên vốn chủ sở hữu }
+  - { forms: [ROA], expansion: lợi nhuận trên tổng tài sản }
+  - { forms: [FCF], expansion: dòng tiền tự do }
+  - { forms: [CFO], expansion: dòng tiền từ hoạt động kinh doanh }
+  - { forms: [CAPEX], expansion: chi đầu tư tài sản }
+  - { forms: [DSO], expansion: số ngày thu tiền bình quân }
+  - { forms: [DIO], expansion: số ngày tồn kho bình quân }
+  - { forms: [DPO], expansion: số ngày trả tiền bình quân }
+  - { forms: [CCC], expansion: chu kỳ chuyển đổi tiền mặt }
+  - { forms: [YoY], expansion: so với cùng kỳ năm trước }
+  - { forms: [QoQ], expansion: so với quý trước }
+  # chế độ kế toán
+  - { forms: [TT200], expansion: Thông tư 200/2014 }
+  - { forms: [TT99], expansion: Thông tư 99/2025 }
+  - { forms: [TT202], expansion: Thông tư 202/2014 }

@@ -10,6 +10,7 @@ import com.vdt.finq.common.properties.EmbeddingProperties;
 import com.vdt.finq.common.properties.IndexingProperties;
 import com.vdt.finq.common.properties.IndexingProperties.TableFormat;
 import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.chunker.Chunk;
+import com.vdt.finq.modules.hierarchicalrag.preretrieval.normalizer.FinancialTextNormalizer;
 import com.vdt.finq.utils.TableToJson;
 
 import lombok.RequiredArgsConstructor;
@@ -32,6 +33,7 @@ public class Embedding {
     private final EmbeddingProperties properties;
     private final IndexingProperties indexingProperties;
     private final TableToJson tableToJson;
+    private final FinancialTextNormalizer normalizer;
 
     // embed các chunk của một tài liệu; documentTitle là documents.ten_hien_thi
     public List<EmbeddedChunk> embedChunks(List<Chunk> chunks, String documentTitle)
@@ -60,10 +62,15 @@ public class Embedding {
     // đổi SAU khi chunk vì thuật toán chunk dựa vào cấu trúc bảng markdown.
     // payload noi_dung vẫn giữ markdown để hiện trích dẫn
     private String bodyOf(Chunk chunk) {
+        String body = chunk.getText();
         if (indexingProperties.getTableFormat() == TableFormat.JSON) {
-            return tableToJson.convert(chunk.getText());
+            body = tableToJson.convert(body);
         }
-        return chunk.getText();
+        // cùng bộ chuẩn hoá với câu hỏi, để hai đầu chung một dạng chuẩn
+        if (indexingProperties.isCorpusNormalization()) {
+            body = normalizer.normalizeCorpus(body);
+        }
+        return body;
     }
 
     // văn bản đem embed = [tên tài liệu] + nội dung chunk (contextual header, không có số trang)

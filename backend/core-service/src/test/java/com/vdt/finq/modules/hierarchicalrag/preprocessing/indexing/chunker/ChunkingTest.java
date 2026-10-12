@@ -27,7 +27,7 @@ class ChunkingTest {
     private static final Path CORPUS = Path.of("../../data/ocr/CTR");
 
     private final IndexingProperties properties =
-            new IndexingProperties(4000, 500, 50000, IndexingProperties.TableFormat.MARKDOWN);
+            new IndexingProperties(4000, 500, 50000, IndexingProperties.TableFormat.MARKDOWN, false);
     private final TextStitcher textStitcher = new TextStitcher(properties);
     private final TableStitcher tableStitcher = new TableStitcher();
     private final Chunking chunking = new Chunking(properties, tableStitcher, textStitcher);

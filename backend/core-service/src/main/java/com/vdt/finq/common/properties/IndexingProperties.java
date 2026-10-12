@@ -30,6 +30,10 @@ public class IndexingProperties {
     // đổi giá trị này là vector khác hẳn: phải dùng collection khác rồi nạp lại
     private TableFormat tableFormat = TableFormat.MARKDOWN;
 
+    // chuẩn hoá văn bản đem embed bằng FinancialTextNormalizer (QĐ-027). mặc định TẮT:
+    // chỉ bật khi thí nghiệm 2 x 2 chứng minh có lợi, và phải đổi QDRANT_COLLECTION cùng lúc
+    private boolean corpusNormalization = false;
+
     public enum TableFormat {
         MARKDOWN,
         JSON

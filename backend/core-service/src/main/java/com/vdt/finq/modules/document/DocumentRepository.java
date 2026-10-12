@@ -1,5 +1,6 @@
 package com.vdt.finq.modules.document;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -19,6 +20,10 @@ public interface DocumentRepository extends JpaRepository<Document, String> {
 
     // tài liệu dùng để trích số (BCTC, đính chính) đã OCR xong
     List<Document> findByLoaiInAndNgayOcrIsNotNullOrderByTaiLieuId(Collection<LoaiTaiLieu> loai);
+
+    // kỳ mới nhất có số liệu: mốc của "năm nay", "quý trước" khi chuẩn hoá câu hỏi
+    @Query("select max(d.ngayKetThucKy) from Document d")
+    LocalDate findLatestPeriodEnd();
 
     // chặn tải lên trùng: (ma_cong_ty, duong_dan) có UNIQUE KEY
     boolean existsByMaCongTyAndDuongDan(String maCongTy, String duongDan);

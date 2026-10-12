@@ -1,0 +1,91 @@
+# Thuật ngữ dùng để THÊM DẤU cho câu hỏi gõ không dấu (quy tắc 2, QĐ-027):
+#   "doanh thu nam 2023" -> "doanh thu nam 2023 (doanh thu năm 2023)"
+# Chỉ thêm dấu cho các cụm có trong danh sách, không đoán từ lạ. Dạng đầy đủ (expansion) trong abbreviations.yml
+# cũng được dùng thêm, nên không cần lặp lại ở đây.
+
+terms:
+  - báo cáo tài chính
+  - báo cáo thường niên
+  - báo cáo kết quả kinh doanh
+  - bảng cân đối kế toán
+  - lưu chuyển tiền tệ
+  - thuyết minh
+  - hợp nhất
+  - riêng
+  - doanh thu
+  - doanh thu thuần
+  - giá vốn
+  - lợi nhuận
+  - lợi nhuận gộp
+  - lợi nhuận trước thuế
+  - lợi nhuận sau thuế
+  - chi phí
+  - chi phí tài chính
+  - chi phí lãi vay
+  - thuế
+  - tổng tài sản
+  - tài sản ngắn hạn
+  - tài sản dài hạn
+  - tài sản cố định
+  - nợ phải trả
+  - nợ ngắn hạn
+  - nợ dài hạn
+  - vay
+  - vốn chủ sở hữu
+  - vốn điều lệ
+  - hàng tồn kho
+  - phải thu
+  - phải trả
+  - tiền và tương đương tiền
+  - dòng tiền
+  - khấu hao
+  - đầu tư
+  - cổ tức
+  - cổ phiếu
+  - cổ đông
+  - kế hoạch
+  - thực hiện
+  - tăng trưởng
+  - tăng
+  - giảm
+  - so với
+  - cùng kỳ
+  - kỳ
+  - năm
+  - năm nay
+  - năm ngoái
+  - năm trước
+  - quý
+  - quý này
+  - quý trước
+  - tháng
+  - đầu năm
+  - cuối năm
+  - bán niên
+  - bao nhiêu
+  - là bao nhiêu
+  - của
+  - được
+  - trong
+  - là gì
+  - vì sao
+  - tại sao
+  - như thế nào
+  - tỷ
+  - triệu
+  - nghìn
+  - đồng
+  - phần trăm
+  - công ty
+  - công ty mẹ
+  - tổng công ty
+  - nghị quyết
+  - tờ trình
+  - chính sách
+  - kế toán
+
+# Mã công ty và các cách người dùng gọi công ty đó (viết không dấu, chữ thường).
+# Câu hỏi không nêu công ty nào thì dùng công ty mặc định (quy tắc 6).
+default_company: CTR
+companies:
+  CTR: [ctr, vcc, viettel construction, cong trinh viettel, tong cong ty co phan cong trinh viettel]

@@ -20,4 +20,26 @@ public final class VietnameseText {
         s = MARKS.matcher(s).replaceAll("").replace('đ', 'd');
         return SPACES.matcher(s).replaceAll(" ").strip();
     }
+
+    // như fold nhưng GIỮ NGUYÊN độ dài: ký tự thứ i của kết quả ứng với ký tự thứ i của đầu vào
+    // (đầu vào phải là NFC). nhờ vậy vị trí tìm thấy trên bản không dấu dùng được trên câu gốc
+    public static String foldKeepLength(String text) {
+        StringBuilder out = new StringBuilder(text.length());
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            if (c < 128) {
+                out.append(Character.toLowerCase(c));
+                continue;
+            }
+            String base = MARKS.matcher(Normalizer.normalize(String.valueOf(c), Normalizer.Form.NFD)).replaceAll("");
+            char f = base.isEmpty() ? c : Character.toLowerCase(base.charAt(0));
+            out.append(f == 'đ' ? 'd' : f);
+        }
+        return out.toString();
+    }
+
+    // câu có chứa chữ có dấu tiếng Việt không (để biết người dùng có gõ không dấu)
+    public static boolean hasDiacritics(String text) {
+        return !foldKeepLength(text).equals(text.toLowerCase());
+    }
 }

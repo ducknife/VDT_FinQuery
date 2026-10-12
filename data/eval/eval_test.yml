@@ -1,0 +1,2703 @@
+# Bộ câu hỏi đánh giá FinQuery — v1 (sinh bởi dung_bo_cau_hoi.py, 11/10/2026)
+# trang_vang.muc: 2 = trang chính chứa đáp án, 1 = trang khác cũng chứa đúng bằng chứng
+# can_du_moi_bang_chung: câu cần đủ mọi bằng chứng (nhiều trang/kỳ) mới trả lời được
+# trang_vang.bang_chung_so: trang chứa bằng chứng thứ mấy (chỉ số trong danh sách bang_chung, từ 0)
+# Cơ cấu: {'rag_van_ban': 11, 'rag_bang': 10, 'rag_nhieu_trang': 5, 'db_mot_so': 11, 'db_so_sanh': 7, 'tu_choi': 6}
+- id: V01
+  nhom: rag_van_ban
+  cau_hoi: Vì sao lợi nhuận sau thuế trên báo cáo tài chính riêng quý 2/2024 tăng so với cùng kỳ?
+  bien_the:
+  - cau_vi_sao
+  - pham_vi_rieng
+  dap_an: 'LNST riêng quý II/2024 đạt 139,3 tỷ, tăng 20,8 tỷ (17,6%) so với cùng kỳ 2023: doanh thu tăng 2% (2.217,5 tỷ), chi phí tài chính giảm
+    30% (14,5 tỷ), chi phí quản lý doanh nghiệp giảm 52% (24,6 tỷ).'
+  trang_vang:
+  - tai_lieu_id: CTR-GIAITRINH-20240728-2f5cc5
+    trang: 1
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Công văn giải trình 2024 — ký ngày 28/07/2024
+  bang_chung:
+  - 139,3 tỷ tăng 20,8 tỷ
+- id: V02
+  nhom: rag_van_ban
+  cau_hoi: Nguyên nhân lãi ròng hợp nhất quý 3/2025 tăng so với cùng kỳ là gì?
+  bien_the:
+  - cau_vi_sao
+  - cach_goi_doi_thuong
+  dap_an: 'LNST hợp nhất quý III/2025 đạt 168,9 tỷ, tăng 22,7 tỷ (15,50%): doanh thu 3.965,2 tỷ (+14,09%), doanh thu tài chính 24,7 tỷ (+100,42%),
+    trong khi giá vốn tăng 14,22%, chi phí tài chính tăng 51,07%.'
+  trang_vang:
+  - tai_lieu_id: CTR-GIAITRINH-20251025-93dfc6
+    trang: 2
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Công văn giải trình 2025 — ký ngày 25/10/2025
+  bang_chung:
+  - 168,9 tỷ, tăng 22,7 tỷ
+  trang_de_nham:
+  - tai_lieu_id: CTR-GIAITRINH-20251025-93dfc6
+    trang: 1
+    ly_do: cùng công văn, số của báo cáo riêng
+- id: V03
+  nhom: rag_van_ban
+  cau_hoi: vi sao loi nhuan sau thue hop nhat nam 2025 cua CTR tang so voi nam 2024
+  bien_the:
+  - cau_vi_sao
+  - khong_dau
+  dap_an: 'LNST hợp nhất 2025 đạt 599,72 tỷ, tăng 61,50 tỷ (11,43%): doanh thu 13.939,52 tỷ (+10,55%), doanh thu tài chính 99,62 tỷ (+103,05%);
+    giá vốn tăng 10,51%, chi phí QLDN tăng 46,87%.'
+  trang_vang:
+  - tai_lieu_id: CTR-GIAITRINH-20260316-3f3823
+    trang: 2
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Công văn giải trình 2025 — ký ngày 16/03/2026
+  bang_chung:
+  - 599,72 tỷ, tăng 61,50 tỷ
+- id: V04
+  nhom: rag_van_ban
+  cau_hoi: Cổ tức năm 2024 được chi trả theo tỷ lệ bao nhiêu và ngày đăng ký cuối cùng là ngày nào?
+  bien_the:
+  - ngay_thang
+  dap_an: Cổ tức năm 2024 trả bằng tiền tỷ lệ 21,5% (01 cổ phiếu nhận 2.150 đồng); ngày đăng ký cuối cùng 01/10/2025.
+  trang_vang:
+  - tai_lieu_id: CTR-CBTTCOTUC-20250911-117027
+    trang: 5
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin — cổ tức 2025 — ký ngày 11/09/2025
+  bang_chung:
+  - là ngày 01/10/2025
+- id: V05
+  nhom: rag_van_ban
+  cau_hoi: Công ty kiểm toán nào kiểm toán báo cáo tài chính năm 2024 của Viettel Construction?
+  bien_the: []
+  dap_an: Công ty TNHH Hãng Kiểm toán AASC.
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 3
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-R-20241231-NAM-ccaed9
+    trang: 3
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 37
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 90
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-725c4d
+    trang: 34
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-e2d884
+    trang: 44
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  bang_chung:
+  - năm 2024 là Công ty TNHH Hãng Kiểm toán AASC || đã thực hiện kiểm toán các Báo cáo tài chính
+- id: V06
+  nhom: rag_van_ban
+  cau_hoi: HĐQT nhiệm kỳ 2025-2030 gồm những thành viên nào?
+  bien_the:
+  - viet_tat
+  dap_an: Ông Đỗ Mạnh Hùng, ông Phạm Đình Trường, bà Vũ Thị Mai, ông Nguyễn Tát Trường, ông Nguyễn Quang Khải (thành viên độc lập).
+  trang_vang:
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-3e5b3e
+    trang: 4
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-e2d884
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  bang_chung:
+  - vào Hội đồng quản trị Tổng Công ty nhiệm kỳ 2025-2030
+- id: V07
+  nhom: rag_van_ban
+  cau_hoi: Theo báo cáo năm 2025, Tổng Công ty có thể gặp những loại rủi ro tài chính nào?
+  bien_the: []
+  dap_an: Rủi ro thị trường, rủi ro tín dụng và rủi ro thanh khoản.
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 35
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-R-20251231-NAM-e8f1c7
+    trang: 34
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 72
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250630-BAN_NIEN-f736dc
+    trang: 33
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất bán niên 2025
+  - tai_lieu_id: CTR-BCTC-R-20250630-BAN_NIEN-54f97c
+    trang: 33
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng bán niên 2025
+  bang_chung:
+  - rủi ro thị trường, rủi ro tín dụng và rủi ro thanh khoản
+- id: V08
+  nhom: rag_van_ban
+  cau_hoi: Khẩu hiệu và định hướng trọng tâm năm 2025 mà HĐQT đề ra là gì?
+  bien_the:
+  - cau_mo
+  dap_an: 'Khẩu hiệu "Vượt qua thử thách – Đẩy mạnh đầu tư – Phát triển bền vững"; trọng tâm: xây dựng chiến lược đến 2030, mở rộng kinh doanh
+    ngoài Tập đoàn (trên 45% tổng doanh thu), Go Global 02-03 hợp đồng, đồng bộ và cho thuê 2.000 trạm BTS mới.'
+  trang_vang:
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 28
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  bang_chung:
+  - Khẩu hiệu năm 2025
+- id: V09
+  nhom: rag_van_ban
+  cau_hoi: Năm 2025 công ty quy hoạch bao nhiêu nhân tài, chia thành những nhóm nào?
+  bien_the: []
+  dap_an: '389 nhân tài (~3,75% tổng quân số): nhân tài chiến lược 23, chuyên gia 63, vận hành 303.'
+  trang_vang:
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 23
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BAOCAOPT-20250630-d70dc2
+    trang: 11
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo phát triển bền vững 2025 — ký ngày 30/06/2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 24
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - quy hoạch 389 nhân tài
+- id: V10
+  nhom: rag_van_ban
+  cau_hoi: Tổng tỷ lệ cổ tức năm 2022 công ty đã chi trả là bao nhiêu và chi trả thế nào?
+  bien_the: []
+  dap_an: 'Tổng 29,19% bằng tiền: lần 1 tỷ lệ 10% (114,39 tỷ, trả 31/07/2023) và phần còn lại 19,19% bằng tiền (thay cho phương án trả bằng cổ
+    phiếu 21,51% không được UBCK chấp thuận).'
+  trang_vang:
+  - tai_lieu_id: CTR-NGHIQUYET-20240402-6cf811
+    trang: 20
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2024 — ký ngày 02/04/2024
+  - tai_lieu_id: CTR-NGHIQUYET-20240402-6cf811
+    trang: 138
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2024 — ký ngày 02/04/2024
+  - tai_lieu_id: CTR-BAOCAODHDCD-20240402-2f4057
+    trang: 2
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo trình ĐHĐCĐ 2024 — ký ngày 02/04/2024
+  - tai_lieu_id: CTR-BAOCAODHDCD-20240402-6372c6
+    trang: 6
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo trình ĐHĐCĐ 2024 — ký ngày 02/04/2024
+  - tai_lieu_id: CTR-BCTN-20231231-NAM-78167e
+    trang: 16
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2023
+  - tai_lieu_id: CTR-BCTN-20231231-NAM-78167e
+    trang: 25
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2023
+  bang_chung:
+  - 29,19%
+- id: B01
+  nhom: rag_bang
+  cau_hoi: Tập đoàn Viettel đang nắm bao nhiêu cổ phần của CTR?
+  bien_the:
+  - cach_goi_doi_thuong
+  dap_an: 75.107.745 cổ phiếu, tương đương 65,66% (cơ cấu cổ đông trong BCTN 2025).
+  trang_vang:
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 30
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20221231-NAM-848c74
+    trang: 18
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2022
+  - tai_lieu_id: CTR-BCTN-20231231-NAM-78167e
+    trang: 17
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2023
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 17
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 70
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 31
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260408-1a3852
+    trang: 33
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 08/04/2026
+  bang_chung:
+  - 75.107.745
+- id: B02
+  nhom: rag_bang
+  cau_hoi: Đến cuối năm 2025 công ty sở hữu bao nhiêu trạm BTS?
+  bien_the:
+  - nam_gan
+  dap_an: Khoảng 12.000 trạm BTS.
+  trang_vang:
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 23
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 34
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 45
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BAOCAOPT-20250630-d70dc2
+    trang: 11
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo phát triển bền vững 2025 — ký ngày 30/06/2025
+  - tai_lieu_id: CTR-BAOCAOPT-20250630-d70dc2
+    trang: 17
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo phát triển bền vững 2025 — ký ngày 30/06/2025
+  - tai_lieu_id: CTR-BAOCAOPT-20250630-d70dc2
+    trang: 30
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo phát triển bền vững 2025 — ký ngày 30/06/2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 7
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 24
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 35
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 46
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-17e416
+    trang: 52
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-17e416
+    trang: 62
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-17e416
+    trang: 78
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-b9fe19
+    trang: 42
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-b9fe19
+    trang: 52
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-b9fe19
+    trang: 68
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-TAILIEUHOP-20260401-e24dee
+    trang: 13
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Tài liệu họp ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-TAILIEUHOP-20260401-e24dee
+    trang: 23
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Tài liệu họp ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-TAILIEUHOP-20260401-e24dee
+    trang: 39
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Tài liệu họp ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  bang_chung:
+  - 12.000 trạm
+  trang_de_nham:
+  - tai_lieu_id: CTR-BAOCAOPT-20241231-497add
+    trang: 8
+    ly_do: số của năm 2024 (báo cáo PTBV 2024)
+- id: B03
+  nhom: rag_bang
+  cau_hoi: Kế hoạch lợi nhuận sau thuế hợp nhất năm nay là bao nhiêu?
+  bien_the:
+  - thoi_gian_tuong_doi
+  dap_an: 'Năm nay = 2026 (kỳ mới nhất trong kho 30/06/2026). Kế hoạch LNST hợp nhất 2026: 622,4 tỷ đồng (tổng doanh thu 15.653,4 tỷ, LNTT 778,0
+    tỷ).'
+  trang_vang:
+  - tai_lieu_id: CTR-KEHOACH-20260122-7065bd
+    trang: 3
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Kế hoạch kinh doanh 2026 — ký ngày 22/01/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-17e416
+    trang: 56
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-b9fe19
+    trang: 46
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-TAILIEUHOP-20260401-e24dee
+    trang: 17
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Tài liệu họp ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  bang_chung:
+  - 622,4
+- id: B04
+  nhom: rag_bang
+  cau_hoi: ROE và ROA năm 2025 của CTR là bao nhiêu?
+  bien_the:
+  - viet_tat
+  dap_an: ROE 30,5%, ROA 7,8% (BCTN 2025, mục Con số ấn tượng).
+  trang_vang:
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 34
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 40
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  bang_chung:
+  - 30,5%
+- id: B05
+  nhom: rag_bang
+  cau_hoi: Vốn hóa thị trường của cổ phiếu CTR tại ngày 31/12/2025 là bao nhiêu?
+  bien_the: []
+  dap_an: 9.666 tỷ đồng.
+  trang_vang:
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 7
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 9.666 tỷ đồng
+- id: B06
+  nhom: rag_bang
+  cau_hoi: Năm 2024 công ty vận hành khai thác bao nhiêu trạm BTS và bao nhiêu thuê bao cố định băng rộng?
+  bien_the: []
+  dap_an: Khoảng 58.420 trạm BTS và 7,7 triệu thuê bao CĐBR.
+  trang_vang:
+  - tai_lieu_id: CTR-BAOCAOPT-20241231-497add
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo phát triển bền vững 2024 — ký ngày 31/12/2024
+  bang_chung:
+  - 58.420 trạm BTS
+- id: B07
+  nhom: rag_bang
+  cau_hoi: Sau đợt phát hành cổ phiếu trả cổ tức năm 2025, vốn điều lệ của công ty là bao nhiêu?
+  bien_the: []
+  dap_an: 1.281.095.330.000 đồng (128.109.533 cổ phiếu), tăng từ 1.143.858.790.000 đồng do phát hành 13.723.654 cổ phiếu trả cổ tức năm 2025.
+  trang_vang:
+  - tai_lieu_id: CTR-CBTTPHATHANH-20260720-6e5e03
+    trang: 1
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin — phát hành, tăng vốn 2026 — ký ngày 20/07/2026
+  bang_chung:
+  - 1.281.095.330.000
+- id: B08
+  nhom: rag_bang
+  cau_hoi: KH tổng doanh thu và LNST hợp nhất năm 2025 theo NQ ĐHĐCĐ là bao nhiêu?
+  bien_the:
+  - viet_tat
+  dap_an: 'Kế hoạch 2025 (hợp nhất): tổng doanh thu 13.968,0 tỷ, LNST 562,7 tỷ đồng.'
+  trang_vang:
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-3e5b3e
+    trang: 2
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-725c4d
+    trang: 61
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-725c4d
+    trang: 70
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-e2d884
+    trang: 4
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-e2d884
+    trang: 71
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-e2d884
+    trang: 80
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-BAOCAODHDCD-20250326-045668
+    trang: 5
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo trình ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-BAOCAODHDCD-20250326-045668
+    trang: 14
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo trình ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  bang_chung:
+  - 13.968,0
+- id: B09
+  nhom: rag_bang
+  cau_hoi: Năm 2025 công ty thi công bao nhiêu căn nhà?
+  bien_the: []
+  dap_an: 1.720 căn nhà.
+  trang_vang:
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 23
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BAOCAOPT-20250630-d70dc2
+    trang: 11
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo phát triển bền vững 2025 — ký ngày 30/06/2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 7
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 24
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 1.720 căn nhà
+- id: B10
+  nhom: rag_bang
+  cau_hoi: Mục tiêu ROE trong kế hoạch kinh doanh năm 2026 là bao nhiêu?
+  bien_the:
+  - thoi_gian_tuong_doi
+  dap_an: 'ROE kế hoạch 2026: 26,3% (ROA 7,0%).'
+  trang_vang:
+  - tai_lieu_id: CTR-KEHOACH-20260122-7065bd
+    trang: 3
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Kế hoạch kinh doanh 2026 — ký ngày 22/01/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-0febeb
+    trang: 2
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-17e416
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-17e416
+    trang: 64
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-b9fe19
+    trang: 54
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-TAILIEUHOP-20260401-e24dee
+    trang: 25
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Tài liệu họp ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  bang_chung:
+  - 26,3%
+- id: M01
+  nhom: rag_nhieu_trang
+  cau_hoi: Năm 2025 công ty có hoàn thành kế hoạch lợi nhuận sau thuế hợp nhất không?
+  bien_the:
+  - so_sanh_ke_hoach
+  dap_an: Có. Kế hoạch 562,7 tỷ; thực hiện 599,72 tỷ (599.717.125.636 đồng) → vượt khoảng 37,0 tỷ (~6,6%).
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 7
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 34
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 47
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-3e5b3e
+    trang: 2
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-725c4d
+    trang: 38
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-725c4d
+    trang: 61
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-725c4d
+    trang: 70
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-e2d884
+    trang: 4
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-e2d884
+    trang: 48
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-e2d884
+    trang: 71
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-e2d884
+    trang: 80
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-BAOCAODHDCD-20250326-045668
+    trang: 5
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo trình ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-BAOCAODHDCD-20250326-045668
+    trang: 14
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo trình ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-BAOCAODHDCD-20250326-9e13dd
+    trang: 6
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo trình ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 34
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 7
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 2 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 34
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 2 2026
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 72
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 76
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 64
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 73
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 77
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 562,7
+  - 599.717.125.636
+- id: M02
+  nhom: rag_nhieu_trang
+  cau_hoi: Tỷ lệ cổ tức bằng tiền năm 2023 và năm 2024 khác nhau thế nào?
+  bien_the:
+  - nhieu_nam
+  dap_an: 'Cổ tức 2023: 27,2% bằng tiền; cổ tức 2024: 21,5% bằng tiền → giảm 5,7 điểm phần trăm.'
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-CBTTCOTUC-20250911-117027
+    trang: 3
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin — cổ tức 2025 — ký ngày 11/09/2025
+  - tai_lieu_id: CTR-CBTTCOTUC-20250911-117027
+    trang: 5
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin — cổ tức 2025 — ký ngày 11/09/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-725c4d
+    trang: 34
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-NGHIQUYET-20250326-e2d884
+    trang: 44
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-BAOCAODHDCD-20250326-9e13dd
+    trang: 2
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo trình ĐHĐCĐ 2025 — ký ngày 26/03/2025
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 26
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-CBTTCOTUC-20251015-726fbe
+    trang: 1
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin — cổ tức 2025 — ký ngày 15/10/2025
+  bang_chung:
+  - tỷ lệ 27,2%
+  - 2.150 đồng
+- id: M03
+  nhom: rag_nhieu_trang
+  cau_hoi: So sánh LNST hợp nhất quý 2/2024 với quý 3/2025.
+  bien_the:
+  - nhieu_ky
+  - viet_tat
+  dap_an: 'Quý II/2024: 125,1 tỷ; quý III/2025: 168,9 tỷ → cao hơn 43,8 tỷ.'
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-GIAITRINH-20240728-2f5cc5
+    trang: 1
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Công văn giải trình 2024 — ký ngày 28/07/2024
+  - tai_lieu_id: CTR-GIAITRINH-20251025-93dfc6
+    trang: 2
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Công văn giải trình 2025 — ký ngày 25/10/2025
+  - tai_lieu_id: CTR-GIAITRINH-20221026-0f633a
+    trang: 1
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công văn giải trình 2022 — ký ngày 26/10/2022
+  bang_chung:
+  - 125,1 tỷ
+  - 168,9 tỷ
+- id: M04
+  nhom: rag_nhieu_trang
+  cau_hoi: Số trạm BTS công ty sở hữu tăng bao nhiêu từ cuối 2024 đến cuối 2025?
+  bien_the:
+  - nhieu_nam
+  dap_an: 'Từ khoảng 10.000 trạm (cuối 2024) lên khoảng 12.000 trạm (cuối 2025): tăng khoảng 2.000 trạm.'
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-BAOCAOPT-20241231-497add
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo phát triển bền vững 2024 — ký ngày 31/12/2024
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 23
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 34
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 45
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BAOCAOPT-20250630-d70dc2
+    trang: 11
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo phát triển bền vững 2025 — ký ngày 30/06/2025
+  - tai_lieu_id: CTR-BAOCAOPT-20250630-d70dc2
+    trang: 17
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo phát triển bền vững 2025 — ký ngày 30/06/2025
+  - tai_lieu_id: CTR-BAOCAOPT-20250630-d70dc2
+    trang: 30
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo phát triển bền vững 2025 — ký ngày 30/06/2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 7
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 24
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 35
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 46
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-17e416
+    trang: 52
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Nghị quyết ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-17e416
+    trang: 62
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Nghị quyết ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-17e416
+    trang: 78
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Nghị quyết ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-b9fe19
+    trang: 42
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-b9fe19
+    trang: 52
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-b9fe19
+    trang: 68
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-TAILIEUHOP-20260401-e24dee
+    trang: 13
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Tài liệu họp ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-TAILIEUHOP-20260401-e24dee
+    trang: 23
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Tài liệu họp ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-TAILIEUHOP-20260401-e24dee
+    trang: 39
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Tài liệu họp ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  bang_chung:
+  - lũy kế sở hữu ~ 10.000 trạm BTS
+  - 12.000 trạm
+- id: M05
+  nhom: rag_nhieu_trang
+  cau_hoi: Vốn điều lệ của công ty đã thay đổi thế nào từ năm 2022 đến nay?
+  bien_the:
+  - nhieu_nam
+  dap_an: 929.238.730.000 đồng → 1.143.858.790.000 đồng (năm 2022, chia cổ tức bằng cổ phiếu 23,1%) → 1.281.095.330.000 đồng (2026, phát hành
+    cổ phiếu trả cổ tức năm 2025).
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-CBTTPHATHANH-20260720-6e5e03
+    trang: 1
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin — phát hành, tăng vốn 2026 — ký ngày 20/07/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20230327-5dfd9f
+    trang: 41
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2023 — ký ngày 27/03/2023
+  - tai_lieu_id: CTR-NGHIQUYET-20230327-f0b3d4
+    trang: 49
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2023 — ký ngày 27/03/2023
+  - tai_lieu_id: CTR-BAOCAODHDCD-20220401-d3c0e8
+    trang: 5
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo trình ĐHĐCĐ 2022 — ký ngày 01/04/2022
+  - tai_lieu_id: CTR-BAOCAODHDCD-20230327-2a022f
+    trang: 6
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo trình ĐHĐCĐ 2023 — ký ngày 27/03/2023
+  bang_chung:
+  - 929.238.730.000
+  - 1.281.095.330.000
+- id: D01
+  nhom: db_mot_so
+  cau_hoi: Doanh thu thuần hợp nhất năm 2024 của CTR là bao nhiêu?
+  bien_the: []
+  dap_an: 12.609.519.560.081 đồng
+  dap_an_so: 12609519560081
+  chi_tieu:
+    ma_noi_bo: DOANH_THU_THUAN
+    tu_ngay: '2024-01-01'
+    den_ngay: '2024-12-31'
+    pham_vi: hop_nhat
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 31
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 49
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 8
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 31
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-3f72dd
+    trang: 5
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-3f72dd
+    trang: 26
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 39
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 52
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 92
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 99
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 71
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 64
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 72
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 12.609.519.560.081
+  trang_de_nham:
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 39
+    ly_do: doanh thu năm 2023 (cột năm trước, cùng trang)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 101
+    ly_do: doanh thu năm 2023 (cột năm trước, cùng trang)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-45c38e
+    trang: 5
+    ly_do: doanh thu năm 2023 (cột năm trước, cùng trang)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-45c38e
+    trang: 26
+    ly_do: doanh thu năm 2023 (cột năm trước, cùng trang)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-45c38e
+    trang: 30
+    ly_do: doanh thu năm 2023 (cột năm trước, cùng trang)
+- id: D02
+  nhom: db_mot_so
+  cau_hoi: LNST trên báo cáo tài chính riêng năm 2025 là bao nhiêu?
+  bien_the:
+  - pham_vi_rieng
+  - viet_tat
+  dap_an: 587.417.356.381 đồng
+  dap_an_so: 587417356381
+  chi_tieu:
+    ma_noi_bo: LOI_NHUAN_SAU_THUE
+    tu_ngay: '2025-01-01'
+    den_ngay: '2025-12-31'
+    pham_vi: rieng
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-R-20251231-NAM-e8f1c7
+    trang: 7
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-R-20251231-NAM-e8f1c7
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-R-20251231-NAM-e8f1c7
+    trang: 45
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-R-20260331-Q1-c04a83
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng quý 1 2026
+  - tai_lieu_id: CTR-BCTC-R-20260331-Q1-c04a83
+    trang: 34
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng quý 1 2026
+  - tai_lieu_id: CTR-BCTC-R-20260630-BAN_NIEN-f0c019
+    trang: 7
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng bán niên 2026
+  - tai_lieu_id: CTR-BCTC-R-20260630-Q2-441a0b
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng quý 2 2026
+  - tai_lieu_id: CTR-BCTC-R-20260630-Q2-441a0b
+    trang: 34
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng quý 2 2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-17e416
+    trang: 6
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-17e416
+    trang: 72
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260401-b9fe19
+    trang: 62
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  - tai_lieu_id: CTR-NGHIQUYET-20260424-6c9935
+    trang: 1
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Nghị quyết / biên bản ĐHĐCĐ 2026 — ký ngày 24/04/2026
+  - tai_lieu_id: CTR-TAILIEUHOP-20260401-e24dee
+    trang: 33
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Tài liệu họp ĐHĐCĐ 2026 — ký ngày 01/04/2026
+  bang_chung:
+  - 587.417.356.381
+  trang_de_nham:
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 7
+    ly_do: LNST hợp nhất 2025 (sai phạm vi)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 8
+    ly_do: LNST hợp nhất 2025 (sai phạm vi)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 34
+    ly_do: LNST hợp nhất 2025 (sai phạm vi)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 47
+    ly_do: LNST hợp nhất 2025 (sai phạm vi)
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 4
+    ly_do: LNST hợp nhất 2025 (sai phạm vi)
+- id: D03
+  nhom: db_mot_so
+  cau_hoi: Nợ phải trả hợp nhất tại kỳ báo cáo gần nhất là bao nhiêu?
+  bien_the:
+  - thoi_gian_tuong_doi
+  dap_an: 'Kỳ gần nhất 30/06/2026: 7.435.180.982.045 đồng'
+  dap_an_so: 7435180982045
+  chi_tieu:
+    ma_noi_bo: NO_PHAI_TRA
+    tu_ngay: '2026-06-30'
+    den_ngay: '2026-06-30'
+    pham_vi: hop_nhat
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 7
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  bang_chung:
+  - 7.435.180.982.045
+- id: D04
+  nhom: db_mot_so
+  cau_hoi: HTK hợp nhất cuối năm 2025?
+  bien_the:
+  - viet_tat
+  - cuoi_nam
+  dap_an: 424.971.712.679 đồng (mã 140, đã trừ dự phòng)
+  dap_an_so: 424971712679
+  chi_tieu:
+    ma_noi_bo: HANG_TON_KHO_M140
+    tu_ngay: '2025-12-31'
+    den_ngay: '2025-12-31'
+    pham_vi: hop_nhat
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 6
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 2 2026
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 62
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 424.971.712.679
+- id: D05
+  nhom: db_mot_so
+  cau_hoi: Dòng tiền kinh doanh hợp nhất quý 1/2025 âm hay dương, bao nhiêu?
+  bien_the:
+  - so_am
+  - cach_goi_doi_thuong
+  dap_an: 'Âm: lưu chuyển tiền thuần từ HĐKD 3 tháng đầu 2025 là -295.939.415.278 đồng.'
+  dap_an_so: -295939415278
+  chi_tieu:
+    ma_noi_bo: LCTT_THUAN_HDKD
+    tu_ngay: '2025-01-01'
+    den_ngay: '2025-03-31'
+    pham_vi: hop_nhat
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20250331-Q1-a9720b
+    trang: 7
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250331-Q1-a9720b
+    trang: 41
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2025
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 7
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  bang_chung:
+  - 295.939.415.278
+- id: D06
+  nhom: db_mot_so
+  cau_hoi: Lợi nhuận gộp hợp nhất 6 tháng đầu năm 2026 là bao nhiêu?
+  bien_the:
+  - ban_nien
+  - quy_vs_luy_ke
+  dap_an: 521.996.574.332 đồng
+  dap_an_so: 521996574332
+  chi_tieu:
+    ma_noi_bo: LOI_NHUAN_GOP
+    tu_ngay: '2026-01-01'
+    den_ngay: '2026-06-30'
+    pham_vi: hop_nhat
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  bang_chung:
+  - 521.996.574.332
+  trang_de_nham:
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 5
+    ly_do: chỉ riêng quý 2/2026, không phải 6 tháng
+- id: D07
+  nhom: db_mot_so
+  cau_hoi: Doanh thu thuần riêng của quý 2/2026 (chỉ riêng quý, không luỹ kế) là bao nhiêu?
+  bien_the:
+  - pham_vi_rieng
+  - quy_vs_luy_ke
+  dap_an: 3.773.814.395.170 đồng
+  dap_an_so: 3773814395170
+  chi_tieu:
+    ma_noi_bo: DOANH_THU_THUAN
+    tu_ngay: '2026-04-01'
+    den_ngay: '2026-06-30'
+    pham_vi: rieng
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-R-20260630-Q2-441a0b
+    trang: 5
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng quý 2 2026
+  bang_chung:
+  - 3.773.814.395.170
+  trang_de_nham:
+  - tai_lieu_id: CTR-BCTC-R-20260630-BAN_NIEN-f0c019
+    trang: 8
+    ly_do: luỹ kế 6 tháng
+  - tai_lieu_id: CTR-BCTC-R-20260630-BAN_NIEN-f0c019
+    trang: 30
+    ly_do: luỹ kế 6 tháng
+  - tai_lieu_id: CTR-BCTC-R-20260630-BAN_NIEN-f0c019
+    trang: 45
+    ly_do: luỹ kế 6 tháng
+  - tai_lieu_id: CTR-BCTC-R-20260630-Q2-441a0b
+    trang: 25
+    ly_do: luỹ kế 6 tháng
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 5
+    ly_do: số hợp nhất cùng quý
+- id: D08
+  nhom: db_mot_so
+  cau_hoi: Lãi ròng hợp nhất riêng quý 3/2024 là bao nhiêu?
+  bien_the:
+  - bang_vat_trang
+  - cach_goi_doi_thuong
+  dap_an: 146.262.730.079 đồng (chỉ quý III/2024)
+  dap_an_so: 146262730079
+  chi_tieu:
+    ma_noi_bo: LOI_NHUAN_SAU_THUE
+    tu_ngay: '2024-07-01'
+    den_ngay: '2024-09-30'
+    pham_vi: hop_nhat
+  ghi_chu: Trang bảng vắt trang, không có tiêu đề cột. Bộ trích số hiện gán nhầm 140.605.159.668 thành luỹ kế 9 tháng 2024 (lỗi đã ghi nhận 11/10/2026).
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20240930-Q3-59ffbc
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 3 2024
+  - tai_lieu_id: CTR-BCTC-HN-20240930-Q3-59ffbc
+    trang: 26
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 3 2024
+  - tai_lieu_id: CTR-BCTC-HN-20250930-Q3-0e87e4
+    trang: 6
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 3 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250930-Q3-0e87e4
+    trang: 27
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 3 2025
+  bang_chung:
+  - 146.262.730.079
+  trang_de_nham:
+  - tai_lieu_id: CTR-BCTC-HN-20230930-Q3-66aa9f
+    trang: 6
+    ly_do: quý III/2023 (cột cùng kỳ); trang 6 là trang nối tiếp không có dòng tiêu đề
+  - tai_lieu_id: CTR-BCTC-HN-20240930-Q3-59ffbc
+    trang: 4
+    ly_do: luỹ kế 9 tháng 2024
+  - tai_lieu_id: CTR-BCTC-HN-20240930-Q3-59ffbc
+    trang: 31
+    ly_do: luỹ kế 9 tháng 2024
+- id: C01
+  nhom: db_so_sanh
+  cau_hoi: Doanh thu thuần hợp nhất năm 2025 tăng bao nhiêu phần trăm so với năm 2024?
+  bien_the:
+  - tang_truong
+  dap_an: '13.939,52 tỷ đồng so với 12.609,52 tỷ đồng: tăng 10,55%.'
+  dap_an_so: 10,55%
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 31
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 49
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 31
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 49
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-3f72dd
+    trang: 5
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-3f72dd
+    trang: 26
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 39
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 52
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 92
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 99
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 71
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 77
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 64
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 72
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 78
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 13.939.517.269.142
+  - 12.609.519.560.081
+- id: C02
+  nhom: db_so_sanh
+  cau_hoi: Biên lợi nhuận gộp hợp nhất năm 2024 là bao nhiêu?
+  bien_the:
+  - ty_le
+  dap_an: Lợi nhuận gộp 884,22 tỷ đồng / doanh thu thuần 12.609,52 tỷ đồng = 7,01%.
+  dap_an_so: 7,01%
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 31
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 49
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 8
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 31
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-3f72dd
+    trang: 5
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-3f72dd
+    trang: 26
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 39
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 52
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 92
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 99
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 71
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 64
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 72
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 884.221.709.521
+  - 12.609.519.560.081
+- id: C03
+  nhom: db_so_sanh
+  cau_hoi: Tỷ lệ nợ phải trả trên tổng tài sản hợp nhất cuối năm 2025 là bao nhiêu?
+  bien_the:
+  - ty_le
+  - cuoi_nam
+  dap_an: 6.118,37 tỷ đồng / 8.185,54 tỷ đồng = 74,75%.
+  dap_an_so: 74,75%
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 7
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 49
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 6
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 7
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 46
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 2 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 2 2026
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 62
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 77
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 64
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 78
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 6.118.368.595.239
+  - 8.185.544.854.669
+- id: C04
+  nhom: db_so_sanh
+  cau_hoi: LNST hợp nhất 6 tháng đầu 2026 tăng bao nhiêu so với cùng kỳ năm trước?
+  bien_the:
+  - ban_nien
+  - tang_truong
+  dap_an: '321,81 tỷ đồng so với 266,93 tỷ đồng: tăng 54,88 tỷ đồng (20,56%).'
+  dap_an_so: 20,56%
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20250630-BAN_NIEN-f736dc
+    trang: 7
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250630-BAN_NIEN-f736dc
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250630-BAN_NIEN-f736dc
+    trang: 33
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250630-BAN_NIEN-f736dc
+    trang: 45
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2025
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 7
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 32
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 44
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 27
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 2 2026
+  bang_chung:
+  - 321.807.293.831
+  - 266.926.353.427
+- id: C05
+  nhom: db_so_sanh
+  cau_hoi: Năm 2025 dòng tiền thuần từ hoạt động kinh doanh hợp nhất gấp bao nhiêu lần lợi nhuận sau thuế?
+  bien_the:
+  - ty_le
+  dap_an: 1.455,42 tỷ đồng / 599,72 tỷ đồng ≈ 2,43 lần.
+  dap_an_so: 2,43
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 7
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 9
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 34
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 47
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 34
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 7
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 2 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 34
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 2 2026
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 72
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 76
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 64
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 73
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 77
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 1.455.415.537.450
+  - 599.717.125.636
+- id: C06
+  nhom: db_so_sanh
+  cau_hoi: Hàng tồn kho hợp nhất cuối 2025 thay đổi thế nào so với cuối 2024?
+  bien_the:
+  - cuoi_nam
+  - viet_tat
+  dap_an: 'Giảm từ 610,48 tỷ đồng xuống 424,97 tỷ đồng: giảm 185,51 tỷ đồng (30,39%).'
+  dap_an_so: -30,39%
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-3f72dd
+    trang: 3
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTC-HN-20250331-Q1-a9720b
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 1 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250331-Q1-a9720b
+    trang: 37
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 1 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250630-BAN_NIEN-f736dc
+    trang: 6
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất bán niên 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250630-Q2-e98386
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 2 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250930-Q3-0e87e4
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất quý 3 2025
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 6
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 2 2026
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 38
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 91
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 62
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 0
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 424.971.712.679
+  - 610.480.085.129
+- id: C07
+  nhom: db_so_sanh
+  cau_hoi: Doanh thu thuần của công ty mẹ chiếm bao nhiêu phần trăm doanh thu thuần hợp nhất năm 2025?
+  bien_the:
+  - pham_vi_rieng
+  - ty_le
+  dap_an: 11.791,01 tỷ đồng / 13.939,52 tỷ đồng = 84,59%.
+  dap_an_so: 84,59%
+  can_du_moi_bang_chung: true
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 31
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 49
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-3f72dd
+    trang: 5
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-3f72dd
+    trang: 26
+    muc: 2
+    bang_chung_so:
+    - 1
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTC-R-20251231-NAM-c2e8d2
+    trang: 5
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTC-R-20251231-NAM-c2e8d2
+    trang: 26
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTC-R-20251231-NAM-e8f1c7
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-R-20251231-NAM-e8f1c7
+    trang: 31
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-R-20251231-NAM-e8f1c7
+    trang: 46
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính riêng năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 71
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 77
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 64
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 72
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 78
+    muc: 1
+    bang_chung_so:
+    - 1
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 11.791.011.025.399
+  - 13.939.517.269.142
+- id: D09
+  nhom: db_mot_so
+  cau_hoi: Doanh thu thuần hợp nhất năm 2019 (theo số liệu đã trình bày lại) là bao nhiêu?
+  bien_the:
+  - trinh_bay_lai
+  dap_an: 5.099.889.976.331 đồng (trình bày lại trong BCTC 2020; BCTC 2019 gốc ghi 5.053.710.724.827 đồng).
+  dap_an_so: 5099889976331
+  chi_tieu:
+    ma_noi_bo: DOANH_THU_THUAN
+    tu_ngay: '2019-01-01'
+    den_ngay: '2019-12-31'
+    pham_vi: hop_nhat
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20201231-NAM-e98cfa
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2020
+  - tai_lieu_id: CTR-BCTC-HN-20201231-NAM-e98cfa
+    trang: 28
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2020
+  - tai_lieu_id: CTR-BCTC-HN-20201231-NAM-e98cfa
+    trang: 37
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2020
+  - tai_lieu_id: CTR-BCTC-HN-20201231-Q4-e652e5
+    trang: 5
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 4 2020
+  - tai_lieu_id: CTR-BCTC-HN-20201231-Q4-e652e5
+    trang: 18
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 4 2020
+  - tai_lieu_id: CTR-BCTC-HN-20201231-Q4-e652e5
+    trang: 21
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 4 2020
+  - tai_lieu_id: CTR-BCTN-20201231-NAM-3a5632
+    trang: 32
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2020
+  - tai_lieu_id: CTR-BCTN-20201231-NAM-3a5632
+    trang: 41
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2020
+  bang_chung:
+  - 5.099.889.976.331
+  trang_de_nham:
+  - tai_lieu_id: CTR-BCTC-HN-20191231-NAM-8d2d4f
+    trang: 9
+    ly_do: số gốc của BCTC 2019, đã bị thay bằng số trình bày lại
+  - tai_lieu_id: CTR-BCTC-HN-20191231-NAM-8d2d4f
+    trang: 28
+    ly_do: số gốc của BCTC 2019, đã bị thay bằng số trình bày lại
+  - tai_lieu_id: CTR-BCTC-HN-20191231-NAM-8d2d4f
+    trang: 34
+    ly_do: số gốc của BCTC 2019, đã bị thay bằng số trình bày lại
+  - tai_lieu_id: CTR-BCTC-HN-20191231-NAM-8d2d4f
+    trang: 41
+    ly_do: số gốc của BCTC 2019, đã bị thay bằng số trình bày lại
+  - tai_lieu_id: CTR-BCTN-20191231-NAM-47f4f6
+    trang: 29
+    ly_do: số gốc của BCTC 2019, đã bị thay bằng số trình bày lại
+- id: D10
+  nhom: db_mot_so
+  cau_hoi: tong tai san hop nhat ngay 31/12/2024 la bao nhieu
+  bien_the:
+  - khong_dau
+  dap_an: 7.106.257.863.668 đồng
+  dap_an_so: 7106257863668
+  chi_tieu:
+    ma_noi_bo: TONG_TAI_SAN
+    tu_ngay: '2024-12-31'
+    den_ngay: '2024-12-31'
+    pham_vi: hop_nhat
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 6
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 7
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20241231-NAM-3bd712
+    trang: 49
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2024 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20250331-Q1-a9720b
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250331-Q1-a9720b
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250331-Q1-a9720b
+    trang: 37
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250331-Q1-a9720b
+    trang: 38
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250630-BAN_NIEN-f736dc
+    trang: 6
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất bán niên 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250630-BAN_NIEN-f736dc
+    trang: 7
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất bán niên 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250630-Q2-e98386
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 2 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250630-Q2-e98386
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 2 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250930-Q3-0e87e4
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 3 2025
+  - tai_lieu_id: CTR-BCTC-HN-20250930-Q3-0e87e4
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 3 2025
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 6
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-226686
+    trang: 7
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 1/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-3f72dd
+    trang: 3
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTC-HN-20251231-NAM-3f72dd
+    trang: 4
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất năm 2025 (bản 2/2)
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 38
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 52
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20241231-NAM-d86a28
+    trang: 91
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2024
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 62
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-BCTN-20251231-NAM-b9e637
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Báo cáo thường niên năm 2025
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 63
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  - tai_lieu_id: CTR-CBTTKHAC-20260316-bd9141
+    trang: 64
+    muc: 1
+    bang_chung_so:
+    - 0
+    ten: Công bố thông tin 2026 — ký ngày 16/03/2026
+  bang_chung:
+  - 7.106.257.863.668
+- id: D11
+  nhom: db_mot_so
+  cau_hoi: Tiền mặt hợp nhất cuối quý trước là bao nhiêu?
+  bien_the:
+  - thoi_gian_tuong_doi
+  - cach_goi_doi_thuong
+  dap_an: 'Quý trước = quý 1/2026 (kỳ mới nhất là quý 2/2026). Tiền và các khoản tương đương tiền hợp nhất tại 31/03/2026: 1.123.253.891.417 đồng'
+  dap_an_so: 1123253891417
+  chi_tieu:
+    ma_noi_bo: TIEN_VA_TUONG_DUONG_TIEN
+    tu_ngay: '2026-03-31'
+    den_ngay: '2026-03-31'
+    pham_vi: hop_nhat
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 3
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 7
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260331-Q1-e1bb93
+    trang: 17
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 1 2026
+  bang_chung:
+  - 1.123.253.891.417
+  trang_de_nham:
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 6
+    ly_do: số tại 30/06/2026 (quý hiện tại, không phải quý trước)
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 9
+    ly_do: số tại 30/06/2026 (quý hiện tại, không phải quý trước)
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 19
+    ly_do: số tại 30/06/2026 (quý hiện tại, không phải quý trước)
+- id: V11
+  nhom: rag_van_ban
+  cau_hoi: Ai ký công văn giải trình kết quả kinh doanh quý 2/2024 gửi Ủy ban Chứng khoán?
+  bien_the:
+  - nhan_su
+  dap_an: Ông Phạm Đình Trường, Tổng Giám đốc (công văn số 2507/VCC-TC ngày 28/07/2024).
+  trang_vang:
+  - tai_lieu_id: CTR-GIAITRINH-20240728-2f5cc5
+    trang: 2
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Công văn giải trình 2024 — ký ngày 28/07/2024
+  bang_chung:
+  - Phạm Đình Trường
+- id: X06
+  nhom: tu_choi
+  cau_hoi: Doanh thu thuần hợp nhất cả năm 2026 là bao nhiêu?
+  bien_the:
+  - ky_chua_du
+  - tra_loi_mot_phan
+  dap_an: 'Chưa có số cả năm 2026 (kỳ mới nhất 30/06/2026). Có thể cung cấp số 6 tháng đầu 2026: 7.958.838.568.947 đồng. Không được tự ngoại suy
+    ra số cả năm.'
+  trang_vang:
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 8
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-BAN_NIEN-b7334c
+    trang: 29
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất bán niên 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 5
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 2 2026
+  - tai_lieu_id: CTR-BCTC-HN-20260630-Q2-ef1e30
+    trang: 25
+    muc: 2
+    bang_chung_so:
+    - 0
+    ten: Báo cáo tài chính hợp nhất quý 2 2026
+  bang_chung:
+  - 7.958.838.568.947
+- id: X01
+  nhom: tu_choi
+  cau_hoi: Doanh thu năm 2025 của FPT là bao nhiêu?
+  bien_the:
+  - cong_ty_khac
+  dap_an: 'Từ chối: kho chỉ có tài liệu của CTR (Viettel Construction).'
+  trang_vang: []
+  bang_chung: []
+- id: X02
+  nhom: tu_choi
+  cau_hoi: Giá cổ phiếu CTR tuần tới sẽ tăng hay giảm?
+  bien_the:
+  - du_bao
+  dap_an: 'Từ chối: không dự báo giá cổ phiếu, ngoài phạm vi báo cáo đã công bố.'
+  trang_vang: []
+  bang_chung: []
+- id: X03
+  nhom: tu_choi
+  cau_hoi: Doanh thu thuần hợp nhất quý 3/2026 là bao nhiêu?
+  bien_the:
+  - ky_chua_co
+  dap_an: 'Từ chối: kỳ mới nhất trong kho là 30/06/2026, chưa có báo cáo quý 3/2026.'
+  trang_vang: []
+  bang_chung: []
+- id: X04
+  nhom: tu_choi
+  cau_hoi: Lợi nhuận sau thuế năm 2015 của CTR là bao nhiêu?
+  bien_the:
+  - nam_ngoai_kho
+  dap_an: 'Từ chối: kho không có báo cáo năm 2015 (dữ liệu từ năm 2019, số so sánh từ cuối 2017).'
+  trang_vang: []
+  bang_chung: []
+- id: X05
+  nhom: tu_choi
+  cau_hoi: Thời tiết Hà Nội ngày mai thế nào?
+  bien_the:
+  - khong_lien_quan
+  dap_an: 'Từ chối: câu hỏi không liên quan đến báo cáo của công ty.'
+  trang_vang: []
+  bang_chung: []

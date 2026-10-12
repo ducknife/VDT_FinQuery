@@ -102,6 +102,22 @@ class FigureExtractionTest {
                 "11.175.325.409", "10.729.429.898", "20.699.497.457", "18.792.697.119");
     }
 
+    // trang 6, BCTC hợp nhất quý 3/2024: trang nối tiếp mà OCR làm rơi một cột (3 số thay vì 4).
+    // 4 ô cuối sẽ lấy cả ô thuyết minh trống và lệch nguyên dòng sang kỳ khác -> không đọc trang này
+    // (lỗi phát hiện khi soạn bộ câu hỏi 11/10/2026: 140.605.159.668 bị ghi thành LNST luỹ kế 9 tháng 2024)
+    @Test
+    void rejectsContinuationWithDroppedColumn() {
+        String page = """
+                | | | | | | |
+                |---|---|---|---|---|---|
+                | 50 | 13. Tổng lợi nhuận kế toán trước thuế | | 178.040.665.268 | 175.606.850.190 | 483.868.022.919 |
+                | 51 | 14. Chi phí thuế TNDN hiện hành | 30 | 34.365.268.536 | 35.001.690.522 | 98.450.130.027 |
+                | 52 | 15. Chi phí thuế TNDN hoãn lại | 31 | (2.587.333.347) | - | (2.084.583.496) |
+                | 60 | 16. Lợi nhuận sau thuế TNDN | | 146.262.730.079 | 140.605.159.668 | 387.502.476.388 |
+                """;
+        assertThat(StatementTableReader.readContinuation(MarkdownTableParser.tables(page).get(0), 4)).isNull();
+    }
+
     // bảng đối chiếu trong thuyết minh "Số liệu so sánh": không phải mẫu biểu
     @Test
     void rejectsReconciliationTable() {

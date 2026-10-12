@@ -41,6 +41,7 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.embedder.Embe
 import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.embedder.EmbeddingClient;
 import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.vectordb.DocumentMetadata;
 import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.vectordb.QdrantIndexWriter;
+import com.vdt.finq.modules.hierarchicalrag.preretrieval.normalizer.FinancialTextNormalizer;
 import com.vdt.finq.utils.TableToJson;
 
 import io.qdrant.client.grpc.JsonWithInt.Value;
@@ -62,7 +63,7 @@ class PreprocessingTrialTest {
     private static final Path OCR_ROOT = Path.of("../../data/ocr");
     private static final Path REPORT = Path.of("trial-preprocessing.md");
 
-    private final IndexingProperties indexing = new IndexingProperties(4000, 500, 50000, TableFormat.JSON);
+    private final IndexingProperties indexing = new IndexingProperties(4000, 500, 50000, TableFormat.JSON, false);
     private final TextCleaner cleaner = new TextCleaner(new NFCNormalization());
     private final TableStitcher tableStitcher = new TableStitcher();
     private final Chunking chunking = new Chunking(indexing, tableStitcher, new TextStitcher(indexing));
@@ -154,7 +155,8 @@ class PreprocessingTrialTest {
         List<float[]> vectors = new ArrayList<>();
         if (Boolean.getBoolean("trial.embed") && env.containsKey("LLM_API_KEY")) {
             Embedding embedding = new Embedding(new EmbeddingClient(embeddingProperties(env), objectMapper),
-                    embeddingProperties(env), indexing, tableToJson);
+                    embeddingProperties(env), indexing, tableToJson,
+                    new FinancialTextNormalizer(new NFCNormalization()));
             for (EmbeddedChunk e : embedding.embedChunks(chunks, document.getTenHienThi())) {
                 assertThat(e.getEmbedText()).isEqualTo(embedTexts.get(vectors.size()));
                 vectors.add(e.getVector());
