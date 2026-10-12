@@ -40,8 +40,7 @@ public class XlsxDocumentExtractor implements DocumentExtractor {
         try (InputStream in = Files.newInputStream(file);
              Workbook workbook = new XSSFWorkbook(in)) {
 
-            // DataFormatter trả về đúng chữ người dùng thấy trong excel,
-            // nên 1.234.567 vẫn là 1.234.567 thay vì thành 1234567.0
+            // DataFormatter trả đúng chữ hiển thị trong excel (1.234.567, không phải 1234567.0)
             DataFormatter formatter = new DataFormatter();
 
             for (int s = 0; s < workbook.getNumberOfSheets(); s++) {

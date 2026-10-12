@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-// đọc bảng markdown trong một đoạn văn bản (trang hoặc chunk đã làm sạch).
-// dùng chung cho trích số (financial) và table-to-json (indexing)
+// đọc bảng markdown trong một đoạn văn bản; dùng cho trích số và table-to-json
 public final class MarkdownTableParser {
 
     // ô của dòng kẻ dưới tiêu đề: ---, :---, ---:, :---:

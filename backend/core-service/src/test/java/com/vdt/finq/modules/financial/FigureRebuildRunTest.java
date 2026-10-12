@@ -10,8 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-// trích lại số liệu cả kho và in khác biệt so với lần trước (số đổi giá trị, số bị bỏ, số mới).
-// GHI THẬT vào financial_figures (thay toàn bộ, như POST /api/v1/documents/extract-figures). chạy:
+// trích lại cả kho và in khác biệt; GHI THẬT vào financial_figures:
 //     ./mvnw test "-Dtest=FigureRebuildRunTest" "-Dextract=true"
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
         properties = { "cleaner.trial.enabled=false", "spring.devtools.restart.enabled=false" })

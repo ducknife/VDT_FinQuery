@@ -20,13 +20,8 @@ import com.vdt.finq.common.properties.OCRProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// endpoint chỉ dùng để thử các luật làm sạch trên toàn kho.
-// KHÔNG thuộc luồng chính và KHÔNG BAO GIỜ ghi gì: các file .md tốn một ngày mạng
-// để tạo ra, nên controller chỉ đọc, làm sạch trong bộ nhớ rồi báo cáo thay đổi.
-// luồng chính gọi thẳng TextCleaner.clean() từ chunker và bộ trích số liệu,
-// không đi qua endpoint này
-//
-// mặc định tắt, bật bằng cleaner.test-api.enabled=true
+// endpoint thử luật làm sạch trên toàn kho, chỉ đọc, không ghi file .md.
+// bật bằng cleaner.test-api.enabled=true
 @Slf4j
 @RestController
 @RequestMapping("/test/cleaner")
@@ -38,8 +33,7 @@ public class TestCleanerController {
     private final TextCleaner textCleaner;
     private final NFCNormalization nfcNormalization;
 
-    // cho mọi trang chạy qua cleaner và báo cáo mỗi trang thay đổi bao nhiêu.
-    // không ghi gì: các file .md giữ nguyên như lúc OCR xong
+    // chạy mọi trang qua cleaner và báo mỗi trang đổi bao nhiêu, không ghi gì
     @GetMapping("/audit")
     public Map<String, Object> audit() throws IOException {
         Path root = Path.of(ocrProperties.getOutputDir()).toAbsolutePath().normalize();

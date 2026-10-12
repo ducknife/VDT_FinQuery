@@ -17,9 +17,7 @@ import com.vdt.finq.common.properties.RetrievalProperties;
 import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievedChunk;
 import com.vdt.finq.utils.TableToJson;
 
-// rerank 2 tầng 80 -> 40 -> 20 (QĐ-030) với reranker GIẢ: không gọi API, không tốn tiền.
-// mỗi chunk giả ghi sẵn "độ liên quan thật"; model nhỏ chấm lệch một chút, model lớn chấm đúng.
-// chạy và xem in ra:  ./mvnw test -Dtest=HierarchicalRerankerTest
+// rerank 2 tầng với reranker giả (không gọi API):  ./mvnw test -Dtest=HierarchicalRerankerTest
 class HierarchicalRerankerTest {
 
     private static final Pattern RELEVANCE = Pattern.compile("liên quan=(\\d+)");

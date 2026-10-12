@@ -5,8 +5,7 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-// một bảng markdown đã tách ô. headerRows là các dòng trước dòng kẻ |---|,
-// bodyRows là các dòng sau; bảng không có dòng kẻ thì headerRows rỗng
+// bảng markdown đã tách ô: headerRows trước dòng kẻ |---|, bodyRows sau dòng kẻ
 @Getter
 @AllArgsConstructor
 public class MarkdownTable {

@@ -21,10 +21,8 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.vectordb.Qdra
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// nạp một tài liệu đã OCR vào Qdrant: đọc trang -> làm sạch -> chunk -> embed -> ghi Qdrant -> ghi MySQL.
-//
-// bất biến cần giữ: ngay_embed khác NULL thì Qdrant chắc chắn có đủ point của tài liệu.
-// mọi thứ tự trong indexDocument đều để giữ điều này khi lỗi xảy ra ở bất kỳ bước nào
+// nạp tài liệu đã OCR vào Qdrant: đọc -> làm sạch -> chunk -> embed -> Qdrant -> MySQL.
+// bất biến: ngay_embed khác NULL thì Qdrant chắc chắn đủ point
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -82,8 +80,7 @@ public class DocumentIndexingService {
         String taiLieuId = document.getTaiLieuId();
         long start = System.nanoTime();
 
-        // 1. phần chậm và dễ lỗi (đọc file, gọi API) làm TRƯỚC, khi Qdrant còn nguyên bản cũ.
-        //    embed lỗi thì dừng ở đây, tài liệu vẫn tìm được như trước
+        // 1. việc chậm, dễ lỗi (đọc file, gọi API) làm trước, khi Qdrant còn bản cũ
         List<String> pages = pageReader.readCleanPages(document);
         List<Chunk> chunks = chunking.chunk(taiLieuId, pages);
         if (chunks.isEmpty()) {
@@ -91,8 +88,7 @@ public class DocumentIndexingService {
         }
         List<EmbeddedChunk> embedded = embedding.embedChunks(chunks, document.getTenHienThi());
 
-        // 2. hạ cờ trước khi đụng Qdrant: nếu chết giữa lúc xoá và ghi,
-        //    MySQL không còn nói "đã nạp" trong khi Qdrant đang thiếu
+        // 2. hạ cờ trước khi đụng Qdrant, để MySQL không báo "đã nạp" khi Qdrant đang thiếu
         documentRepository.updateEmbedState(taiLieuId, null, null);
 
         // 3. xoá point cũ (dọn phần thừa nếu số chunk giảm) rồi ghi mới, cả hai đều chờ xong

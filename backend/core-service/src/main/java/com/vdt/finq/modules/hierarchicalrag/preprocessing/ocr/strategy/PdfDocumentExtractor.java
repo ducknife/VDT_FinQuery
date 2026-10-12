@@ -10,8 +10,7 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.DocumentOcrService
 
 import lombok.RequiredArgsConstructor;
 
-// pdf là định dạng duy nhất cần OCR: đọc lớp chữ thì mất bố cục trang,
-// nên ta chuyển thành ảnh rồi để model thị giác đọc bảng
+// pdf chuyển thành ảnh rồi để model thị giác đọc, giữ được bố cục bảng
 @Component
 @RequiredArgsConstructor
 public class PdfDocumentExtractor implements DocumentExtractor {

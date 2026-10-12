@@ -65,8 +65,7 @@ public class VisionOcrClient {
 
         String markdown = stripCodeFence(readStream(response.body()));
 
-        // câu trả lời rỗng là lỗi, không phải trang trống. ném lỗi hết giờ để
-        // thang thử lại có cơ hội chạy với ảnh nhỏ hơn
+        // trả lời rỗng là lỗi, không phải trang trống; ném hết giờ để thử lại với ảnh nhỏ hơn
         if (markdown.isBlank() || markdown.length() < MIN_USEFUL_LENGTH) {
             throw new OcrTimeoutException("model returned almost nothing (%d chars)"
                     .formatted(markdown.length()));
@@ -94,8 +93,7 @@ public class VisionOcrClient {
                 .uri(URI.create(properties.getApiUrl()))
                 .header("Authorization", "Bearer " + properties.getApiKey())
                 .header("Content-Type", "application/json")
-                // không đặt .timeout() ở đây, vì đó là hạn giờ cho cả lượt gọi,
-                // đúng sai lầm mà class này tránh
+                // không đặt .timeout() cho cả lượt gọi
                 .POST(HttpRequest.BodyPublishers.ofString(
                         objectMapper.writeValueAsString(body), StandardCharsets.UTF_8))
                 .build();
@@ -129,8 +127,7 @@ public class VisionOcrClient {
                 lastChunkNanos.set(System.nanoTime());
             }
         } catch (IOException e) {
-            // watchdog đóng stream để phá lệnh đọc đang bị chặn, nên lỗi này có thể
-            // do chính mình gây ra chứ không phải lỗi mạng
+            // lỗi này có thể do watchdog đóng stream, không phải lỗi mạng
             if (timedOut.get()) {
                 throw new OcrTimeoutException(describeTimeout(gotFirstChunk.get(), startNanos));
             }
@@ -188,8 +185,7 @@ public class VisionOcrClient {
         try {
             JsonNode content = objectMapper.readTree(payload)
                     .path("choices").path(0).path("delta").path("content");
-            // chunk đầu của DeepInfra chỉ khai báo role và có content = "": phải bỏ qua,
-            // vì "" ở đây là tín hiệu hết stream
+            // chunk đầu của DeepInfra có content = "": bỏ qua, vì "" là tín hiệu hết stream
             return content.isTextual() && !content.asText().isEmpty() ? content.asText() : null;
         } catch (IOException e) {
             // một dòng hỏng không được làm mất cả trang

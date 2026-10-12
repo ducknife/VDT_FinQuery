@@ -18,10 +18,8 @@ import com.vdt.finq.common.markdown.MarkdownTableParser.Block;
 
 import lombok.RequiredArgsConstructor;
 
-// đổi bảng markdown trong một chunk sang JSON, mỗi dòng bảng thành một object {tên cột: giá trị}.
-// theo paper Hierarchical Reranker (Lee & Hong, arXiv 2607.27523): làm bằng quy tắc, không dùng LLM,
-// để con số luôn đi kèm tiêu đề cột của nó khi embed. chữ ngoài bảng giữ nguyên.
-// giá trị giữ đúng chuỗi gốc ("5.627.168.242.619"), không đổi sang số
+// đổi bảng markdown trong chunk sang JSON (mỗi dòng một object) bằng luật, để số đi kèm tiêu đề cột;
+// giá trị giữ chuỗi gốc
 @Component
 @RequiredArgsConstructor
 public class TableToJson {
@@ -78,8 +76,7 @@ public class TableToJson {
         return "[\n" + String.join(",\n", rows) + "\n]";
     }
 
-    // tên khoá của mỗi cột = nối các tầng tiêu đề. ô trống ở tầng trên là ô gộp (colspan)
-    // nên mượn chữ của ô bên trái, vd "Số liệu lũy kế" phủ cả hai cột năm nay, năm trước
+    // tên khoá = nối các tầng tiêu đề; ô gộp trống mượn chữ ô bên trái
     private static List<String> keys(List<List<String>> header, int width) {
         List<Set<String>> parts = new ArrayList<>();
         for (int c = 0; c < width; c++) {

@@ -5,8 +5,7 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-// một bảng báo cáo tài chính đã nhận ra: các dòng (mã, tên, giá trị) và số cột giá trị.
-// cột giá trị luôn là các ô cuối của mỗi dòng, nên chỉ cần biết số lượng
+// một bảng BCTC đã nhận ra: các dòng (mã, tên, giá trị); giá trị là các ô cuối mỗi dòng
 @Getter
 @AllArgsConstructor
 public class StatementTable {

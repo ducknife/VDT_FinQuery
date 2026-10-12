@@ -25,11 +25,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-// gọi reranker của DeepInfra: POST {apiUrl}/{model} với {"queries":[q], "documents":[...]}
-// -> {"scores":[...], "input_tokens":..., "inference_status":{"cost":...}}
-//
-// Qwen3-Reranker chấm TỪNG CẶP (câu hỏi, chunk) độc lập, điểm = xác suất model trả lời "yes" (0..1),
-// nên chia lô không làm đổi điểm. các lô gửi song song để tầng 1 chỉ tốn thời gian của một lần gọi
+// gọi reranker DeepInfra; chấm từng cặp (câu hỏi, chunk) độc lập nên chia lô gửi song song không đổi điểm
 @Slf4j
 @Component
 public class RerankClient {

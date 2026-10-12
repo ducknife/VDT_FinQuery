@@ -37,10 +37,8 @@ import io.qdrant.client.grpc.Points.PointsSelector;
 import io.qdrant.client.grpc.Points.UpsertPoints;
 import lombok.extern.slf4j.Slf4j;
 
-// ghi chunk đã embed vào Qdrant: dựng collection, payload index, xoá và upsert point
-//
-// nguyên tắc (.docs/projectdevlogs/lap-chi-muc, mục 3): vector để tìm theo nghĩa, payload để lọc,
-// định vị và trích dẫn; toạ độ (tai_lieu_id, trang, phan) không đem embed
+// ghi chunk đã embed vào Qdrant: collection, payload index, xoá và upsert point.
+// vector để tìm theo nghĩa, payload để lọc và trích dẫn
 @Slf4j
 @Component
 public class QdrantIndexWriter {

@@ -19,11 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-// reranker phân cấp theo paper (Lee & Hong, thuật toán 1 dòng 3-4), số lượng theo QĐ-030:
-//     80 chunk --tầng 1 (model nhỏ, 0.6B)--> 40 --tầng 2 (model lớn, 4B)--> 20
-// model nhỏ loại nhanh phần rác, model lớn chỉ chấm kỹ phần còn lại.
-// văn bản đưa reranker = [tên tài liệu] + chunk có bảng đổi sang JSON, ĐÚNG bản đã đem embed
-// (payload chỉ giữ markdown, nên đổi lại bằng TableToJson; hàm theo luật nên luôn ra cùng kết quả)
+// rerank phân cấp (paper Lee & Hong): 80 --0.6B--> 40 --4B--> 20.
+// văn bản đưa reranker giống bản đã embed: tên tài liệu + chunk có bảng đổi JSON
 @Component
 @RequiredArgsConstructor
 public class HierarchicalReranker {
@@ -94,7 +91,7 @@ public class HierarchicalReranker {
     }
 
     String documentText(RetrievedChunk chunk) {
-        return Embedding.embedText(chunk.getTenHienThi(), tableToJson.convert(chunk.getNoiDung()));
+        return Embedding.embedText(chunk.getTenHienThi(), tableToJson.convert(chunk.textForModel()));
     }
 
     private static boolean isBlank(String s) {

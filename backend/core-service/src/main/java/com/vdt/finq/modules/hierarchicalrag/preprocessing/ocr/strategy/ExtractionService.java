@@ -11,8 +11,7 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.DocumentOcrResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// chọn bộ trích xuất cho một file. spring tiêm mọi implementation vào,
-// nên thêm định dạng mới không phải sửa class này
+// chọn bộ trích xuất theo loại file; thêm định dạng mới không cần sửa class này
 @Slf4j
 @Service
 @RequiredArgsConstructor

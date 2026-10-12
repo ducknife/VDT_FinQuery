@@ -6,27 +6,17 @@ import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 
-// làm sạch một trang trước khi chunk hoặc trích số liệu.
-// KHÔNG BAO GIỜ ghi đè file .md trên đĩa: file gốc tốn một ngày mạng để tạo ra,
-// nên làm sạch là phép biến đổi lúc đọc. đổi luật thì chỉ cần chạy lại bước chunk,
-// không phải OCR lại
+// làm sạch một trang lúc đọc, không ghi đè file .md (đổi luật chỉ cần chunk lại, không OCR lại)
 
-// các luật, theo đúng thứ tự chạy trong clean():
-// 0. chuẩn hoá unicode NFC
-// 1. bỏ hàng rào ``` bọc cả trang
-// 2. &nbsp; thành dấu cách
-// 3. gộp từ hai dấu cách liên tiếp trở lên giữa dòng thành một
-// 4. bỏ khoảng trắng cuối dòng
-// chi tiết và số đo: .docs/projectdevlogs/lam-sach_v1.1.md
+// luật theo thứ tự: NFC, bỏ ``` bọc trang, &nbsp; thành dấu cách, gộp dấu cách giữa dòng, bỏ trắng cuối dòng.
+// chi tiết: .docs/projectdevlogs/lam-sach_v1.1.md
 @Component
 @RequiredArgsConstructor
 public class TextCleaner {
 
     private static final String FENCE = "```"; // hàng rào code của markdown
 
-    // chỉ gộp các dãy dấu cách đứng sau một ký tự khác trắng, thụt đầu dòng được giữ nguyên:
-    // 1003 dòng trong kho thụt từ bốn dấu cách trở lên,
-    // và trong markdown điều đó có nghĩa là một khối code
+    // chỉ gộp dấu cách sau ký tự khác trắng; giữ thụt đầu dòng
     private static final Pattern INNER_RUN = Pattern.compile("(?<=\\S)[ \\t]{2,}");
 
     // khoảng trắng cuối mỗi dòng
@@ -38,8 +28,7 @@ public class TextCleaner {
         if (raw == null || raw.isBlank()) {
             return "";
         }
-        // thứ tự quan trọng: chuẩn hoá NFC trước để mọi luật sau chỉ gặp một kiểu mã hoá,
-        // và &nbsp; phải thành dấu cách trước khi gộp các dãy dấu cách
+        // thứ tự: NFC trước, &nbsp; thành dấu cách trước khi gộp
         String text = nfcNormalization.toNfc(raw);
         text = stripCodeFence(text);
         text = text.replace("&nbsp;", " ");
@@ -48,8 +37,7 @@ public class TextCleaner {
         return text.strip();
     }
 
-    // model đôi khi bọc cả trang trong ``` hoặc ```markdown.
-    // kho còn 76 trang như vậy, công cụ node cũ bỏ sót dạng có nhãn
+    // model đôi khi bọc cả trang trong ``` hoặc ```markdown
     private static String stripCodeFence(String text) {
         String trimmed = text.strip();
         if (!trimmed.startsWith(FENCE)) {

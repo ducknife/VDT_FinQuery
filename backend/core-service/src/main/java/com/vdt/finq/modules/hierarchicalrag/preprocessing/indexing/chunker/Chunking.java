@@ -13,17 +13,9 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.chunker.stitc
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// chunking đệ quy theo cấu trúc, gối đầu có chọn lọc, đơn vị gốc là trang
-//
-//   1. gối có chọn lọc ở ranh giới trang: sửa tiêu đề bảng vắt qua trang
-//      (TableStitcher), rồi gối mẩu câu bị cắt (TextStitcher)
-//   2. trang <= MAX ký tự thì giữ nguyên thành 1 chunk
-//   3. trang > MAX thì chia theo cấu trúc: heading -> khối -> dòng bảng / câu
-//   4. mảnh nào còn > MAX thì đệ quy xuống mức mịn hơn
-//   5. gộp các mảnh vụn liền kề cho tới gần MAX
-//
-// không bao giờ gộp xuyên trang, nên chunk nào cũng thuộc đúng một trang
-// chi tiết và số đo: .docs/projectdevlogs/lap-chi-muc_v1.6.md
+// chunk đệ quy theo cấu trúc, đơn vị gốc là trang: sửa ranh giới trang (bảng, câu), trang <= MAX giữ nguyên,
+// lớn hơn thì chia heading -> khối -> dòng/câu rồi gộp mảnh vụn; không gộp xuyên trang.
+// chi tiết: .docs/projectdevlogs/lap-chi-muc_v1.6.md
 @Slf4j
 @Component
 @RequiredArgsConstructor

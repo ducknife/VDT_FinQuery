@@ -17,9 +17,7 @@ import com.vdt.finq.modules.document.DocumentEnums.Ky;
 import com.vdt.finq.modules.document.DocumentEnums.LoaiTaiLieu;
 import com.vdt.finq.modules.hierarchicalrag.preretrieval.normalizer.NormalizedQuery;
 
-// rút điều kiện lọc từ câu hỏi ĐÃ CHUẨN HOÁ (QĐ-030). nhờ bộ chuẩn hoá, mọi cách viết kỳ đã có
-// dạng chuẩn trong ngoặc: "Q3/2024 (quý 3 năm 2024)", "năm ngoái (năm 2025)", "gần nhất (kỳ 30/06/2026)".
-// nguyên tắc: chỉ lọc khi câu hỏi NÓI RÕ; không chắc thì không lọc (lọc sai làm mất đáp án)
+// rút điều kiện lọc từ câu hỏi đã chuẩn hoá (QĐ-030); chỉ lọc khi câu hỏi nói rõ
 @Component
 public class FilterExtractor {
 
@@ -41,9 +39,7 @@ public class FilterExtractor {
     private static final Map<Pattern, List<LoaiTaiLieu>> DOCUMENT_TYPES = new LinkedHashMap<>();
 
     static {
-        // KHÔNG lọc theo "báo cáo tài chính"/"BCTC": người hỏi dùng chữ này để nói phạm vi con số
-        // ("LNST trên BCTC riêng quý 2 vì sao tăng"), còn đáp án nằm ở công văn giải trình, BCTN...
-        // (benchmark 12/10/2026, câu V01)
+        // không lọc theo chữ "BCTC": người hỏi dùng nó để nói phạm vi số, đáp án có thể ở công văn, BCTN
         type(List.of(LoaiTaiLieu.BCTN), "bao cao thuong nien", "bctn");
         type(List.of(LoaiTaiLieu.NGHI_QUYET), "nghi quyet", "bien ban hop");
         type(List.of(LoaiTaiLieu.TO_TRINH), "to trinh");
@@ -82,10 +78,8 @@ public class FilterExtractor {
             }
         }
 
-        // năm ghi trên tài liệu là năm BAN HÀNH, không phải năm của nội dung (benchmark 12/10/2026):
-        //   văn bản sự kiện (không có kỳ: nghị quyết, CBTT, giải trình) về năm Y ban hành ở Y..Y+2
-        //   (cổ tức Y công bố ở Y+1, tổng kết ở ĐHĐCĐ Y+2);
-        //   báo cáo định kỳ đúng năm Y, thêm Y-1 khi hỏi kế hoạch, thêm Y+1 khi hỏi số trình bày lại
+        // năm trên tài liệu là năm ban hành (QĐ-032): văn bản sự kiện năm Y nằm ở Y..Y+2;
+        // báo cáo định kỳ đúng năm Y, thêm Y-1 khi hỏi kế hoạch, Y+1 khi hỏi số trình bày lại
         Set<Integer> periodNams = new TreeSet<>(nams);
         Set<Integer> eventNams = new TreeSet<>();
         boolean plan = PLAN.matcher(folded).find();

@@ -46,16 +46,11 @@ import com.vdt.finq.utils.TableToJson;
 
 import io.qdrant.client.grpc.JsonWithInt.Value;
 
-// chạy thử cả luồng tiền xử lý TRỪ OCR trên vài trang OCR có sẵn, ghi kết quả từng bước ra
-// trial-preprocessing.md (cùng thư mục với trial-cleaned.md):
-//     đọc trang -> làm sạch -> sửa tiêu đề bảng -> chunk -> table-to-json -> embed -> point Qdrant
-//     song song: trích số (B01, B02, B03) -> ứng viên + ngoại lệ
-// không ghi gì vào MySQL hay Qdrant. chỉ gọi API embedding khi chạy với -Dtrial.embed=true
-// (vài chunk, chưa tới 0,001 USD):
-//     ./mvnw test -Dtest=PreprocessingTrialTest -Dtrial.embed=true
+// chạy thử tiền xử lý (trừ OCR) trên vài trang, ghi từng bước ra trial-preprocessing.md, không ghi DB:
+//     ./mvnw test -Dtest=PreprocessingTrialTest [-Dtrial.embed=true]
 class PreprocessingTrialTest {
 
-    // BCTC hợp nhất quý 4/2023: trang 5-6 B01 vắt trang, 7-8 B02 (trang 8 mất tiêu đề), 9 B03, 10 thuyết minh
+    // BCTC HN quý 4/2023: B01 vắt trang 5-6, B02 trang 7-8 (trang 8 mất tiêu đề), B03 trang 9
     private static final String DUONG_DAN = "01_bao_cao_tai_chinh/2023/hop_nhat/20240130-CTR-BCTC-HN-Quý-4.2023";
     private static final int FIRST_PAGE = 5;
     private static final int LAST_PAGE = 10;

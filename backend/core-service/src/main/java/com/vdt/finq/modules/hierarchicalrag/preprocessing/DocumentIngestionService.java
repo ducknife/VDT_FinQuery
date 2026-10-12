@@ -26,9 +26,8 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.strategy.Extractio
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// điều phối cả luồng nạp một tài liệu: lưu file -> tạo dòng documents -> OCR -> trích số -> lập chỉ mục.
-// bước nặng chạy nền trên ingestionExecutor; mỗi bước chỉ chạy khi cột trạng thái của nó còn NULL,
-// nên gọi lại process() sau khi lỗi sẽ làm tiếp đúng chỗ dở
+// điều phối nạp một tài liệu: lưu file -> documents -> OCR -> trích số -> lập chỉ mục.
+// chạy nền; mỗi bước chỉ chạy khi cột trạng thái còn NULL nên gọi lại sẽ làm tiếp chỗ dở
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -52,9 +51,7 @@ public class DocumentIngestionService {
             throw new InvalidRequestException("không hỗ trợ định dạng của " + fileName);
         }
 
-        // cổng NFC thứ ba (.docs/projectdevlogs/lam-sach): macOS gửi tên file dạng NFD, mà duong_dan so từng byte (utf8mb4_bin)
-        // nên "riêng" NFD và NFC thành hai đường dẫn khác nhau, chặn trùng bị lọt.
-        // tên hiển thị cũng chuẩn hoá vì nó nằm trong văn bản đem embed
+        // chuẩn hoá NFC tên file (macOS gửi NFD) để chặn trùng đường dẫn
         fileName = nfcNormalization.toNfc(fileName);
         document.setTenHienThi(nfcNormalization.toNfc(document.getTenHienThi()));
 
@@ -66,7 +63,7 @@ public class DocumentIngestionService {
         }
         document.setTaiLieuId(DocumentIdGenerator.generate(document));
 
-        // lưu file trước, ghi DB sau: lỗi giữa chừng chỉ để lại một file thừa, không để lại dòng trỏ vào hư không
+        // lưu file trước, ghi DB sau: lỗi giữa chừng chỉ để lại file thừa
         Path target = companyDir(document).resolve(document.getDuongDan() + "." + extension(fileName)).normalize();
         Files.createDirectories(target.getParent());
         try (InputStream in = file.getInputStream()) {

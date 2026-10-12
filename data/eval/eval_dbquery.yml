@@ -1,0 +1,262 @@
+# Bộ câu hỏi nhánh số liệu (sinh bởi dung_bo_cau_hoi_db.py từ eval_test.yml): 21 câu.
+# cham: cách máy chấm "đúng và đủ" (xem docstring của script).
+- id: D01
+  nhom: db_mot_so
+  cau_hoi: Doanh thu thuần hợp nhất năm 2024 của CTR là bao nhiêu?
+  bien_the: []
+  dap_an: 12.609.519.560.081 đồng
+  cham:
+    kieu: so_dong
+    gia_tri: 12609519560081
+  chi_tieu:
+    ma_noi_bo: DOANH_THU_THUAN
+    tu_ngay: '2024-01-01'
+    den_ngay: '2024-12-31'
+    pham_vi: hop_nhat
+- id: D02
+  nhom: db_mot_so
+  cau_hoi: LNST trên báo cáo tài chính riêng năm 2025 là bao nhiêu?
+  bien_the:
+  - pham_vi_rieng
+  - viet_tat
+  dap_an: 587.417.356.381 đồng
+  cham:
+    kieu: so_dong
+    gia_tri: 587417356381
+  chi_tieu:
+    ma_noi_bo: LOI_NHUAN_SAU_THUE
+    tu_ngay: '2025-01-01'
+    den_ngay: '2025-12-31'
+    pham_vi: rieng
+- id: D03
+  nhom: db_mot_so
+  cau_hoi: Nợ phải trả hợp nhất tại kỳ báo cáo gần nhất là bao nhiêu?
+  bien_the:
+  - thoi_gian_tuong_doi
+  dap_an: 'Kỳ gần nhất 30/06/2026: 7.435.180.982.045 đồng'
+  cham:
+    kieu: so_dong
+    gia_tri: 7435180982045
+  chi_tieu:
+    ma_noi_bo: NO_PHAI_TRA
+    tu_ngay: '2026-06-30'
+    den_ngay: '2026-06-30'
+    pham_vi: hop_nhat
+- id: D04
+  nhom: db_mot_so
+  cau_hoi: HTK hợp nhất cuối năm 2025?
+  bien_the:
+  - viet_tat
+  - cuoi_nam
+  dap_an: 424.971.712.679 đồng (mã 140, đã trừ dự phòng)
+  cham:
+    kieu: so_dong
+    gia_tri: 424971712679
+  chi_tieu:
+    ma_noi_bo: HANG_TON_KHO_M140
+    tu_ngay: '2025-12-31'
+    den_ngay: '2025-12-31'
+    pham_vi: hop_nhat
+- id: D05
+  nhom: db_mot_so
+  cau_hoi: Dòng tiền kinh doanh hợp nhất quý 1/2025 âm hay dương, bao nhiêu?
+  bien_the:
+  - so_am
+  - cach_goi_doi_thuong
+  dap_an: 'Âm: lưu chuyển tiền thuần từ HĐKD 3 tháng đầu 2025 là -295.939.415.278 đồng.'
+  cham:
+    kieu: so_dong
+    gia_tri: -295939415278
+    am: true
+  chi_tieu:
+    ma_noi_bo: LCTT_THUAN_HDKD
+    tu_ngay: '2025-01-01'
+    den_ngay: '2025-03-31'
+    pham_vi: hop_nhat
+- id: D06
+  nhom: db_mot_so
+  cau_hoi: Lợi nhuận gộp hợp nhất 6 tháng đầu năm 2026 là bao nhiêu?
+  bien_the:
+  - ban_nien
+  - quy_vs_luy_ke
+  dap_an: 521.996.574.332 đồng
+  cham:
+    kieu: so_dong
+    gia_tri: 521996574332
+  chi_tieu:
+    ma_noi_bo: LOI_NHUAN_GOP
+    tu_ngay: '2026-01-01'
+    den_ngay: '2026-06-30'
+    pham_vi: hop_nhat
+- id: D07
+  nhom: db_mot_so
+  cau_hoi: Doanh thu thuần riêng của quý 2/2026 (chỉ riêng quý, không luỹ kế) là bao nhiêu?
+  bien_the:
+  - pham_vi_rieng
+  - quy_vs_luy_ke
+  dap_an: 3.773.814.395.170 đồng
+  cham:
+    kieu: so_dong
+    gia_tri: 3773814395170
+  chi_tieu:
+    ma_noi_bo: DOANH_THU_THUAN
+    tu_ngay: '2026-04-01'
+    den_ngay: '2026-06-30'
+    pham_vi: rieng
+- id: D08
+  nhom: db_mot_so
+  cau_hoi: Lãi ròng hợp nhất riêng quý 3/2024 là bao nhiêu?
+  bien_the:
+  - bang_vat_trang
+  - cach_goi_doi_thuong
+  dap_an: 146.262.730.079 đồng (chỉ quý III/2024)
+  cham:
+    kieu: so_dong
+    gia_tri: 146262730079
+  chi_tieu:
+    ma_noi_bo: LOI_NHUAN_SAU_THUE
+    tu_ngay: '2024-07-01'
+    den_ngay: '2024-09-30'
+    pham_vi: hop_nhat
+- id: C01
+  nhom: db_so_sanh
+  cau_hoi: Doanh thu thuần hợp nhất năm 2025 tăng bao nhiêu phần trăm so với năm 2024?
+  bien_the:
+  - tang_truong
+  dap_an: '13.939,52 tỷ đồng so với 12.609,52 tỷ đồng: tăng 10,55%.'
+  cham:
+    kieu: phan_tram
+    gia_tri: 10,55
+    huong: tang
+- id: C02
+  nhom: db_so_sanh
+  cau_hoi: Biên lợi nhuận gộp hợp nhất năm 2024 là bao nhiêu?
+  bien_the:
+  - ty_le
+  dap_an: Lợi nhuận gộp 884,22 tỷ đồng / doanh thu thuần 12.609,52 tỷ đồng = 7,01%.
+  cham:
+    kieu: phan_tram
+    gia_tri: 7,01
+- id: C03
+  nhom: db_so_sanh
+  cau_hoi: Tỷ lệ nợ phải trả trên tổng tài sản hợp nhất cuối năm 2025 là bao nhiêu?
+  bien_the:
+  - ty_le
+  - cuoi_nam
+  dap_an: 6.118,37 tỷ đồng / 8.185,54 tỷ đồng = 74,75%.
+  cham:
+    kieu: phan_tram
+    gia_tri: 74,75
+- id: C04
+  nhom: db_so_sanh
+  cau_hoi: LNST hợp nhất 6 tháng đầu 2026 tăng bao nhiêu so với cùng kỳ năm trước?
+  bien_the:
+  - ban_nien
+  - tang_truong
+  dap_an: '321,81 tỷ đồng so với 266,93 tỷ đồng: tăng 54,88 tỷ đồng (20,56%).'
+  cham:
+    kieu: phan_tram
+    gia_tri: 20,56
+    huong: tang
+- id: C05
+  nhom: db_so_sanh
+  cau_hoi: Năm 2025 dòng tiền thuần từ hoạt động kinh doanh hợp nhất gấp bao nhiêu lần lợi nhuận sau thuế?
+  bien_the:
+  - ty_le
+  dap_an: 1.455,42 tỷ đồng / 599,72 tỷ đồng ≈ 2,43 lần.
+  cham:
+    kieu: lan
+    gia_tri: 2,43
+- id: C06
+  nhom: db_so_sanh
+  cau_hoi: Hàng tồn kho hợp nhất cuối 2025 thay đổi thế nào so với cuối 2024?
+  bien_the:
+  - cuoi_nam
+  - viet_tat
+  dap_an: 'Giảm từ 610,48 tỷ đồng xuống 424,97 tỷ đồng: giảm 185,51 tỷ đồng (30,39%).'
+  cham:
+    kieu: phan_tram
+    gia_tri: 30,39
+    huong: giam
+- id: C07
+  nhom: db_so_sanh
+  cau_hoi: Doanh thu thuần của công ty mẹ chiếm bao nhiêu phần trăm doanh thu thuần hợp nhất năm 2025?
+  bien_the:
+  - pham_vi_rieng
+  - ty_le
+  dap_an: 11.791,01 tỷ đồng / 13.939,52 tỷ đồng = 84,59%.
+  cham:
+    kieu: phan_tram
+    gia_tri: 84,59
+- id: D09
+  nhom: db_mot_so
+  cau_hoi: Doanh thu thuần hợp nhất năm 2019 (theo số liệu đã trình bày lại) là bao nhiêu?
+  bien_the:
+  - trinh_bay_lai
+  dap_an: 5.099.889.976.331 đồng (trình bày lại trong BCTC 2020; BCTC 2019 gốc ghi 5.053.710.724.827 đồng).
+  cham:
+    kieu: so_dong
+    gia_tri: 5099889976331
+  chi_tieu:
+    ma_noi_bo: DOANH_THU_THUAN
+    tu_ngay: '2019-01-01'
+    den_ngay: '2019-12-31'
+    pham_vi: hop_nhat
+- id: D10
+  nhom: db_mot_so
+  cau_hoi: tong tai san hop nhat ngay 31/12/2024 la bao nhieu
+  bien_the:
+  - khong_dau
+  dap_an: 7.106.257.863.668 đồng
+  cham:
+    kieu: so_dong
+    gia_tri: 7106257863668
+  chi_tieu:
+    ma_noi_bo: TONG_TAI_SAN
+    tu_ngay: '2024-12-31'
+    den_ngay: '2024-12-31'
+    pham_vi: hop_nhat
+- id: D11
+  nhom: db_mot_so
+  cau_hoi: Tiền mặt hợp nhất cuối quý trước là bao nhiêu?
+  bien_the:
+  - thoi_gian_tuong_doi
+  - cach_goi_doi_thuong
+  dap_an: 'Quý trước = quý 1/2026 (kỳ mới nhất là quý 2/2026). Tiền và các khoản tương đương tiền hợp nhất tại 31/03/2026: 1.123.253.891.417 đồng'
+  cham:
+    kieu: so_dong
+    gia_tri: 1123253891417
+  chi_tieu:
+    ma_noi_bo: TIEN_VA_TUONG_DUONG_TIEN
+    tu_ngay: '2026-03-31'
+    den_ngay: '2026-03-31'
+    pham_vi: hop_nhat
+- id: X06
+  nhom: tu_choi
+  cau_hoi: Doanh thu thuần hợp nhất cả năm 2026 là bao nhiêu?
+  bien_the:
+  - ky_chua_du
+  - tra_loi_mot_phan
+  dap_an: 'Chưa có số cả năm 2026 (kỳ mới nhất 30/06/2026). Có thể cung cấp số 6 tháng đầu 2026: 7.958.838.568.947 đồng. Không được tự ngoại suy ra số cả năm.'
+  cham:
+    kieu: tu_choi
+    so_duoc_phep:
+    - 7958838568947
+- id: X03
+  nhom: tu_choi
+  cau_hoi: Doanh thu thuần hợp nhất quý 3/2026 là bao nhiêu?
+  bien_the:
+  - ky_chua_co
+  dap_an: 'Từ chối: kỳ mới nhất trong kho là 30/06/2026, chưa có báo cáo quý 3/2026.'
+  cham:
+    kieu: tu_choi
+    so_duoc_phep: []
+- id: X04
+  nhom: tu_choi
+  cau_hoi: Lợi nhuận sau thuế năm 2015 của CTR là bao nhiêu?
+  bien_the:
+  - nam_ngoai_kho
+  dap_an: 'Từ chối: kho không có báo cáo năm 2015 (dữ liệu từ năm 2019, số so sánh từ cuối 2017).'
+  cham:
+    kieu: tu_choi
+    so_duoc_phep: []

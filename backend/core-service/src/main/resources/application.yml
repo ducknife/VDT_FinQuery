@@ -11,9 +11,49 @@ spring:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
+  # ChatModel chuẩn OpenAI trỏ sang DeepInfra; chỉ bật chat
+  ai:
+    model:
+      chat: openai
+      embedding: none
+      image: none
+      audio:
+        speech: none
+        transcription: none
+      moderation: none
+    openai:
+      base-url: https://api.deepinfra.com/v1/openai
+      api-key: ${LLM_API_KEY}
+      chat:
+        completions-path: /chat/completions
+        options:
+          model: ${REASONING_MODEL}
+          temperature: 0.0
+          max-tokens: 6000
+    retry:
+      max-attempts: 3
 
-agent: 
+agent:
+  # số lần gọi LLM tối đa mỗi câu: (max-turn-loop - 1) lượt chọn tool + 1 lượt trả lời
   max-turn-loop: 4
+
+# model suy luận (QĐ-035): thinking và đơn giá để tính tiền; đổi model thì đổi đơn giá
+llm:
+  model: ${REASONING_MODEL}
+  # chỉ áp dụng cho Qwen3.x
+  thinking: true
+  # Sonnet 5.5, USD / 1 triệu token
+  price-input-per-million: 2.00
+  price-output-per-million: 10.00
+
+# sinh câu trả lời: vượt ngưỡng này thì chia bằng chứng làm 2 nửa (paper)
+generation:
+  context-limit-tokens: 64000
+
+# user MySQL chỉ đọc cho tool số liệu; để trống thì dùng giao dịch READ ONLY
+financial-query:
+  readonly-username: ${DB_READONLY_USERNAME:}
+  readonly-password: ${DB_READONLY_PASSWORD:}
 
 ocr: 
   output-dir: ${OCR_OUTPUT_DIR:../../data/ocr}

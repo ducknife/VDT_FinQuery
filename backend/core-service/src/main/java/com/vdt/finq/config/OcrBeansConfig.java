@@ -15,22 +15,19 @@ import com.vdt.finq.common.properties.OCRProperties;
 
 import lombok.RequiredArgsConstructor;
 
-// hạ tầng dùng chung cho luồng OCR, cả ba bean đều dùng chung cho toàn ứng dụng.
-// nếu mỗi tài liệu tự tạo riêng thì mười lượt tải lên sẽ mở sáu mươi kết nối
+// hạ tầng OCR dùng chung toàn ứng dụng
 @Configuration
 @RequiredArgsConstructor
 public class OcrBeansConfig {
 
     private final OCRProperties ocrProperties;
 
-    // một client cho cả ứng dụng, tạo mới mỗi lần gọi thì phải dựng lại
-    // connection pool và thread pool 6690 lần trong một lượt chạy
+    // một client cho cả ứng dụng, không tạo lại pool mỗi lần gọi
     @Bean
     public HttpClient ocrHttpClient() {
         return HttpClient.newBuilder()
                 .connectTimeout(Duration.ofSeconds(30))
-                // không đặt hạn giờ cho cả request ở đây, VisionOcrClient tự canh
-                // hai mốc: chờ chunk đầu tiên, rồi khoảng lặng giữa các chunk
+                // không đặt hạn giờ cả request; VisionOcrClient tự canh chunk đầu và khoảng lặng
                 .build();
     }
 
@@ -40,8 +37,7 @@ public class OcrBeansConfig {
         return Executors.newSingleThreadScheduledExecutor(named("ocr-watchdog"));
     }
 
-    // giới hạn thật của luồng: bao nhiêu trang được xử lý cùng lúc.
-    // phải giới hạn vì nút thắt là mạng, không phải cpu
+    // số trang xử lý cùng lúc; nút thắt là mạng, không phải CPU
     @Bean(destroyMethod = "shutdown")
     public ExecutorService ocrPool() {
         return Executors.newFixedThreadPool(ocrProperties.getConcurrency(), named("ocr-worker"));

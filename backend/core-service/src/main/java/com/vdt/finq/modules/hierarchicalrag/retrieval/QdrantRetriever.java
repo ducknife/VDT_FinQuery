@@ -27,8 +27,7 @@ import io.qdrant.client.grpc.Points.Filter;
 import io.qdrant.client.grpc.Points.ScoredPoint;
 import io.qdrant.client.grpc.Points.SearchPoints;
 
-// tìm chunk gần câu hỏi nhất trong Qdrant. lọc chạy NGAY TRONG lúc tìm (dùng payload index),
-// nên vẫn ra đủ limit kết quả, kết quả nào cũng thoả bộ lọc
+// tìm chunk gần nhất trong Qdrant; lọc chạy ngay lúc tìm nên vẫn đủ limit kết quả
 @Component
 public class QdrantRetriever {
 

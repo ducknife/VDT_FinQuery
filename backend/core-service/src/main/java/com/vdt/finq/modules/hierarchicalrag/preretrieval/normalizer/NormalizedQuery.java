@@ -8,8 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-// câu hỏi sau chuẩn hoá. text dùng để TÌM (embed, rerank, trích bộ lọc);
-// original giữ nguyên câu người dùng gõ, để hiện lại và đưa cho LLM khi viết câu trả lời
+// câu hỏi sau chuẩn hoá: text để tìm, original là câu người dùng gõ
 @Getter
 @ToString
 @AllArgsConstructor

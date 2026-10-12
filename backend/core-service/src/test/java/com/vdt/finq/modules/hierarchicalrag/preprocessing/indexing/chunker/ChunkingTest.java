@@ -93,8 +93,7 @@ class ChunkingTest {
         assertThat(repaired.split("\n")).filteredOn(l -> l.startsWith("|---")).hasSize(1);
     }
 
-    // bảng trải 3 trang: trang 3 phải nhận tiêu đề thật của trang 1,
-    // không được nhận dòng số liệu mà OCR coi là tiêu đề ở trang 2
+    // bảng trải 3 trang: trang 3 nhận tiêu đề thật của trang 1
     @Test
     void repairPropagatesAcrossThreePages() {
         String header = "| Mã số | Chỉ tiêu | Năm nay | Năm trước |";

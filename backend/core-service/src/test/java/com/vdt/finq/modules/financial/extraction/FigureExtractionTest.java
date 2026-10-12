@@ -102,9 +102,7 @@ class FigureExtractionTest {
                 "11.175.325.409", "10.729.429.898", "20.699.497.457", "18.792.697.119");
     }
 
-    // trang 6, BCTC hợp nhất quý 3/2024: trang nối tiếp mà OCR làm rơi một cột (3 số thay vì 4).
-    // 4 ô cuối sẽ lấy cả ô thuyết minh trống và lệch nguyên dòng sang kỳ khác -> không đọc trang này
-    // (lỗi phát hiện khi soạn bộ câu hỏi 11/10/2026: 140.605.159.668 bị ghi thành LNST luỹ kế 9 tháng 2024)
+    // BCTC HN Q3/2024 trang 6: OCR rơi một cột (3 số thay vì 4) thì không đọc trang này
     @Test
     void rejectsContinuationWithDroppedColumn() {
         String page = """

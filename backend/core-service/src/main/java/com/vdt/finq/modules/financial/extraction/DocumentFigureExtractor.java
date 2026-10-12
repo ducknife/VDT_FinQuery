@@ -19,9 +19,8 @@ import com.vdt.finq.modules.financial.FinancialEnums.MauBieu;
 
 import lombok.Getter;
 
-// trích số từ MỘT tài liệu: tìm bảng B01, B02, B03 -> gán kỳ cho cột -> tra mã nội bộ
-// -> kiểm tên, dấu, phép cộng. số qua hết các chốt thành ứng viên; số trượt thành ExtractionIssue.
-// chưa chọn nguồn có thẩm quyền: việc đó cần ứng viên của MỌI tài liệu (FigureSelector)
+// trích số từ một tài liệu: tìm bảng B01/B02/B03, gán kỳ cột, tra mã, kiểm tên, dấu, phép cộng.
+// chưa chọn nguồn: việc đó cần mọi tài liệu (FigureSelector)
 public final class DocumentFigureExtractor {
 
     @Getter
@@ -83,8 +82,7 @@ public final class DocumentFigureExtractor {
                 // bảng đầu trang mất dòng tiêu đề, ngay sau một mẫu biểu ở trang trước: phần tiếp theo của nó
                 StatementTable rest = StatementTableReader.readContinuation(block.getTable(),
                         lastPlan.getColumns().size());
-                // bảng thuyết minh đầu trang sau mẫu biểu cuối cùng cũng không có tiêu đề:
-                // chỉ nhận khi đa số dòng khớp (mã, tên) của đúng mẫu biểu đang đọc dở
+                // bảng thuyết minh sau mẫu biểu cuối cũng không có tiêu đề: chỉ nhận khi đa số dòng khớp mẫu biểu đang đọc
                 if (rest != null && matchShare(rest, lastPlanForm) >= 0.5) {
                     result.tables++;
                     readRows(page, rest, lastPlanForm, lastPlan, lastUnit, out);
@@ -177,8 +175,7 @@ public final class DocumentFigureExtractor {
         return Period.point(column.getDenNgay());
     }
 
-    // trong một tài liệu, mỗi (mẫu biểu, kỳ của cột) là một nhóm: trùng mã thì phải trùng số,
-    // rồi kiểm các phép cộng; nhóm nào trượt thì loại các số tham gia
+    // mỗi (mẫu biểu, kỳ cột) là một nhóm: trùng mã phải trùng số, rồi kiểm phép cộng; trượt thì loại cả nhóm
     private void checkConsistency(List<FigureCandidate> read) {
         Map<String, Map<String, FigureCandidate>> groups = new LinkedHashMap<>();
         Map<String, Set<String>> conflicted = new HashMap<>();
@@ -268,8 +265,7 @@ public final class DocumentFigureExtractor {
         return lastCashFlowForm != null ? lastCashFlowForm : voteCashFlow(table);
     }
 
-    // kiểm chéo bằng mã: B01 dùng mã 3 chữ số (100, 270), B02 và B03 dùng mã 2 chữ số (01, 60).
-    // tên mẫu biểu và mã nói khác nhau thì tin mã, rồi cho các dòng bỏ phiếu theo tên
+    // kiểm chéo bằng mã: B01 mã 3 chữ số, B02/B03 mã 2 chữ số; mâu thuẫn thì tin mã
     private MauBieu checkByCodes(MauBieu detected, StatementTable table) {
         long threeDigit = table.getRows().stream().filter(r -> r.getCode().length() >= 3).count();
         double share = (double) threeDigit / table.getRows().size();

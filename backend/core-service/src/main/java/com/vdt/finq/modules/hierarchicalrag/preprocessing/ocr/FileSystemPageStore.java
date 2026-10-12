@@ -35,8 +35,7 @@ public class FileSystemPageStore implements PageStore {
         Path resolvedPath = resolve(relativePath, pageNumber);
         Files.createDirectories(resolvedPath.getParent());
 
-        // ghi ra file .tmp rồi đổi tên
-        // tránh để lại file dở dang nếu bị ngắt giữa chừng
+        // ghi file .tmp rồi đổi tên, tránh file dở dang
         Path tmp = resolvedPath.resolveSibling(resolvedPath.getFileName() + ".tmp");
         Files.writeString(tmp, markdown, StandardCharsets.UTF_8);
         Files.move(tmp, resolvedPath, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
@@ -71,8 +70,7 @@ public class FileSystemPageStore implements PageStore {
     private Path resolve(String relativePath, int pageNumber) {
         Path base = Path.of(ocrProperties.getOutputDir()).toAbsolutePath().normalize();
         Path dir = base.resolve(relativePath).normalize();
-        // đường dẫn thoát ra ngoài thư mục gốc data/ocr thì báo lỗi
-        // (chặn path traversal)
+        // chặn đường dẫn thoát khỏi thư mục gốc (path traversal)
         if (!dir.startsWith(base)) {
             throw new IllegalArgumentException("Path miss match!" + relativePath);
         }

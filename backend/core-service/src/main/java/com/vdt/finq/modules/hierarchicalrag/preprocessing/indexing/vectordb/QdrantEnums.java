@@ -5,8 +5,7 @@ import java.util.function.Function;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-// các giá trị cố định chỉ có trong payload Qdrant (không có cột tương ứng trong MySQL).
-// giá trị của tài liệu (ky, pham_vi, loai) nằm ở modules/document/DocumentEnums
+// giá trị cố định chỉ có trong payload Qdrant; giá trị của tài liệu nằm ở DocumentEnums
 public final class QdrantEnums {
 
     private QdrantEnums() {

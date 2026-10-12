@@ -9,15 +9,8 @@ import com.vdt.finq.common.text.VietnameseText;
 
 import lombok.Getter;
 
-// đọc một tiêu đề cột thành kỳ. ví dụ:
-//     "31/12/2023 VND"                     -> thời điểm 2023-12-31
-//     "01/01/2023 Đã điều chỉnh VND"       -> thời điểm 2022-12-31, có trình bày lại
-//     "Quý IV/2023"                        -> 2023-10-01..2023-12-31
-//     "Lũy kế ... - Quý 4/2019"            -> 2019-01-01..2019-12-31
-//     "9 tháng đầu năm 2023"               -> 2023-01-01..2023-09-30
-//     "Từ 01/01/2019 đến 30/06/2019"       -> đúng khoảng đó
-//     "Năm 2023"                           -> cả năm 2023
-//     "Kỳ này", "Số cuối kỳ"               -> không có kỳ (period = null), phải suy từ tài liệu
+// đọc tiêu đề cột thành kỳ, ví dụ "31/12/2023 VND" -> 2023-12-31, "Quý IV/2023" -> 2023-10-01..12-31,
+// "9 tháng đầu năm 2023" -> 2023-01-01..09-30; "Kỳ này" -> null (suy từ tài liệu)
 @Getter
 public final class PeriodLabel {
 
@@ -73,8 +66,7 @@ public final class PeriodLabel {
         m = DATE.matcher(s);
         if (m.find()) {
             LocalDate date = date(m.group(1), m.group(2), m.group(3));
-            // số dư đầu ngày 01/01 chính là số dư cuối ngày 31/12 năm trước:
-            // quy về một mốc để cột so sánh của báo cáo này khớp cột kỳ này của báo cáo năm trước
+            // số dư 01/01 chính là số dư 31/12 năm trước: quy về một mốc để các báo cáo khớp nhau
             if (date.getDayOfMonth() == 1 && date.getMonthValue() == 1) {
                 date = date.minusDays(1);
             }

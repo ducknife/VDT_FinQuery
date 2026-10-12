@@ -11,9 +11,8 @@ import java.util.Set;
 
 import com.vdt.finq.modules.hierarchicalrag.retrieval.ChunkRef;
 
-// chỉ số đánh giá truy hồi, tính theo TRANG (nhãn của bộ câu hỏi ghi theo trang):
-//   lấy k chunk đầu -> đổi về trang, mỗi trang tính một lần ở vị trí xuất hiện đầu tiên -> so với trang vàng
-// gold: "taiLieuId#trang" -> mức liên quan (2 = trang chính, 1 = trang phụ)
+// chỉ số truy hồi tính theo trang: k chunk đầu đổi về trang rồi so với trang vàng.
+// gold: "taiLieuId#trang" -> mức liên quan (2 chính, 1 phụ)
 public final class RetrievalMetrics {
 
     private RetrievalMetrics() {
@@ -37,8 +36,7 @@ public final class RetrievalMetrics {
         return pages.stream().anyMatch(gold::containsKey);
     }
 
-    // câu cần nhiều bằng chứng: mọi bằng chứng đều có ít nhất một trang trong danh sách
-    // groupsOfPage: trang vàng -> các bằng chứng mà trang đó chứa
+    // câu nhiều bằng chứng: mọi bằng chứng đều có ít nhất một trang trong danh sách
     public static boolean allEvidence(List<String> pages, Map<String, Set<Integer>> groupsOfPage, int evidenceCount) {
         Set<Integer> covered = new HashSet<>();
         for (String page : pages) {
@@ -61,9 +59,7 @@ public final class RetrievalMetrics {
         return idcg == 0 ? 0 : dcg / idcg;
     }
 
-    // nDCG theo bằng chứng: mỗi bằng chứng chỉ cần MỘT trang (cùng con số in lại ở nhiều báo cáo thì lấy
-    // một trang là đủ trả lời). điểm của trang = mức của nó × số bằng chứng MỚI nó phủ được, chia log2(hạng+1);
-    // lý tưởng = mỗi bằng chứng một trang mức 2 ở các hạng đầu. trần 1 (một trang phủ nhiều bằng chứng)
+    // nDCG theo bằng chứng: mỗi bằng chứng chỉ cần một trang; điểm theo số bằng chứng mới mà trang phủ thêm
     public static double ndcgByEvidence(List<String> pages, Map<String, Integer> gold,
             Map<String, Set<Integer>> groupsOfPage, int evidenceCount, int k) {
         if (evidenceCount == 0) {
@@ -119,8 +115,7 @@ public final class RetrievalMetrics {
         return false;
     }
 
-    // bootstrap ghép cặp: diffs[i] = chỉ số cấu hình B - cấu hình A trên cùng câu i.
-    // trả {trung bình, cận dưới 2,5%, cận trên 97,5%}; khoảng không chứa 0 thì chênh lệch đáng tin
+    // bootstrap ghép cặp trên diffs = B - A từng câu: {trung bình, cận 2,5%, cận 97,5%}
     public static double[] bootstrapMeanCi(double[] diffs, int resamples, long seed) {
         if (diffs.length == 0) {
             return new double[] { 0, 0, 0 };

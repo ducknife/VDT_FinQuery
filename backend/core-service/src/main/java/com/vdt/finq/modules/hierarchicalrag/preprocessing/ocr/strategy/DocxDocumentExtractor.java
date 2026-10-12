@@ -21,15 +21,13 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.PageStore;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// word đã lưu đoạn văn và ô bảng dưới dạng có cấu trúc, nên không cần nhận dạng gì.
-// đưa qua OCR thì sẽ mất cấu trúc đó
+// word đã có cấu trúc đoạn và bảng nên không cần OCR
 @Slf4j
 @Component
 @RequiredArgsConstructor
 public class DocxDocumentExtractor implements DocumentExtractor {
 
-    // docx không có trang cho tới khi được dàn trang, nên ta cắt theo heading
-    // và mở đơn vị mới khi đơn vị hiện tại dài quá mức này
+    // docx không có trang: cắt theo heading, dài quá mức này thì mở đơn vị mới
     private static final int MAX_UNIT_CHARS = 4_000;
 
     private final PageStore pageStore;

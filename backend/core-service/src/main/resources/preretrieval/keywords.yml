@@ -1,8 +1,5 @@
-# Cách người dùng hay gọi -> tên chỉ tiêu/chủ đề đúng như in trên báo cáo (bước trích từ khoá, QĐ-030).
-# forms: cách gọi trong câu hỏi (có dấu, không phân biệt hoa thường, khớp nguyên cụm)
-# keywords: cụm đúng của báo cáo, sẽ được NỐI vào câu đem embed
-# Tên chỉ tiêu có sẵn trong bảng financial_items và financial_item_mappings được khớp tự động,
-# file này chỉ bổ sung cách gọi "đời thường" mà bảng đó không có.
+# Cách gọi đời thường -> cụm đúng của báo cáo, nối vào câu đem embed (QĐ-030).
+# Tên chỉ tiêu trong financial_items đã khớp tự động, ở đây chỉ bổ sung.
 
 aliases:
   # kết quả kinh doanh

@@ -1,14 +1,6 @@
-# Viết tắt dùng trong báo cáo tài chính và câu hỏi của người làm kế toán, tài chính.
-# Nguồn: mục 6 của .docs/projectdevlogs/tu-dien-tai-chinh_v1.2.md (QĐ-027).
-#
-# Mỗi mục:
-#   forms:     các cách viết của cụm viết tắt (kể cả bản không dấu, ví dụ ĐHĐCĐ / DHDCD)
-#   expansion: dạng đầy đủ, được THÊM vào sau cụm viết tắt: "LNST (lợi nhuận sau thuế)"
-#   context:   (tuỳ chọn) cụm NHẬP NHẰNG; chỉ mở rộng khi trong câu có một trong các từ này
-#              (viết không dấu, chữ thường). Không có context nghĩa là luôn mở rộng.
-#
-# Cụm 3 ký tự trở lên khớp không phân biệt hoa thường ("lnst"); cụm 1-2 ký tự phải đúng chữ hoa ("LN").
-# Thêm viết tắt mới: thêm một mục ở đây, không phải sửa Java.
+# Viết tắt tài chính (QĐ-027). forms: các cách viết; expansion: thêm vào sau, "LNST (lợi nhuận sau thuế)";
+# context (tuỳ chọn): chỉ mở rộng khi câu có một trong các từ này (không dấu).
+# Cụm >= 3 ký tự không phân biệt hoa thường; cụm 1-2 ký tự phải đúng chữ hoa.
 
 abbreviations:
   # tài liệu

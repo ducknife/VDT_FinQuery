@@ -16,8 +16,7 @@ import com.vdt.finq.modules.hierarchicalrag.retrieval.QdrantFilters;
 
 import io.qdrant.client.grpc.Points.Filter;
 
-// trích bộ lọc (QĐ-030) trên câu hỏi mẫu; kỳ mới nhất trong kho là 30/06/2026.
-// chạy và xem in ra:  ./mvnw test -Dtest=FilterExtractorTest
+// trích bộ lọc trên câu mẫu (kỳ mới nhất 30/06/2026):  ./mvnw test -Dtest=FilterExtractorTest
 class FilterExtractorTest {
 
     private static final LocalDate LATEST = LocalDate.of(2026, 6, 30);
@@ -99,8 +98,7 @@ class FilterExtractorTest {
         assertThat(QdrantFilters.relaxed(q).getMustCount()).isEqualTo(1);
     }
 
-    // năm ghi trên tài liệu là năm ban hành: văn bản sự kiện nhận Y..Y+2; báo cáo định kỳ thêm Y-1 khi hỏi
-    // kế hoạch, thêm Y+1 khi hỏi số trình bày lại (benchmark 12/10/2026: V08, V10, D09)
+    // năm ban hành: văn bản sự kiện Y..Y+2; báo cáo định kỳ thêm Y-1 (kế hoạch), Y+1 (trình bày lại)
     @Test
     void documentYearIsPublicationYear() {
         QueryFilter dividend = f("Tổng tỷ lệ cổ tức năm 2022 công ty đã chi trả là bao nhiêu?");

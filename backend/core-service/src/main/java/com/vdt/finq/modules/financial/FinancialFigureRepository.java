@@ -22,8 +22,7 @@ import com.vdt.finq.modules.financial.extraction.FigureSelector.Selected;
 
 import lombok.RequiredArgsConstructor;
 
-// ghi kết quả trích số. dùng JdbcTemplate chứ không dùng JPA: ghi hàng nghìn dòng một lượt,
-// và nhánh truy vấn DB sau này cũng chạy SQL mẫu có tham số (paper FinAI Data Assistant)
+// ghi kết quả trích số bằng JdbcTemplate (ghi hàng nghìn dòng một lượt)
 @Repository
 @RequiredArgsConstructor
 public class FinancialFigureRepository {
@@ -38,9 +37,7 @@ public class FinancialFigureRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
-    // thay TOÀN BỘ kết quả cũ trong một giao dịch: trích số là hàm tất định của kho tài liệu,
-    // chạy lại luôn ra cùng kết quả. lỗi giữa chừng thì quay lui, bảng cũ còn nguyên.
-    // ngoại lệ người soát đã xử lý (da_xu_ly = 1) được giữ lại vì có ghi chú của người
+    // thay toàn bộ kết quả cũ trong một giao dịch; giữ ngoại lệ người soát đã xử lý
     @Transactional
     public int replaceAll(List<Selected> selected, List<ExtractionIssue> issues, Collection<String> extractedDocuments) {
         jdbcTemplate.update("DELETE FROM financial_figures");

@@ -26,8 +26,7 @@ public final class QdrantFilters {
     private QdrantFilters() {
     }
 
-    // lọc chặt: công ty AND năm AND (kỳ OR không có kỳ) AND (phạm vi OR không có phạm vi) AND loại.
-    // năm: (năm báo cáo định kỳ) OR (không có kỳ AND năm văn bản sự kiện); hai danh sách do FilterExtractor tính
+    // lọc chặt: công ty AND năm AND (kỳ OR không có kỳ) AND (phạm vi OR không có) AND loại
     public static Filter strict(QueryFilter q) {
         Filter.Builder b = Filter.newBuilder().addMust(matchKeyword(MA_CONG_TY, q.getMaCongTy()));
         if (!q.getNams().isEmpty()) {

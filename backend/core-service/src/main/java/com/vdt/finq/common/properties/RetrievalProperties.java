@@ -22,6 +22,8 @@ public class RetrievalProperties {
     private int finalK = 20;
     // lọc chặt mà ít hơn số này thì bỏ lọc, chỉ giữ ma_cong_ty (lọc sai năm/kỳ không được làm mất đáp án)
     private int minFilteredHits = 5;
+    // bỏ chunk thuần tiếng Anh và đoạn tiếng Anh trong chunk song ngữ (QĐ-036); không lấy thêm để bù
+    private boolean dropEnglish = true;
     // tiền tố hướng dẫn của Qwen3-Embedding cho phía câu hỏi; để trống thì không thêm
     private String queryInstruction = "Given a Vietnamese question about a construction company's financial "
             + "reports, retrieve the report passages that answer it";

@@ -15,16 +15,12 @@ import com.vdt.finq.utils.TableToJson;
 
 import lombok.RequiredArgsConstructor;
 
-// biến chunk thành vector: gắn tên tài liệu, chia lô, gọi EmbeddingClient
-//
-// nguyên tắc (.docs/projectdevlogs/lap-chi-muc_v1.7.md, mục 3.5): chữ có nghĩa thì đem embed,
-// toạ độ (tai_lieu_id, trang, phan) để trong payload của Qdrant, không đem embed
+// biến chunk thành vector: gắn tên tài liệu, chia lô, gọi EmbeddingClient; toạ độ để ở payload, không embed
 @Component
 @RequiredArgsConstructor
 public class Embedding {
 
-    // Qwen3-Embedding là model bất đối xứng: câu hỏi phải có tiền tố mô tả nhiệm vụ,
-    // tài liệu thì embed nguyên văn
+    // Qwen3-Embedding bất đối xứng: câu hỏi có tiền tố nhiệm vụ, tài liệu embed nguyên văn
     private static final String QUERY_INSTRUCTION =
             "Given a question about a Vietnamese company's financial reports, "
             + "retrieve the report pages that answer it";
@@ -58,9 +54,7 @@ public class Embedding {
         return embeddingClient.embed(List.of(text)).get(0);
     }
 
-    // phần thân đem embed: chữ của chunk, bảng đổi sang JSON nếu cấu hình yêu cầu.
-    // đổi SAU khi chunk vì thuật toán chunk dựa vào cấu trúc bảng markdown.
-    // payload noi_dung vẫn giữ markdown để hiện trích dẫn
+    // phần thân đem embed: chữ của chunk, bảng đổi JSON nếu cấu hình; payload vẫn giữ markdown
     private String bodyOf(Chunk chunk) {
         String body = chunk.getText();
         if (indexingProperties.getTableFormat() == TableFormat.JSON) {

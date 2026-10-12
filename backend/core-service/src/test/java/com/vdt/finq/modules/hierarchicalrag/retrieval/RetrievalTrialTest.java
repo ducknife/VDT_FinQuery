@@ -15,9 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.vdt.finq.modules.hierarchicalrag.preretrieval.PreparedQuery;
 import com.vdt.finq.modules.hierarchicalrag.retrieval.rerank.TierStat;
 
-// chạy THẬT cả luồng truy hồi trên vài câu hỏi mẫu, ghi từng bước ra trial-retrieval.md:
-//     câu hỏi -> chuẩn hoá -> từ khoá -> bộ lọc -> Qdrant 80 -> rerank 40 -> 20
-// cần MySQL + Qdrant đang chạy; gọi API embedding và rerank (cả lượt chưa tới 0,01 USD):
+// chạy thật truy hồi trên vài câu mẫu, ghi ra trial-retrieval.md (cần MySQL + Qdrant):
 //     ./mvnw test -Dtest=RetrievalTrialTest -Dtrial.retrieval=true
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
         properties = { "cleaner.trial.enabled=false", "spring.devtools.restart.enabled=false" })

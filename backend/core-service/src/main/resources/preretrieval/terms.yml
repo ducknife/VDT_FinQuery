@@ -1,7 +1,4 @@
-# Thuật ngữ dùng để THÊM DẤU cho câu hỏi gõ không dấu (quy tắc 2, QĐ-027):
-#   "doanh thu nam 2023" -> "doanh thu nam 2023 (doanh thu năm 2023)"
-# Chỉ thêm dấu cho các cụm có trong danh sách, không đoán từ lạ. Dạng đầy đủ (expansion) trong abbreviations.yml
-# cũng được dùng thêm, nên không cần lặp lại ở đây.
+# Thuật ngữ để thêm dấu cho câu gõ không dấu (QĐ-027); expansion trong abbreviations.yml đã được dùng thêm.
 
 terms:
   - báo cáo tài chính

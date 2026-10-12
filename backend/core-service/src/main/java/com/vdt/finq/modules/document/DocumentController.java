@@ -22,9 +22,7 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.DocumentIngestionServi
 
 import lombok.RequiredArgsConstructor;
 
-// tải tài liệu lên và theo dõi trạng thái nạp.
-// OCR một tài liệu mất vài phút nên mọi lệnh nạp đều trả 202 ngay, việc chạy ở nền;
-// giao diện hỏi GET /{id} để biết đã xong chưa
+// tải tài liệu lên và theo dõi trạng thái nạp; nạp chạy nền, trả 202 ngay
 @RestController
 @RequestMapping("/api/v1/documents")
 @RequiredArgsConstructor

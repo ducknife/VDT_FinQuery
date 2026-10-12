@@ -26,12 +26,10 @@ public class IndexingProperties {
     // giới hạn của model embedding (khoảng 32k token), chỉ cắt cứng khi vượt mức này
     private int modelLimitChars = 50000;
 
-    // bảng trong văn bản đem embed giữ dạng markdown hay đổi sang JSON (table-to-json).
-    // đổi giá trị này là vector khác hẳn: phải dùng collection khác rồi nạp lại
+    // bảng đem embed giữ markdown hay đổi sang JSON; đổi thì phải dùng collection mới và nạp lại
     private TableFormat tableFormat = TableFormat.MARKDOWN;
 
-    // chuẩn hoá văn bản đem embed bằng FinancialTextNormalizer (QĐ-027). mặc định TẮT:
-    // chỉ bật khi thí nghiệm 2 x 2 chứng minh có lợi, và phải đổi QDRANT_COLLECTION cùng lúc
+    // chuẩn hoá văn bản đem embed (QĐ-027), mặc định tắt; bật thì đổi QDRANT_COLLECTION
     private boolean corpusNormalization = false;
 
     public enum TableFormat {

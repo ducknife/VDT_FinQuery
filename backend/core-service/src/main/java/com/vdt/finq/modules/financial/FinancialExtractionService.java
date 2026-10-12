@@ -23,12 +23,8 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.chunker.stitc
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// trích số từ mọi BCTC và văn bản đính chính đã OCR vào financial_figures.
-//
-// chạy lại TOÀN BỘ mỗi lần chứ không từng tài liệu: chọn nguồn có thẩm quyền cần ứng viên của
-// mọi tài liệu cùng lúc (báo cáo năm mới tải lên có thể thay số của báo cáo quý cũ).
-// chỉ đọc file trên máy, không gọi API, cả kho mất vài giây, nên rẻ hơn nhiều so với
-// lưu ứng viên trung gian rồi tính lại từng phần
+// trích số từ mọi BCTC đã OCR vào financial_figures; chạy lại toàn bộ vì chọn nguồn
+// cần ứng viên của mọi tài liệu cùng lúc (chỉ đọc file, vài giây)
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -64,8 +60,7 @@ public class FinancialExtractionService {
                 continue;
             }
             try {
-                // bảng vắt sang trang sau thường không lặp lại dòng tiêu đề "Mã số | ... | 31/12/2023":
-                // chép tiêu đề sang bằng đúng bộ sửa mà bước chunk dùng, để phần cuối B02 (mã 50-62) không bị bỏ sót
+                // bảng vắt trang thường mất dòng tiêu đề: chép tiêu đề sang như bước chunk
                 List<String> pages = tableStitcher.repairTableHeaders(pageReader.readCleanPages(document));
                 DocumentFigureExtractor.Result result =
                         DocumentFigureExtractor.extract(document, cheDo(document), pages, snapshot);

@@ -5,8 +5,7 @@ import java.util.function.Function;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-// các giá trị cố định của bảng documents; dùng chung cho MySQL, payload Qdrant và bộ lọc truy hồi.
-// value là đúng chuỗi lưu trong DB, đổi value là phải sửa dữ liệu và nạp lại Qdrant
+// giá trị cố định của bảng documents (dùng chung MySQL, Qdrant, bộ lọc); value là chuỗi lưu trong DB
 public final class DocumentEnums {
 
     private DocumentEnums() {

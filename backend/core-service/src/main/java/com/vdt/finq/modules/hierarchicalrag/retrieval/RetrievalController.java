@@ -9,8 +9,7 @@ import com.vdt.finq.common.exception.InvalidRequestException;
 
 import lombok.RequiredArgsConstructor;
 
-// thử truy hồi bằng tay và cho giao diện gỡ lỗi: gõ câu hỏi, xem top chunk và số đo từng bước.
-// tắt từng bước bằng tham số để so sánh, ví dụ ?filter=false
+// thử truy hồi bằng tay; tắt từng bước bằng tham số, ví dụ ?filter=false
 @RestController
 @RequestMapping("/api/v1/retrieval")
 @RequiredArgsConstructor

@@ -39,8 +39,12 @@
 			<groupId>org.springframework.ai</groupId>
 			<artifactId>spring-ai-qdrant-store</artifactId>
 		</dependency>
-		<!-- client Qdrant chỉ khai báo gRPC ở phạm vi runtime; QdrantConfig dựng QdrantGrpcClient
-		     nên cần grpc-api lúc biên dịch. Giữ đúng phiên bản 1.65.1 mà io.qdrant:client 1.13.0 dùng -->
+		<!-- ChatModel chuẩn OpenAI trỏ sang DeepInfra, dùng cho agent (@Tool + ToolCallingManager) -->
+		<dependency>
+			<groupId>org.springframework.ai</groupId>
+			<artifactId>spring-ai-starter-model-openai</artifactId>
+		</dependency>
+		<!-- QdrantConfig cần grpc-api lúc biên dịch; giữ 1.65.1 cho khớp io.qdrant:client 1.13.0 -->
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-api</artifactId>

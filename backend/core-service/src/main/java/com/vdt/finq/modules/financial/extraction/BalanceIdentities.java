@@ -10,9 +10,8 @@ import com.vdt.finq.modules.financial.FinancialEnums.MauBieu;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-// các phép cộng kế toán phải đúng tới từng đồng. viết theo MÃ NỘI BỘ chứ không theo mã số,
-// vì TT99 đổi số mã (tổng tài sản: 270 ở TT200, 280 ở TT99) nhưng quan hệ cộng giữ nguyên.
-// OCR đọc sai một chữ số ở bất kỳ dòng nào tham gia thì phép cộng lệch, cả nhóm bị loại khỏi DB
+// các phép cộng kế toán phải đúng từng đồng; viết theo mã nội bộ vì TT99 đổi số mã.
+// một dòng OCR sai thì cả nhóm bị loại
 public final class BalanceIdentities {
 
     private BalanceIdentities() {
@@ -107,9 +106,7 @@ public final class BalanceIdentities {
             plus(B03, "LCTT_THUAN_TRONG_KY", "LCTT_THUAN_HDKD", "LCTT_THUAN_HDDT", "LCTT_THUAN_HDTC"),
             plus(B03, "TIEN_CUOI_KY", "TIEN_DAU_KY", "LCTT_THUAN_TRONG_KY", "LCTT_ANH_HUONG_TY_GIA"));
 
-    // kiểm các phép cộng trên giá trị của MỘT cột (mã nội bộ -> số).
-    // chỉ kiểm khi có tổng và ít nhất một thành phần; thành phần vắng mặt tính là 0
-    // (báo cáo bỏ dòng bằng 0; còn dòng bị OCR làm rơi thì phép cộng sẽ lệch và lộ ra)
+    // kiểm phép cộng trên một cột; cần tổng và ít nhất một thành phần, thành phần vắng tính là 0
     public static List<Failure> check(MauBieu form, Map<String, Long> values) {
         List<Failure> failures = new ArrayList<>();
         for (Identity identity : ALL) {

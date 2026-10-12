@@ -4,11 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.regex.Pattern;
 
-// đọc số tiền người Việt hay viết thành số đồng:
-//     "8,2" + "nghìn tỷ"  -> 8.200.000.000.000     (dấu phẩy là phần thập phân)
-//     "8.195" + "tỷ"      -> 8.195.000.000.000     (dấu chấm ngăn nghìn)
-//     "1.5" + "tỷ"        -> 1.500.000.000         (chấm không ngăn đúng 3 chữ số: thập phân kiểu Anh)
-//     "5" + "trăm triệu"  -> 500.000.000           ("tỉ" viết chữ i cũng nhận như "tỷ")
+// đọc số tiền kiểu Việt thành đồng: "8,2 nghìn tỷ" -> 8.200.000.000.000, "5 trăm triệu" -> 500.000.000
 public final class VietnameseAmount {
 
     private static final Pattern GROUPED = Pattern.compile("\\d{1,3}(\\.\\d{3})+(,\\d+)?");

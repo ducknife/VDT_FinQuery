@@ -7,8 +7,7 @@ import com.vdt.finq.modules.document.DocumentEnums.PhamVi;
 
 import jakarta.persistence.AttributeConverter;
 
-// JPA đọc ghi enum bằng value ("bctc", "ban_nien"), không bằng tên hằng ("BCTC", "BAN_NIEN").
-// @Enumerated(EnumType.STRING) sẽ ghi tên hằng, không khớp dữ liệu đã có trong bảng
+// JPA đọc ghi enum bằng value ("bctc"), không bằng tên hằng
 public final class DocumentEnumConverters {
 
     private DocumentEnumConverters() {

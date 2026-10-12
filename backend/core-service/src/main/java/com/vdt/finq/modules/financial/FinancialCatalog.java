@@ -13,8 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-// từ điển chỉ tiêu (financial_items) và bảng ánh xạ mã số -> mã nội bộ (financial_item_mappings).
-// hai bảng nhỏ (123 và 250 dòng), đọc một lần cho mỗi lượt trích
+// từ điển chỉ tiêu và bảng ánh xạ mã số -> mã nội bộ, đọc một lần mỗi lượt trích
 @Component
 @RequiredArgsConstructor
 public class FinancialCatalog {

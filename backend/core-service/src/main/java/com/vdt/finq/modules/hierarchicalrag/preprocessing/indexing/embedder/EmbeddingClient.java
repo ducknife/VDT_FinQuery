@@ -22,11 +22,7 @@ import com.vdt.finq.common.properties.EmbeddingProperties;
 
 import lombok.extern.slf4j.Slf4j;
 
-// gọi POST /v1/embeddings của gateway Viettel AI cho MỘT lô văn bản, trả về vector theo đúng thứ tự
-//
-// xin kết quả dạng base64 thay vì mảng số JSON: nhỏ hơn khoảng 4 lần
-// (đo 08/10/2026: 13.890 byte so với 55.016 byte cho một vector 2560 chiều, giá trị giống hệt)
-// việc chia lô và gắn tên tài liệu nằm ở lớp Embedding, lớp này chỉ lo gọi API
+// gọi API embeddings cho một lô văn bản, trả vector đúng thứ tự; xin dạng base64 (nhỏ hơn ~4 lần)
 @Slf4j
 @Component
 public class EmbeddingClient {

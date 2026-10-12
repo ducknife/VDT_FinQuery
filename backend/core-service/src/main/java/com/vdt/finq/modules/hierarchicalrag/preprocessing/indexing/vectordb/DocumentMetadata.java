@@ -9,8 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-// thông tin một tài liệu trong bảng documents, dùng để dựng payload cho mọi chunk của nó.
-// ky và phamVi có thể null (ví dụ nghị quyết không có kỳ báo cáo), khi đó không ghi vào payload
+// thông tin tài liệu để dựng payload chunk; ky, phamVi có thể null (không ghi vào payload)
 @Getter
 @ToString
 @AllArgsConstructor

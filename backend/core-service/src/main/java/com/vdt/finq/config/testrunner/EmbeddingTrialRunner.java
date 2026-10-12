@@ -26,9 +26,7 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.PageStore;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// thử embedding trên hai chunk có gối đầu, in văn bản đem embed và vector nhận về.
-// không ghi gì vào Qdrant hay MySQL.
-// mặc định tắt, bật bằng embedding.trial.enabled=true
+// thử embedding hai chunk gối đầu, không ghi gì; bật bằng embedding.trial.enabled=true
 @Slf4j
 @Component
 @RequiredArgsConstructor

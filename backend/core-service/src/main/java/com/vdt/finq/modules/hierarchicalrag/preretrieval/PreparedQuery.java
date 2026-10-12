@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-// kết quả tiền truy xuất của một câu hỏi: Q' = chuẩn hoá ∪ từ khoá (dòng 1, thuật toán 1 của paper) + bộ lọc
+// kết quả tiền truy xuất: Q' = chuẩn hoá ∪ từ khoá, kèm bộ lọc
 @Getter
 @ToString
 @AllArgsConstructor

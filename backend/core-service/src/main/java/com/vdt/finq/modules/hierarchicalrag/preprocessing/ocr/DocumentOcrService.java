@@ -42,8 +42,7 @@ public class DocumentOcrService {
                 return new DocumentOcrResult(totalPages, skipped, 0, 0);
             }
 
-            // pool dùng chung cho cả ứng dụng nên mười lượt tải lên cùng lúc
-            // vẫn chỉ dùng `concurrency` kết nối
+            // pool dùng chung: nhiều lượt tải lên vẫn chỉ dùng `concurrency` kết nối
             List<Future<PageResult>> futures = new ArrayList<>(todo.size());
             for (int pageIndex : todo) {
                 futures.add(ocrPool.submit(
@@ -70,8 +69,7 @@ public class DocumentOcrService {
             }
 
             log.info("{}: {} succeeded, {} failed", pdfPath.getFileName(), succeeded, failed);
-            // bên gọi chỉ ghi documents.ngay_ocr khi result.isComplete() đúng,
-            // nếu không các trang lỗi sẽ không bao giờ được thử lại
+            // chỉ ghi ngay_ocr khi result.isComplete(), để trang lỗi còn được thử lại
             return new DocumentOcrResult(totalPages, skipped, succeeded, failed);
         }
     }

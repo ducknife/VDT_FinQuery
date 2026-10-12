@@ -13,16 +13,14 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.datacleaner.TextCleane
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// làm sạch một trang và báo cáo những gì đã thay đổi.
-// mặc định tắt, bật bằng cleaner.trial.enabled=true
+// làm sạch thử một trang và báo thay đổi; bật bằng cleaner.trial.enabled=true
 @Slf4j
 @Component
 @RequiredArgsConstructor
 @ConditionalOnProperty(name = "cleaner.trial.enabled", havingValue = "true")
 public class CleanerTrialRunner implements CommandLineRunner {
 
-    // trang tệ nhất kho: 17940 ký tự, trong đó 2909 là &nbsp;.
-    // model bị kẹt vòng lặp, nội dung thật chỉ là một mục lục mười dòng
+    // trang tệ nhất kho: 17.940 ký tự, phần lớn là &nbsp; do model kẹt vòng lặp
     private static final String PAGE_PATH =
             "../../data/ocr/CTR/01_bao_cao_tai_chinh/2019/rieng/BCR-nam-2019/trang_002.md";
 

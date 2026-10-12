@@ -15,8 +15,7 @@ import com.vdt.finq.modules.document.DocumentEnums.PhamVi;
 import lombok.Getter;
 import lombok.Setter;
 
-// metadata người tải lên nhập kèm file (form multipart).
-// enum nhận đúng chuỗi như trong DB: loai=bctc, ky=Q4, phamVi=hop_nhat
+// metadata nhập kèm file; enum nhận đúng chuỗi trong DB (loai=bctc, ky=Q4, phamVi=hop_nhat)
 @Getter
 @Setter
 public class UploadDocumentRequest {

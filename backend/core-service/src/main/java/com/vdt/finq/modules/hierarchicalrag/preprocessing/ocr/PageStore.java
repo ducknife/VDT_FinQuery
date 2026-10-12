@@ -3,11 +3,7 @@ package com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr;
 import java.io.IOException;
 import java.util.Optional;
 
-// nơi lưu kết quả OCR theo từng trang
-// exists: trang đã có kết quả chưa
-// write: ghi markdown của trang
-// read: đọc markdown của trang, rỗng nếu chưa có
-// markFailed: đánh dấu trang lỗi kèm lý do
+// nơi lưu kết quả OCR theo trang: kiểm, ghi, đọc, đánh dấu lỗi
 
 public interface PageStore {
     boolean exists(String relativePath, int pageNumber) throws IOException; 

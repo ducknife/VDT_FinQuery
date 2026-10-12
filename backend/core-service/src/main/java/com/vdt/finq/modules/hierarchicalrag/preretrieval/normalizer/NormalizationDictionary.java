@@ -15,8 +15,7 @@ import com.vdt.finq.common.text.VietnameseText;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-// dữ liệu của bộ chuẩn hoá, đọc từ resources/preretrieval/*.yml.
-// tách khỏi code: thêm viết tắt, thuật ngữ, công ty chỉ cần sửa file yml
+// dữ liệu bộ chuẩn hoá, đọc từ resources/preretrieval/*.yml
 @Getter
 public final class NormalizationDictionary {
 

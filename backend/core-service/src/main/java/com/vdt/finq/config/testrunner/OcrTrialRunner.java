@@ -19,17 +19,14 @@ import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.VisionOcrClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-// chạy trọn một trang từ đầu tới cuối rồi so với file .md do công cụ node cũ sinh ra.
-// thấy có chữ trả về chưa phải bằng chứng, các con số phải khớp.
-// mặc định tắt, bật bằng ocr.trial.enabled=true
+// OCR thử một trang rồi so con số với file .md của công cụ cũ; bật bằng ocr.trial.enabled=true
 @Slf4j
 @Component
 @RequiredArgsConstructor
 @ConditionalOnProperty(name = "ocr.trial.enabled", havingValue = "true")
 public class OcrTrialRunner implements CommandLineRunner {
 
-    // dãy số nhóm bằng dấu chấm như 8.195.930.808.790,
-    // đây là dạng số không được phép sai lệch
+    // dãy số nhóm bằng dấu chấm (8.195.930.808.790): không được sai lệch
     private static final Pattern MONEY = Pattern.compile("\\(?\\d{1,3}(?:\\.\\d{3}){2,}\\)?");
 
     private static final String PDF_PATH = "../../data/raw/CTR/01_bao_cao_tai_chinh/2019/rieng/BCTC-R-ban-nien-2019.pdf";
@@ -84,8 +81,7 @@ public class OcrTrialRunner implements CommandLineRunner {
     private void compare(String reference, String fresh) {
         log.info("--- comparison against the node output ---");
 
-        // 1. con số. sai một chữ số là sai một số liệu tài chính, nên quan trọng nhất.
-        // một trang đọc trôi chảy vẫn có thể vô dụng
+        // 1. con số: sai một chữ số là sai số liệu
         Set<String> referenceMoney = extractMoney(reference);
         Set<String> freshMoney = extractMoney(fresh);
         Set<String> missing = new LinkedHashSet<>(referenceMoney);
@@ -106,8 +102,7 @@ public class OcrTrialRunner implements CommandLineRunner {
         log.info("table rows: reference {} | fresh {} {}", referenceRows, freshRows,
                 referenceRows == freshRows ? "ok" : "<-- differs");
 
-        // 3. độ dài tổng. câu chữ có thể khác nhau giữa các lần chạy,
-        // lệch nhiều nghĩa là một phần trang đã bị mất
+        // 3. độ dài tổng: lệch nhiều là mất một phần trang
         double ratio = (double) fresh.length() / reference.length();
         log.info("length: reference {} | fresh {} (ratio {})",
                 reference.length(), fresh.length(), "%.2f".formatted(ratio));

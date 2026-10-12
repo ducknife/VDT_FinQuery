@@ -21,8 +21,7 @@ public final class VietnameseText {
         return SPACES.matcher(s).replaceAll(" ").strip();
     }
 
-    // như fold nhưng GIỮ NGUYÊN độ dài: ký tự thứ i của kết quả ứng với ký tự thứ i của đầu vào
-    // (đầu vào phải là NFC). nhờ vậy vị trí tìm thấy trên bản không dấu dùng được trên câu gốc
+    // như fold nhưng giữ nguyên độ dài (đầu vào NFC): vị trí tìm trên bản không dấu dùng được trên câu gốc
     public static String foldKeepLength(String text) {
         StringBuilder out = new StringBuilder(text.length());
         for (int i = 0; i < text.length(); i++) {

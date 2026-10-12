@@ -57,7 +57,7 @@ class RetrievalMetricsTest {
         assertThat(RetrievalMetrics.allEvidence(List.of("Q", "P"), groups, 2)).isTrue();
     }
 
-    // một con số in lại ở 3 báo cáo (A, B, C cùng mức 2, cùng bằng chứng 0): lấy được một trang ở hạng 1 là đủ
+    // một số in lại ở 3 báo cáo: lấy được một trang ở hạng 1 là đủ
     @Test
     void ndcgByEvidenceNeedsOnePagePerEvidence() {
         Map<String, Integer> gold = Map.of("A", 2, "B", 2, "C", 2);

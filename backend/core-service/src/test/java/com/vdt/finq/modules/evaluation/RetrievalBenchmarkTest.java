@@ -32,15 +32,9 @@ import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievalResult;
 import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievalService;
 import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievedChunk;
 
-// benchmark TRUY HỒI trên bộ câu hỏi data/eval/eval_test.yml, không gọi LLM.
-// mỗi cấu hình chạy hết các câu có trang vàng; cấu hình chính chạy thêm câu từ chối (ghi điểm rerank cao nhất).
-// kết quả: data/eval/ket-qua/benchmark-truy-hoi_<thời điểm>.md (bảng tổng hợp) và .csv (từng câu)
-//
-// cần MySQL + Qdrant; tốn ~0,1-0,2 USD mỗi cấu hình. chạy (PowerShell phải bọc ngoặc kép):
-//     ./mvnw test "-Dtest=RetrievalBenchmarkTest" "-Dbenchmark=true"
-//     ./mvnw test "-Dtest=RetrievalBenchmarkTest" "-Dbenchmark=true" "-Dbenchmark.configs=CHINH,KHONG_LOC"
-// bị ngắt giữa chừng thì chạy tiếp vào đúng file cũ (bỏ qua các câu đã có):
-//     ./mvnw test "-Dtest=RetrievalBenchmarkTest" "-Dbenchmark=true" "-Dbenchmark.resume=../../data/eval/ket-qua/<file>.csv"
+// benchmark truy hồi trên data/eval/eval_test.yml (không gọi LLM), ghi .md tổng hợp và .csv từng câu:
+//     ./mvnw test "-Dtest=RetrievalBenchmarkTest" "-Dbenchmark=true" ["-Dbenchmark.configs=CHINH,KHONG_LOC"]
+// chạy tiếp lượt bị ngắt: "-Dbenchmark.resume=../../data/eval/ket-qua/<file>.csv"
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
         properties = { "cleaner.trial.enabled=false", "spring.devtools.restart.enabled=false" })
 @EnabledIfSystemProperty(named = "benchmark", matches = "true")
@@ -163,7 +157,7 @@ class RetrievalBenchmarkTest {
                 new Config("MOT_TANG_4B", "rerank 1 tầng: 4B chấm cả 80 chunk", true, true, true, true, "", MODEL_4B, 80, 40, 20),
                 new Config("RUT_GON", "rút gọn 50 → 20 → 10", true, true, true, true, t1, t2, 50, 20, 10),
                 new Config("B_4B_8B", "rerank 2 tầng 4B → 8B", true, true, true, true, MODEL_4B, MODEL_8B, 80, 40, 20),
-                // đối chứng RAG cơ bản (pham-vi_v1.0): nguyên câu hỏi -> vector top 20; không chuẩn hoá, từ khoá, lọc, rerank
+                // đối chứng RAG cơ bản: nguyên câu hỏi -> vector top 20, không chuẩn hoá, lọc, rerank
                 new Config("RAG_CO_BAN", "RAG cơ bản: nguyên câu hỏi, vector top 20, không lọc, không rerank",
                         false, false, false, false, t1, t2, 80, 40, 20));
     }

@@ -16,13 +16,8 @@ import com.vdt.finq.common.text.VietnameseText;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-// gán kỳ cho từng cột giá trị.
-//
-// nguyên tắc: kỳ của TÀI LIỆU (ngay_ket_thuc_ky) quyết định các phương án được phép,
-// tiêu đề cột chỉ dùng để CHỌN và XÁC NHẬN một phương án. tiêu đề mâu thuẫn thì từ chối, không đoán.
-//     B01, 2 cột:      [cuối kỳ, 31/12 năm trước]
-//     B02/B03, 4 cột:  [quý này, quý này năm trước, lũy kế năm nay, lũy kế năm trước]
-//     B02/B03, 2 cột:  [lũy kế năm nay, năm trước] hoặc [quý này, quý này năm trước]
+// gán kỳ cho từng cột giá trị: kỳ của tài liệu quyết định phương án, tiêu đề cột chỉ để chọn
+// và xác nhận; tiêu đề mâu thuẫn thì từ chối, không đoán
 public final class ColumnPlanner {
 
     private static final Pattern HEADING_RANGE = Pattern.compile(
@@ -111,8 +106,7 @@ public final class ColumnPlanner {
         return options;
     }
 
-    // nhãn của từng cột giá trị = n ô cuối của mỗi dòng tiêu đề (cùng nguyên tắc với giá trị),
-    // ghép các tầng; ô trống ở tầng trên mượn ô bên trái (ô gộp "Số liệu lũy kế" phủ hai cột)
+    // nhãn cột = n ô cuối của mỗi dòng tiêu đề, ghép các tầng; ô gộp trống mượn ô bên trái
     private static List<PeriodLabel> alignedLabels(StatementTable table) {
         int n = table.getValueCount();
         List<List<String>> header = table.getHeaderRows();
@@ -183,8 +177,7 @@ public final class ColumnPlanner {
         return fits.size() == 1 ? fits.get(0) : null;
     }
 
-    // kỳ đọc được khớp kỳ chờ đợi. nới một ca: cột lũy kế (từ đầu năm) mà tiêu đề chỉ ghi "Quý 2/2024"
-    // vì OCR làm rơi dòng "Số liệu lũy kế" phía trên; cùng ngày kết thúc thì chấp nhận
+    // nới một ca: cột luỹ kế mà tiêu đề chỉ ghi "Quý 2/2024" (OCR rơi dòng "Số liệu lũy kế"), cùng ngày cuối thì nhận
     private static boolean compatible(Period read, Period expected) {
         if (read == null || read.equals(expected)) {
             return true;

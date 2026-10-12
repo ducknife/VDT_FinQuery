@@ -20,10 +20,8 @@ import com.vdt.finq.modules.hierarchicalrag.preretrieval.normalizer.NormalizedQu
 
 import lombok.AllArgsConstructor;
 
-// trích từ khoá của câu hỏi theo luật (QĐ-030), thay cho LLM ở bước Keywords Extraction của paper:
-//   1. cách gọi đời thường trong keywords.yml -> tên đúng như báo cáo viết ("lãi ròng" -> "lợi nhuận sau thuế ...")
-//   2. tên chỉ tiêu có sẵn trong DB (financial_items, financial_item_mappings) xuất hiện nguyên cụm trong câu
-// từ khoá được NỐI vào câu hỏi (Q' = chuẩn hoá ∪ từ khoá) để vector gần với cách báo cáo viết
+// trích từ khoá bằng luật (QĐ-030): cách gọi đời thường (keywords.yml) và tên chỉ tiêu trong DB.
+// từ khoá nối vào câu hỏi: Q' = chuẩn hoá ∪ từ khoá
 @Component
 public class KeywordExtractor {
 
@@ -86,8 +84,7 @@ public class KeywordExtractor {
         for (Alias alias : aliases) {
             Matcher m = alias.form.matcher(folded);
             while (m.find()) {
-                // "tài sản" nằm trong "tài sản ngắn hạn" (tên chỉ tiêu đã khớp) thì không phải cách gọi
-                // "tổng tài sản", bỏ qua để không thêm nhầm "tổng cộng tài sản"
+                // "tài sản" nằm trong tên chỉ tiêu đã khớp thì không thêm "tổng cộng tài sản"
                 if (!insideLongerName(m.start(), m.end(), nameSpans)) {
                     alias.keywords.forEach(k -> found.putIfAbsent(VietnameseText.fold(k), k));
                     break;

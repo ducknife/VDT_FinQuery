@@ -2,12 +2,8 @@ package com.vdt.finq.modules.financial.extraction;
 
 import java.util.regex.Pattern;
 
-// đọc số trên báo cáo tài chính Việt Nam thành long (đơn vị đồng).
-//     "5.627.168.242.619"   ->  5627168242619
-//     "(103.552.387.501)"   -> -103552387501    ngoặc đơn là số âm
-//     "-"                   ->  0              gạch ngang là không có số phát sinh
-//     ""                    ->  null           ô trống: không có giá trị
-// chuỗi khác dạng thì ném NumberFormatException: OCR đọc sai thì phải lộ ra, không được đoán
+// đọc số trên BCTC thành long (đồng): "5.627.168" -> 5627168, "(103.552)" -> -103552, "-" -> 0, "" -> null.
+// dạng khác thì ném NumberFormatException, không đoán
 public final class VietnameseNumberParser {
 
     // nhóm nghìn ngăn bằng dấu chấm; số nhỏ dưới 1.000 thì không có dấu chấm

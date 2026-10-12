@@ -13,17 +13,9 @@ import com.vdt.finq.modules.document.DocumentEnums.LoaiTaiLieu;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-// một kỳ chỉ một dòng hiệu lực (V6, khoa_hieu_luc). tổng tài sản 31/12/2023 có mặt ở nhiều tài liệu,
-// chọn nguồn có thẩm quyền nhất, thứ tự từ cao xuống (theo V6, thêm hai bậc cho báo cáo quý):
-//     0. cột so sánh ĐÃ TRÌNH BÀY LẠI ("đã điều chỉnh") của báo cáo kỳ sau: sửa số cũ
-//     1. văn bản đính chính, cột kỳ này
-//     2. báo cáo năm (đã kiểm toán), cột kỳ này
-//     3. báo cáo bán niên (đã soát xét), cột kỳ này
-//     4. cột so sánh của báo cáo năm, bán niên kỳ sau (số đã kiểm toán, soát xét)
-//     5. báo cáo quý (chưa kiểm toán), cột kỳ này
-//     6. cột so sánh của báo cáo quý kỳ sau
-//     cùng bậc: ưu tiên la_ban_chinh = 1, rồi tài liệu mới hơn
-// số trình bày lại thắng mà khác số gốc thì giữ số gốc với trạng thái da_thay_the để còn dấu vết
+// một kỳ chỉ một dòng hiệu lực; chọn nguồn có thẩm quyền nhất (cao xuống thấp):
+// số trình bày lại > đính chính > báo cáo năm > bán niên > cột so sánh kỳ sau > báo cáo quý.
+// số gốc bị thay thì giữ lại với trạng thái da_thay_the
 public final class FigureSelector {
 
     private FigureSelector() {

@@ -10,15 +10,9 @@ import com.vdt.finq.common.properties.IndexingProperties;
 
 import lombok.RequiredArgsConstructor;
 
-// gối văn bản có chọn lọc: chỉ ở ranh giới trang nào câu bị cắt ngang
-// thì chép mẩu câu đó sang trang kề bên, để chunk nào cũng có trọn câu
-//
-// một ranh giới bị coi là cắt ngang khi thoả CẢ HAI điều kiện:
-//   A. dòng cuối trang trước còn "mở": không phải bảng, heading, dòng kẻ,
-//      ghi chú in nghiêng/đậm, và không kết thúc bằng dấu câu
-//   B. dòng đầu trang sau "nói tiếp": không phải bảng, heading, gạch đầu dòng,
-//      và bắt đầu bằng chữ thường
-// đo trên kho: 194 chỗ, lấy mẫu 8 chỗ đều đúng
+// câu bị cắt ngang ở ranh giới trang thì chép mẩu câu sang trang kề, để chunk nào cũng có trọn câu.
+// cắt ngang = dòng cuối trang trước còn mở (không dấu câu, không phải bảng/heading)
+// và dòng đầu trang sau nói tiếp (chữ thường)
 @Component
 @RequiredArgsConstructor
 public class TextStitcher {

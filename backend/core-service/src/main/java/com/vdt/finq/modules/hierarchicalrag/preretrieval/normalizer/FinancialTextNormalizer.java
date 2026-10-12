@@ -16,18 +16,8 @@ import com.vdt.finq.common.text.VietnameseText;
 import com.vdt.finq.modules.document.DocumentEnums.PhamVi;
 import com.vdt.finq.modules.hierarchicalrag.preprocessing.datacleaner.NFCNormalization;
 
-// chuẩn hoá câu hỏi và ngữ liệu về cùng một dạng (QĐ-027, logs truy-hoi_v1.3 mục 1.5).
-// DÙNG CHUNG cho hai đầu: câu hỏi (normalizeQuery, lúc hỏi) và văn bản đem embed (normalizeCorpus, lúc nạp).
-//
-// 6 quy tắc theo thứ tự:
-//   1. NFC + khoảng trắng                       (cả hai đầu, THAY vì không đổi nghĩa)
-//   2. gõ không dấu -> thêm dạng có dấu          (chỉ câu hỏi)
-//   3. mở rộng viết tắt theo abbreviations.yml        (cả hai đầu)
-//   4. chuẩn hoá cách gọi kỳ                     (cả hai đầu)
-//   5. chuẩn hoá đơn vị, số tiền về đồng         (cả hai đầu)
-//   6. điền ngữ cảnh thiếu từ metadata           (chỉ câu hỏi)
-// nguyên tắc: THÊM dạng chuẩn vào sau, GIỮ chữ gốc: "LNST (lợi nhuận sau thuế)".
-// mọi phép tìm chạy trên bản không dấu cùng độ dài với câu gốc, rồi chèn vào câu gốc đúng vị trí
+// chuẩn hoá câu hỏi và ngữ liệu về cùng dạng (QĐ-027): NFC, thêm dấu (câu hỏi), mở viết tắt,
+// chuẩn hoá kỳ, đơn vị tiền, điền ngữ cảnh (câu hỏi). thêm dạng chuẩn vào sau, giữ chữ gốc
 @Component
 public class FinancialTextNormalizer {
 
@@ -46,7 +36,7 @@ public class FinancialTextNormalizer {
             B + "(9t|9 thang(?! cuoi)(?: dau nam)?)" + E + "(?:\\s*(?:nam\\s*)?((?:19|20)\\d{2})" + E + ")?");
     private static final Pattern FISCAL = Pattern.compile(B + "(?:fy\\s*|nam tai chinh\\s+)((?:19|20)\\d{2})" + E);
 
-    // quy tắc 5: số + đơn vị (cụm dài trước: "trăm triệu" trước "trăm"); số trơn có nhóm nghìn + "đồng/vnđ"; phần trăm
+    // quy tắc 5: số + đơn vị (cụm dài trước), số có nhóm nghìn + "đồng", phần trăm
     private static final Pattern AMOUNT = Pattern.compile(
             "(?<![\\d.,])(\\d{1,3}(?:\\.\\d{3})+(?:,\\d+)?|\\d+(?:[.,]\\d+)?)\\s*(nghin ty|ngan ty|nghin ti|ngan ti|tram ty|tram ti|ty|ti|tram trieu|trieu|tr|tram nghin|tram ngan|nghin|ngan|tram|k)"
                     + "(?![\\p{L}])(?:\\s*(dong|vnd|d)(?![\\p{L}]))?");
@@ -91,7 +81,7 @@ public class FinancialTextNormalizer {
 
     // ===================== hai lối vào =====================
 
-    // latestPeriodEnd: kỳ mới nhất có trong documents (MAX(ngay_ket_thuc_ky)), mốc của "năm nay", "quý trước"
+    // latestPeriodEnd: kỳ mới nhất trong kho, mốc của "năm nay", "quý trước"
     public NormalizedQuery normalizeQuery(String question, LocalDate latestPeriodEnd) {
         String text = cleanSpaces(nfc.toNfc(question));
         Work work = new Work(text);
@@ -104,8 +94,7 @@ public class FinancialTextNormalizer {
         String result = work.render();
         String folded = VietnameseText.fold(result);
         String company = detectCompany(folded);
-        // nói rõ "hợp nhất" thì chữ "riêng" chỉ là "chỉ riêng" ("lãi ròng hợp nhất riêng quý 3"),
-        // không phải báo cáo riêng (benchmark 12/10/2026, câu D08)
+        // đã nói "hợp nhất" thì "riêng" nghĩa là "chỉ riêng" (câu D08)
         PhamVi phamVi = containsWord(folded, "hop nhat") ? PhamVi.HOP_NHAT
                 : containsWord(folded, "rieng") || containsWord(folded, "cong ty me") ? PhamVi.RIENG : null;
         if (company == null) {
@@ -119,8 +108,7 @@ public class FinancialTextNormalizer {
                 phamVi == null ? PhamVi.HOP_NHAT : phamVi, phamVi == null, List.copyOf(work.applied));
     }
 
-    // văn bản đem embed của một chunk (đã qua TextCleaner): chỉ quy tắc 1, 3, 4, 5.
-    // không thêm dấu (ngữ liệu đã có dấu), không điền ngữ cảnh (đã có dòng tên tài liệu đầu chunk)
+    // ngữ liệu đem embed: chỉ quy tắc 1, 3, 4, 5
     public String normalizeCorpus(String text) {
         Work work = new Work(nfc.toNfc(text));
         expandAbbreviations(work);
@@ -136,8 +124,7 @@ public class FinancialTextNormalizer {
         return SPACES.matcher(text).replaceAll(" ").strip();
     }
 
-    // quy tắc 2: câu gõ KHÔNG DẤU thì dựng lại câu có dấu cho các thuật ngữ trong từ điển,
-    // nối vào cuối trong ngoặc. câu đã có dấu thì không đụng (tránh "sửa" chữ người dùng gõ đúng)
+    // quy tắc 2: câu gõ không dấu thì thêm thuật ngữ có dấu vào cuối; câu có dấu thì không đụng
     private void restoreDiacritics(Work work) {
         if (VietnameseText.hasDiacritics(work.original)) {
             return;
@@ -174,8 +161,7 @@ public class FinancialTextNormalizer {
         }
     }
 
-    // quy tắc 3: mở rộng lần xuất hiện ĐẦU của mỗi viết tắt.
-    // bỏ qua khi: đã có ngoặc giải thích ngay sau, dạng đầy đủ đã có trong câu, hoặc cụm nhập nhằng mà thiếu ngữ cảnh
+    // quy tắc 3: mở lần xuất hiện đầu của viết tắt, trừ khi đã có giải thích hoặc thiếu ngữ cảnh
     private void expandAbbreviations(Work work) {
         String foldedAll = VietnameseText.fold(work.original);
         for (Map.Entry<NormalizationDictionary.Abbreviation, List<Pattern>> entry : abbreviationPatterns) {

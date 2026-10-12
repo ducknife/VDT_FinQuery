@@ -10,9 +10,7 @@ import java.util.List;
 
 import com.vdt.finq.modules.document.DocumentEnums.PhamVi;
 
-// sinh tai_lieu_id, viết lại đúng hàm sinh_id trong devtools/quet_tai_lieu.py
-// để tài liệu tải lên có ID cùng dạng với 278 tài liệu đã seed.
-// ví dụ: CTR-BCTC-HN-20231231-Q4-1a2b3c (CTR là ma_cong_ty)
+// sinh tai_lieu_id cùng dạng với devtools/quet_tai_lieu.py, ví dụ CTR-BCTC-HN-20231231-Q4-1a2b3c
 public final class DocumentIdGenerator {
 
     private static final DateTimeFormatter DATE = DateTimeFormatter.BASIC_ISO_DATE;

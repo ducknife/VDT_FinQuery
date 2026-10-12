@@ -11,7 +11,6 @@ public interface DocumentExtractor {
     // phải rẻ, không mở file ở đây
     boolean supports(String fileName);
 
-    // mọi implementation đều ghi qua PageStore, nên phần sau của luồng
-    // chỉ thấy các file .md đánh số trang, dù định dạng gốc là gì
+    // mọi implementation ghi qua PageStore: phía sau chỉ thấy file .md theo trang
     DocumentOcrResult extract(Path file, String relativePath) throws IOException;
 }

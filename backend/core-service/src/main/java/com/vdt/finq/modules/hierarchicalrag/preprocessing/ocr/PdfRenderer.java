@@ -60,8 +60,7 @@ public final class PdfRenderer implements AutoCloseable {
         }
 
         BufferedImage image;
-        // PDDocument không an toàn đa luồng, nên mỗi lúc chỉ một luồng được kết xuất.
-        // khoá lại cũng rẻ: kết xuất mất ~200ms, còn gọi mạng mất 20-120s
+        // PDDocument không an toàn đa luồng nên khoá lại; kết xuất ~200 ms, rẻ so với gọi mạng
         synchronized (document) {
             image = renderer.renderImageWithDPI(pageIndex, dpi, ImageType.GRAY);
         }

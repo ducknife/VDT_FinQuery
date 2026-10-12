@@ -6,8 +6,7 @@ import java.util.regex.Pattern;
 
 import com.vdt.finq.common.text.VietnameseText;
 
-// so tên chỉ tiêu đọc được với tên chờ đợi trong bảng ánh xạ.
-// đây là chốt bắt ca "đổi mã mà giữ tên" (mã 223 ghi cho TSCĐ vô hình) và ca dòng bị lệch cột
+// so tên đọc được với tên chờ đợi; bắt ca đổi mã giữ tên và ca dòng lệch cột
 public final class NameMatcher {
 
     // tiền tố đánh số và gạch đầu dòng: "A.", "II.", "1.", "(1)", "-", "+"

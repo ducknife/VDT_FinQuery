@@ -10,8 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-// điều kiện lọc payload Qdrant rút ra từ câu hỏi (QĐ-030). danh sách rỗng = không lọc trường đó.
-// ky và pham_vi: tài liệu không có trường này (nghị quyết, giải trình...) vẫn được giữ
+// điều kiện lọc payload Qdrant; danh sách rỗng là không lọc; tài liệu không có ky/pham_vi vẫn giữ
 @Getter
 @ToString
 @AllArgsConstructor

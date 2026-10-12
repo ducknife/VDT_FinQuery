@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 import com.vdt.finq.modules.hierarchicalrag.preprocessing.datacleaner.NFCNormalization;
 import com.vdt.finq.modules.hierarchicalrag.preretrieval.normalizer.FinancialTextNormalizer;
 
-// trích từ khoá (QĐ-030) trên câu hỏi mẫu. tên chỉ tiêu lấy một phần đúng như trong financial_items
-// để test không cần DB. chạy và xem in ra:  ./mvnw test -Dtest=KeywordExtractorTest
+// trích từ khoá trên câu mẫu, không cần DB:  ./mvnw test -Dtest=KeywordExtractorTest
 class KeywordExtractorTest {
 
     private static final LocalDate LATEST = LocalDate.of(2026, 6, 30);
@@ -62,8 +61,7 @@ class KeywordExtractorTest {
         assertThat(keywords("Hàng tồn kho cuối năm 2025")).containsExactly("hàng tồn kho");
     }
 
-    // "tài sản" nằm trong "tài sản ngắn hạn" thì không thêm "tổng cộng tài sản";
-    // còn "tổng tài sản" thì có
+    // "tài sản" trong "tài sản ngắn hạn" không thêm "tổng cộng tài sản"; "tổng tài sản" thì có
     @Test
     void everydayWordInsideLongerNameIsIgnored() {
         assertThat(keywords("Tài sản ngắn hạn năm 2024")).containsExactly("tài sản ngắn hạn");

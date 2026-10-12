@@ -6,16 +6,8 @@ import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Component;
 
-// gối tiêu đề bảng qua trang: bảng chạy tiếp sang trang sau mà OCR coi
-// dòng số liệu đầu tiên là tiêu đề (35 chỗ trong kho) thì chép tiêu đề thật
-// của trang trước lên đầu bảng ở trang sau
-//
-// chỉ sửa khi chắc chắn là cùng một bảng, phải thoả cả bốn điều kiện:
-//   1. trang trước kết thúc bằng bảng có tiêu đề chuẩn (dòng tiêu đề + |---|)
-//   2. trang này mở đầu bằng bảng
-//   3. hai bảng cùng số cột
-//   4. dòng đầu bảng trang này chủ yếu là số, hoặc không có dòng |---|
-// không thoả thì giữ nguyên, phía truy hồi còn lấy kèm trang kề bên
+// bảng vắt sang trang sau mà OCR coi dòng số đầu là tiêu đề: chép tiêu đề thật của trang trước sang.
+// chỉ sửa khi chắc cùng bảng (cùng số cột, trang sau mở đầu bằng bảng, dòng đầu chủ yếu là số)
 @Component
 public class TableStitcher {
 
@@ -28,9 +20,7 @@ public class TableStitcher {
     // ô chỉ chứa số: 36.240.869.667, (1.234), 15%, 30
     private static final Pattern NUMERIC_CELL = Pattern.compile("^[\\s(\\-]*[\\d.,]+[\\s)%]*$");
 
-    // sửa tiêu đề bảng cho cả tài liệu một lượt, từ đầu tới cuối.
-    // mỗi trang so với bản ĐÃ SỬA của trang trước, nên bảng trải nhiều trang
-    // vẫn nhận đúng tiêu đề thật thay vì một dòng số liệu bị OCR coi là tiêu đề
+    // sửa cả tài liệu một lượt; mỗi trang so với bản đã sửa của trang trước
     public List<String> repairTableHeaders(List<String> pages) {
         List<String> repaired = new ArrayList<>(pages);
         for (int i = 1; i < repaired.size(); i++) {
@@ -55,8 +45,7 @@ public class TableStitcher {
         String header = previous.get(start);
         String separator = previous.get(start + 1);
 
-        // tiêu đề nhiều tầng: các dòng ngay dưới |---| không có số và phần lớn ô có chữ
-        // ví dụ "| | Giá trị | Dự phòng | Giá trị | Dự phòng |", chép tối đa 2 dòng
+        // tiêu đề nhiều tầng: các dòng dưới |---| không có số, chép tối đa 2 dòng
         List<String> subHeaders = new ArrayList<>();
         for (int i = start + 2; i < previous.size() && subHeaders.size() < 2; i++) {
             if (!isSubHeader(previous.get(i))) {

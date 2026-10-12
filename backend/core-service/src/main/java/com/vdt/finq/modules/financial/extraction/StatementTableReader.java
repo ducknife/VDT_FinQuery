@@ -8,12 +8,8 @@ import java.util.regex.Pattern;
 import com.vdt.finq.common.markdown.MarkdownTable;
 import com.vdt.finq.common.text.VietnameseText;
 
-// nhận ra một bảng markdown có phải bảng báo cáo tài chính (có cột "Mã số") không,
-// và cột nào là mã, tên, giá trị. dựa vào DỮ LIỆU của các dòng chứ không chỉ dòng tiêu đề,
-// vì OCR hay gộp ô tiêu đề ("Mã số CHỈ TIÊU") làm tiêu đề lệch cột so với thân bảng.
-//
-// giá trị của mỗi dòng là N ô CUỐI CÙNG (N = số cột giá trị): cột số luôn ở bên phải cùng của mẫu biểu,
-// còn ô thuyết minh lúc có lúc không làm các dòng lệch nhau một ô
+// nhận ra bảng BCTC (có cột "Mã số") và cột mã, tên, giá trị, dựa trên dữ liệu các dòng
+// vì OCR hay gộp ô tiêu đề; giá trị mỗi dòng là N ô cuối
 public final class StatementTableReader {
 
     // mã số trên báo cáo: 01, 10, 100, 411a
@@ -51,10 +47,8 @@ public final class StatementTableReader {
         return build(header, data, layout, n);
     }
 
-    // bảng tiếp theo trang trước mà mất dòng tiêu đề (chỉ còn "| | | |"): đọc với số cột của bảng trước.
-    // số cột giá trị đếm trên chính trang này phải BẰNG số cột của bảng trước: OCR làm rơi một cột
-    // (BCTC HN Q3/2024 trang 6 chỉ còn 3 cột) thì N ô cuối sẽ lấy cả ô thuyết minh trống và lệch
-    // nguyên dòng sang một kỳ khác. không khớp thì không đọc, không đoán cột nào bị rơi
+    // bảng nối trang mất tiêu đề: đọc với số cột của bảng trước, nhưng chỉ khi số cột giá trị
+    // trên trang này bằng đúng số đó (OCR rơi cột thì không đọc, không đoán)
     public static StatementTable readContinuation(MarkdownTable table, int n) {
         List<List<String>> data = new ArrayList<>(table.getHeaderRows());
         data.addAll(table.getBodyRows());
@@ -65,8 +59,7 @@ public final class StatementTableReader {
         return build(List.of(), data, layout, n);
     }
 
-    // số ô giá trị phổ biến nhất trên các dòng có mã. đếm theo TỪNG DÒNG chứ không theo vị trí cột,
-    // vì dòng có ô thuyết minh, dòng không làm vị trí cột lệch nhau. ô giá trị = số có nhóm nghìn hoặc "-"
+    // số ô giá trị phổ biến nhất trên các dòng có mã, đếm theo từng dòng
     static int dominantRowValueCount(List<List<String>> data, Layout layout) {
         java.util.Map<Integer, Integer> freq = new java.util.HashMap<>();
         for (List<String> row : data) {
@@ -170,8 +163,7 @@ public final class StatementTableReader {
         return s.length() == 1 ? "0" + s : s;
     }
 
-    // B01 xếp mã con ngay sau mã cha: 221 TSCĐ hữu hình -> 222 nguyên giá, 223 hao mòn (cả TT200 và TT99).
-    // nhiều báo cáo bỏ trống mã của hai dòng con này; suy lại từ dòng cha gần nhất
+    // B01 xếp mã con ngay sau mã cha (221 -> 222, 223); nhiều báo cáo bỏ trống mã con thì suy từ dòng cha
     static String childCode(int parent, String name) {
         int offset = childOffset(name);
         return parent > 0 && offset > 0 ? String.valueOf(parent + offset) : null;
@@ -205,9 +197,7 @@ public final class StatementTableReader {
         return any;
     }
 
-    // bảng đối chiếu trong thuyết minh ("Phân loại lại | Đã trình bày trên báo cáo năm trước",
-    // "... | Chênh lệch"): có cột mã số nhưng không phải số của kỳ nào cả.
-    // riêng "đã điều chỉnh" thì KHÔNG loại: đó là cột so sánh đã trình bày lại của chính mẫu biểu
+    // bảng đối chiếu trong thuyết minh có cột mã nhưng không phải số của kỳ nào; "đã điều chỉnh" thì giữ
     static boolean isReconciliation(List<List<String>> header) {
         for (List<String> row : header) {
             for (String cell : row) {
@@ -269,9 +259,7 @@ public final class StatementTableReader {
         return right >= left ? codeColumn + 1 : codeColumn - 1;
     }
 
-    // cột giá trị: có ít nhất một số nhóm nghìn và hầu hết ô có chữ là số hoặc gạch ngang.
-    // cột thuyết minh ("3", "16", "V.1") không có số nhóm nghìn nên tự bị loại.
-    // chỉ dùng để ĐẾM số cột giá trị; giá trị của từng dòng lấy theo trailingValues
+    // cột giá trị: có số nhóm nghìn và hầu hết ô là số hoặc "-"; chỉ dùng để đếm số cột
     private static List<Integer> valueColumns(List<List<String>> data, Layout layout) {
         int width = data.stream().mapToInt(List::size).max().orElse(0);
         List<Integer> columns = new ArrayList<>();
