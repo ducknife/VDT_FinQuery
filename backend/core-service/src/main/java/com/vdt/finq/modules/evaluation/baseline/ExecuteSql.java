@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import com.vdt.finq.common.db.ReadOnlyJdbc;
 import com.vdt.finq.modules.agent.evidence.Evidence;
 import com.vdt.finq.modules.agent.tools.QueryState;
-import com.vdt.finq.modules.agent.tools.financial.support.VnNumber;
+import com.vdt.finq.modules.dbquery.support.VnNumber;
 
 // tool của đối chứng text-to-SQL (không đăng ký cho agent FinQuery): chạy câu SELECT do LLM viết
 // bằng user chỉ đọc; kết quả thành bằng chứng D# để đi qua cùng bước trả lời và kiểm như FinQuery

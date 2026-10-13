@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 // trích lại cả kho và in khác biệt; GHI THẬT vào financial_figures:
 //     ./mvnw test "-Dtest=FigureRebuildRunTest" "-Dextract=true"
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
-        properties = { "cleaner.trial.enabled=false", "spring.devtools.restart.enabled=false" })
+        properties = { "cleaner.trial.enabled=false", "answer.trial.enabled=false", "spring.devtools.restart.enabled=false" })
 @EnabledIfSystemProperty(named = "extract", matches = "true")
 class FigureRebuildRunTest {
 

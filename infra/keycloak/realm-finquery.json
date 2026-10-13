@@ -1,0 +1,161 @@
+{
+  "realm": "finquery",
+  "displayName": "FinQuery",
+  "enabled": true,
+  "internationalizationEnabled": true,
+  "supportedLocales": [
+    "vi",
+    "en"
+  ],
+  "defaultLocale": "vi",
+  "registrationAllowed": false,
+  "registrationEmailAsUsername": true,
+  "verifyEmail": true,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "rememberMe": false,
+  "bruteForceProtected": true,
+  "failureFactor": 5,
+  "passwordPolicy": "length(12) and maxLength(64) and upperCase(1) and lowerCase(1) and digits(1) and specialChars(1) and notUsername and notContainsUsername and notEmail and passwordHistory(5) and regexPattern(^(?!.*['\"`])(?!.*(?i:viettel|vcc|ctr|finquery)).*$)",
+  "smtpServer": {
+    "host": "mailpit",
+    "port": "1025",
+    "from": "no-reply@finquery.local",
+    "fromDisplayName": "FinQuery",
+    "ssl": "false",
+    "starttls": "false",
+    "auth": "false"
+  },
+  "localizationTexts": {
+    "vi": {
+      "invalidPasswordRegexPatternMessage": "Mật khẩu không được chứa dấu nháy hoặc tên công ty, hệ thống (Viettel, VCC, CTR, FinQuery).",
+      "invalidPasswordMinLengthMessage": "Mật khẩu phải có ít nhất {0} ký tự.",
+      "invalidPasswordMinUpperCaseCharsMessage": "Mật khẩu phải có ít nhất {0} chữ hoa.",
+      "invalidPasswordMinLowerCaseCharsMessage": "Mật khẩu phải có ít nhất {0} chữ thường.",
+      "invalidPasswordMinDigitsMessage": "Mật khẩu phải có ít nhất {0} chữ số.",
+      "invalidPasswordMinSpecialCharsMessage": "Mật khẩu phải có ít nhất {0} ký tự đặc biệt.",
+      "invalidPasswordHistoryMessage": "Không được dùng lại {0} mật khẩu gần nhất.",
+      "invalidPasswordNotUsernameMessage": "Mật khẩu không được trùng tên đăng nhập.",
+      "invalidPasswordNotContainsUsernameMessage": "Mật khẩu không được chứa tên đăng nhập.",
+      "invalidPasswordNotEmailMessage": "Mật khẩu không được trùng email."
+    }
+  },
+  "roles": {
+    "realm": [
+      {
+        "name": "uma_authorization",
+        "description": "${role_uma_authorization}"
+      },
+      {
+        "name": "offline_access",
+        "description": "${role_offline-access}"
+      },
+      {
+        "name": "analyst",
+        "description": "Ask questions, view citations, send feedback"
+      },
+      {
+        "name": "document_manager",
+        "description": "analyst + upload and re-index documents",
+        "composite": true,
+        "composites": {
+          "realm": [
+            "analyst"
+          ]
+        }
+      },
+      {
+        "name": "admin",
+        "description": "document_manager + approve and manage accounts in the finquery realm",
+        "composite": true,
+        "composites": {
+          "realm": [
+            "document_manager"
+          ],
+          "client": {
+            "realm-management": [
+              "manage-users",
+              "view-users",
+              "query-users"
+            ]
+          }
+        }
+      },
+      {
+        "name": "default-roles-finquery",
+        "description": "Roles every new user gets (no FinQuery access until approved)",
+        "composite": true,
+        "composites": {
+          "realm": [
+            "offline_access",
+            "uma_authorization"
+          ]
+        }
+      }
+    ]
+  },
+  "defaultRole": {
+    "name": "default-roles-finquery"
+  },
+  "clients": [
+    {
+      "clientId": "finquery-web",
+      "name": "FinQuery web",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "implicitFlowEnabled": false,
+      "redirectUris": [
+        "http://localhost:5173/*"
+      ],
+      "webOrigins": [
+        "http://localhost:5173"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:5173/*"
+      }
+    },
+    {
+      "clientId": "finquery-core",
+      "name": "FinQuery core (Keycloak admin API)",
+      "enabled": true,
+      "publicClient": false,
+      "serviceAccountsEnabled": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "description": "Core dùng tài khoản dịch vụ để quản lý người dùng và gửi mail đặt lại mật khẩu; secret do Keycloak sinh, chép vào môi trường backend"
+    }
+  ],
+  "components": {
+    "org.keycloak.userprofile.UserProfileProvider": [
+      {
+        "providerId": "declarative-user-profile",
+        "subComponents": {},
+        "config": {
+          "kc.user.profile.config": [
+            "{\"attributes\": [{\"name\": \"username\", \"displayName\": \"${username}\", \"permissions\": {\"view\": [\"admin\", \"user\"], \"edit\": [\"admin\", \"user\"]}, \"multivalued\": false, \"validations\": {\"length\": {\"min\": 3, \"max\": 255}, \"username-prohibited-characters\": {}, \"up-username-not-idn-homograph\": {}}}, {\"name\": \"email\", \"displayName\": \"${email}\", \"permissions\": {\"view\": [\"admin\", \"user\"], \"edit\": [\"admin\", \"user\"]}, \"multivalued\": false, \"required\": {\"roles\": [\"admin\", \"user\"]}, \"validations\": {\"email\": {}, \"length\": {\"max\": 255}, \"pattern\": {\"pattern\": \"^[^@\\\\s]+@viettel\\\\.com\\\\.vn$\", \"error-message\": \"Chỉ nhận email công ty (@viettel.com.vn).\"}}}, {\"name\": \"firstName\", \"displayName\": \"${firstName}\", \"permissions\": {\"view\": [\"admin\", \"user\"], \"edit\": [\"admin\", \"user\"]}, \"multivalued\": false, \"required\": {\"roles\": [\"user\"]}, \"validations\": {\"length\": {\"max\": 255}, \"person-name-prohibited-characters\": {}}}, {\"name\": \"lastName\", \"displayName\": \"${lastName}\", \"permissions\": {\"view\": [\"admin\", \"user\"], \"edit\": [\"admin\", \"user\"]}, \"multivalued\": false, \"required\": {\"roles\": [\"user\"]}, \"validations\": {\"length\": {\"max\": 255}, \"person-name-prohibited-characters\": {}}}], \"groups\": [{\"name\": \"user-metadata\", \"displayHeader\": \"User metadata\", \"displayDescription\": \"Attributes, which refer to user metadata\"}]}"
+          ]
+        }
+      }
+    ]
+  },
+  "users": [
+    {
+      "username": "service-account-finquery-core",
+      "enabled": true,
+      "serviceAccountClientId": "finquery-core",
+      "clientRoles": {
+        "realm-management": [
+          "manage-users",
+          "view-users",
+          "query-users",
+          "view-realm"
+        ]
+      }
+    }
+  ]
+}

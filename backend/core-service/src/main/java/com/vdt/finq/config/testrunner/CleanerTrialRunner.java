@@ -7,8 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.datacleaner.NFCNormalization;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.datacleaner.TextCleaner;
+import com.vdt.finq.modules.rag.preprocessing.datacleaner.NFCNormalization;
+import com.vdt.finq.modules.rag.preprocessing.datacleaner.TextCleaner;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

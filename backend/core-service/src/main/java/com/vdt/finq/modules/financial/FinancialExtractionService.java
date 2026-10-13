@@ -17,8 +17,8 @@ import com.vdt.finq.modules.financial.extraction.DocumentFigureExtractor;
 import com.vdt.finq.modules.financial.extraction.ExtractionIssue;
 import com.vdt.finq.modules.financial.extraction.FigureCandidate;
 import com.vdt.finq.modules.financial.extraction.FigureSelector;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.DocumentPageReader;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.chunker.stitcher.TableStitcher;
+import com.vdt.finq.modules.rag.preprocessing.DocumentPageReader;
+import com.vdt.finq.modules.rag.preprocessing.indexing.chunker.stitcher.TableStitcher;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

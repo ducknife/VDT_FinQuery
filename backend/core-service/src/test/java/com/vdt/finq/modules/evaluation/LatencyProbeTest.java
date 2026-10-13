@@ -17,15 +17,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.vdt.finq.common.properties.EmbeddingProperties;
 import com.vdt.finq.common.properties.RerankProperties;
-import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievalOptions;
-import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievalResult;
-import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievalService;
-import com.vdt.finq.modules.hierarchicalrag.retrieval.rerank.TierStat;
+import com.vdt.finq.modules.rag.retrieval.RetrievalOptions;
+import com.vdt.finq.modules.rag.retrieval.RetrievalResult;
+import com.vdt.finq.modules.rag.retrieval.RetrievalService;
+import com.vdt.finq.modules.rag.retrieval.rerank.TierStat;
 
 // đo độ trễ truy hồi từng bước trên 10 câu × 2 lượt, ghi ra data/eval/ket-qua/do-tre_*.md:
 //     ./mvnw test "-Dtest=LatencyProbeTest" "-Dlatency=true" ["-Dlatency.label=..."]
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
-        properties = { "cleaner.trial.enabled=false", "spring.devtools.restart.enabled=false" })
+        properties = { "cleaner.trial.enabled=false", "answer.trial.enabled=false", "spring.devtools.restart.enabled=false" })
 @EnabledIfSystemProperty(named = "latency", matches = "true")
 class LatencyProbeTest {
 

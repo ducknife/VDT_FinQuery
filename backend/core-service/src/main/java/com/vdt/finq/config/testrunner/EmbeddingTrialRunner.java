@@ -15,13 +15,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.vdt.finq.common.properties.OCRProperties;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.datacleaner.TextCleaner;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.chunker.Chunk;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.chunker.Chunking;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.embedder.EmbeddedChunk;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.embedder.Embedding;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.indexing.vectordb.QdrantIndexWriter;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.PageStore;
+import com.vdt.finq.modules.rag.preprocessing.datacleaner.TextCleaner;
+import com.vdt.finq.modules.rag.preprocessing.indexing.chunker.Chunk;
+import com.vdt.finq.modules.rag.preprocessing.indexing.chunker.Chunking;
+import com.vdt.finq.modules.rag.preprocessing.indexing.embedder.EmbeddedChunk;
+import com.vdt.finq.modules.rag.preprocessing.indexing.embedder.Embedding;
+import com.vdt.finq.modules.rag.preprocessing.indexing.vectordb.QdrantIndexWriter;
+import com.vdt.finq.modules.rag.preprocessing.ocr.PageStore;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,0 +1,8 @@
+# chỉ cần pom.xml và src để build; không đưa bí mật hay file build cũ vào image
+.env
+*.env
+target
+.mvn/wrapper/maven-wrapper.jar
+*.log
+.vscode
+.idea

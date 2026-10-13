@@ -11,7 +11,11 @@ spring:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
-  # ChatModel chuẩn OpenAI trỏ sang DeepInfra; chỉ bật chat
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8180/realms/finquery}
   ai:
     model:
       chat: openai
@@ -34,23 +38,34 @@ spring:
       max-attempts: 3
 
 agent:
-  # số lần gọi LLM tối đa mỗi câu: (max-turn-loop - 1) lượt chọn tool + 1 lượt trả lời
   max-turn-loop: 4
 
-# model suy luận (QĐ-035): thinking và đơn giá để tính tiền; đổi model thì đổi đơn giá
+# bật kiểm token Keycloak (QĐ-038)
+finq:
+  security:
+    enabled: ${FINQ_SECURITY_ENABLED:true}
+  # core gọi Keycloak Admin API bằng tài khoản dịch vụ finquery-core: quản lý người dùng, mail đặt lại mật khẩu
+  keycloak:
+    url: ${KEYCLOAK_URL:http://localhost:8180}
+    realm: finquery
+    client-id: finquery-core
+    client-secret: ${KEYCLOAK_CORE_CLIENT_SECRET:}
+    frontend-url: ${FINQ_FRONTEND_URL:http://localhost:5173/}
+
+answer:
+  # trial:
+  #   enabled: true
+
 llm:
   model: ${REASONING_MODEL}
-  # chỉ áp dụng cho Qwen3.x
   thinking: true
   # Sonnet 5.5, USD / 1 triệu token
   price-input-per-million: 2.00
   price-output-per-million: 10.00
 
-# sinh câu trả lời: vượt ngưỡng này thì chia bằng chứng làm 2 nửa (paper)
 generation:
   context-limit-tokens: 64000
 
-# user MySQL chỉ đọc cho tool số liệu; để trống thì dùng giao dịch READ ONLY
 financial-query:
   readonly-username: ${DB_READONLY_USERNAME:}
   readonly-password: ${DB_READONLY_PASSWORD:}
@@ -87,7 +102,6 @@ indexing:
   stitch-max-chars: 500
   model-limit-chars: 50000
   table-format: json
-  # chuẩn hoá văn bản đem embed (QĐ-027); bật thì phải đổi QDRANT_COLLECTION cùng lúc
   corpus-normalization: false
 
 qdrant:
@@ -108,7 +122,6 @@ embedding:
   # trial:
   #   enabled: true
 
-# truy hồi (QĐ-030): Qdrant 80 chunk có lọc -> rerank tầng 1 giữ 40 -> tầng 2 giữ 20. Model rerank để trống = bỏ tầng đó
 retrieval:
   top-k: 80
   tier1-keep: 40

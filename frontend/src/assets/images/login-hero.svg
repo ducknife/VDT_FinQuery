@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1000" preserveAspectRatio="xMidYMid slice">
+  <!-- ảnh trang đăng nhập FinQuery: vector nên nét ở mọi kích thước; màu theo bộ nhận diện Viettel, không dùng logo -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2163f"/>
+      <stop offset="0.55" stop-color="#d4002a"/>
+      <stop offset="1" stop-color="#a5001f"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.08"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.3" cy="0.25" r="0.7">
+      <stop offset="0" stop-color="#ff5d7a" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ff5d7a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1000" fill="url(#bg)"/>
+  <rect width="900" height="1000" fill="url(#glow)"/>
+
+  <!-- khối cong lớn và đường viền trắng mảnh -->
+  <path d="M-80,800 C40,560 300,360 560,340 C800,322 980,450 930,630 C880,800 640,860 470,910 C330,950 220,1020 160,1090 L-80,1090 Z"
+        fill="#ffffff" fill-opacity="0.07"/>
+  <path d="M60,1060 C40,900 30,700 150,550 C280,390 520,320 690,360 C860,400 900,540 820,670 C740,800 560,830 430,880 C300,930 210,1000 170,1060"
+        fill="none" stroke="#ffffff" stroke-width="3" stroke-opacity="0.9"/>
+
+  <!-- thẻ báo cáo: biểu đồ cột + đường xu hướng -->
+  <g transform="translate(250 420)">
+    <rect width="400" height="270" rx="24" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.5"/>
+    <rect x="28" y="28" width="150" height="14" rx="7" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="28" y="52" width="96" height="10" rx="5" fill="#ffffff" fill-opacity="0.5"/>
+    <g fill="#ffffff">
+      <rect x="40" y="170" width="34" height="70" rx="6" fill-opacity="0.55"/>
+      <rect x="96" y="140" width="34" height="100" rx="6" fill-opacity="0.65"/>
+      <rect x="152" y="120" width="34" height="120" rx="6" fill-opacity="0.75"/>
+      <rect x="208" y="96" width="34" height="144" rx="6" fill-opacity="0.85"/>
+      <rect x="264" y="76" width="34" height="164" rx="6" fill-opacity="0.95"/>
+    </g>
+    <path d="M57,150 L113,118 L169,104 L225,76 L281,54 L350,40" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="350" cy="40" r="8" fill="#ffffff"/>
+  </g>
+
+  <!-- thẻ trích dẫn -->
+  <g transform="translate(470 650)">
+    <rect width="230" height="96" rx="20" fill="#ffffff"/>
+    <rect x="22" y="24" width="56" height="26" rx="13" fill="#ee0033"/>
+    <text x="50" y="42" text-anchor="middle" font-family="Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">C1</text>
+    <rect x="92" y="28" width="110" height="10" rx="5" fill="#191919" fill-opacity="0.75"/>
+    <rect x="22" y="62" width="180" height="9" rx="4.5" fill="#191919" fill-opacity="0.25"/>
+    <circle cx="208" cy="0" r="18" fill="#2ca196"/>
+    <path d="M199,0 L205,6 L217,-6" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- kính lúp -->
+  <g transform="translate(205 670)" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round">
+    <circle cx="0" cy="0" r="44" stroke-opacity="0.95"/>
+    <path d="M32,32 L72,72" stroke-width="14"/>
+  </g>
+
+</svg>

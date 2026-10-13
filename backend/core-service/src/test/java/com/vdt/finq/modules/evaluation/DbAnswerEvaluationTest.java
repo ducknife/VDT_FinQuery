@@ -22,15 +22,16 @@ import org.yaml.snakeyaml.Yaml;
 import com.vdt.finq.modules.agent.AskResult;
 import com.vdt.finq.modules.agent.loop.QueryLoop;
 import com.vdt.finq.modules.evaluation.baseline.BaselineRunner;
-import com.vdt.finq.modules.hierarchicalrag.generation.Citation;
+import com.vdt.finq.modules.rag.generation.Citation;
 
 // đánh giá câu trả lời nhánh số liệu trên data/eval/eval_dbquery.yml (như RQ3 của paper FinAI), cùng model:
 //   FINQUERY  3 tool SQL mẫu | TEXT_TO_SQL  LLM tự viết SQL | LLM_ONLY  không công cụ
 // ghi từng câu ngay khi xong (chạy tiếp được), rồi .md tổng hợp kèm toàn văn câu trả lời để soát:
 //     ./mvnw test "-Dtest=DbAnswerEvaluationTest" "-Ddbeval=true" ["-Ddbeval.configs=FINQUERY,TEXT_TO_SQL"]
 //     chạy tiếp: "-Ddbeval.resume=../../data/eval/ket-qua/danh-gia-db_<thời điểm>.csv"; chọn câu: "-Ddbeval.ids=D01,C01"
+//     chấm lại không gọi API: "-Ddbeval.rescore=../../data/eval/ket-qua/danh-gia-db_<thời điểm>.csv"
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
-        properties = { "cleaner.trial.enabled=false", "spring.devtools.restart.enabled=false" })
+        properties = { "cleaner.trial.enabled=false", "answer.trial.enabled=false", "spring.devtools.restart.enabled=false" })
 @EnabledIfSystemProperty(named = "dbeval", matches = "true")
 class DbAnswerEvaluationTest {
 
@@ -45,6 +46,8 @@ class DbAnswerEvaluationTest {
     private QueryLoop queryLoop;
     @Autowired
     private BaselineRunner baselines;
+    @Autowired
+    private com.vdt.finq.common.properties.LlmProperties llmProperties;
 
     private record Row(Map<String, String> v) {
         String get(String k) {
@@ -66,9 +69,37 @@ class DbAnswerEvaluationTest {
         }
         String wanted = System.getProperty("dbeval.configs", "");
         List<String> configs = wanted.isBlank() ? ALL_CONFIGS : List.of(wanted.split(","));
+
+        // chấm lại một lượt đã chạy bằng bộ chấm hiện tại, không gọi API: ghi <file>_cham-lai.csv/.md
+        String rescore = System.getProperty("dbeval.rescore", "");
+        if (!rescore.isBlank()) {
+            Path src = Path.of(rescore);
+            Path out = Path.of(rescore.replace(".csv", "_cham-lai.csv"));
+            List<Row> old = readCsv(src);
+            StringBuilder body = new StringBuilder(String.join(";", HEADER)).append('\n');
+            for (Row r : old) {
+                Map<String, Object> q = questions.stream().filter(x -> x.get("id").equals(r.get("id"))).findFirst().orElseThrow();
+                String before = r.get("dung");
+                applyScore(r, (Map<String, Object>) q.get("cham"));
+                if (!before.equals(r.get("dung"))) {
+                    System.out.printf("[%s] %s đổi %s -> %s (%s)%n", r.get("cau_hinh"), r.get("id"), before, r.get("dung"), r.get("ly_do"));
+                }
+                body.append(csvLine(r));
+            }
+            Files.writeString(out, body, StandardCharsets.UTF_8);
+            Path md = Path.of(out.toString().replace(".csv", ".md"));
+            List<String> present = configs.stream().filter(c -> old.stream().anyMatch(r -> r.get("cau_hinh").equals(c))).toList();
+            Files.writeString(md, report(questions, old, present, out.getFileName().toString(), "theo lượt gốc"), StandardCharsets.UTF_8);
+            System.out.println("đã ghi " + md.toAbsolutePath().normalize());
+            return;
+        }
+
         String resume = System.getProperty("dbeval.resume", "");
+        // nhãn trong tên file khi đổi model, ví dụ -Ddbeval.label=qwen
+        String label = System.getProperty("dbeval.label", "");
         Path csv = resume.isBlank() ? OUT_DIR.resolve("danh-gia-db_"
-                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmm")) + ".csv") : Path.of(resume);
+                + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmm"))
+                + (label.isBlank() ? "" : "_" + label) + ".csv") : Path.of(resume);
         List<Row> rows = new ArrayList<>(Files.exists(csv) ? readCsv(csv) : List.of());
         if (!Files.exists(csv)) {
             Files.writeString(csv, String.join(";", HEADER) + "\n", StandardCharsets.UTF_8);
@@ -88,7 +119,7 @@ class DbAnswerEvaluationTest {
             }
         }
         Path md = Path.of(csv.toString().replace(".csv", ".md"));
-        Files.writeString(md, report(questions, rows, configs, csv.getFileName().toString()), StandardCharsets.UTF_8);
+        Files.writeString(md, report(questions, rows, configs, csv.getFileName().toString(), llmProperties.getModel()), StandardCharsets.UTF_8);
         System.out.println("đã ghi " + md.toAbsolutePath().normalize());
     }
 
@@ -129,17 +160,26 @@ class DbAnswerEvaluationTest {
             answer = "";
             v.put("trang_thai", "loi: " + e.getMessage());
         }
-        DbAnswerScorer.Verdict verdict = DbAnswerScorer.score(answer, cham);
-        v.put("dung", verdict.correct() ? "1" : "0");
-        v.put("ly_do", verdict.reason());
         v.put("tra_loi", answer);
-        return new Row(v);
+        Row row = new Row(v);
+        applyScore(row, cham);
+        return row;
     }
 
-    private static String report(List<Map<String, Object>> questions, List<Row> rows, List<String> configs, String csvName) {
+    // chấm (bộ chấm v2): dùng chung cho lượt chạy mới và chấm lại trên CSV có sẵn
+    private static void applyScore(Row row, Map<String, Object> cham) {
+        DbAnswerScorer.Context ctx = row.get("cau_hinh").equals("LLM_ONLY") ? DbAnswerScorer.Context.NONE
+                : new DbAnswerScorer.Context(true, row.get("trang_thai"), (int) num(row.get("so_khong_nguon")));
+        DbAnswerScorer.Verdict verdict = DbAnswerScorer.score(row.get("tra_loi").replace(" / ", "\n"), cham, ctx);
+        row.v().put("dung", verdict.correct() ? "1" : "0");
+        row.v().put("ly_do", verdict.reason());
+    }
+
+    private static String report(List<Map<String, Object>> questions, List<Row> rows, List<String> configs, String csvName,
+            String model) {
         StringBuilder s = new StringBuilder("# Đánh giá câu trả lời nhánh số liệu — ")
                 .append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))).append("\n\n")
-                .append("Bộ câu hỏi: `data/eval/eval_dbquery.yml` (").append(questions.size()).append(" câu). Cùng model, ")
+                .append("Bộ câu hỏi: `data/eval/eval_dbquery.yml` (").append(questions.size()).append(" câu). Model: `").append(model).append("`, cùng cho mọi cấu hình; ")
                 .append("chấm máy \"đúng và đủ số được hỏi\" (`DbAnswerScorer`), **cần người soát lại**. Chi tiết: `")
                 .append(csvName).append("`.\n\n")
                 .append("- FINQUERY: 3 tool SQL mẫu, LLM chỉ điền tham số\n- TEXT_TO_SQL: LLM tự viết SQL (tool execute_sql, user chỉ đọc)\n")

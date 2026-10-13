@@ -3,7 +3,7 @@ package com.vdt.finq.modules.agent;
 import java.util.List;
 import java.util.Map;
 
-import com.vdt.finq.modules.hierarchicalrag.generation.Citation;
+import com.vdt.finq.modules.rag.generation.Citation;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-import com.vdt.finq.modules.hierarchicalrag.retrieval.ChunkRef;
+import com.vdt.finq.modules.rag.retrieval.ChunkRef;
 
 // chỉ số truy hồi tính theo trang: k chunk đầu đổi về trang rồi so với trang vàng.
 // gold: "taiLieuId#trang" -> mức liên quan (2 chính, 1 phụ)

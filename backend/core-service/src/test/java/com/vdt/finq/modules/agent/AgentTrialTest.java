@@ -13,12 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.vdt.finq.modules.agent.loop.QueryLoop;
-import com.vdt.finq.modules.hierarchicalrag.generation.Citation;
+import com.vdt.finq.modules.rag.generation.Citation;
 
 // chạy thật vòng agent, ghi ra data/eval/ket-qua/agent-thu_*.md (cần MySQL + Qdrant, tốn tiền API):
 //     ./mvnw test "-Dtest=AgentTrialTest" "-Dagent=true" ["-Dagent.q=..."]
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
-        properties = { "cleaner.trial.enabled=false", "spring.devtools.restart.enabled=false" })
+        properties = { "cleaner.trial.enabled=false", "answer.trial.enabled=false", "spring.devtools.restart.enabled=false" })
 @EnabledIfSystemProperty(named = "agent", matches = "true")
 class AgentTrialTest {
 

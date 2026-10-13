@@ -13,8 +13,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import com.vdt.finq.common.properties.OCRProperties;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.PdfRenderer;
-import com.vdt.finq.modules.hierarchicalrag.preprocessing.ocr.VisionOcrClient;
+import com.vdt.finq.modules.rag.preprocessing.ocr.PdfRenderer;
+import com.vdt.finq.modules.rag.preprocessing.ocr.VisionOcrClient;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

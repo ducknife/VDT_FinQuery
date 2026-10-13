@@ -30,6 +30,11 @@ public final class ModelOptions {
         return OpenAiChatOptions.builder().extraBody(thinking(llm)).build();
     }
 
+    // bước trả lời dạng stream: xin kèm usage ở mẩu cuối để vẫn tính được token và tiền
+    public static OpenAiChatOptions answerStreaming(LlmProperties llm) {
+        return OpenAiChatOptions.builder().extraBody(thinking(llm)).streamUsage(true).build();
+    }
+
     // chat_template_kwargs chỉ dành cho Qwen3.x; model khác gọi mặc định
     private static Map<String, Object> thinking(LlmProperties llm) {
         if (llm.getModel() == null || !llm.getModel().startsWith("Qwen/")) {

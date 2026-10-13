@@ -13,21 +13,25 @@ Thư mục này ghi lại **đã làm gì, vì sao, kết quả ra sao** trong s
 
 | Tài liệu | Nội dung | Bản hiện hành |
 |---|---|---|
-| Nhật ký | Việc đã làm theo từng ngày | [nhat-ky_v1.3.md](nhat-ky_v1.3.md) |
+| Nhật ký | Việc đã làm theo từng ngày | [nhat-ky_v1.7.md](nhat-ky_v1.7.md) |
 | Phạm vi đề tài | Mục tiêu, 6 mảng A–F, cách 2 paper được áp dụng | [pham-vi_v1.0.md](pham-vi_v1.0.md) |
 | Dữ liệu | Nguồn, cấu trúc thư mục, thống kê, chất lượng, lỗ hổng | [du-lieu_v1.0.md](du-lieu_v1.0.md) |
 | Công nghệ | Stack và công cụ, lý do chọn | [cong-nghe_v1.4.md](cong-nghe_v1.4.md) |
 | Luồng hỏi đáp | Hai nhánh DB/RAG, bảng ánh xạ mã, thiết kế tool, dẫn chứng, ba chốt kiểm | [luong-hoi-dap_v1.0.md](luong-hoi-dap_v1.0.md) |
 | Nhánh số liệu | 3 tool SQL mẫu (LLM chỉ điền tham số), chốt kiểm, kết nối chỉ đọc, Java tính mọi con số, kiểm bằng đáp án vàng, chạy thật 8 câu, user MySQL chỉ đọc đã kiểm, đối chiếu công thức với số CTR công bố | [nhanh-so-lieu_v1.1.md](nhanh-so-lieu_v1.1.md) |
+| API hỏi đáp | `POST /api/v1/ask` (SSE: tiến trình, chữ câu trả lời, kết quả kiểm), xem trích dẫn (ảnh trang PDF, chữ OCR), chạy thử thật | [api-hoi-dap_v1.0.md](api-hoi-dap_v1.0.md) |
+| Xác thực, tài khoản | Keycloak (OAuth 2.0 + OIDC, PKCE), 3 vai trò (analyst, document_manager, admin), đăng ký bằng email công ty + xác minh email + admin duyệt, chính sách mật khẩu, tài khoản demo, script tạo tài khoản, kết quả kiểm bằng Keycloak chạy thật | [xac-thuc_v1.8.md](xac-thuc_v1.8.md) |
+| Giao diện | Bộ nhận diện theo Viettel Money (màu token, font Roboto / FS Magistral, bo góc, bóng), áp dụng cho frontend và slide; câu gợi ý lấy từ tập kiểm thử | [giao-dien_v1.9.md](giao-dien_v1.9.md) |
+| Triển khai | Docker: backend (Spring Boot) + giao diện (nginx) trong `docker-compose.yml`; MySQL, Qdrant, Keycloak giữ nguyên, gọi qua `host.docker.internal`; kết quả kiểm toàn tuyến; Keycloak lưu dữ liệu ở volume | [trien-khai_v1.1.md](trien-khai_v1.1.md) |
 | Lược đồ CSDL | Năm bảng lõi, năm tiêu chí loại dòng, sổ công thức và cách chống bịa, bốn lỗi lược đồ đã mắc | [luoc-do-db_v1.0.md](luoc-do-db_v1.0.md) |
 | Tiền xử lý | OCR bằng mô hình thị giác, tham số kết xuất ảnh (DPI, JPEG), hai hạn giờ, luật làm sạch, số liệu chunk, thiết kế lớp, **luồng tiền xử lý hoàn chỉnh có sơ đồ** (tải lên, OCR, lập chỉ mục, cờ trạng thái, mã công ty), sự cố OCR với DeepInfra, **trích số vào `financial_figures`**, nạp cả kho vào Qdrant và các sự cố, chạy thử cả luồng | [tien-xu-ly_v1.2.md](tien-xu-ly_v1.2.md) |
 | Làm sạch | Luật và chính sách làm sạch sau OCR: làm sạch lúc đọc, NFC hai cổng, đổi luật thì embed lại, quy trình thêm luật, luật hoãn, số đo trên kho | [lam-sach_v1.1.md](lam-sach_v1.1.md) |
 | Lập chỉ mục | Indexing pipeline: chốt và cài đặt model embedding (đổi sang Qwen3-Embedding-8B qua DeepInfra, base64, lô 32), thuật toán chunk đệ quy theo cấu trúc + gối đầu có chọn lọc (gốc là trang, có hình minh hoạ), vì sao trần 4.000 ký tự, các biến thể đã thử và loại, thiết kế và cài đặt Qdrant (payload, embed gì lưu gì, nội dung một point, enum giá trị payload, QdrantIndexWriter, DocumentIndexingService), table-to-json, kết quả nạp cả kho, số đo batch, hạn mức API | [lap-chi-muc_v1.12.md](lap-chi-muc_v1.12.md) |
 | Truy hồi | Tiền truy xuất (ba kỹ thuật, bỏ HyDE), rerank hai tầng Qwen3-Reranker 0.6B → 4B và kế hoạch benchmark, đánh giá trong lúc phát triển, bộ 50 câu, số đo tiền truy xuất của paper, **6 quy tắc chuẩn hoá (đã cài đặt)**, thí nghiệm chuẩn hoá ngữ liệu, bỏ diễn giải lại, rerank theo paper, model suy luận và danh sách so sánh, quan sát tìm thử, chọn nhà cung cấp DeepInfra, truy hồi đã cài đặt (từ khoá, bộ lọc, Qdrant 80 → rerank 40 → 20), **lọc tiếng Anh, nghiên cứu độ trễ luồng hỏi đáp (Qwen và Sonnet, bật/tắt thinking), đổi sang Sonnet 5.5: 22–27 s/câu** | [truy-hoi_v1.9.md](truy-hoi_v1.9.md) |
-| Prompt | Lời nhắc hệ thống của agent và bước sinh câu trả lời: kỷ luật bằng chứng, không giả thuyết, nhật ký sửa prompt theo từng trường hợp; **v1.1 câu trích ngắn, v1.2 agent không tìm thừa, v1.3 nhánh số liệu** | [prompt_v1.3.md](prompt_v1.3.md) |
-| Quyết định | Sổ quyết định (QĐ-xxx): bối cảnh, lựa chọn, lý do | [quyet-dinh_v1.21.md](quyet-dinh_v1.21.md) |
+| Prompt | Lời nhắc hệ thống của agent và bước sinh câu trả lời: kỷ luật bằng chứng, không giả thuyết, nhật ký sửa prompt theo từng trường hợp; **v1.1 câu trích ngắn, v1.2 agent không tìm thừa, v1.3 nhánh số liệu, v1.4 "tiền mặt" + câu kế hoạch hiển thị, v1.5 phép tính trên C#/D# do Java tính, v1.6 xưng "tôi" – gọi "đồng chí"** | [prompt_v1.6.md](prompt_v1.6.md) |
+| Quyết định | Sổ quyết định (QĐ-xxx): bối cảnh, lựa chọn, lý do | [quyet-dinh_v1.29.md](quyet-dinh_v1.29.md) |
 | Kế hoạch | Bốn khối nền, lộ trình, thứ tự cắt giảm khi trễ | [ke-hoach_v1.1.md](ke-hoach_v1.1.md) |
-| Kế hoạch đánh giá | Bộ test T1–T9, cách đo độ trễ/token/chi phí, chiến lược 3 lớp, tác động khi đổi mô hình, **bộ 50 câu chuẩn (11/10), benchmark truy hồi 8 cấu hình (12/10)** | [danh-gia_v1.6.md](danh-gia_v1.6.md) |
+| Kế hoạch đánh giá | Bộ test T1–T9, cách đo độ trễ/token/chi phí, chiến lược 3 lớp, tác động khi đổi mô hình, **bộ 50 câu chuẩn (11/10), benchmark truy hồi 8 cấu hình (12/10)** — **bảng tổng hợp benchmark cuối theo 5 tiêu chí (truy hồi, câu trả lời nhánh số liệu, trục model)**, **câu trả lời nhánh tài liệu FinQuery 24,5/26 vs RAG cơ bản 21,5/26 (13/10)**, **chẩn đoán B07/M03 (QĐ-040/041), bảng benchmark tổng hợp cuối khi chốt core** | [danh-gia_v1.12.md](danh-gia_v1.12.md) |
 | Tiêu chí VDT | Thang điểm VDT 2026 và cách FinQuery đáp ứng | [tieu-chi-vdt_v1.0.md](tieu-chi-vdt_v1.0.md) |
 | Học tập | Tinh thần vừa học vừa làm, cách làm việc với mentor, phân rã đệ quy, bản đồ kỹ năng, nhật ký bài học | [hoc-tap_v1.1.md](hoc-tap_v1.1.md) |
 | Từ điển tài chính | Tài liệu, thuật ngữ A–F, mã chỉ tiêu BCTC, công thức, bẫy, viết tắt | [tu-dien-tai-chinh_v1.2.md](tu-dien-tai-chinh_v1.2.md) |

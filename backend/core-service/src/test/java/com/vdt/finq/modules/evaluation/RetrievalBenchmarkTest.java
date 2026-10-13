@@ -26,17 +26,17 @@ import org.yaml.snakeyaml.Yaml;
 
 import com.vdt.finq.common.properties.RerankProperties;
 import com.vdt.finq.common.properties.RetrievalProperties;
-import com.vdt.finq.modules.hierarchicalrag.retrieval.ChunkRef;
-import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievalOptions;
-import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievalResult;
-import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievalService;
-import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievedChunk;
+import com.vdt.finq.modules.rag.retrieval.ChunkRef;
+import com.vdt.finq.modules.rag.retrieval.RetrievalOptions;
+import com.vdt.finq.modules.rag.retrieval.RetrievalResult;
+import com.vdt.finq.modules.rag.retrieval.RetrievalService;
+import com.vdt.finq.modules.rag.retrieval.RetrievedChunk;
 
 // benchmark truy hồi trên data/eval/eval_test.yml (không gọi LLM), ghi .md tổng hợp và .csv từng câu:
 //     ./mvnw test "-Dtest=RetrievalBenchmarkTest" "-Dbenchmark=true" ["-Dbenchmark.configs=CHINH,KHONG_LOC"]
 // chạy tiếp lượt bị ngắt: "-Dbenchmark.resume=../../data/eval/ket-qua/<file>.csv"
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
-        properties = { "cleaner.trial.enabled=false", "spring.devtools.restart.enabled=false" })
+        properties = { "cleaner.trial.enabled=false", "answer.trial.enabled=false", "spring.devtools.restart.enabled=false" })
 @EnabledIfSystemProperty(named = "benchmark", matches = "true")
 class RetrievalBenchmarkTest {
 

@@ -9,7 +9,7 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
-import com.vdt.finq.modules.hierarchicalrag.retrieval.ChunkRef;
+import com.vdt.finq.modules.rag.retrieval.ChunkRef;
 
 // kiểm các chỉ số trên đúng ví dụ đã giải thích: trang vàng P (mức 2), Q (mức 2), R (mức 1)
 class RetrievalMetricsTest {

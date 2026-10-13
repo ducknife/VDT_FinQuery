@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -14,6 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.vdt.finq.modules.document.DocumentEnums.LoaiTaiLieu;
 
 public interface DocumentRepository extends JpaRepository<Document, String> {
+
+    // màn hình quản lý tài liệu: tìm theo tên hoặc mã, lọc theo loại (null = mọi loại)
+    @Query("select d from Document d where (:q is null or lower(d.tenHienThi) like lower(concat('%', :q, '%')) "
+            + "or lower(d.taiLieuId) like lower(concat('%', :q, '%'))) and (:loai is null or d.loai = :loai)")
+    Page<Document> search(@Param("q") String q, @Param("loai") LoaiTaiLieu loai, Pageable pageable);
 
     // tài liệu đã OCR nhưng chưa nạp vào Qdrant
     List<Document> findByNgayOcrIsNotNullAndNgayEmbedIsNullOrderByTaiLieuId();

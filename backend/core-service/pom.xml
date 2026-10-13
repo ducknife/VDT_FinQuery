@@ -44,6 +44,11 @@
 			<groupId>org.springframework.ai</groupId>
 			<artifactId>spring-ai-starter-model-openai</artifactId>
 		</dependency>
+		<!-- core kiểm token do Keycloak phát hành (QĐ-038), không tự quản lý người dùng -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency>
 		<!-- QdrantConfig cần grpc-api lúc biên dịch; giữ 1.65.1 cho khớp io.qdrant:client 1.13.0 -->
 		<dependency>
 			<groupId>io.grpc</groupId>
@@ -110,6 +115,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- token giả lập để test bảng quyền (SecurityMatrixTest) -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

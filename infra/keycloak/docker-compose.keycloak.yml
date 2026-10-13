@@ -1,0 +1,44 @@
+# Keycloak cho FinQuery (QĐ-038): tài khoản, đăng nhập, phát hành token; core chỉ kiểm token.
+#
+# chạy từ thư mục infra/keycloak (cần file .env có KC_ADMIN_PASSWORD, file này không lên git):
+#   docker compose -f docker-compose.keycloak.yml up -d
+#   docker compose -f docker-compose.keycloak.yml down
+#
+# trang quản trị: http://localhost:8180/admin (tài khoản admin / KC_ADMIN_PASSWORD)
+# hộp thư thử (Mailpit): http://localhost:8025, mọi mail Keycloak gửi (xác minh email, quên mật khẩu) nằm ở đây
+# realm finquery được nạp từ realm-finquery.json lúc khởi động lần đầu
+
+name: finq
+
+services:
+  keycloak:
+    # bản Docker Hub của image chính thức (quay.io không tải được từ máy dev)
+    image: keycloak/keycloak:26.0.7
+    container_name: finq-keycloak
+    command: ["start-dev", "--import-realm", "--http-port=8180"]
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_ADMIN_PASSWORD:?đặt KC_ADMIN_PASSWORD trong infra/keycloak/.env}
+      # máy 7,6 GiB: giới hạn heap để chừa RAM cho Qdrant, MySQL và backend
+      JAVA_OPTS_KC_HEAP: "-Xms128m -Xmx384m"
+    ports:
+      - "8180:8180"
+    volumes:
+      # dữ liệu Keycloak (CSDL H2: tài khoản, mật khẩu, phiên) nằm ở volume, tạo lại container không mất tài khoản
+      - keycloak-data:/opt/keycloak/data
+      - ./realm-finquery.json:/opt/keycloak/data/import/realm-finquery.json:ro
+    depends_on:
+      - mailpit
+    mem_limit: 700m
+
+  # SMTP thử cho demo: nhận mail của Keycloak, không gửi ra ngoài. triển khai thật thay bằng SMTP của công ty
+  mailpit:
+    image: axllent/mailpit:v1.20.0
+    container_name: finq-mailpit
+    ports:
+      - "8025:8025"
+    mem_limit: 64m
+
+volumes:
+  # xoá hẳn tài khoản: docker compose -f docker-compose.keycloak.yml down -v
+  keycloak-data:

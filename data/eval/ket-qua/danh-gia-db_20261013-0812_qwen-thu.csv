@@ -1,0 +1,2 @@
+cau_hinh;id;nhom;dung;ly_do;trang_thai;luot;ms;token_vao;token_ra;usd;trich_dan_dung;trich_dan;so_khong_nguon;sql_loi;cong_cu;tra_loi
+"FINQUERY";"D01";"db_mot_so";"1";"có số đồng chính xác";"answered";"2";"95962";"14345";"2574";"0.01418";"1";"1";"0";"0";"get_financial_figures([DOANH_THU_THUAN], 1 kỳ, [CONSOLIDATED]) -> 1 số";"Doanh thu thuần hợp nhất năm 2024 của CTR là 12.609.519.560.081 đồng (≈ 12.609,52 tỷ đồng) [D1]."

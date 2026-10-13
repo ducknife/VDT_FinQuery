@@ -40,6 +40,25 @@ class DbAnswerScorerTest {
     }
 
     @Test
+    void lamTronVeDungDapAn() {
+        assertThat(ok("chiếm khoảng 84,58694%", Map.of("kieu", "phan_tram", "gia_tri", "84,59"))).isTrue();
+        assertThat(ok("gấp 2,4268 lần", Map.of("kieu", "lan", "gia_tri", "2,43"))).isTrue();
+        assertThat(ok("giảm -30,3873%", Map.of("kieu", "phan_tram", "gia_tri", "30,39", "huong", "giam"))).isTrue();
+        assertThat(ok("chiếm 84,6%", Map.of("kieu", "phan_tram", "gia_tri", "84,59"))).isFalse();
+    }
+
+    @Test
+    void tuChoiCoBangChung() {
+        Map<String, Object> x06 = Map.of("kieu", "tu_choi", "so_duoc_phep", List.of(7958838568947L));
+        String a = "Chưa có số cả năm 2026; quý 1 là 3.804.825.619.753 đồng, 6 tháng là 7.958.838.568.947 đồng.";
+        assertThat(DbAnswerScorer.score(a, x06, new DbAnswerScorer.Context(true, "partial", 0)).correct()).isTrue();
+        assertThat(DbAnswerScorer.score(a, x06, new DbAnswerScorer.Context(true, "answered", 0)).correct()).isFalse();
+        assertThat(DbAnswerScorer.score(a, x06, new DbAnswerScorer.Context(true, "partial", 1)).correct()).isFalse();
+        // không có công cụ thì số nào ngoài danh sách được phép cũng là bịa
+        assertThat(DbAnswerScorer.score(a, x06, DbAnswerScorer.Context.NONE).correct()).isFalse();
+    }
+
+    @Test
     void tuChoi() {
         Map<String, Object> x06 = Map.of("kieu", "tu_choi", "so_duoc_phep", List.of(7958838568947L));
         assertThat(ok("Chưa có số cả năm 2026; 6 tháng đầu năm là 7.958.838.568.947 đồng.", x06)).isTrue();

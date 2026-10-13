@@ -1,10 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import './assets/styles/index.css'
+import AuthGate from './components/AuthGate.tsx'
+import { applyTheme, currentTheme } from './theme'
+
+// áp chế độ sáng/tối trước khi vẽ để không nháy
+applyTheme(currentTheme())
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <AuthGate />
   </StrictMode>,
 )

@@ -1,0 +1,56 @@
+# FinQuery: backend (Spring Boot) + giao diện (nginx). Chạy từ thư mục gốc repo:
+#   docker compose up -d --build      # build và chạy (lần đầu vài phút)
+#   docker compose logs -f backend    # xem log
+#   docker compose down               # dừng (không động tới MySQL, Qdrant, Keycloak)
+# mở http://localhost:5173
+#
+# cần chạy trước (ngoài file này, giữ nguyên dữ liệu đang có):
+#   - MySQL trên máy (cổng 3306)
+#   - Qdrant: infra/qdrant (cổng 6333/6334)
+#   - Keycloak + Mailpit: infra/keycloak (cổng 8180, 8025)
+# container gọi các dịch vụ đó qua host.docker.internal (= máy đang chạy Docker).
+
+name: finquery
+
+services:
+  backend:
+    build: ./backend/core-service
+    image: finquery-backend:latest
+    container_name: finq-backend
+    volumes:
+      # cấu hình và bí mật: Spring đọc /app/.env (spring.config.import), file chỉ đọc, không nằm trong image
+      - ./backend/core-service/.env:/app/.env:ro
+      # tài liệu gốc (PDF) và chữ OCR: khung trích dẫn và nạp tài liệu dùng
+      - ./data:/app/data
+    environment:
+      # chỉ đè những địa chỉ đổi khi chạy trong container; còn lại lấy từ .env
+      DB_URL: jdbc:mysql://host.docker.internal:3306/FINQUERY
+      QDRANT_HOST: host.docker.internal
+      OCR_OUTPUT_DIR: /app/data/ocr
+      RAW_DIR: /app/data/raw
+      # token do trình duyệt lấy có iss = http://localhost:8180/realms/finquery (giữ nguyên để kiểm);
+      # khoá công khai thì backend tải qua host.docker.internal
+      KEYCLOAK_ISSUER_URI: http://localhost:8180/realms/finquery
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI: http://host.docker.internal:8180/realms/finquery/protocol/openid-connect/certs
+      KEYCLOAK_URL: http://host.docker.internal:8180
+      FINQ_FRONTEND_URL: http://localhost:5173/
+      JAVA_OPTS: -XX:MaxRAMPercentage=75
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8080:8080"
+    # máy 7,6 GiB: chừa RAM cho MySQL, Qdrant, Keycloak
+    mem_limit: 1g
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    image: finquery-frontend:latest
+    container_name: finq-frontend
+    depends_on:
+      - backend
+    ports:
+      # giữ cổng 5173: Keycloak đã đăng ký địa chỉ này cho client finquery-web (CORS, chuyển hướng)
+      - "5173:80"
+    mem_limit: 64m
+    restart: unless-stopped

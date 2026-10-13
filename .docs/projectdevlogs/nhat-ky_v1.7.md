@@ -1,0 +1,154 @@
+# Nhật ký — v1.7
+
+*Bản trước: [nhat-ky_v1.6.md](nhat-ky_v1.6.md).*
+
+## Thay đổi so với bản trước (v1.6)
+
+- **2026-10-13 tối: cảnh báo sai "Số không có trong nguồn: 125.108.143.249" (M03).** Bằng chứng C8 là bản tiếng Anh, ghi `125,108,143,249`. Prompt yêu cầu viết số kiểu Việt nên agent viết `125.108.143.249`. `CitationVerifier.unverifiedNumbers` so khớp nguyên chuỗi nên không tìm thấy, dù số là cùng một số.
+  - Sửa: nếu không thấy số trong nguồn thì đổi dấu (`.` ↔ `,`) rồi tìm lại. Vẫn phải khớp đúng từng chữ số: viết 125.108.143.248 thì vẫn bị báo.
+  - Test mới trong `CitationVerifierTest` (6 ca). Bộ test generation qua hết: 4 + 5 + 6 + 7. Đã build lại container backend.
+  - Ảnh hưởng tới số đo: cột `so_khong_nguon` của benchmark trước đây có thể đếm thừa các số lấy từ nguồn tiếng Anh. Chưa chấm lại.
+  - Ở lần hỏi lại M03 (45 s, 0,157 USD) không còn lỗi "tăng tăng" và lỗi JSON. Trích dẫn 4/4 đúng nguồn. Agent dùng số trình bày lại và nêu cả số ban đầu.
+
+## Thay đổi ở bản v1.6 (so với v1.5)
+
+- **2026-10-13 tối: lỗi bước trả lời "Unexpected character ('{' (code 123)) ... line: 1, column: 2".** Câu hỏi nối tiếp "còn năm trước thì sao" (41 bằng chứng, 64k token vào, 2.462 token ra). Câu trả lời đã stream xong lên giao diện nhưng Java không đọc được JSON, nên `{{K1}}` không được điền và giao diện báo lỗi.
+  - Nguyên nhân: `AnswerGenerator.parseJson` lấy đoạn từ dấu `{` đầu tiên đến dấu `}` cuối cùng. Lỗi ở cột 2 cho thấy đoạn đó bắt đầu bằng `{{`. Khả năng cao nhất là model bọc thừa một cặp ngoặc quanh object (bắt chước kiểu `{{K1}}` trong prompt), hoặc viết chữ có `{{K…}}` trước JSON. Log khi đó không ghi nội dung thô nên chưa xác định được chắc chắn.
+  - Sửa: thử lần lượt từng dấu `{`, mỗi lần dùng Jackson đọc một object trọn vẹn và bỏ phần thừa phía sau, rồi lấy object đầu tiên có trường `answer`. Cách này chịu được code fence, chữ trước/sau JSON, ngoặc thừa `{{…}}`, chữ có `{{K1}}` đứng trước. Khi vẫn không đọc được thì log ghi 300 ký tự đầu và 300 ký tự cuối để lần sau chẩn đoán.
+  - Test mới `AnswerJsonParseTest` (5 ca). Bộ test generation đều qua: AnswerJsonParse 5, AnswerFieldStreamer 4, CitationVerifier 5, EvidenceCalculator 7. Đã build lại container backend.
+
+## Thay đổi ở bản v1.5 (so với v1.4)
+
+- **2026-10-13 tối: hai số LNST quý 2/2024 trong câu trả lời M03.** Agent đưa ra cả 125.050.312.483 đồng và 125.108.143.249 đồng. Đã đối chiếu tài liệu gốc: cả hai số đều có thật trong báo cáo, không phải lỗi OCR hay lỗi model.
+  - BCTC hợp nhất quý 2/2024 (bản công bố ban đầu, chưa soát xét): LNTT 161.453.764.176; thuế hiện hành 35.888.701.842; thuế hoãn lại 514.749.851 → LNST 125.050.312.483.
+  - BCTC hợp nhất giữa niên độ 2025, cột so sánh quý 2/2024: LNTT 161.493.793.134; thuế hiện hành 35.882.900.034; thuế hoãn lại 502.749.851 → LNST 125.108.143.249. Thuyết minh 37 (Số liệu so sánh) ghi: số liệu so sánh của kết quả kinh doanh lấy từ BCTC hợp nhất giữa niên độ 2024 *đã được soát xét* (LNST 6 tháng 241.239.746.309, khớp với bản soát xét). Như vậy chênh 57.830.766 đồng (≈ 0,05%) là phần điều chỉnh sau soát xét. Số sau soát xét đáng tin hơn.
+  - Agent chọn số sau soát xét và nêu cả số ban đầu là đúng. Câu "tài liệu không giải thích" chỉ đúng một phần: thuyết minh 37 có nói nguồn số so sánh, nhưng không nêu chi tiết từng khoản điều chỉnh.
+- **Sửa "tăng tăng 35,04%":** `EvidenceCalculator.fill` đã có bước bỏ chữ tăng/giảm thừa trước `{{K#}}`, nhưng chỉ khi trước chữ đó là khoảng trắng. Ở câu này model viết "(tăng {{K1}})", trước chữ "tăng" là dấu ngoặc nên không bị bỏ. Đã nới điều kiện thành: trước chữ tăng/giảm là ký tự bất kỳ không phải chữ cái. Thêm trường hợp vào `EvidenceCalculatorTest` (7/7 qua); đã build lại container backend.
+- **Còn tồn tại:** số chép từ bản tiếng Anh giữ dấu phẩy ngăn nghìn (125,108,143,249), lẫn với kiểu Việt (dấu chấm) trong cùng câu trả lời. Chưa sửa.
+
+## Thay đổi ở bản v1.4 (so với v1.3)
+
+- Thêm ngày 13/10/2026: benchmark câu trả lời nhánh tài liệu, chẩn đoán và sửa B07, M03, bảng benchmark cuối, đổi cấu trúc package backend.
+
+## Thay đổi của v1.3 so với v1.2
+
+- Thêm ngày 12/10/2026: benchmark truy hồi, sửa bộ lọc và trích số, độ trễ, chọn nhà cung cấp, chuẩn bị hội đồng.
+
+## Thay đổi của v1.2 so với v1.1
+
+- Thêm ngày 11/10/2026: tiền truy xuất, truy hồi chạy thật, đổi model mặc định, báo cáo dời lên 14/10.
+
+## Thay đổi của v1.1 so với v1.0
+
+- Mở bản mới theo quy ước (hết tuần trong kế hoạch). Ghi từ 10/10/2026.
+
+---
+
+## 2026-10-10
+
+### Hạ tầng gọi model
+- Key Viettel AI vẫn hết credit; chốt **DeepInfra** (nạp 5 USD). Embedding đổi sang **Qwen3-Embedding-8B** (4.096 chiều). Reranker: Qwen3-Reranker 0.6B → 4B, kèm kế hoạch benchmark (`truy-hoi_v1.1`).
+- OCR trên DeepInfra báo "model returned almost nothing": chunk SSE đầu có `content: ""` bị hiểu nhầm là hết stream. Sửa một dòng, thêm 3 test (`tien-xu-ly_v1.1` mục 12).
+
+### Lập chỉ mục
+- Cài `QdrantIndexWriter`, `DocumentIndexingService`, module `document` (entity, enum, sinh `tai_lieu_id`), migration **V10** thêm `ma_cong_ty` (bỏ "CTR" viết cứng), `DocumentController` (tải lên, trạng thái, nạp lại, nạp tất cả), `DocumentIngestionService` (luồng nền).
+- Thêm **table-to-json** (paper Hierarchical Reranker), sau chunk, trước embed.
+- **Nạp cả kho:** 278/278 tài liệu, **7.179 point**, khớp MySQL. Sự cố: DevTools tự khởi động lại làm ngắt lượt nạp ở 55/277 (dừng an toàn, chạy lại với restart tắt); DeepInfra 429 (tăng số lần thử).
+
+### Trích số
+- Module `financial`: trích B01/B02/B03 bằng quy tắc, 34 phép cộng kế toán theo mã nội bộ, chọn nguồn có thẩm quyền. Sau 5 vòng sửa quy tắc: **6.544 số hiệu lực**, 261 số trình bày lại, 160 ngoại lệ (`tien-xu-ly_v1.2` mục 13). Bắt đúng ca trình bày lại 19.047.848.409 đồng và lỗi OCR lệch 9.000 đồng.
+
+### Kiểm thử và dọn dẹp
+- `PreprocessingTrialTest`: chạy cả luồng trừ OCR trên 6 trang thật, ghi `trial-preprocessing.md`. Toàn bộ 35 test qua.
+- Sơ đồ luồng tiền xử lý vẽ bằng HTML (`images/tien-xu-ly-luong_v1.1.png`).
+- Người làm đề tài: đổi `FinancialFigureStore` → `FinancialFigureRepository`; xoá `devtools/` (khôi phục được từ commit `069d07d`); gom `logs/` và `why/` vào `.docs/projectdevlogs/` và `.docs/whyfinquery/`. Gốc dự án chỉ còn `data/`, `backend/`, `frontend/`, `infra/` (+ `pom.xml` gộp cho VS Code).
+
+### Quyết định
+- Bộ câu hỏi đánh giá: **50 câu** (`truy-hoi_v1.2` mục 4.2).
+- Còn mở: cách xử lý số liệu của tài liệu tải lên mới, (a) tự động / (b) điền sẵn + người xác nhận / (c) nhập tay (`tien-xu-ly_v1.2` mục 13.8).
+
+### Kế hoạch tới 18/10
+```
+11/10  truy hồi Qdrant + RerankClient          12/10  tiền truy xuất + sinh câu trả lời có trích dẫn
+13/10  bộ 50 câu + runner đánh giá + benchmark  14/10  nhánh DB: SQL mẫu + tool
+15/10  vòng agent, ghép hai nhánh, 3 chốt kiểm   16/10  API /ask + bộ test T1–T9
+17–18  dự phòng, số liệu cho báo cáo
+```
+Sau đó (người làm đề tài muốn làm thêm): Keycloak, Kafka, Redis (bản tối thiểu), đánh giá khi đổi model, frontend, demo, báo cáo, slide.
+
+---
+
+## 2026-10-11
+
+### Tiền truy xuất
+- **Bộ chuẩn hoá** `FinancialTextNormalizer`: 6 quy tắc, "thêm dạng chuẩn trong ngoặc, giữ chữ gốc" (QĐ-027). File dữ liệu đổi tên sang tiếng Anh: `abbreviations.yml`, `terms.yml`. Chuẩn hoá ngữ liệu mặc định **tắt**, chờ thí nghiệm 2 × 2.
+- Bỏ diễn giải lại, HyDE, Summary Extraction: Bảng 1 của paper cho thấy không có lợi (QĐ-028).
+- **Trích từ khoá** bằng luật (tên chỉ tiêu trong DB + `keywords.yml`) và **trích bộ lọc** (công ty, năm, kỳ, phạm vi, loại tài liệu) (QĐ-030).
+
+### Truy hồi
+- Chốt số chunk **Qdrant 80 → rerank tầng 1 (0.6B) giữ 40 → tầng 2 (4B) giữ 20**. Paper không nêu số lấy từ kho; đã cân nhắc 300 → 100 → 20, 50 → 20 → 10, 80 → 60 → 20 (`truy-hoi_v1.5` mục 7.1).
+- Cài `QdrantFilters`, `QdrantRetriever`, `RerankClient` (DeepInfra, lô gửi song song, ghi tiền thật), `HierarchicalReranker`, `RetrievalService`, endpoint `GET /api/v1/retrieval/search`.
+- **Chạy thật 6 câu mẫu:** cả 6 câu có chunk đúng ở hạng 1 (kể cả công văn giải trình cho câu "vì sao"); bộ lọc không phải nới lần nào. Mỗi câu 6–20 giây (rerank 5–8 giây, embed DeepInfra dao động 0,5–15 giây); tiền rerank ~0,0025 USD/câu. Chia lô nhỏ hơn chỉ nhanh ~10%.
+- Test: **65 qua, 0 lỗi** (thêm 18 test mới).
+
+### Model và chi phí
+- Model suy luận mặc định khi phát triển đổi sang **Qwen3.5-397B**; Sonnet 5.5 chỉ cho lượt benchmark chính thức và demo (QĐ-031). Ước tính cả dự án ~5–7 USD.
+
+### Lịch
+- **Báo cáo dời lên 14/10/2026**, có phó tổng giám đốc dự. Trọng tâm: tính hiệu quả và tính hoàn thiện; trình bày theo vấn đề nghiệp vụ được giải quyết, ít nói công nghệ.
+
+### Còn mở
+- Tăng tốc truy hồi: cắt ngắn chunk ở tầng 1, loại trang tiếng Anh trùng nội dung, lưu sẵn câu hỏi lặp lại.
+- Bước sinh câu trả lời có trích dẫn (+ chia 64k), bộ 50 câu, nhánh DB.
+- Cách xử lý số liệu của tài liệu tải lên mới (a / b / c).
+
+---
+
+## 2026-10-12
+
+### Đánh giá
+- Bộ 50 câu đổi tên thành `data/eval/eval_test.yml`; thêm chỉ số bằng chứng cho từng trang vàng.
+- Viết bộ tính chỉ số và trình chạy benchmark bằng Java (Recall theo tầng, nDCG@20, nDCG@20 theo bằng chứng, MRR, bị lừa, bootstrap), chạy tiếp được khi bị ngắt; đo độ trễ từng bước.
+- Benchmark 3 lần: Recall@20 cấu hình chính 73,3% → 84,4% → **95,6%**. 8 cấu hình: RAG cơ bản 68,9%; không rerank 91,1%; 1 tầng ngang 2 tầng nhưng chậm hơn; rút gọn mất đáp án; 4B → 8B không tốt hơn (`danh-gia_v1.5` mục 4). Xuất `benchmark-truy-hoi_20261012.xlsx`.
+
+### Sửa lỗi do benchmark phát hiện
+- Bộ lọc năm theo năm ban hành; bỏ lọc loại theo chữ "BCTC"; "hợp nhất" thắng "riêng" (QĐ-032).
+- Trích số: trang nối tiếp rơi cột thì không đọc; trích lại cả kho (QĐ-033).
+- Bổ sung nhãn câu V05.
+
+### Độ trễ và nhà cung cấp
+- Đo: ~9 s đến khi có 20 chunk, gần như toàn bộ là chờ DeepInfra; đổi sang 5G không cải thiện.
+- Cân nhắc API QwenCloud: có `qwen3-rerank` (pay-as-you-go 0,1 USD/1 triệu token), Token Plan không phù hợp, đăng ký thanh toán vướng. **Giữ DeepInfra**, chấp nhận 10–15 s, ưu tiên độ chính xác (QĐ-034).
+
+### Hội đồng 14/10
+- Hai nhóm giám khảo: kỹ thuật/nghiệp vụ và non-tech (quan tâm hiệu quả, ứng dụng). Người dùng ban đầu: phòng tài chính kế toán; đóng góp: trợ lý tài chính đáng tin cậy, hiệu quả. Đã soạn câu chuyện và các câu dễ bị hỏi vặn.
+- Phần đánh giá cần đủ 4 hệ thống: RAG cơ bản, RAG phân cấp (đã có số), text-to-SQL thường, function calling (chưa làm).
+
+### Tiếp theo
+- Agent + function calling + sinh câu trả lời có trích dẫn + feedback + API `/ask`; text-to-SQL đối chứng; giảm độ trễ (gửi đúp embed, lưu sẵn); frontend; slide.
+
+## 2026-10-13
+
+### Benchmark câu trả lời nhánh tài liệu
+- Chạy FinQuery và RAG cơ bản trên 26 câu `rag_*` + 3 câu từ chối (Sonnet 5.5): FinQuery 24,5/26, RAG cơ bản 21,5/26 (`danh-gia_v1.9`).
+- Trục model nhánh số liệu: Qwen 20/21, 153 s/câu; Sonnet 21/21, 8,2 s/câu.
+
+### B07 (vốn điều lệ sau phát hành)
+- Nguyên nhân: agent tự viết lại câu tìm, trang đúng rớt khỏi 80 ứng viên Qdrant; câu gốc thì vào top 20 (hạng 7).
+- Sửa (QĐ-040): lần `search_documents` đầu dùng câu người dùng gõ; Qdrant tìm chính xác; thử lại một lần khi lỗi. Giữ 80 ứng viên.
+- Hai kết luận sai trong lúc dò do công cụ đo (tham số `-D` mất dấu tiếng Việt; Python đổi `\r\n`), đã rút lại (`danh-gia_v1.10` mục 2.3).
+
+### M03 (so sánh LNST hai quý)
+- DB chưa trích LNST từ báo cáo quý 1, quý 2 (chưa sửa, ghi vào hạn chế).
+- Sửa (QĐ-041, prompt v1.5): model khai báo phép tính trên số C#/D# ở bước trả lời, Java (`EvidenceCalculator`) kiểm số có nguyên văn trong nguồn rồi tính; giao diện nhận `answer_final`.
+- Chạy lại B07, M03: cả hai đúng. Bảng benchmark cuối: FinQuery 26/26 (`danh-gia_v1.11`).
+
+### Đổi cấu trúc package backend
+- `modules/hierarchicalrag` → **`modules/rag`** (nhánh tài liệu).
+- `modules/agent/tools/financial` → **`modules/dbquery`** (nhánh số liệu: 3 tool chính; lớp thành phần trong `modules/dbquery/support`).
+- `agent/tools` còn lại tool chung của vòng agent: `search_documents`, `decline_out_of_scope`, `QueryState`.
+- Đổi bằng `git mv` (giữ lịch sử); 30 test đơn vị và test nạp Spring context đều qua. Log cũ giữ đường dẫn cũ vì ghi đúng thời điểm viết.
+
+### Còn treo
+- Chạy lại cả bộ với code cuối (khoảng 4,5 USD, hết số dư).
+- Comment `answer.trial.enabled` trong `application.yml`; thử Keycloak thật; commit.

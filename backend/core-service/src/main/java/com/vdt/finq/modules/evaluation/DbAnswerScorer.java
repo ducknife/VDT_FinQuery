@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.vdt.finq.modules.agent.tools.financial.support.VnNumber;
+import com.vdt.finq.modules.dbquery.support.VnNumber;
 
 // chấm câu trả lời nhánh số liệu theo eval_dbquery.yml: "đúng và đủ số được hỏi" (như paper FinAI).
 // chỉ là lượt chấm đầu bằng máy; người làm đề tài soát lại từng câu
@@ -23,19 +23,55 @@ public final class DbAnswerScorer {
     public record Verdict(boolean correct, String reason) {
     }
 
+    // bối cảnh của câu trả lời: có bằng chứng tool không, trạng thái, số con số không có nguồn
+    public record Context(boolean withEvidence, String status, int unsourcedNumbers) {
+        public static final Context NONE = new Context(false, "", 0);
+    }
+
     public static Verdict score(String answer, Map<String, Object> cham) {
+        return score(answer, cham, Context.NONE);
+    }
+
+    public static Verdict score(String answer, Map<String, Object> cham, Context ctx) {
         String a = answer == null ? "" : Normalizer.normalize(answer, Normalizer.Form.NFC).replace(' ', ' ');
         String lower = a.toLowerCase();
         String kieu = String.valueOf(cham.get("kieu"));
         return switch (kieu) {
             case "so_dong" -> money(a, lower, ((Number) cham.get("gia_tri")).longValue(), Boolean.TRUE.equals(cham.get("am")));
             case "phan_tram" -> percent(a, lower, String.valueOf(cham.get("gia_tri")), (String) cham.get("huong"));
-            case "lan" -> has(a, String.valueOf(cham.get("gia_tri")))
+            case "lan" -> roundsTo(a, String.valueOf(cham.get("gia_tri")), "(?:\\s*lần)?")
                     ? new Verdict(true, "có " + cham.get("gia_tri") + " lần")
                     : new Verdict(false, "thiếu " + cham.get("gia_tri") + " lần");
-            case "tu_choi" -> refusal(a, allowed(cham.get("so_duoc_phep")));
+            case "tu_choi" -> ctx.withEvidence() ? refusalWithEvidence(a, ctx) : refusal(a, allowed(cham.get("so_duoc_phep")));
             default -> new Verdict(false, "kiểu chấm lạ: " + kieu);
         };
+    }
+
+    // tiêu chí X06 đã chốt (13/10/2026): không khẳng định số cho kỳ được hỏi, được đưa số kỳ khác nếu có nguồn
+    private static Verdict refusalWithEvidence(String a, Context ctx) {
+        if (a.isBlank()) {
+            return new Verdict(false, "không trả lời");
+        }
+        if ("answered".equals(ctx.status())) {
+            return new Verdict(false, "trạng thái answered: khẳng định có số cho kỳ không có");
+        }
+        if (ctx.unsourcedNumbers() > 0) {
+            return new Verdict(false, ctx.unsourcedNumbers() + " số không có nguồn");
+        }
+        return new Verdict(true, "từ chối kỳ không có, mọi số đều có nguồn");
+    }
+
+    // có số (dạng 12,3456 hoặc 2,43) mà làm tròn 2 chữ số thập phân bằng đúng giá trị vàng
+    private static boolean roundsTo(String a, String gold, String suffix) {
+        java.math.BigDecimal target = new java.math.BigDecimal(gold.replace(',', '.'));
+        Matcher m = Pattern.compile("(?<![\\d.,])(\\d{1,3}(?:\\.\\d{3})*,\\d+|\\d+)" + suffix).matcher(a);
+        while (m.find()) {
+            java.math.BigDecimal v = new java.math.BigDecimal(m.group(1).replace(".", "").replace(',', '.'));
+            if (v.setScale(2, java.math.RoundingMode.HALF_UP).compareTo(target) == 0) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static Verdict money(String a, String lower, long value, boolean negative) {
@@ -54,8 +90,7 @@ public final class DbAnswerScorer {
     }
 
     private static Verdict percent(String a, String lower, String value, String direction) {
-        boolean found = Pattern.compile("(?<![\\d.,])" + Pattern.quote(value) + "\\s*%").matcher(a).find();
-        if (!found) {
+        if (!roundsTo(a, value, "\\s*%")) {
             return new Verdict(false, "thiếu " + value + "%");
         }
         if ("tang".equals(direction) && !lower.contains("tăng")) {

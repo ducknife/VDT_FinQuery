@@ -25,7 +25,7 @@ public class Evidence {
 
     public String source() {
         if (taiLieuId == null) {
-            return "Java tính từ các số liệu đã dẫn";
+            return "hệ thống số liệu FinQuery";
         }
         return (tenHienThi == null ? taiLieuId : tenHienThi) + ", trang " + trang;
     }

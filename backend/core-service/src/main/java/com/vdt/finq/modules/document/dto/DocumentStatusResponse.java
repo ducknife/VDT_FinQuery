@@ -16,6 +16,9 @@ public class DocumentStatusResponse {
     private final String tenHienThi;
     private final String loai;
     private final Integer nam;
+    private final String ky;
+    private final String phamVi;
+    private final java.time.LocalDate ngayBanHanh;
     private final int tongSoTrang;
     // cho_ocr | cho_embed | da_embed
     private final String trangThai;
@@ -30,6 +33,9 @@ public class DocumentStatusResponse {
                 document.getTenHienThi(),
                 document.getLoai().getValue(),
                 document.getNam(),
+                document.getKy() == null ? null : document.getKy().getValue(),
+                document.getPhamVi() == null ? null : document.getPhamVi().getValue(),
+                document.getNgayBanHanh(),
                 document.getTongSoTrang(),
                 document.trangThaiNap().getValue(),
                 document.getNgayOcr(),

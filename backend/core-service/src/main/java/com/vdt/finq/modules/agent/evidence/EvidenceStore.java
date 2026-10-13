@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.vdt.finq.modules.hierarchicalrag.retrieval.RetrievedChunk;
+import com.vdt.finq.modules.rag.retrieval.RetrievedChunk;
 
 // kho bằng chứng của một câu hỏi: gom kết quả mọi tool, gán mã, bỏ trùng
 public class EvidenceStore {
